@@ -1,13 +1,16 @@
-<?php
+<?php #CONTENIDO POR ARMIN
 if(isset($acceso) && $acceso == true){
+$AC_UBICACION='administracion/panel/';
+$AC_ARCHIVO='panel_acc';
 $AC_METADESCRIPCION='NONE';
 $AC_METADESCRIPCION2='NONE';
 $AC_METAETIQUETA='NONE';
-$AC_IMG='NONE.png';
-$AC_EXTRA=false;
+$AC_IMG='arminvtcodigo.png';
+$AC_EXTRA='no';
 $AC_TITULO='Panel';
-$AC_DESCRIPCION='None';
-$AC_FECHA='01 May 2023 - 1:35pm';
+$AC_CATALOGO='Panel';
+$AC_DESCRIPCION='NONE';
+$AC_FECHA='2023-07-28 - 4:09pm';
 $AC_CONTENIDO='
 <nav>
     <a href="?ac=verificar"><i class="fas fa-folder"></i> Verificar</a>
@@ -15,7 +18,6 @@ $AC_CONTENIDO='
     <a href="?ac=modificador"><i class="fas fa-pencil-alt"></i> Modificador</a>
     <a href="?ac=archivos"><i class="fas fa-file-code"></i> Archivos</a>
     <a href="?ac=anuncios"><i class="fas fa-anuncios"></i> Anuncios</a><!-- newspaper -->
-    <a href="?ac=blog"><i class="fas fa-blog"></i> Blog</a>
     <a href="?ac=editor"><i class="fas fa-edit"></i> Editor</a>
     <a href="?ac=configuracion"><i class="fas fa-cog"></i> Configuracion</a>
     <a href="?ac=displadi"><i class="fas fa-sliders-h"></i> Displadi</a>
@@ -25,7 +27,8 @@ $AC_CONTENIDO='
     <a href="actualizar.php?ac=salir"><i class="fas fa-sign-in-alt"></i> Salir</a>
 </nav>';
 $TIPO='panel';
-# v0.3 Beta
-include $AC_DIRECTORIO.'datos/displa.php';
-} else { $AC_DIREC='../../'; $AC_ENCONTRAR=''; require_once $AC_DIREC.'error.php'; }
+require_once $AC_DIRECTORIO.'datos/displa.php';
+#v0.3.1 Beta
+} else { if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}"); }
 ?>
