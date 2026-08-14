@@ -74,6 +74,10 @@ $Año=date('Y');
 
 $fecha=date('Y-m-d');
 
+$fechahora=date('Y-m-d - g:ia');
+
+$version='v0.3 Beta';
+
 session_start();
 
 require_once $AC_DIRECTORIO.'datos/extra.php';
