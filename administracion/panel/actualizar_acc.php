@@ -1,5 +1,7 @@
 <?php #CONTENIDO POR ARMIN
 
+#TRATAR CON CUIDADO!!!!!
+
 if(isset($acceso) && $acceso == true){
 
             	#CONTENIDO A ACTUALIZAR
@@ -21,9 +23,9 @@ if ($_POST['IniEditor']){
     $archivo=$_POST['archivo'];
 
     $editor=$_POST['editar'];
+    $fechae=$_POST['fechae'];
 
-
-
+    file_put_contents($AC_DIRECTORIO.'administracion/panel/etc/fechas/'.$fechae,"$version | $fechahora");
     file_put_contents($AC_DIRECTORIO.$archivo,$editor);
 
     $vamos='panel.php'.$direccion.'&ms=exi&msm=datosactualizados';
@@ -38,11 +40,15 @@ if ($_POST['IniEliminarArchivo']){
 
     $archivo=$_POST['archivo'];
 
+	unlink($AC_DIRECTORIO."$archivo");
+	$ubi='?ac=archivos';
+	if(isset($_POST['direccion'])){
+		$ubi=$_POST['direccion'].'&permiso=true';
+		$fechae=$_POST['fechae'];
+		unlink($AC_DIRECTORIO.'administracion/panel/etc/fechas/'.$fechae);
+	}
 
-
-    unlink($AC_DIRECTORIO."$archivo");
-
-    $vamos='panel.php?ac=archivos&ms=exi&msm=datosactualizados';
+    $vamos='panel.php'.$ubi.'&ms=err&msm=elimiarchivo';
 
     header("location:{$vamos}");
 
@@ -58,7 +64,7 @@ if ($_POST['IniEliminarCarpeta']){
 
     rmdir($AC_DIRECTORIO."$carpeta");
 
-    $vamos='panel.php?ac=archivos&ms=exi&msm=datosactualizados';
+    $vamos='panel.php?ac=archivos&ms=err&msm=direliminado';
 
     header("location:{$vamos}");
 
@@ -139,7 +145,7 @@ if ($_POST['IniAnuncio']){
 
 
 
-    file_put_contents('sms.php',"<?php\n".'$sms='."'$sms';\n".'$link='."'$enlace';\n".'$linkanuncio='."'$enlaceanuncio';\n".'$linkanuncio2='."'$enlaceanuncio2';\n".'$linkimga='."'$linkimga';\n".'$linkimga2='."'$linkimga2';\n".'$texMensaje='."'$texMensaje';\n".'$mosAnuncio='."'$mosAnuncio';\n".'$mosAnuncio2='."'$mosAnuncio2';\n?>");
+    file_put_contents('dependencias/dpanuncio.php',"<?php\n".'$sms='."'$sms';\n".'$link='."'$enlace';\n".'$linkanuncio='."'$enlaceanuncio';\n".'$linkanuncio2='."'$enlaceanuncio2';\n".'$linkimga='."'$linkimga';\n".'$linkimga2='."'$linkimga2';\n".'$texMensaje='."'$texMensaje';\n".'$mosAnuncio='."'$mosAnuncio';\n".'$mosAnuncio2='."'$mosAnuncio2';\n?>");
 
     header("location:panel.php?ac=anuncios&ms=exi&msm=datosactualizados");
 
@@ -151,7 +157,7 @@ if ($_POST['IniAnuncio']){
 
 	if($_POST['IniConfig']){
 
-		require $AC_DIRECTORIO.'datos/extenciones/extencionDarFormato.php';
+		$ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
 
 
 
@@ -202,9 +208,9 @@ if ($_POST['IniAnuncio']){
 		$cfgversion=$_POST['cfgversion'];
 
 
-		file_put_contents("extras/extraVariables.php",$cfg20);
+		file_put_contents("scripts/scrSecundarios.php",$cfg20);
 
-		file_put_contents("extras/extraScripts.php",$cfg21);
+		file_put_contents("scripts/scrExtrasdispla.php",$cfg21);
 
 
 
@@ -298,7 +304,9 @@ require_once $AC_DIRECTORIO.'."'datos/extra.php'".';
 
 require_once $AC_DIRECTORIO.'."'datos/mensajes.php'".';
 
-require_once $AC_DIRECTORIO.'."'datos/extenciones/extencionCargarTema.php';
+$ex='."'CargarTema'".';
+
+require_once $AC_DIRECTORIO.'."'datos/extenciones.php';
 
 ?>";
 
@@ -335,13 +343,13 @@ if ($_POST['IniDispladiMenuLateral']){
 
 	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
 	$archiD='';
-	$arScrUsu='extras/MenuLateral/extraScriptsMenuLateral.php';
-	$arScrUsu2='extras/MenuLateral/extraScriptsMenuLateral_POST.php';
+	$arScrUsu='scripts/MenuLateral/scrDispladiMenuLateral.php';
+	$arScrUsu2='scripts/MenuLateral/scrDispladiMenuLateral_POST.php';
     if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	include $arScrUsu2;
+    	require $arScrUsu2;
     }
 
-    file_put_contents('extras/MenuLateral/extraMenuLateral.php',"<?php #CONTENIDO POR ARMIN\n".'$MenuLateral='."'$opcmenulateral';\n".'$MenuLateralCodigos='."'$opcmenulateralcodigos';\n".'$MenuLateralE1='."'$opcmostrar1';\n".'$MenuLateralE2='."'$opcmostrar2';\n".'$MenuLateralE3='."'$opcmostrar3';\n".'$MenuLateralE4='."'$opcmostrar4';\n".'$MenuLateralE1T='."'$opctitulo1';\n".'$MenuLateralE2T='."'$opctitulo2';\n".'$MenuLateralE3T='."'$opctitulo3';\n".'$MenuLateralE4T='."'$opctitulo4';\n".'$MenuLateralE1C='."'$opccontenido1';\n".'$MenuLateralE2C='."'$opccontenido2';\n".'$MenuLateralE3C='."'$opccontenido3';\n".'$MenuLateralE4C='."'$opccontenido4';\n".'$MenuLateralElementos='."$opcelementos;\n".'$MenuLateralScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+    file_put_contents('scripts/MenuLateral/scrMenuLateral.php',"<?php #CONTENIDO POR ARMIN\n".'$MenuLateral='."'$opcmenulateral';\n".'$MenuLateralCodigos='."'$opcmenulateralcodigos';\n".'$MenuLateralE1='."'$opcmostrar1';\n".'$MenuLateralE2='."'$opcmostrar2';\n".'$MenuLateralE3='."'$opcmostrar3';\n".'$MenuLateralE4='."'$opcmostrar4';\n".'$MenuLateralE1T='."'$opctitulo1';\n".'$MenuLateralE2T='."'$opctitulo2';\n".'$MenuLateralE3T='."'$opctitulo3';\n".'$MenuLateralE4T='."'$opctitulo4';\n".'$MenuLateralE1C='."'$opccontenido1';\n".'$MenuLateralE2C='."'$opccontenido2';\n".'$MenuLateralE3C='."'$opccontenido3';\n".'$MenuLateralE4C='."'$opccontenido4';\n".'$MenuLateralElementos='."$opcelementos;\n".'$MenuLateralScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
 
     header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
     exit;
@@ -373,13 +381,13 @@ if ($_POST['IniDispladiPiedePagina']){
 
 	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
 	$archiD='';
-	$arScrUsu='extras/PiedePagina/extraScriptsPiedePagina.php';
-	$arScrUsu2='extras/PiedePagina/extraScriptsPiedePagina_POST.php';
+	$arScrUsu='scripts/PiedePagina/scrDispladiPiedePagina.php';
+	$arScrUsu2='scripts/PiedePagina/scrDispladiPiedePagina_POST.php';
     if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	include $arScrUsu2;
+    	require $arScrUsu2;
     }
 
-    file_put_contents('extras/PiedePagina/extraPiedePagina.php',"<?php #CONTENIDO POR ARMIN\n".'$PiedePagina='."'$opcpiedepagina';\n".'$PiedePaginaCodigos='."'$opcpiedepaginacodigos';\n".'$PiedePaginaE1='."'$opcmostrar1';\n".'$PiedePaginaE2='."'$opcmostrar2';\n".'$PiedePaginaE3='."'$opcmostrar3';\n".'$PiedePaginaE4='."'$opcmostrar4';\n".'$PiedePaginaE1T='."'$opctitulo1';\n".'$PiedePaginaE2T='."'$opctitulo2';\n".'$PiedePaginaE3T='."'$opctitulo3';\n".'$PiedePaginaE4T='."'$opctitulo4';\n".'$PiedePaginaE1C='."'$opccontenido1';\n".'$PiedePaginaE2C='."'$opccontenido2';\n".'$PiedePaginaE3C='."'$opccontenido3';\n".'$PiedePaginaE4C='."'$opccontenido4';\n".'$PiedePaginaElementos='."$opcelementos;\n".'$PiedePaginaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+    file_put_contents('scripts/PiedePagina/scrPiedePagina.php',"<?php #CONTENIDO POR ARMIN\n".'$PiedePagina='."'$opcpiedepagina';\n".'$PiedePaginaCodigos='."'$opcpiedepaginacodigos';\n".'$PiedePaginaE1='."'$opcmostrar1';\n".'$PiedePaginaE2='."'$opcmostrar2';\n".'$PiedePaginaE3='."'$opcmostrar3';\n".'$PiedePaginaE4='."'$opcmostrar4';\n".'$PiedePaginaE1T='."'$opctitulo1';\n".'$PiedePaginaE2T='."'$opctitulo2';\n".'$PiedePaginaE3T='."'$opctitulo3';\n".'$PiedePaginaE4T='."'$opctitulo4';\n".'$PiedePaginaE1C='."'$opccontenido1';\n".'$PiedePaginaE2C='."'$opccontenido2';\n".'$PiedePaginaE3C='."'$opccontenido3';\n".'$PiedePaginaE4C='."'$opccontenido4';\n".'$PiedePaginaElementos='."$opcelementos;\n".'$PiedePaginaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
 
     header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
     exit;
@@ -412,13 +420,13 @@ if ($_POST['IniDispladiCabeza']){
 
 	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
 	$archiD='';
-	$arScrUsu='extras/Cabeza/extraScriptsCabeza.php';
-	$arScrUsu2='extras/Cabeza/extraScriptsCabeza_POST.php';
+	$arScrUsu='scripts/Cabeza/scrDispladiCabeza.php';
+	$arScrUsu2='scripts/Cabeza/scrDispladiCabeza_POST.php';
     if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	include $arScrUsu2;
+    	require $arScrUsu2;
     }
 
-    file_put_contents('extras/Cabeza/extraCabeza.php',"<?php #CONTENIDO POR ARMIN\n".'$Cabeza='."'$opccabeza';\n".'$CabezaCodigos='."'$opccabezacodigos';\n".'$CabezaE1='."'$opcmostrar1';\n".'$CabezaE2='."'$opcmostrar2';\n".'$CabezaE3='."'$opcmostrar3';\n".'$CabezaE4='."'$opcmostrar4';\n".'$CabezaE1T='."'$opctitulo1';\n".'$CabezaE2T='."'$opctitulo2';\n".'$CabezaE3T='."'$opctitulo3';\n".'$CabezaE4T='."'$opctitulo4';\n".'$CabezaE1C='."'$opccontenido1';\n".'$CabezaE2C='."'$opccontenido2';\n".'$CabezaE3C='."'$opccontenido3';\n".'$CabezaE4C='."'$opccontenido4';\n".'$CabezaElementos='."$opcelementos;\n".'$CabezaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+    file_put_contents('scripts/Cabeza/scrCabeza.php',"<?php #CONTENIDO POR ARMIN\n".'$Cabeza='."'$opccabeza';\n".'$CabezaCodigos='."'$opccabezacodigos';\n".'$CabezaE1='."'$opcmostrar1';\n".'$CabezaE2='."'$opcmostrar2';\n".'$CabezaE3='."'$opcmostrar3';\n".'$CabezaE4='."'$opcmostrar4';\n".'$CabezaE1T='."'$opctitulo1';\n".'$CabezaE2T='."'$opctitulo2';\n".'$CabezaE3T='."'$opctitulo3';\n".'$CabezaE4T='."'$opctitulo4';\n".'$CabezaE1C='."'$opccontenido1';\n".'$CabezaE2C='."'$opccontenido2';\n".'$CabezaE3C='."'$opccontenido3';\n".'$CabezaE4C='."'$opccontenido4';\n".'$CabezaElementos='."$opcelementos;\n".'$CabezaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
 
     header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
     exit;
@@ -450,86 +458,34 @@ if ($_POST['IniDispladiMenu']){
 
 	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
 	$archiD='';
-	$arScrUsu='extras/Menu/extraScriptsMenu.php';
-	$arScrUsu2='extras/Menu/extraScriptsMenu_POST.php';
+	$arScrUsu='scripts/Menu/scrDispladiMenu.php';
+	$arScrUsu2='scripts/Menu/scrDispladiMenu_POST.php';
     if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	include $arScrUsu2;
+    	require $arScrUsu2;
     }
 
-    file_put_contents('extras/Menu/extraMenu.php',"<?php #CONTENIDO POR ARMIN\n".'$Menu='."'$opcmenu';\n".'$MenuCodigos='."'$opcmenucodigos';\n".'$MenuE1='."'$opcmostrar1';\n".'$MenuE2='."'$opcmostrar2';\n".'$MenuE3='."'$opcmostrar3';\n".'$MenuE4='."'$opcmostrar4';\n".'$MenuE1T='."'$opctitulo1';\n".'$MenuE2T='."'$opctitulo2';\n".'$MenuE3T='."'$opctitulo3';\n".'$MenuE4T='."'$opctitulo4';\n".'$MenuE1C='."'$opccontenido1';\n".'$MenuE2C='."'$opccontenido2';\n".'$MenuE3C='."'$opccontenido3';\n".'$MenuE4C='."'$opccontenido4';\n".'$MenuElementos='."$opcelementos;\n".'$MenuScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+    file_put_contents('scripts/Menu/scrMenu.php',"<?php #CONTENIDO POR ARMIN\n".'$Menu='."'$opcmenu';\n".'$MenuCodigos='."'$opcmenucodigos';\n".'$MenuE1='."'$opcmostrar1';\n".'$MenuE2='."'$opcmostrar2';\n".'$MenuE3='."'$opcmostrar3';\n".'$MenuE4='."'$opcmostrar4';\n".'$MenuE1T='."'$opctitulo1';\n".'$MenuE2T='."'$opctitulo2';\n".'$MenuE3T='."'$opctitulo3';\n".'$MenuE4T='."'$opctitulo4';\n".'$MenuE1C='."'$opccontenido1';\n".'$MenuE2C='."'$opccontenido2';\n".'$MenuE3C='."'$opccontenido3';\n".'$MenuE4C='."'$opccontenido4';\n".'$MenuElementos='."$opcelementos;\n".'$MenuScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
 
     header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
     exit;
 } else
 
-#Verificar directorios ----------------------->
+#VERIFICAR DIRECTORIOS ----------------------->
 
 if ($_POST['IniVerificar']){
-	$dc='bien';
-	$carpeta='borradores';
-	if(!file_exists($carpeta)){
-		mkdir($carpeta);
-		$ca1='&ca1='.$carpeta;
-		$dc='creados';
-	}
-	$carpeta2='extras';
-	if(!file_exists($carpeta2)){
-		mkdir($carpeta2);
-		$ca2='&ca2='.$carpeta;
-		$dc='creados';
-	}
-	$carpeta3='creadas';
-	if(!file_exists($carpeta3)){
-		mkdir($carpeta3);
-		$ca3='&ca3='.$carpeta3;
-		$dc='creados';
-	}
-	$carpeta4='extras/MenuLateral';
-	if(!file_exists($carpeta4)){
-		mkdir($carpeta4);
-		$ca4='&ca4='.$carpeta4;
-		$dc='creados';
-	}
-	$carpeta5='extras/PiedePagina';
-	if(!file_exists($carpeta5)){
-		mkdir($carpeta5);
-		$ca5='&ca5='.$carpeta5;
-		$dc='creados';
-	}
-	$carpeta6='extras/Cabeza';
-	if(!file_exists($carpeta6)){
-		mkdir($carpeta6);
-		$ca6='&ca6='.$carpeta6;
-		$dc='creados';
-	}
-	$carpeta7='extras/Menu';
-	if(!file_exists($carpeta7)){
-		mkdir($carpeta7);
-		$ca7='&ca7='.$carpeta7;
-		$dc='creados';
-	}
-	if (isset($ca1)) {
-		echo $ca1;
-	}
-	if (isset($ca2)) {
-		echo $ca2;
-	}
-	if (isset($ca3)) {
-		echo $ca3;
-	}
-	if (isset($ca4)) {
-		echo $ca4;
-	}
-	if (isset($ca5)) {
-		echo $ca5;
-	}
-	if (isset($ca6)) {
-		echo $ca6;
-	}
-	if (isset($ca7)) {
-		echo $ca7;
-	}
-	$vamos='panel.php?ac=verificar&ms=err&msm=informeverificar&dc='.$dc.$ca1.$ca2.$ca3.$ca4.$ca5.$ca6.$ca7;
+	$pasaen='&ms=exi&msm=direbien'; $ex='VerificarCarpetas'; $necex=$AC_DIRECTORIO.'datos/extenciones.php';
+	#>>>>>
+	$vericar='borradores'; require $necex;
+	$vericar='scripts'; require $necex;
+	$vericar='dependencias'; require $necex;
+	$vericar='scripts/Cabeza'; require $necex;
+	$vericar='scripts/Menu'; require $necex;
+	$vericar='scripts/MenuLateral'; require $necex;
+	$vericar='scripts/PiedePagina'; require $necex;
+	$vericar='etc'; require $necex;
+	$vericar='etc/fechas'; require $necex;
+	#>>>>>
+	$vamos='panel.php?ac=verificar'.$pasaen;
 	header("location:{$vamos}");
 } else
 
@@ -558,6 +514,8 @@ $opctema_contenedores_fondo=$_POST['opctema_contenedores_fondo'];
 $opctema_contenedores_color=$_POST['opctema_contenedores_color'];
 $opctema_contenedorm2_color=$_POST['opctema_contenedorm2_color'];
 $opctema_contenedorm2_h_color=$_POST['opctema_contenedorm2_h_color'];
+$opctema_contenedor_derecha_fondo=$_POST['opctema_contenedor_derecha_fondo'];
+$opctema_contenedor_derecha_color=$_POST['opctema_contenedor_derecha_color'];
 $opctema_catalogo_fondo=$_POST['opctema_catalogo_fondo'];
 $opctema_catalogo_color=$_POST['opctema_catalogo_color'];
 $opctema_enlaces_fondo=$_POST['opctema_enlaces_fondo'];
@@ -572,6 +530,8 @@ $opctema_ubicacion_fondo=$_POST['opctema_ubicacion_fondo'];
 $opctema_ubicacion_color=$_POST['opctema_ubicacion_color'];
 $opctema_ubicacion_enlace_iconos_fondo=$_POST['opctema_ubicacion_enlace_iconos_fondo'];
 $opctema_ubicacion_enlace_iconos_color=$_POST['opctema_ubicacion_enlace_iconos_color'];
+$opctema_ubicacion_enlace_iconos_h_fondo=$_POST['opctema_ubicacion_enlace_iconos_h_fondo'];
+$opctema_ubicacion_enlace_iconos_h_color=$_POST['opctema_ubicacion_enlace_iconos_h_color'];
 $opctema_hr_fondo=$_POST['opctema_hr_fondo'];
 $opctema_footer_enlace_iconos_fondo=$_POST['opctema_footer_enlace_iconos_fondo'];
 $opctema_footer_enlace_iconos_color=$_POST['opctema_footer_enlace_iconos_color'];
@@ -622,9 +582,11 @@ $opctema_barra_borde=$_POST['opctema_barra_borde'];
 $opctema_tituloweb_h_borde=$_POST['opctema_tituloweb_h_borde'];
 $opctema_marquee_borde=$_POST['opctema_marquee_borde'];
 $opctema_texini_borde=$_POST['opctema_texini_borde'];
+$opctema_texinimen_borde=$_POST['opctema_texinimen_borde'];
 $opctema_ubicacion_enlace_borde=$_POST['opctema_ubicacion_enlace_borde'];
 $opctema_derecha_contenedor_borde=$_POST['opctema_derecha_contenedor_borde'];
 $opctema_imagen_borde=$_POST['opctema_imagen_borde'];
+$opctema_imagen1_borde=$_POST['opctema_imagen1_borde'];
 $opctema_imagen2_borde=$_POST['opctema_imagen2_borde'];
 $opctema_catalogo_borde=$_POST['opctema_catalogo_borde'];
 $opctema_formulario_borde=$_POST['opctema_formulario_borde'];
@@ -632,7 +594,7 @@ $opctema_boton_borde=$_POST['opctema_boton_borde'];
 $opctema_comentario_borde=$_POST['opctema_comentario_borde'];
 $opctema_anuncios_borde=$_POST['opctema_anuncios_borde'];
 
-file_put_contents($AC_DIRECTORIO.'css/'.$opctema_nombre,"<?php #CONTENIDO POR ARMIN\n".'$opctema_nombre='."'$opctema_nombre';\n".'$opctema_fondo_fondo='."'$opctema_fondo_fondo';\n".'$opctema_fondo_color='."'$opctema_fondo_color';\n".'$opctema_cabeza_fondo='."'$opctema_cabeza_fondo';\n".'$opctema_cabeza_color='."'$opctema_cabeza_color';\n".'$opctema_menu_fondo='."'$opctema_menu_fondo';\n".'$opctema_menu_color='."'$opctema_menu_color';\n".'$opctema_izquierda_fondo='."'$opctema_izquierda_fondo';\n".'$opctema_izquierda_color='."'$opctema_izquierda_color';\n".'$opctema_derecha_fondo='."'$opctema_derecha_fondo';\n".'$opctema_derecha_color='."'$opctema_derecha_color';\n".'$opctema_piedepagina_fondo='."'$opctema_piedepagina_fondo';\n".'$opctema_piedepagina_color='."'$opctema_piedepagina_color';\n".'$opctema_barra_fondo='."'$opctema_barra_fondo';\n".'$opctema_marquee_fondo='."'$opctema_marquee_fondo';\n".'$opctema_marquee_color='."'$opctema_marquee_color';\n".'$opctema_contenedores_fondo='."'$opctema_contenedores_fondo';\n".'$opctema_contenedores_color='."'$opctema_contenedores_color';\n".'$opctema_contenedorm2_color='."'$opctema_contenedorm2_color';\n".'$opctema_contenedorm2_h_color='."'$opctema_contenedorm2_h_color';\n".'$opctema_catalogo_fondo='."'$opctema_catalogo_fondo';\n".'$opctema_catalogo_color='."'$opctema_catalogo_color';\n".'$opctema_enlaces_fondo='."'$opctema_enlaces_fondo';\n".'$opctema_enlaces_color='."'$opctema_enlaces_color';\n".'$opctema_enlaces_h_fondo='."'$opctema_enlaces_h_fondo';\n".'$opctema_enlaces_h_color='."'$opctema_enlaces_h_color';\n".'$opctema_menu_enlaces_fondo='."'$opctema_menu_enlaces_fondo';\n".'$opctema_menu_enlaces_color='."'$opctema_menu_enlaces_color';\n".'$opctema_menu_enlace_h_fondo='."'$opctema_menu_enlace_h_fondo';\n".'$opctema_menu_enlace_h_color='."'$opctema_menu_enlace_h_color';\n".'$opctema_ubicacion_fondo='."'$opctema_ubicacion_fondo';\n".'$opctema_ubicacion_color='."'$opctema_ubicacion_color';\n".'$opctema_ubicacion_enlace_iconos_fondo='."'$opctema_ubicacion_enlace_iconos_fondo';\n".'$opctema_ubicacion_enlace_iconos_color='."'$opctema_ubicacion_enlace_iconos_color';\n".'$opctema_hr_fondo='."'$opctema_hr_fondo';\n".'$opctema_footer_enlace_iconos_fondo='."'$opctema_footer_enlace_iconos_fondo';\n".'$opctema_footer_enlace_iconos_color='."'$opctema_footer_enlace_iconos_color';\n".'$opctema_footer_enlace_iconos_h_fondo='."'$opctema_footer_enlace_iconos_h_fondo';\n".'$opctema_footer_enlace_iconos_h_color='."'$opctema_footer_enlace_iconos_h_color';\n".'$opctema_boton_fondo='."'$opctema_boton_fondo';\n".'$opctema_boton_color='."'$opctema_boton_color';\n".'$opctema_boton_h_fondo='."'$opctema_boton_h_fondo';\n".'$opctema_boton_h_color='."'$opctema_boton_h_color';\n".'$opctema_boton2_fondo='."'$opctema_boton2_fondo';\n".'$opctema_boton2_color='."'$opctema_boton2_color';\n".'$opctema_boton2_h_fondo='."'$opctema_boton2_h_fondo';\n".'$opctema_boton2_h_color='."'$opctema_boton2_h_color';\n".'$opctema_derecha_iconos_fondo='."'$opctema_derecha_iconos_fondo';\n".'$opctema_derecha_iconos_color='."'$opctema_derecha_iconos_color';\n".'$opctema_derecha_enlace_iconos_fondo='."'$opctema_derecha_enlace_iconos_fondo';\n".'$opctema_derecha_enlace_iconos_color='."'$opctema_derecha_enlace_iconos_color';\n".'$opctema_derecha_enlace_iconos_h_fondo='."'$opctema_derecha_enlace_iconos_h_fondo';\n".'$opctema_derecha_enlace_iconos_h_color='."'$opctema_derecha_enlace_iconos_h_color';\n".'$opctema_formulario_fondo='."'$opctema_formulario_fondo';\n".'$opctema_formulario_color='."'$opctema_formulario_color';\n".'$opctema_comentario_fondo='."'$opctema_comentario_fondo';\n".'$opctema_comentario_color='."'$opctema_comentario_color';\n".'$opctema_comentario_admin_fondo='."'$opctema_comentario_admin_fondo';\n".'$opctema_comentario_admin_color='."'$opctema_comentario_admin_color';\n".'$opctema_comentario_admin_h_fondo='."'$opctema_comentario_admin_h_fondo';\n".'$opctema_comentario_admin_h_color='."'$opctema_comentario_admin_h_color';\n".'$opctema_comentario_id_fondo='."'$opctema_comentario_id_fondo';\n".'$opctema_comentario_id_color='."'$opctema_comentario_id_color';\n".'$opctema_comentario_enlace_fondo='."'$opctema_comentario_enlace_fondo';\n".'$opctema_comentario_enlace_color='."'$opctema_comentario_enlace_color';\n".'$opctema_comentario_enlace_reportes_fondo='."'$opctema_comentario_enlace_reportes_fondo';\n".'$opctema_comentario_enlace_reportes_color='."'$opctema_comentario_enlace_reportes_color';\n".'$opctema_campo_fondo='."'$opctema_campo_fondo';\n".'$opctema_campo_color='."'$opctema_campo_color';\n".'$opctema_select_fondo='."'$opctema_select_fondo';\n".'$opctema_select_color='."'$opctema_select_color';\n".'$opctema_verificado_fondo='."'$opctema_verificado_fondo';\n".'$opctema_verificado_color='."'$opctema_verificado_color';\n".'$opctema_usuario_fondo='."'$opctema_usuario_fondo';\n".'$opctema_usuario_color='."'$opctema_usuario_color';\n".'$opctema_reaccionar_fondo='."'$opctema_reaccionar_fondo';\n".'$opctema_reaccionar_color='."'$opctema_reaccionar_color';\n".'$opctema_reaccionar_h_fondo='."'$opctema_reaccionar_h_fondo';\n".'$opctema_reaccionar_h_color='."'$opctema_reaccionar_h_color';\n".'$opctema_barra_borde='."'$opctema_barra_borde';\n".'$opctema_tituloweb_h_borde='."'$opctema_tituloweb_h_borde';\n".'$opctema_marquee_borde='."'$opctema_marquee_borde';\n".'$opctema_texini_borde='."'$opctema_texini_borde';\n".'$opctema_ubicacion_enlace_borde='."'$opctema_ubicacion_enlace_borde';\n".'$opctema_derecha_contenedor_borde='."'$opctema_derecha_contenedor_borde';\n".'$opctema_imagen_borde='."'$opctema_imagen_borde';\n".'$opctema_imagen2_borde='."'$opctema_imagen2_borde';\n".'$opctema_catalogo_borde='."'$opctema_catalogo_borde';\n".'$opctema_formulario_borde='."'$opctema_formulario_borde';\n".'$opctema_boton_borde='."'$opctema_boton_borde';\n".'$opctema_comentario_borde='."'$opctema_comentario_borde';\n".'$opctema_anuncios_borde='."'$opctema_anuncios_borde';\n"."#ACTUALIZADO: $fechahora\n?>");
+file_put_contents($AC_DIRECTORIO.'css/'.$opctema_nombre,"<?php #CONTENIDO POR ARMIN\n".'$opctema_nombre='."'$opctema_nombre';\n".'$opctema_fondo_fondo='."'$opctema_fondo_fondo';\n".'$opctema_fondo_color='."'$opctema_fondo_color';\n".'$opctema_cabeza_fondo='."'$opctema_cabeza_fondo';\n".'$opctema_cabeza_color='."'$opctema_cabeza_color';\n".'$opctema_menu_fondo='."'$opctema_menu_fondo';\n".'$opctema_menu_color='."'$opctema_menu_color';\n".'$opctema_izquierda_fondo='."'$opctema_izquierda_fondo';\n".'$opctema_izquierda_color='."'$opctema_izquierda_color';\n".'$opctema_derecha_fondo='."'$opctema_derecha_fondo';\n".'$opctema_derecha_color='."'$opctema_derecha_color';\n".'$opctema_piedepagina_fondo='."'$opctema_piedepagina_fondo';\n".'$opctema_piedepagina_color='."'$opctema_piedepagina_color';\n".'$opctema_barra_fondo='."'$opctema_barra_fondo';\n".'$opctema_marquee_fondo='."'$opctema_marquee_fondo';\n".'$opctema_marquee_color='."'$opctema_marquee_color';\n".'$opctema_contenedores_fondo='."'$opctema_contenedores_fondo';\n".'$opctema_contenedores_color='."'$opctema_contenedores_color';\n".'$opctema_contenedorm2_color='."'$opctema_contenedorm2_color';\n".'$opctema_contenedorm2_h_color='."'$opctema_contenedorm2_h_color';\n".'$opctema_contenedor_derecha_fondo='."'$opctema_contenedor_derecha_fondo';\n".'$opctema_contenedor_derecha_color='."'$opctema_contenedor_derecha_color';\n".'$opctema_catalogo_fondo='."'$opctema_catalogo_fondo';\n".'$opctema_catalogo_color='."'$opctema_catalogo_color';\n".'$opctema_enlaces_fondo='."'$opctema_enlaces_fondo';\n".'$opctema_enlaces_color='."'$opctema_enlaces_color';\n".'$opctema_enlaces_h_fondo='."'$opctema_enlaces_h_fondo';\n".'$opctema_enlaces_h_color='."'$opctema_enlaces_h_color';\n".'$opctema_menu_enlaces_fondo='."'$opctema_menu_enlaces_fondo';\n".'$opctema_menu_enlaces_color='."'$opctema_menu_enlaces_color';\n".'$opctema_menu_enlace_h_fondo='."'$opctema_menu_enlace_h_fondo';\n".'$opctema_menu_enlace_h_color='."'$opctema_menu_enlace_h_color';\n".'$opctema_ubicacion_fondo='."'$opctema_ubicacion_fondo';\n".'$opctema_ubicacion_color='."'$opctema_ubicacion_color';\n".'$opctema_ubicacion_enlace_iconos_fondo='."'$opctema_ubicacion_enlace_iconos_fondo';\n".'$opctema_ubicacion_enlace_iconos_color='."'$opctema_ubicacion_enlace_iconos_color';\n".'$opctema_ubicacion_enlace_iconos_h_fondo='."'$opctema_ubicacion_enlace_iconos_h_fondo';\n".'$opctema_ubicacion_enlace_iconos_h_color='."'$opctema_ubicacion_enlace_iconos_h_color';\n".'$opctema_hr_fondo='."'$opctema_hr_fondo';\n".'$opctema_footer_enlace_iconos_fondo='."'$opctema_footer_enlace_iconos_fondo';\n".'$opctema_footer_enlace_iconos_color='."'$opctema_footer_enlace_iconos_color';\n".'$opctema_footer_enlace_iconos_h_fondo='."'$opctema_footer_enlace_iconos_h_fondo';\n".'$opctema_footer_enlace_iconos_h_color='."'$opctema_footer_enlace_iconos_h_color';\n".'$opctema_boton_fondo='."'$opctema_boton_fondo';\n".'$opctema_boton_color='."'$opctema_boton_color';\n".'$opctema_boton_h_fondo='."'$opctema_boton_h_fondo';\n".'$opctema_boton_h_color='."'$opctema_boton_h_color';\n".'$opctema_boton2_fondo='."'$opctema_boton2_fondo';\n".'$opctema_boton2_color='."'$opctema_boton2_color';\n".'$opctema_boton2_h_fondo='."'$opctema_boton2_h_fondo';\n".'$opctema_boton2_h_color='."'$opctema_boton2_h_color';\n".'$opctema_derecha_iconos_fondo='."'$opctema_derecha_iconos_fondo';\n".'$opctema_derecha_iconos_color='."'$opctema_derecha_iconos_color';\n".'$opctema_derecha_enlace_iconos_fondo='."'$opctema_derecha_enlace_iconos_fondo';\n".'$opctema_derecha_enlace_iconos_color='."'$opctema_derecha_enlace_iconos_color';\n".'$opctema_derecha_enlace_iconos_h_fondo='."'$opctema_derecha_enlace_iconos_h_fondo';\n".'$opctema_derecha_enlace_iconos_h_color='."'$opctema_derecha_enlace_iconos_h_color';\n".'$opctema_formulario_fondo='."'$opctema_formulario_fondo';\n".'$opctema_formulario_color='."'$opctema_formulario_color';\n".'$opctema_comentario_fondo='."'$opctema_comentario_fondo';\n".'$opctema_comentario_color='."'$opctema_comentario_color';\n".'$opctema_comentario_admin_fondo='."'$opctema_comentario_admin_fondo';\n".'$opctema_comentario_admin_color='."'$opctema_comentario_admin_color';\n".'$opctema_comentario_admin_h_fondo='."'$opctema_comentario_admin_h_fondo';\n".'$opctema_comentario_admin_h_color='."'$opctema_comentario_admin_h_color';\n".'$opctema_comentario_id_fondo='."'$opctema_comentario_id_fondo';\n".'$opctema_comentario_id_color='."'$opctema_comentario_id_color';\n".'$opctema_comentario_enlace_fondo='."'$opctema_comentario_enlace_fondo';\n".'$opctema_comentario_enlace_color='."'$opctema_comentario_enlace_color';\n".'$opctema_comentario_enlace_reportes_fondo='."'$opctema_comentario_enlace_reportes_fondo';\n".'$opctema_comentario_enlace_reportes_color='."'$opctema_comentario_enlace_reportes_color';\n".'$opctema_campo_fondo='."'$opctema_campo_fondo';\n".'$opctema_campo_color='."'$opctema_campo_color';\n".'$opctema_select_fondo='."'$opctema_select_fondo';\n".'$opctema_select_color='."'$opctema_select_color';\n".'$opctema_verificado_fondo='."'$opctema_verificado_fondo';\n".'$opctema_verificado_color='."'$opctema_verificado_color';\n".'$opctema_usuario_fondo='."'$opctema_usuario_fondo';\n".'$opctema_usuario_color='."'$opctema_usuario_color';\n".'$opctema_reaccionar_fondo='."'$opctema_reaccionar_fondo';\n".'$opctema_reaccionar_color='."'$opctema_reaccionar_color';\n".'$opctema_reaccionar_h_fondo='."'$opctema_reaccionar_h_fondo';\n".'$opctema_reaccionar_h_color='."'$opctema_reaccionar_h_color';\n".'$opctema_barra_borde='."'$opctema_barra_borde';\n".'$opctema_tituloweb_h_borde='."'$opctema_tituloweb_h_borde';\n".'$opctema_marquee_borde='."'$opctema_marquee_borde';\n".'$opctema_texini_borde='."'$opctema_texini_borde';\n".'$opctema_texinimen_borde='."'$opctema_texinimen_borde';\n".'$opctema_ubicacion_enlace_borde='."'$opctema_ubicacion_enlace_borde';\n".'$opctema_derecha_contenedor_borde='."'$opctema_derecha_contenedor_borde';\n".'$opctema_imagen_borde='."'$opctema_imagen_borde';\n".'$opctema_imagen1_borde='."'$opctema_imagen1_borde';\n".'$opctema_imagen2_borde='."'$opctema_imagen2_borde';\n".'$opctema_catalogo_borde='."'$opctema_catalogo_borde';\n".'$opctema_formulario_borde='."'$opctema_formulario_borde';\n".'$opctema_boton_borde='."'$opctema_boton_borde';\n".'$opctema_comentario_borde='."'$opctema_comentario_borde';\n".'$opctema_anuncios_borde='."'$opctema_anuncios_borde';\n"."#ACTUALIZADO: $fechahora\n?>");
 	
 	header("location:panel.php?ac=tema&ms=exi&msm=datosactualizados");
 
@@ -667,6 +629,7 @@ if(!$_POST || !$_GET){
 
             	#CONTENIDO A ACTUALIZAR
 
-} else { $AC_DIREC='../../'; $AC_ENCONTRAR=''; require_once $AC_DIREC.'error.php'; } 
+} else { if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+        $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}"); } 
 
 ?>
