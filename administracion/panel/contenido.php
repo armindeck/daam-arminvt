@@ -1,26 +1,18 @@
-<?php if(isset($TIPO)){ if($TIPO='panel'){
+<?php if(isset($TIPO) && $TIPO=='panel'){
 
 if(isset($_GET['ac'])){
 
 	$ac=$_GET['ac'];
 
-
-
 	switch($ac){
 		case 'verificar': require_once 'verificar.php'; break;
 		case 'creador': require_once 'creador.php'; break;
 		case 'modificador': require_once 'modificador.php'; break;
-
-		case 'archivos': echo '<p class="texini">Creador y eliminador de archivos y carpetas <span class="t14">v0.3 Beta</span></p><form class="formulario" method="post" action="actualizar.php"><span>Eliminar archivo</span><br><input type="text" name="archivo" value="administracion/panel/creadas/"><input name="IniEliminarArchivo" type="submit" value="Eliminar &#xf1f8"></form><form class="formulario" method="post" action="actualizar.php"><span>Eliminar carpeta</span><br><input type="text" name="carpeta"><input name="IniEliminarCarpeta" type="submit" value="Eliminar &#xf1f8"></form><form class="formulario" method="post" action="actualizar.php"><span>Crear carpeta</span><br><input type="text" name="carpeta"><input name="IniCrearCarpeta" type="submit" value="Crear &#xf0fe"></form><form class="formulario" method="post" action="actualizar.php"><span>Crear archivo</span><br><input type="text" name="archivo"><input name="IniCrearArchivo" type="submit" value="Crear &#xf0fe"></form>'; break;
-
+		case 'archivos': require_once 'archivos.php'; break;
 		case 'anuncios': require_once 'anuncios.php'; break;
-
-		case 'blog': require_once 'formblog.php'; break;
-
 		case 'configuracion': require_once 'configuraciones.php'; break;
 		case 'displadi': require_once 'displadi.php'; break;
 		case 'tema': require_once 'tema.php'; break;
-
 		case 'editor': require_once 'editor.php'; break;
 
 		default: echo 'Oh! no existe el get ingresado...'; break;
@@ -28,5 +20,7 @@ if(isset($_GET['ac'])){
 	}
 
 }
-
-} } else { $AC_DIREC='../../'; $AC_ENCONTRAR=''; require_once $AC_DIREC.'error.php'; } ?>
+} else {
+    if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}");
+} ?>
