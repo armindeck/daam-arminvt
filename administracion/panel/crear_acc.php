@@ -13,7 +13,7 @@ if(!empty($_POST['guardar'])){
     if (isset($_GET['opcBorrador'])) {
     	$archivo=$_GET['opcBorrador'];
     } else {
-    	for ($i=2; $i >=1 ; $i--) { 
+    	for ($i=9; $i >=1 ; $i--) { 
 	    	if (file_exists('borradores/'.$i.'.php')) {
 	    		$archivo=$i+1;
 	    		break;
@@ -21,8 +21,8 @@ if(!empty($_POST['guardar'])){
 	    		$archivo=1;
 	    	}
 	    }
-        if (file_exists('borradores/3.php')){
-            require_once 'borradores/3.php';
+        if (file_exists('borradores/10.php')){
+            require_once 'borradores/10.php';
             if (isset($opcExiste) && $opcExiste == true) {
                 header("Location: panel.php?ac=creador&ms=err&msm=borradoresllenos");
                 exit;
@@ -120,4 +120,5 @@ if(!empty($_POST['guardar'])){
         header("Location: panel.php?ac=creador&ms=exi&msm=entrapublicada");
     }
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>
-} } else { $AC_DIREC='../../'; $AC_ENCONTRAR='creador/'; require_once $AC_DIREC.'error.php'; }
+} } else { if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}"); }?>
