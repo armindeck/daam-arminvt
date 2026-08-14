@@ -25,6 +25,7 @@ switch ($cmensaje) {
 switch ($dmensaje) {
 
 	case 'datosactualizados': $conmensaje='Los datos se actualizaron correctamente.'; break;
+	case 'datosguardados': $conmensaje='Los datos se guardaron correctamente.'; break;
 
 	case 'datosnoactualizados': $conmensaje='Los datos NO se actualizaron correctamente.'; break;
 
@@ -65,13 +66,16 @@ switch ($dmensaje) {
 	case 'getnoex': $conmensaje='Oh! no existe el get ingresado...'; break;
 
 	case 'elimiarchivo': $conmensaje='El archivo fue eliminado!'; break;
+	case 'archivoselimi': $conmensaje='Los archivos fueron eliminados!'; break;
 	case 'exisarchivo': $conmensaje='Oh! el archivo existe!'; break;
+	case 'exisarchivo2': $conmensaje='Oh! los archivos existen! use: Modificador'; break;
 	case 'noexisarchivo': $conmensaje='Oh! no existe el archivo!'; break;
 	case 'direcreado': $conmensaje='Directorio creado!'; break;
 	case 'direxiste': $conmensaje='Oh! el directorio existe!'; break;
 	case 'varcarpetanoexiste': $conmensaje='Oh! la variable carpeta no existe!'; break;
 	case 'informeverificar': $conmensaje='Atención, se muestra el siguiente informe:'; break;
 	case 'entrapublicada': $conmensaje='La entrada fue publicada!'; break;
+	case 'borradoresllenos': $conmensaje='Oh! parece que los borradores se encuentran llenos!'; break;
 
 	#case '': $conmensaje=''; break;
 
