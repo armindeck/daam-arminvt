@@ -71,7 +71,6 @@ if(isset($TIPO) && $TIPO=='panel'){ #PRINCIPALES ?>
 <?php if(isset($c) && $c=='data' && isset($u) && $u=='form'): ?>
 
 <a class="boton" href="panel.php?ac=editor&u=form&c=data&a=actualizaciones">Actualizaciones</a>
-<a class="boton" href="panel.php?ac=editor&u=form&c=data&a=blog">Blog</a>
 <a class="boton" href="panel.php?ac=editor&u=form&c=data&a=forolink">ForoLink</a>
 
 <hr>
@@ -89,56 +88,17 @@ if(isset($TIPO) && $TIPO=='panel'){ #PRINCIPALES ?>
 
 <?php if(isset($c) && $c=='scripts' || isset($u) && $u=='scripts'): ?>
 
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Cabeza">Cabeza</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu">Menu</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra">Contenido Extra</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=MenuLateral">Menu Lateral</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=PiedePagina">Pie de Pagina</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=us">Usuario</a>
 
 <hr>
 <?php endif; ?>
 
-<?php if(isset($c) && $c=='Cabeza' && isset($u) && $u=='scripts'): ?>
+<?php if(isset($c) && $c=='us' && isset($u) && $u=='scripts'): ?>
 
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Cabeza&a=scrDisplaCabeza">Displa</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Cabeza&a=scrDispladiCabeza">Displadi</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Cabeza&a=scrDispladiCabeza_POST">POST</a>
-
-<hr>
-<?php endif; ?>
-
-<?php if(isset($c) && $c=='Menu' && isset($u) && $u=='scripts'): ?>
-
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu&a=scrDisplaMenu">Displa</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu&a=scrDispladiMenu">Displadi</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu&a=scrDispladiMenu_POST">POST</a>
-
-<hr>
-<?php endif; ?>
-
-<?php if(isset($c) && $c=='ContenidoExtra' && isset($u) && $u=='scripts'): ?>
-
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra&a=scrDisplaContenidoExtra">Displa</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra&a=scrDispladiContenidoExtra">Displadi</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra&a=scrDispladiContenidoExtra_POST">POST</a>
-
-<hr>
-<?php endif; ?>
-
-<?php if(isset($c) && $c=='MenuLateral' && isset($u) && $u=='scripts'): ?>
-
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=MenuLateral&a=scrDisplaMenuLateral">Displa</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=MenuLateral&a=scrDispladiMenuLateral">Displadi</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=MenuLateral&a=scrDispladiMenuLateral_POST">POST</a>
-
-<hr>
-<?php endif; ?>
-
-<?php if(isset($c) && $c=='PiedePagina' && isset($u) && $u=='scripts'): ?>
-
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=PiedePagina&a=scrDisplaPiedePagina">Displa</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=PiedePagina&a=scrDispladiPiedePagina">Displadi</a>
-<a class="boton" href="panel.php?ac=editor&u=scripts&c=PiedePagina&a=scrDispladiPiedePagina_POST">POST</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=us&a=scrCUS">CUS</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=us&a=scrDisplaCUS">Displa</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=us&a=scrDispladiCUS">Displadi</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=us&a=scrDispladiCUS_POST">POST</a>
 
 <hr>
 <?php endif; ?>
