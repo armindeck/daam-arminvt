@@ -1,0 +1,40 @@
+/* TEMA Dark POR ARMIN */
+:root{
+	--fondo: #343434;			--focolor: #FFF;
+	--cabeza: rgba(0, 0, 0, 0.205);	--cacolor: #FFF;
+	--menu: #474747;		--mecolor: #FFF;
+	--izq: none;		--izcolor: #FFF;
+	--der: #474747;		--decolor: #FFF;
+	--fin: #1C2833;		--ficolor: #FFF;
+	--barra: #808080;
+
+	--navacolor: #FFF;	--navahover: rgb(0,0,0,.3); --navahocolor: #FFF;
+	--titulo: none; --titcolor: #d1d1d1; --titacolor: #d1d1d1; --titicolor: #d1d1d1; --titahocolor: #d1d1d1;
+	--hr: rgb(0,0,0,.1);
+	--ifin: #FFF;
+
+	--boton: #5e5e5e;			--bocolor: #FFF;	--boborde: rgba(0,0,0,0.205);	--bohover: #5a5a5a;		--bohocolor: #FFF;
+	--boton2: none;			--bocolor2: #d1d1d1;	--boborde2: #484848; --boborde2_: none;	--bohover2: #5e5e5e;		--bohocolor2: #FFF;
+
+	--acolor: orange;	--ahover: #FFD64C;
+	--dertitcolor: #FFF; --deri: #d1d1d1; --dericolor: #d1d1d1; --derihocolor: #FFF;
+
+	--form: #474747; --forcaja: #474747;
+	--foradmincolor: #3cff00; --foradminhocolor: #31cc02; --foridcolor: #1da818; --forlinkcolor: orange; --forreporcolor: #d1d1d1;
+	--campo: rgb(0,0,0,.1); --campocolor: #FFF;
+
+	--option: #474747; --optioncolor: #FFF;
+	--cverified: #3cff00;
+	--cuser: #989898;
+	--creac: none; --creacolor: #d1d1d1; --creacolorhov: #FFF;
+
+	--ctg: #1882A8; --ctgcolor: #ffffff; --marquee: #474747; --marqueecolor: #d1d1d1; --texinili: #474747;
+	--m2acolor: #d1d1d1; --m2ahocolor: #FFF;
+/*
+	--videosup: rgb(0,0,0,.7); --vidsupa: rgb(0,0,0,.0); --vidsupacolor: #FFF; --vidsupahover: rgb(0,0,0,.2); --vidsupahocolor: #FFF;
+	--info: #FFF;
+	--titinfo: rgb(0,0,0,.7); --titinfocolor: #FFF;
+
+	--dertit: orange;
+*/
+}

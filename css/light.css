@@ -1,0 +1,40 @@
+/* TEMA Light POR ARMIN */
+:root{
+	--fondo: #FCFCFC;			--focolor: #FFF;
+	--cabeza: rgb(0,0,0,.8);	--cacolor: #FFF;
+	--menu: #515A5A;		--mecolor: #FFF;
+	--izq: #FCFCFC;		--izcolor: #323232;
+	--der: #FFF;		--decolor: #323232;
+	--fin: #1C2833;		--ficolor: #FFF;
+	--barra: #CCC;
+
+	--navacolor: #FFF;	--navahover: rgb(0,0,0,.3); --navahocolor: #FFF;
+	--titulo: none; --titcolor: #484848; --titacolor: #484848; --titicolor: #484848; --titahocolor: #1882A8;
+	--hr: rgb(0,0,0,.1);
+	--ifin: #FFF;
+
+	--boton: #1882A8;			--bocolor: #FFF;	--boborde: none;	--bohover: #156f90;		--bohocolor: #FFF;
+	--boton2: none;			--bocolor2: #484848;	--boborde2: #CCC; --boborde2_: none;	--bohover2: #156f90;		--bohocolor2: #FFF;
+	
+	--acolor: #1882A8;	--ahover: #156f90;
+	--dertitcolor: #FFF; --deri: #484848; --dericolor: rgb(0,0,0,.7); --derihocolor: #156f90;
+
+	--form: #FFF; --forcaja: #FFF;
+	--foradmincolor: #1882A8; --foradminhocolor: #156f90; --foridcolor: #1882A8; --forlinkcolor: red; --forreporcolor: #484848;
+	--campo: rgb(0,0,0,.1); --campocolor: #323232;
+
+	--option: #FFF; --optioncolor: #323232;
+	--cverified: #1882A8;
+	--cuser: #989898;
+	--creac: none; --creacolor: #484848; --creacolorhov: #1882A8;
+
+	--ctg: #1882A8; --ctgcolor: #FFF; --marquee: #FFF; --marqueecolor: #484848; --texinili: #FFF; --formCrear: #FFF;
+	--m2acolor: #484848; --m2ahocolor: #1882A8;
+/*
+	--videosup: rgb(0,0,0,.7); --vidsupa: rgb(0,0,0,.0); --vidsupacolor: #FFF; --vidsupahover: rgb(0,0,0,.2); --vidsupahocolor: #FFF;
+	--info: #FFF;
+	--titinfo: rgb(0,0,0,.7); --titinfocolor: #FFF;
+
+	--dertit: #1882A8;
+*/
+}
