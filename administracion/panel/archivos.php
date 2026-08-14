@@ -1,5 +1,5 @@
 <?php if(isset($TIPO) && $TIPO=='panel'){ ?>
-<p class="texini">Creador y eliminador de archivos y carpetas <span class="t14">v0.3 Beta</span></p>
+<p class="texini">Creador y eliminador de archivos y carpetas <span class="t14">v0.3.3 Beta</span></p>
 <form class="formulario" method="post" action="actualizar.php">
 	<span>Eliminar archivo</span><br>
 	<input type="text" name="archivo" value="">
@@ -19,6 +19,12 @@
 	<span>Crear archivo</span><br>
 	<input type="text" name="archivo">
 	<input name="IniCrearArchivo" type="submit" value="Crear &#xf0fe">
+</form>
+<form class="formulario" method="post" action="actualizar.php">
+	<span>Renombrar</span><br>
+	<input type="text" name="antiguo">
+	<input type="text" name="nuevo">
+	<input name="IniCambiarNombre" type="submit" value="Renombrar &#xf0fe">
 </form>
 <?php } else {
     if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
