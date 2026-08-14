@@ -12,7 +12,7 @@ if (!empty($_POST['IniForo']) || !empty($_POST['IniComentarios']) || !empty($_PO
         $AC_UBICACION=$ubi;
 
         $cdir=darFormatoIobi($ubi).$arc;
-        $NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/data#'.$cdir;
+        $NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/'.$cdir;
 
             #OBLIGATORIOS PRINCIPALES
         $c_usuario = darFormatoNoSimbolos(trim($_POST['usuario']));
