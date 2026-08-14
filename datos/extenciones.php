@@ -1,84 +1,16 @@
 <?php
-
-
-
-
-
-
-
 if(isset($ex)){
-
-
-
-
-
-
-
 #EX CARGAR ENTRADAS
-
-
-
-
-
-
-
 if($ex=='CargarEntradas'){
-
-
-
-
-
-
-
-	/*echo '<div class="flexCon">';
-
-
-
-
-
-
-
+/*
+	echo '<div class="flexCon">';
 	foreach (array_reverse($entradas) as $contenido) {
-
-
-
-
-
-
-
-		if(isset($contenido['nuevo']) && $contenido['nuevo']=='n'){
-
-
-
-			$contenido['etiqueta']='Nuevo';
-
-
-
-		} else { $contenido['nuevo']=''; $contenido['etiqueta']; }
-
-
-
-
-
-
-
-		echo '<div class="m3">
-
-
-
-
-
-
-
-				<p class="ctg'.$contenido['nuevo'].'">'.$contenido['etiqueta'].'</p>
-
-
-
-
-
-
-
-				<a href="'.$AC_DIRECTORIOs.$contenido['ubicacion'].$contenido['archivo'].$AGREGAR_PHP.'">
+	if(isset($contenido['nuevo']) && $contenido['nuevo']=='n'){
+		$contenido['etiqueta']='Nuevo';
+	} else { $contenido['nuevo']=''; $contenido['etiqueta']; }
+	echo '<div class="m3">
+	<p class="ctg'.$contenido['nuevo'].'">'.$contenido['etiqueta'].'</p>
+	<a href="'.$AC_DIRECTORIOs.$contenido['ubicacion'].$contenido['archivo'].$AGREGAR_PHP.'">
 
 
 
@@ -686,420 +618,41 @@ if($ex=='CrearCarpetas'){
 
 } else
 
-
-
-
-
-
-
-#EX VERIFICAR ELEMENTOS DEL MENU LATERAL
-
-
-
-
-
-
-
-if($ex=='MenuLateralElementos'){
-
-
-
-	if ($i===1) {
-
-
-
-		if(isset($MenuLateralE1T)){ $vaLT=$MenuLateralE1T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuLateralE1C)){ $vaLC=$MenuLateralE1C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuLateralE1)){ $vaLM=$MenuLateralE1; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===2) {
-
-
-
-		if(isset($MenuLateralE2T)){ $vaLT=$MenuLateralE2T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuLateralE2C)){ $vaLC=$MenuLateralE2C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuLateralE2)){ $vaLM=$MenuLateralE2; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===3) {
-
-
-
-		if(isset($MenuLateralE3T)){ $vaLT=$MenuLateralE3T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuLateralE3C)){ $vaLC=$MenuLateralE3C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuLateralE3)){ $vaLM=$MenuLateralE3; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===4) {
-
-
-
-		if(isset($MenuLateralE4T)){ $vaLT=$MenuLateralE4T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuLateralE4C)){ $vaLC=$MenuLateralE4C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuLateralE4)){ $vaLM=$MenuLateralE4; } else { $vaLM=''; }
-
-
-
-	}
-
-
-
+#ELEMENTOS DE LA PAGINA
+if($ex=='scrDispladi'){
+	#0.Cabeza, 1. Menu, 2. Contenido, 3. Menu Lateral, 4. Pie
+	#0.Mostrar, 1. Cantidad de Elementos, 2. C. Scripts, 3. Elementos
+	$dirScripts=$AC_DIRECTORIO.'administracion/panel/scripts/';
+	$scrDispla=$dirScripts.'scrDispla.php'; if (file_exists($scrDispla)){ require_once $scrDispla; }
+	$scrCUS=$dirScripts.'us/scrCUS.php'; if (file_exists($scrCUS)){ require_once $scrCUS; }
+	if ($displadi[$elem][0]!=''):
+		$me=''; $mef='';
+		switch ($elem) {
+			case 0: $mi='<header>'; $mif='</header>'; break;
+			case 1: $mi='<nav>'; $mif='</nav>'; break;
+			case 2: $mi='<div>'; $mif='</div>'; break;
+			case 3: $mi='<div class="menu-lateral">'; $me='<div class="bord">'; $mef='</div>'; $mif='</div>'; break;
+			case 4: $mi='<footer>'; $me='<div>'; $mef='</div>'; $mif='</footer>'; break;
+		}
+		echo $mi;
+		if($elem==3 && isset($anuncio2)) { echo $anuncio2; }
+		for ($ii=0; $ii < $displadi[$elem][1]; $ii++):
+			if($displadi[$elem][2][$ii][0] != ''):
+				echo $me; $ver='';
+				if($displadi[$elem][2][$ii][1] != '' && $elem!=2){ $ver='<hr>'; }
+				echo '<p>'.$displadi[$elem][2][$ii][1].'</p>'.$ver;
+				if($displadi[$elem][2][$ii][2] != ''){ echo $displadi[$elem][2][$ii][2]; }
+				$arcMNL=$AC_DIRECTORIO.'/administracion/panel/scripts/us/scrDisplaCUS.php';
+				if(file_exists($arcMNL)){ require $arcMNL; }
+				echo $mef;
+			endif;
+		endfor;
+		echo $mif;
+	endif;
 }
-
-
-
-
-
-
-
-if($ex=='PiedePaginaElementos'){
-
-
-
-	if ($i===1) {
-
-
-
-		if(isset($PiedePaginaE1T)){ $vaLT=$PiedePaginaE1T; } else { $vaLT=''; }
-
-
-
-		if(isset($PiedePaginaE1C)){ $vaLC=$PiedePaginaE1C; } else { $vaLC=''; }
-
-
-
-		if(isset($PiedePaginaE1)){ $vaLM=$PiedePaginaE1; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===2) {
-
-
-
-		if(isset($PiedePaginaE2T)){ $vaLT=$PiedePaginaE2T; } else { $vaLT=''; }
-
-
-
-		if(isset($PiedePaginaE2C)){ $vaLC=$PiedePaginaE2C; } else { $vaLC=''; }
-
-
-
-		if(isset($PiedePaginaE2)){ $vaLM=$PiedePaginaE2; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===3) {
-
-
-
-		if(isset($PiedePaginaE3T)){ $vaLT=$PiedePaginaE3T; } else { $vaLT=''; }
-
-
-
-		if(isset($PiedePaginaE3C)){ $vaLC=$PiedePaginaE3C; } else { $vaLC=''; }
-
-
-
-		if(isset($PiedePaginaE3)){ $vaLM=$PiedePaginaE3; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===4) {
-
-
-
-		if(isset($PiedePaginaE4T)){ $vaLT=$PiedePaginaE4T; } else { $vaLT=''; }
-
-
-
-		if(isset($PiedePaginaE4C)){ $vaLC=$PiedePaginaE4C; } else { $vaLC=''; }
-
-
-
-		if(isset($PiedePaginaE4)){ $vaLM=$PiedePaginaE4; } else { $vaLM=''; }
-
-
-
-	}
-
-
-
-}
-
-
-
-
-
-
-
-if($ex=='CabezaElementos'){
-
-
-
-	if ($i===1) {
-
-
-
-		if(isset($CabezaE1T)){ $vaLT=$CabezaE1T; } else { $vaLT=''; }
-
-
-
-		if(isset($CabezaE1C)){ $vaLC=$CabezaE1C; } else { $vaLC=''; }
-
-
-
-		if(isset($CabezaE1)){ $vaLM=$CabezaE1; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===2) {
-
-
-
-		if(isset($CabezaE2T)){ $vaLT=$CabezaE2T; } else { $vaLT=''; }
-
-
-
-		if(isset($CabezaE2C)){ $vaLC=$CabezaE2C; } else { $vaLC=''; }
-
-
-
-		if(isset($CabezaE2)){ $vaLM=$CabezaE2; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===3) {
-
-
-
-		if(isset($CabezaE3T)){ $vaLT=$CabezaE3T; } else { $vaLT=''; }
-
-
-
-		if(isset($CabezaE3C)){ $vaLC=$CabezaE3C; } else { $vaLC=''; }
-
-
-
-		if(isset($CabezaE3)){ $vaLM=$CabezaE3; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===4) {
-
-
-
-		if(isset($CabezaE4T)){ $vaLT=$CabezaE4T; } else { $vaLT=''; }
-
-
-
-		if(isset($CabezaE4C)){ $vaLC=$CabezaE4C; } else { $vaLC=''; }
-
-
-
-		if(isset($CabezaE4)){ $vaLM=$CabezaE4; } else { $vaLM=''; }
-
-
-
-	}
-
-
-
-}
-
-
-
-
-
-
-
-if($ex=='MenuElementos'){
-
-
-
-	if ($i===1) {
-
-
-
-		if(isset($MenuE1T)){ $vaLT=$MenuE1T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuE1C)){ $vaLC=$MenuE1C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuE1)){ $vaLM=$MenuE1; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===2) {
-
-
-
-		if(isset($MenuE2T)){ $vaLT=$MenuE2T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuE2C)){ $vaLC=$MenuE2C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuE2)){ $vaLM=$MenuE2; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===3) {
-
-
-
-		if(isset($MenuE3T)){ $vaLT=$MenuE3T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuE3C)){ $vaLC=$MenuE3C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuE3)){ $vaLM=$MenuE3; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===4) {
-
-
-
-		if(isset($MenuE4T)){ $vaLT=$MenuE4T; } else { $vaLT=''; }
-
-
-
-		if(isset($MenuE4C)){ $vaLC=$MenuE4C; } else { $vaLC=''; }
-
-
-
-		if(isset($MenuE4)){ $vaLM=$MenuE4; } else { $vaLM=''; }
-
-
-
-	}
-
-
-
-}
-
-
-
-if($ex=='ContenidoExtraElementos'){
-
-
-
-	if ($i===1) {
-
-
-
-		if(isset($ContenidoExtraE1T)){ $vaLT=$ContenidoExtraE1T; } else { $vaLT=''; }
-
-
-
-		if(isset($ContenidoExtraE1C)){ $vaLC=$ContenidoExtraE1C; } else { $vaLC=''; }
-
-
-
-		if(isset($ContenidoExtraE1)){ $vaLM=$ContenidoExtraE1; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===2) {
-
-
-
-		if(isset($ContenidoExtraE2T)){ $vaLT=$ContenidoExtraE2T; } else { $vaLT=''; }
-
-
-
-		if(isset($ContenidoExtraE2C)){ $vaLC=$ContenidoExtraE2C; } else { $vaLC=''; }
-
-
-
-		if(isset($ContenidoExtraE2)){ $vaLM=$ContenidoExtraE2; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===3) {
-
-
-
-		if(isset($ContenidoExtraE3T)){ $vaLT=$ContenidoExtraE3T; } else { $vaLT=''; }
-
-
-
-		if(isset($ContenidoExtraE3C)){ $vaLC=$ContenidoExtraE3C; } else { $vaLC=''; }
-
-
-
-		if(isset($ContenidoExtraE3)){ $vaLM=$ContenidoExtraE3; } else { $vaLM=''; }
-
-
-
-	} elseif ($i===4) {
-
-
-
-		if(isset($ContenidoExtraE4T)){ $vaLT=$ContenidoExtraE4T; } else { $vaLT=''; }
-
-
-
-		if(isset($ContenidoExtraE4C)){ $vaLC=$ContenidoExtraE4C; } else { $vaLC=''; }
-
-
-
-		if(isset($ContenidoExtraE4)){ $vaLM=$ContenidoExtraE4; } else { $vaLM=''; }
-
-
-
-	}
-
-
-
-}
-
 
 
 #EX DAR FORMATO
-
-
-
-
-
-
-
 if($ex=='DarFormato'){
 
 
