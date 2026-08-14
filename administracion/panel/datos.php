@@ -42,13 +42,15 @@ $EnlaceWeb='http://dbproject.rf.gd';
 
 $EnlaceWebNoHttps='dbproject.rf.gd';
 
+$LocalHost='arminvt';
+
 $EnlaceWebS=$AC_DIRECTORIO; #'https://arminvt.site/'; --- $AC_DIRECTORIO;
 
 $AC_DIRECTORIOs=$EnlaceWebS;
 
 $AGREGAR_PHP='';
 
-$EnlaceAdmin=$AC_DIRECTORIOs.$UsuarioAdmin.$AGREGAR_PHP;
+$EnlaceAdmin="https://dbproject.rf.gd";
 
 $EnlaceFacebook='https://facebook.com/'.$UsuarioFacebook;
 
@@ -76,7 +78,7 @@ $fecha=date('Y-m-d');
 
 $fechahora=date('Y-m-d - g:ia');
 
-$version='v0.3.1 Beta';
+$version='v0.3.2 Beta';
 
 session_start();
 
