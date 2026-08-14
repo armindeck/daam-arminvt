@@ -10,14 +10,18 @@ function ErrorLink()
 }
 if (isset($_GET['id'])) {
 	if (isset($_GET['carpeta'])) {
-		if (isset($_GET['enlace'])) {
-			$id=$_GET['id'];
-			$carpeta=$_GET['carpeta'];
-			$enlace=$_GET['enlace'];
+		if (isset($_GET['ubicacion'])) {
+			if (isset($_GET['enlace'])) {
+				$id=$_GET['id'];
+				$carpeta=$_GET['carpeta'];
+				$ubicacion=$_GET['ubicacion'];
+				$enlace=$_GET['enlace'];
 
-			$UbicacionArchivoContador=$AC_DIRECTORIO.$carpeta.'/datos/clic/c'.$id.'.txt';
-			include $AC_DIRECTORIO.'datos/extenciones/extencionContador.php';
-			header("Refresh:3; url='$enlace'");
+				$UbicacionArchivoContador=$AC_DIRECTORIO.$ubicacion.$carpeta.'/datos/clic/c'.$id.'.txt';
+				include $AC_DIRECTORIO.'datos/extenciones/extencionContador.php';
+				header("Refresh:3; url='$enlace'");
+			}
+			else { ErrorLink(); }
 		}
 		else { ErrorLink(); }
 	}
