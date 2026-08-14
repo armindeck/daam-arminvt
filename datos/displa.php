@@ -1,7 +1,6 @@
 <!-- © 2023 Armin | Arminvt.site -->
 
 <?php #CONTENIDO AVANZADO POR ARMIN
-
 #===>
 
 $DIRECTORIO_AQUI=$_SERVER["REQUEST_URI"]; $URL=$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
@@ -20,14 +19,20 @@ if(!empty($_GET['admin'])){
 
 if(isset($_GET['s']) && $_GET['s'] == 'cerrar'){ session_destroy(); $lugar=$AC_DIRECTORIO.'iniciar'.$AGREGAR_PHP.'?ms=exi&msm=sesionfinalizada'; header("Location: {$lugar}"); }
 
-$extraCabeza=$AC_DIRECTORIO.'administracion/panel/extras/Cabeza/extraCabeza.php';
+$dirExtra=$AC_DIRECTORIO.'administracion/panel/scripts/';
+
+$extraCabeza=$dirExtra.'Cabeza/scrCabeza.php';
 if (file_exists($extraCabeza)) { require_once $extraCabeza; } else { $Cabeza=false; }
-$extraMenu=$AC_DIRECTORIO.'administracion/panel/extras/Menu/extraMenu.php';
+
+$extraMenu=$dirExtra.'Menu/scrMenu.php';
 if (file_exists($extraMenu)) { require_once $extraMenu; } else { $Menu=false; }
-$extraMenuLateral=$AC_DIRECTORIO.'administracion/panel/extras/MenuLateral/extraMenuLateral.php';
+
+$extraMenuLateral=$dirExtra.'MenuLateral/scrMenuLateral.php';
 if (file_exists($extraMenuLateral)) { require_once $extraMenuLateral; } else { $MenuLateral=false; }
-$extraPiedePagina=$AC_DIRECTORIO.'administracion/panel/extras/PiedePagina/extraPiedePagina.php';
+
+$extraPiedePagina=$dirExtra.'PiedePagina/scrPiedePagina.php';
 if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $PiedePagina=false; }
+
 #===>
 
 ?>
@@ -56,7 +61,7 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
 
         Theme URL: https://arminvt.site
 
-        Version: 0.2
+        Version: 0.3.1
 
         Author: Armin
 
@@ -108,7 +113,9 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
 
     <meta name="keywords" content="<?php echo ($AC_METADESCRIPCION.", ".$AC_METADESCRIPCION2.", ".$AC_METAETIQUETA.", ".$Año.", ".$NombreAdmin.", ".$NombreWeb.", ".$EnlaceWebNoHttps.", ".$EnlaceWeb); ?>">
 
-    <?php require_once $AC_DIRECTORIO.'administracion/panel/extras/extraScripts.php'; ?>
+    <?php $scrExtrasdispla=$AC_DIRECTORIO.'administracion/panel/scripts/scrExtrasdispla.php';
+        if(file_exists($scrExtrasdispla)){ require_once $scrExtrasdispla;
+    } ?>
 
     <?php
         if(isset($_GET['temamodificado']) && $_GET['temamodificado']==true && isset($_GET['temamodificadoarc'])){
@@ -122,7 +129,7 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
         $ad58=$AC_DIRECTORIO.'css/tmmod.php';
         if(file_exists($ad58)){
             require_once $ad58;
-            if($mod==true && $arc != ''){ require_once $AC_DIRECTORIO.'css/'.$arc; $sp=true; }
+            if($mod==true && $arc != ''){ if(file_exists($AC_DIRECTORIO.'/css/'.$arc)){ require_once $AC_DIRECTORIO.'css/'.$arc; $sp=true; } }
         }
         if(isset($_GET['temamodificadono'])){ if(file_exists($ad58)){ $sp=false; unlink($ad58); } }
         if(isset($sp) && $sp==true){ $tm=$AC_DIRECTORIO.'css/temafinal.php'; if(file_exists($tm)){ require_once $tm; } } ?>
@@ -137,7 +144,7 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
         if($vaLM == 'on'): if($vaLT != ''){ echo '<p>'.$vaLT.'</p><hr>'; }
             if($vaLC != ''){ echo $vaLC; } ?>
             <?php #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>
-            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/extras/Cabeza/extraDisplaCabeza.php';
+            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/scripts/Cabeza/scrDisplaCabeza.php';
             if(file_exists($arcMNL)){ require $arcMNL; }
             #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>> ?>
 <?php endif; endfor; echo '</header>'; endif; ?>
@@ -149,7 +156,7 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
         if($vaLM == 'on'): if($vaLT != ''){ echo '<p>'.$vaLT.'</p><hr>'; }
             if($vaLC != ''){ echo $vaLC; } ?>
             <?php #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>
-            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/extras/Menu/extraDisplaMenu.php';
+            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/scripts/Menu/scrDisplaMenu.php';
             if(file_exists($arcMNL)){ require $arcMNL; }
             #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>> ?>
 <?php endif; endfor; echo '</nav>'; endif; ?>
@@ -157,24 +164,16 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
 
     <aside>
 
-        <?php if ($AC_EXTRA == 'si'){ echo '<div class="cen">'.$texMensaje.$anuncio.'</div>'; }; ?>
+        <?php if($AC_EXTRA == 'si'){
+            if(isset($texMensaje) && isset($anuncio)){
+                echo '<div class="cen">'.$texMensaje.$anuncio.'</div>';
+            }
+        } ?>
 
         <p class="titulo"><a href="<?php echo $AC_DIRECTORIO.'">'.$NombreWeb.'</a> > '.$AC_TITULO; if(isset($_GET['ac'])){ echo ' > '.$_GET['ac']; } ?></p>
 
         <?php #CARGAR CONTENIDO DE LA PAGINA :3
-
-        #REPORTAR
-
-        #elseif (isset($AC_CONTENIDOR1)) { echo $AC_CONTENIDOR1 . CargarComentario() . $AC_CONTENIDOR2; }
-
-        #REPORTAR
-
-        /* Versiones Antiguas
-
-        if (isset($CONTENIDO_AQUI)) { echo $CONTENIDO_AQUI; }
-
-        if (isset($FORO)) { require 'orden.php'; }; */
-
+        if (isset($MENSAJE) && $MENSAJE==true) { echo $lugarMensaje; }
         if (isset($AC_CONTENIDO)) { echo $AC_CONTENIDO; }
 
         if (isset($forimg)){
@@ -194,33 +193,56 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
             echo '</div>';
 
         }
-
+        if(!isset($ERROR_DARFORMATO)){
+            $ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
+        }
         if (isset($TIPO)) {
+            $iobi_dir=$AC_DIRECTORIO.'form/iobi/';
 
+            if($TIPO=='blog'){
+                if(isset($_SESSION['rol']) && $_SESSION['rol']==5){
+                    $accesoIobiform=true;
+                }
+                $accesoIobicargar=true;
+            }
+            if($TIPO=='foro' || $TIPO=='comentarios'){
+                $accesoIobiform=true; $accesoIobicargar=true;    
+            }
             switch($TIPO){
-
-                case 'foro': require $AC_DIRECTORIO.'datos/foros/formulario.php'; require $AC_DIRECTORIO.'datos/foros/cargar.php'; break;
-
-                case 'comentarios': require $AC_DIRECTORIO.'datos/foros/formulario.php'; require $AC_DIRECTORIO.'datos/foros/cargar.php'; break;
-
-                case 'blog': require $AC_DIRECTORIO.'datos/foros/cargar.php'; break;
 
                 case 'panel': $NoAumentarContador=true; echo $lugarMensaje; require $AC_DIRECTORIO.'administracion/panel/contenido.php'; break;
 
                 case 'entradas': require $AC_DIRECTORIO.'administracion/panel/entradas.php'; $ex='CargarEntradas'; require $AC_DIRECTORIO.'datos/extenciones.php'; break;
 
-                case 'CargarImagenes': $ex='CargarImagenes'; require $AC_DIRECTORIO.'datos/extenciones.php'; break;
-
             }
 
         }
+        if(isset($GALERIA) && $GALERIA==true){
+            $ex='CargarImagenes'; require $AC_DIRECTORIO.'datos/extenciones.php';
+        }
+        if(isset($accesoIobiform) && $accesoIobiform==true){
+            if(file_exists($iobi_dir.'formulario.php')){ $AccesoFormulario=true; require $iobi_dir.'formulario.php'; }
+        }
+        if(isset($accesoIobicargar) && $accesoIobicargar==true){
+            if(file_exists($iobi_dir.'cargar.php')){
+                $AccesoCargar=true; require $iobi_dir.'cargar.php'; }
+        }
+        
+        $verifiContador=false;
         if(!isset($_SESSION['id']) && !isset($_SESSION['rol'])){
-            $ex='Contador'; $UbicacionArchivoContador=$AC_DIRECTORIO.'visitas.txt'; require $AC_DIRECTORIO.'datos/extenciones.php';
+           $verifiContador=true;
         } else if (isset($_SESSION['id']) && $_SESSION['id'] != 5 && isset($_SESSION['rol']) && $_SESSION['rol'] !=5) {
-            $ex='Contador'; $UbicacionArchivoContador=$AC_DIRECTORIO.'visitas.txt'; require $AC_DIRECTORIO.'datos/extenciones.php';
+            $verifiContador=true;
         }
 
-        if(isset($TIPO) || !isset($TIPO) || $TIPO!='panel'): ?>
+        if($verifiContador==true){
+            $ex='Contador';
+            $UbicacionArchivoContador=$AC_DIRECTORIO.'visitas.txt';
+            require $AC_DIRECTORIO.'datos/extenciones.php';
+        }
+
+
+        if(isset($TIPO) && $TIPO!='panel' or !isset($TIPO)): ?>
 
         <div class="titulo t18">Compartir en
 
@@ -239,13 +261,13 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
     </aside>
     <?php if (isset($MenuLateral) && $MenuLateral == 'on'): ?>
     <div class="menu-lateral">
-        <?php echo $anuncio2;
+        <?php if(isset($anuncio2)) { echo $anuncio2; }
         for ($i=1; $i <=$MenuLateralElementos; $i++):
             $ex='MenuLateralElementos'; require $AC_DIRECTORIO.'datos/extenciones.php';
             if($vaLM == 'on'): echo '<div class="bord">'; if($vaLT != ''){ echo '<p>'.$vaLT.'</p><hr>'; }
             if($vaLC != ''){ echo $vaLC; } ?>
             <?php #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>
-            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/extras/MenuLateral/extraDisplaMenuLateral.php';
+            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/scripts/MenuLateral/scrDisplaMenuLateral.php';
             if(file_exists($arcMNL)){ require $arcMNL; }
             #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>> ?>
     <?php echo '</div>'; endif; endfor; echo '</div>'; endif; ?>
@@ -257,7 +279,7 @@ if (file_exists($extraPiedePagina)) { require_once $extraPiedePagina; } else { $
         if($vaLM == 'on'): echo '<div>'; if($vaLT != ''){ echo '<p>'.$vaLT.'</p><hr>'; }
             if($vaLC != ''){ echo $vaLC; } ?>
             <?php #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>
-            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/extras/PiedePagina/extraDisplaPiedePagina.php';
+            $arcMNL=$AC_DIRECTORIO.'/administracion/panel/scripts/PiedePagina/scrDisplaPiedePagina.php';
             if(file_exists($arcMNL)){ require $arcMNL; }
             #EL USUARIO PUEDE CREAR SUS PROPIOS SCRIPTS >>>>>>>>>>>> ?>
 <?php echo '</div>'; endif; endfor; echo '</footer>'; endif; ?>
