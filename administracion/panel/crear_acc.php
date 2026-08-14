@@ -2,19 +2,14 @@
 $AC_DIRECTORIO='../../';
 require_once $AC_DIRECTORIO.'datos/datos.php';
 if(!empty($_POST['guardar'])){
-    $opc1=$_GET['opc1'];
-    $opc2=$_GET['opc2'];
-    $opc3=$_GET['opc3'];
-    $opc4=$_GET['opc4'];
-    $opc5=$_GET['opc5'];
-    $opc6=$_GET['opc6'];
-    $opc7=$_POST['opc7'];
-    $opc8=$_GET['opc8'];
-    $opc9=$_GET['opc9'];
-    $opc10=$_GET['opc10'];
-    $opc11=$_GET['opc11'];
-    $opc12=$_GET['opc12'];
+    $exP='exPMetodo'; $exP_Metodo='GET'; require 'extencionesPanel.php'; 
 
+    if (isset($_GET['ModArchivo']) && isset($_GET['opcModArchivo'])) {
+        $ModArchivo=$_GET['ModArchivo'];
+        $opcModArchivo=$_GET['opcModArchivo'];
+        $permiExtras=true;
+        $PermiEditar=true;
+    }
     if (isset($_GET['opcBorrador'])) {
     	$archivo=$_GET['opcBorrador'];
     } else {
@@ -25,89 +20,104 @@ if(!empty($_POST['guardar'])){
 	    	} else {
 	    		$archivo=1;
 	    	}
-	    }	
+	    }
+        if (file_exists('borradores/3.php')){
+            require_once 'borradores/3.php';
+            if (isset($opcExiste) && $opcExiste == true) {
+                header("Location: panel.php?ac=creador&ms=err&msm=borradoresllenos");
+                exit;
+            }
+        }
     }
-   	if ($opc8=='si' or $opc8==true) {
-        $opc8V='true';
-    }
-    if ($opc8=='no' or $opc8==false) {
-        $opc8V='false';
-    }
-    file_put_contents('borradores/'.$archivo.'.php',"<?php\n".'$opc1='."'$opc1'".";\n".'$opc2='."'$opc2'".";\n".'$opc3='."'$opc3'".";\n".'$opc4='."'$opc4'".";\n".'$opc5='."'$opc5'".";\n".'$opc6='."'$opc6'".";\n".'$opc7='."'$opc7'".";\n".'$opc8='."$opc8V".";\n".'$opc9='."'$opc9'".";\n".'$opc10='."'$opc10'".";\n".'$opc11='."'$opc11'".";\n".'$opc12='."'$opc12'".";\n".'$fecha="'.$fechahora.'";'."\n?>");
+    $exP='exPOpc8'; require 'extencionesPanel.php';
+    $exP='exPArchivoMod'; require 'extencionesPanel.php'; 
+    file_put_contents('borradores/'.$archivo.'.php',$ArchivoModDatosContenido);
     $ubiCrearCC='crear_acc';
     $eliminar=true;
-    $publicar='no';
-    require_once 'borrador.php';
-    #$vamos='panel.php?ac=creador'.$datos_introducidos;
-    #header("Location: {$vamos}");
-} else if(!empty($_POST['eliminar']) && $_GET['eli']){
+    #require_once 'borrador.php';
+    $vamos='panel.php?ac=creador&ms=exi&msm=datosguardados&archiguar='.$archivo;
+    header("Location: {$vamos}");
+} else if(!empty($_POST['eliminar']) && $_GET['eli'] && $_GET['tipo']){
+    $eli=$_GET['eli'];
+    $tipo=$_GET['tipo'];
 
-	$eliminar='borradores/'.$_GET['eli'].'.php';
+    if ($tipo=='borrador') {
+    	$eliminar='borradores/'.$eli.'.php';
 
-	if (file_exists($eliminar)) {
-		unlink($AC_DIRECTORIO."administracion/panel/$eliminar");
-		$vamos="panel.php?ac=creador&ms=exi&msm=elimiarchivo";
-		header("Location: {$vamos}");
-	} else {
-		$vamos="panel.php?ac=creador&ms=err&msm=noexisarchivo";
-		header("Location: {$vamos}");
-	}
+    	if (file_exists($eliminar)) {
+    		unlink($AC_DIRECTORIO."administracion/panel/$eliminar");
+    		header("Location: panel.php?ac=creador&ms=exi&msm=elimiarchivo");
+    	} else {
+    		$vamos="panel.php?ac=creador&ms=err&msm=noexisarchivo";
+    		header("Location: {$vamos}");
+    	}
+    } else if ($tipo=='publicada') {
+        $ubi1=$AC_DIRECTORIO."datos/contenidos/$eli.php";
+        if(file_exists($ubi1)){
+            require_once $ubi1;
+            $ubi2=$AC_DIRECTORIO."$opc11$opc12.php";
+            unlink($ubi1);
+            unlink($ubi2);
+            header("Location: panel.php?ac=creador&ms=exi&msm=archivoselimi");
+        }
+    }
 
 } else if(!empty($_POST['publicar']) && $_GET['opcBorrador']){
 	$archivo=$_GET['opcBorrador'];
 	require_once "borradores/$archivo.php";
-	if ($opc8==true) {
-        $opc8V='true';
-    }
-    if ($opc8==false) {
-        $opc8V='false';
-    }
-	$otr=file_get_contents("borradores/$archivo.php");
-	echo htmlspecialchars($otr);
+    if (isset($opcEdi) && isset($opcEdi2)) {
+        $ArchivoEditable=$opcEdi;
+        $ArchivoOpcEditable=$opcEdi2;
+        $SeModifica=true;
+    } else { $SeModifica=false; }
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    $llamarcreador=$AC_DIRECTORIO.'datos/extenciones/extencionCrearCarpetas.php';
-    $crear_carpetas=$AC_DIRECTORIO."administracion/panel/creadas/"; include $llamarcreador;
-    if($opc9=='foro'){
-        $crear_carpetas=$AC_DIRECTORIO."administracion/panel/creadas/$opc12/"; include $llamarcreador;
+    if (isset($SeModifica) && $SeModifica==true) {
+        $UbiArchivo=$AC_DIRECTORIO.'datos/contenidos/'.$ArchivoEditable.'.php';
+        if (file_exists($UbiArchivo)) {
+            $ArchivoModDatos=$UbiArchivo;
+            $ArchivoModComplementos=$AC_DIRECTORIO.$opc11.$opc12.'.php';
+            $exP='exPForo'; require 'extencionesPanel.php';
+            $exP='exPOpc8'; require 'extencionesPanel.php';
+            $exP='exPArchivoMod'; require 'extencionesPanel.php';
+            $exP='exPArchivoModComplementos'; require 'extencionesPanel.php';
+            switch ($ArchivoOpcEditable) {
+                case 'datos':
+                    file_put_contents($ArchivoModDatos,$ArchivoModDatosContenido);
+                    break;
+                case 'complementos':
+                    file_put_contents($ArchivoModComplementos,$ArchivoModComplementosContenido);
+                    break;
+                case 'ambos':
+                    file_put_contents($ArchivoModDatos,$ArchivoModDatosContenido);
+                    file_put_contents($ArchivoModComplementos,$ArchivoModComplementosContenido);
+                    break;
+            }
+            $vamos="panel.php?ac=creador&ms=exi&msm=entrapublicada";
+            header("Location: {$vamos}");
+        }
+    } else {
+    $exP='exPForo'; require 'extencionesPanel.php';
+    function darFormato2($string) { $string = str_replace(array('/'), '-', $string); return $string; }
+    $opc11Convertir=darFormato2(trim($opc11)); $carforoConvertir=darFormato2(trim($carforo));
 
-        $arcini="<?php #SISTEMA POR ARMIN\n".'$'."AC_DIRECTORIO='$opc10';\n".'$'."AC_CARPETA='$opc12';\nrequire_once ".'$'."AC_DIRECTORIO.'datos/foros/"; $arcfin=".php';\n?>";
+    $da1=$AC_DIRECTORIO."datos/contenidos/cn_$opc11Convertir$carforoConvertir$opc12.php";
+    $da2=$AC_DIRECTORIO."$opc11$carforo$opc12.php";
 
-        file_put_contents($crear_carpetas.'form.php',$arcini.'procesar'.$arcfin);
-        file_put_contents($crear_carpetas.'reac.php',$arcini.'reacciones'.$arcfin);
+    if (file_exists($da1) && file_exists($da2)) {
+        header("Location: panel.php?ac=creador&ms=err&msm=exisarchivo2");
+        echo 'El archivo ya existe! no se puede reemplazar';
+        exit;
+    } else { $permiProceder=true; }
 
-        $foroCarpeta="\n".'$'."AC_CARPETA='".$opc12."';";
-        $foro="\n".'$'."TIPO='".$opc9."';";
-        
-        $carforo="$opc12/";
-        $opc12='index';
-        $direforo='../';
-    } else { $carforo=''; $foroCarpeta=''; $foro=''; $direforo=''; }
+    if (isset($permiProceder) && $permiProceder == true) {
+        $exP='exPOpc8'; require 'extencionesPanel.php';
+        $exP='exPArchivoMod'; require 'extencionesPanel.php';
+        $exP='exPArchivoModComplementos'; require 'extencionesPanel.php';
 
-$verA="creadas/$carforo$opc12.php";
-file_put_contents($verA,'<?php #CONTENIDO POR ARMIN
-$AC_DIRECTORIO='."'../../../".$direforo."'".';
-# $AC_DIRECTORIO='."'$opc10'".';'.$foroCarpeta.'
-$AC_UBICACION='."'$opc11'".';
-require_once $AC_DIRECTORIO.'."'datos/datos.php'".';
-require_once $AC_DIRECTORIO.'."'descripciones.php'".';
-$AC_METADESCRIPCION='."'$opc1'".';
-$AC_METADESCRIPCION2='."'$opc1'".';
-$AC_METAETIQUETA='."'$opc3'".';
-$AC_IMG='."'$opc4.png'".';
-$AC_EXTRA='."$opc8V".';
-$AC_TITULO='."'$opc5'".';
-$AC_CATALOGO='."'$opc2'".';
-$AC_DESCRIPCION=$AC_DESCRIPCION_'.$opc12.';
-$AC_FECHA='."'$fechahora'".';
-$AC_CONTENIDO='."'$opc7'".';'.$foro.'
-require_once $AC_DIRECTORIO.'."'datos/displa.php'".';
-?>');
+        file_put_contents($da1,$ArchivoModDatosContenido);
+        file_put_contents($da2,$ArchivoModComplementosContenido);
 
-$GuardarDescripcion=fopen("../../descripciones.php","a");
-fwrite($GuardarDescripcion,'$AC_DESCRIPCION_'.$opc12."='".$opc6."';
-");
-fclose($GuardarDescripcion);
-$vamos="panel.php?ac=creador&ms=exi&msm=entrapublicada";
-header("Location: {$vamos}");
+        header("Location: panel.php?ac=creador&ms=exi&msm=entrapublicada");
+    }
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>
-} else { $AC_DIREC='../../'; $AC_ENCONTRAR='creador/'; require_once $AC_DIREC.'error.php'; }
+} } else { $AC_DIREC='../../'; $AC_ENCONTRAR='creador/'; require_once $AC_DIREC.'error.php'; }
