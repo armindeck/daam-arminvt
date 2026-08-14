@@ -5,7 +5,7 @@ if (isset($_POST['like'])) {
 		if (isset($_GET['dir'])) {
 			$id=$_GET['id'];
 			$dir=$_GET['dir'];
-			$UbicacionArchivoContador=$AC_DIRECTORIO.$AC_CARPETA.'/datos/reacciones/l'.$id.'.txt';
+			$UbicacionArchivoContador=$AC_DIRECTORIO.$AC_UBICACION.$AC_CARPETA.'/datos/reacciones/l'.$id.'.txt';
 			include $AC_DIRECTORIO.'datos/extenciones/extencionContador.php';
 			header("Refresh:1; url=$AC_DIRECTORIO$dir");
 		}
@@ -15,7 +15,7 @@ if (isset($_POST['like'])) {
 		if (isset($_GET['dir'])) {
 			$id=$_GET['id'];
 			$dir=$_GET['dir'];
-			$UbicacionArchivoContador=$AC_DIRECTORIO.$AC_CARPETA.'/datos/reacciones/d'.$id.'.txt';
+			$UbicacionArchivoContador=$AC_DIRECTORIO.$AC_UBICACION.$AC_CARPETA.'/datos/reacciones/d'.$id.'.txt';
 			include $AC_DIRECTORIO.'datos/extenciones/extencionContador.php';
 			header("Refresh:1; url=$AC_DIRECTORIO$dir");
 		}
