@@ -1,5 +1,4 @@
 <?php #DESCRIPCIONES
-#error_reporting(0);
 $AC_DESCRIPCION_armin='Soy una persona amable que le gusta ser Vtuber y crear paginas web de distintos temas, como las store de app y juegos, además me gusta crear foros como forolink y las demás paginas que e creado a lo largo de mis días estudiando y aprendiendo HTML, CSS y PHP.';
 $AC_DESCRIPCION_salir='Sigamos un camino distinto al del forolink de '.$NombreWeb.', quiero conocer nuevos territorios y conocer gente nueva que me inspire y me apoye en este nuevo camino.';
 $AC_DESCRIPCION_index=$NombreWeb.' es un sitio web donde puede divertirte comentando en los forolink, viendo videos, publicaciones, descargando juegos, aplicaciones y muchas cosas más.';
@@ -20,5 +19,3 @@ $AC_DESCRIPCION_cursohtmlbasico='Curso de HTML Básico: Aprende a desarrollar un
 $AC_DESCRIPCION_menuepicogms='Crea un Menú Epico desde cero, incluso si no tienes experiencia previa en GML. Aprenderás a crear el menú por código y de una forma optimizada, e incluso con una alternativa bien épica!';
 $AC_DESCRIPCION_imagenes='NONE';
 $AC_DESCRIPCION_plantasvszombies='Cree Plants Vs Zombies en 5 Dias! y asi se ve!';
-$AC_DESCRIPCION_index='He creado Plantas contra zombies en tan solo 4 dias! y lo hice usando Game Maker!';
-$AC_DESCRIPCION_plantasvszombies='He creado Plantas contra zombies en tan solo 4 dias! y lo hice usando Game Maker!';
