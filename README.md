@@ -19,6 +19,15 @@ Para saber más sobre esta página, ver imágenes y demás, puedes visitar el si
 Esta versión introduce la **Licencia de Uso No Transferible**, que prohíbe la venta del código.  
 Consulta el archivo [`LICENSE`](./LICENSE) para conocer los términos de uso y restricciones.  
 
+## ⚠️ ATENCIÓN
+
+- **Autor:** Armin, creador de daam.
+- **Requisitos:** PHP 7+.
+- **Credenciales por defecto:** Usuario: `admin`, Contraseña: `Admin123`, Código: `123` (ver [datos/admin_data.php](datos/admin_data.php)).
+- **Base de datos:** Importa `paginaweb.sql` en MySQL y configura la conexión en [datos/permisos_usuarios.php](datos/permisos_usuarios.php). Las credenciales son las mismas indicadas arriba.
+- **Rescate del panel:** Existe el directorio `ediadmin` que contiene archivos para recuperar acceso si falla el editor o el panel. Usuario/contraseña por defecto: admin/Admin123 — cámbialos cuando puedas.
+- Para más información y actualizaciones visita: https://dbproject.rf.gd
+
 ## 🌐 Información adicional  
 🔗 Página oficial: [dbproject.rf.gd](https://dbproject.rf.gd)  
 📧 Contacto: Armin Deck  
