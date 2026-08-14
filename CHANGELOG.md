@@ -1,6 +1,23 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
+## [0.3.2 Beta] - 25/08/2023
+
+### 🚀 Novedades y mejoras
+
+Versión menor enfocada en mejoras del panel de administración, publicación y personalización de temas, junto a correcciones de estabilidad y experiencia de usuario.
+
+- Actualización de versión a `v0.3.2 Beta` y ajustes de metadatos.
+- Panel de administración: mejoras en navegación y edición, nueva gestión de imágenes y archivos (`imagen.php`, `archivos.php`, `actualizar_acc.php`), y refactor de scripts del panel para mayor consistencia.
+- Publicaciones y Forolink: mejor manejo de carga en `cargar.php` y aumento del límite de comentarios en `procesar.php` para permitir entradas más largas.
+- Formularios y procesadores: nuevos campos y validación mejorada en formularios (`form/iobi/*`, `formulario.php`, `procesar.php`).
+- Temas y personalización: nuevos perfiles de tema y ajustes en CSS (soporte dark/light, variables de color y opciones de tema).
+- Perfil y seguridad: mejoras en edición y gestión de contraseñas, eliminación de perfiles y manejo de sesiones.
+- Anuncios, mensajes y utilidades: mejoras en `anuncio.php`, `mensajes.php` y en la presentación de avisos y errores durante uploads.
+- Activos y recursos: nuevos assets de imagen y logo, y actualizaciones en contenido multimedia y tutoriales.
+- Correcciones menores: ajustes en rutas, includes/requires, meta tags para SEO y mejoras de accesibilidad.
+
+
 ## [0.3.1 Beta] - 31/07/2023
 
 ### ✨ Mejoras y correcciones principales
