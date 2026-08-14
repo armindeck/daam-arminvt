@@ -100,7 +100,7 @@ if(isset($_SESSION['id']) || isset($_SESSION['usuario'])){
 
         <?php endif; ?>
 
-        <textarea name="comentario" placeholder="<?php echo $FCampoContenido; ?> &#xf521"; title="<?php echo $FCampoContenido; ?>  " minlength="10" maxlength="1400" required></textarea>
+        <textarea name="comentario" placeholder="<?php echo $FCampoContenido; ?> &#xf521"; title="<?php echo $FCampoContenido; ?>  " minlength="10" maxlength="5000" required></textarea>
 
         <input type="url" name="imagen" placeholder="Link de la imagen &#xf03e"; title="Aquí pones el links :3" minlength="20" pattern="^(http(s)?:\/\/)+[\w\-\._~:\/?#[\]@!\$&\(\)\*\+=.]+$"><hr>
 
