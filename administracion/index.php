@@ -1,16 +1,18 @@
 <?php #CONTENIDO POR ARMIN
 $AC_DIRECTORIO='../';
-include $AC_DIRECTORIO.'datos/datos.php';
-require $AC_DIRECTORIO.'descripciones.php';
-$AC_METADESCRIPCION='none';
-$AC_METADESCRIPCION2='none';
-$AC_METAETIQUETA='none';
-$AC_IMG='arminvtmin.png';
-$AC_EXTRA=false;
-$AC_TITULO='Administracion';
-$AC_DESCRIPCION=$AC_DESCRIPCION_administracion;
-$AC_FECHA='03 Mar 2023 - 5:23pm';
-#>>>>>>>>>>>>>>
+require_once $AC_DIRECTORIO.'datos/contenidos/cn_administracion-index.php';
+$AC_UBICACION=$opc11;
+$AC_ARCHIVO=$opc12;
+require_once $AC_DIRECTORIO.'datos/datos.php';
+$AC_METADESCRIPCION=$opc1;
+$AC_METADESCRIPCION2=$opc1;
+$AC_METAETIQUETA=$opc3;
+$AC_IMG=$opc4;
+$AC_EXTRA=$opc8;
+$AC_TITULO=$opc5;
+$AC_CATALOGO=$opc2;
+$AC_DESCRIPCION=$opc6;
+$AC_FECHA='2023-07-28 - 3:49pm';
 $formulario='<p class="texini">Administracion</p>
 <div class="flexCon flexCen">
     <form method="post" class="formulario">
@@ -24,26 +26,26 @@ $formulario='<p class="texini">Administracion</p>
 </div>';
 #>>>>>>>>>>>>>>
 if(!empty($_POST['IniAdmin'])){
-    require $AC_DIRECTORIO.'datos/extenciones/extencionDarFormato.php';
+    $ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
     $_SESSION['usuario']=darFormatoNoSimbolos(trim($_POST['usuario']));
-    $_SESSION['codigo']=darFormato(trim($_POST['codigo']));
-    $_SESSION['code']=darFormatoNoSimbolos(trim($_POST['code']));
+    $_SESSION['codigo']=darFormato(trim(md5($_POST['codigo'])));
+    $_SESSION['code']=darFormatoNoSimbolos(trim(md5($_POST['code'])));
 }
 
 if(!empty($_SESSION['usuario']) && !empty($_SESSION['codigo']) && !empty($_SESSION['code'])){
     $var=$_SESSION['usuario']; $var2=$_SESSION['codigo']; $var3=$_SESSION['code'];
     
     if($var===$adminprivado['usuario'] && $var2===$adminprivado['codigo'] && $var3===$adminprivado['code']){
-        $vamos='panel/panel.php';
-        header("Location:{$vamos}");
+        $_SESSION['rol']=5;
+        header("Location: panel/panel.php");
     } else { session_destroy(); header("Location: ?ms=err&msm=usuoconocod"); }
 } else { $AC_CONTENIDO=$formulario.$lugarMensaje; }
 
 if(isset($_SESSION['id']) && $_SESSION['rol'] == 5){
-    $vamos='panel/panel.php';
-    header("Location:{$vamos}");
+    header("Location: panel/panel.php");
 }
-
-#>>>>>>>>>>>>>>
-include $AC_DIRECTORIO.'datos/displa.php';
+require_once $AC_DIRECTORIO.'datos/displa.php';
+$AC_EXISTE=$opcExiste;
+$AC_ESTADO=$opcEstado;
+#v0.3.1 Beta
 ?>
