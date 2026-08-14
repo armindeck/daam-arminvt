@@ -12,11 +12,11 @@ if($c=='datos'){
 
 if($c=='inicio'){
 	if($a=='htaccess'){ $final='.'.$a; }
-	if($a=='version'){ $final=$a.'.txt'; }
+	if($a=='version' || $a=='LEEME'){ $final=$a.'.txt'; }
 	if($a=='entradas'){ $final=$AdPa.'entradas.php'; }
 
 }
-if($c=='Cabeza' || $c=='Menu' || $c=='MenuLateral' || $c=='PiedePagina'){
+if($c=='Cabeza' || $c=='Menu' || $c=='ContenidoExtra' || $c=='MenuLateral' || $c=='PiedePagina'){
 
 	$final=$AdPa.'scripts/'.$c.'/'.$a.'.php';
 	$final2=$AdPa.'scripts/'.$c.'/';
