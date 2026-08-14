@@ -47,11 +47,12 @@ $comentario=[
 ],
 [
 'id'=>6,
+'tipo'=>'forolink',
+'ubicacion'=>'',
 'carpeta'=>'blog',
 'rol'=>'admin',
 'nombre'=>'Armin',
-'enlace'=>'https://arminvt.site/forolink/',
-'comentario'=>'<b> Ahora puedes colocar imagenes! </b> <i> Simplemente coloca el link de alguna imagen! </i>',
-'imagen'=>'https://arminvt.site/img/forolink.png',
-'fecha'=>'13 Jul 2023 - 6:05pm'
+'enlace'=>'http://pepe.com/dadasd5476d4a6',
+'comentario'=>'fsfsd ada dasd sdasdas dasd',
+'fecha'=>'21 Jul 2023 - 10:25am'
 ]];
