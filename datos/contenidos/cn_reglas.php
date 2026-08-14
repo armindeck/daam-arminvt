@@ -10,8 +10,9 @@ $opc8='si';
 $opc9='normal';
 $opc10='./';
 $opc11='';
-$opc12='reglas2';
-$fecha="20 Jul 2023 - 6:27pm";
+$opc12='reglas';
+$fecha="2023-07-27 - 10:23pm";
 $opcEstado='publico';
 $opcExiste=true;
+#v0.3 Beta
 ?>
