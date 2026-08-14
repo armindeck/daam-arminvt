@@ -78,7 +78,7 @@ $fecha=date('Y-m-d');
 
 $fechahora=date('Y-m-d - g:ia');
 
-$version='v0.3.2 Beta';
+$version='v0.3.3 Beta Estable';
 
 session_start();
 
