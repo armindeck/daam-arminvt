@@ -14,10 +14,10 @@
 	<hr><span title="Se muestra al final del elemento 2">Mostrar noticias <input type="checkbox" name="opcnoticias" <?php if(isset($MenuLateralNoticias) && $MenuLateralNoticias=='on'){ echo 'checked'; } ?>></span>
 <?php endif; endif; ?>
 <?php if($i===3): ?>
-	<hr><span title="Se muestra al final del elemento 3">Mostrar frases <input type="checkbox" name="opcfrases" <?php if(isset($MenuLateralFrases) && $MenuLateralFrases=='on'){ echo 'checked'; } ?>></span>
+	<hr><span title="Se muestra al final del elemento 3">Mostrar random <input type="checkbox" name="opcrandom" <?php if(isset($MenuLateralRandom) && $MenuLateralRandom=='on'){ echo 'checked'; } ?>></span>
 <?php endif; ?>
 <?php if($i===4): ?>
-	<hr><span title="Se muestra al final del elemento 4">Forolink <input type="checkbox" name="opcforolink" <?php if(isset($MenuLateralForolink) && $MenuLateralForolink=='on'){ echo 'checked'; } ?>></span>
+	<hr><span title="Se muestra al final del elemento 4">Publicaciones <input type="checkbox" name="opcpublicaciones" <?php if(isset($MenuLateralPublicaciones) && $MenuLateralPublicaciones=='on'){ echo 'checked'; } ?>></span>
 	<span title="Se muestra al final del elemento 4">Visitas <input type="checkbox" name="opcvisitas" <?php if(isset($MenuLateralVisitas) && $MenuLateralVisitas=='on'){ echo 'checked'; } ?>></span>
 	<span title="Se muestra al final del elemento 4">versión <input type="checkbox" name="opcversion" <?php if(isset($MenuLateralVersion) && $MenuLateralVersion=='on'){ echo 'checked'; } ?>></span>
 <?php endif; ?>

@@ -1,7 +1,7 @@
-<?php if($i===1 && $CabezaTituloWeb=='on'): ?>
-<a class="tituloWeb t18" href="<?php echo $EnlaceWeb; ?>"><?php echo $NombreWeb; ?> <i class="fas fa-meteor"></i></a>
+<?php if($i===1 && isset($CabezaTituloWeb) && $CabezaTituloWeb=='on'): ?>
+<a class="tituloWeb t18" href="<?php echo $AC_DIRECTORIOs; ?>"><?php echo $NombreWeb; ?> <i class="fas fa-meteor"></i></a>
 <?php endif; ?>
-<?php if($i===4 && $CabezaRedes=='on'): ?><div class="der">
+<?php if($i===2 && isset($CabezaRedes) && $CabezaRedes=='on'): ?><div class="der">
     <?php if (!empty($_SESSION['id'])){ echo '<a class="boton" href="'.$AC_DIRECTORIO.'perfil'.$AGREGAR_PHP.'">Perfil</a><a class="boton" href="?s=cerrar">Salir</a>'; } ?>
 <?php if($CabezaTema=='on'): ?>
     <a href="<?php echo $colores; ?>"><i class="<?php echo $emojiTema; ?>"></i></a>

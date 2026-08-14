@@ -2,7 +2,7 @@
 <?php if($i===1): ?>
 <hr><span title="Se muestra al final del elemento 1">Mostrar Titulo <input type="checkbox" name="opctituloweb" <?php if(isset($CabezaTituloWeb) && $CabezaTituloWeb=='on'){ echo 'checked'; } ?>></span>
 <?php endif; ?>
-<?php if($i===4): ?>
+<?php if($i===2): ?>
 <hr><span title="Se muestra al final del elemento 1">Mostrar redes sociales <input type="checkbox" name="opcredes" <?php if(isset($CabezaRedes) && $CabezaRedes=='on'){ echo 'checked'; } ?>></span>
 <hr><span title="Tema">TM <input type="checkbox" name="opctema" <?php if(isset($CabezaTema) && $CabezaTema=='on'){ echo 'checked'; } ?>></span>
 <span title="Facebook">FB <input type="checkbox" name="opcredesfb" <?php if(isset($CabezaRedesFB) && $CabezaRedesFB=='on'){ echo 'checked'; } ?>></span>

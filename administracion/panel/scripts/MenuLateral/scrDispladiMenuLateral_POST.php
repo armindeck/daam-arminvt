@@ -1,5 +1,5 @@
 <?php #ENVIOS MEDIANTE POST PARA EL USUARIO
-if($_POST["opcmenulateralscripts"]=="on"){
+if($_POST["opcmostrarscripts"]=="on"){
 #REDES SOCIALES
 if(isset($_POST['opcredes'])){ $opcredes=trim($_POST['opcredes']); } else { $opcredes=''; }
 if(isset($_POST['opcredestitulo'])){ $opcredestitulo=trim($_POST['opcredestitulo']); } else { $opcredestitulo=''; }
@@ -12,11 +12,11 @@ if(isset($_POST['opcredeskf'])){ $opcredeskf=trim($_POST['opcredeskf']); } else 
 
 #OTRAS
 $opcnoticias=trim($_POST['opcnoticias']);
-$opcfrases=trim($_POST['opcfrases']);
-$opcforolink=trim($_POST['opcforolink']);
+$opcrandom=trim($_POST['opcrandom']);
+$opcpublicaciones=trim($_POST['opcpublicaciones']);
 $opcvisitas=trim($_POST['opcvisitas']);
 $opcversion=trim($_POST['opcversion']);
 
-$archiD="\n<?php #CONTENIDO POR EL USUARIO\n".'$MenuLateralRedes='."'$opcredes';\n".'$MenuLateralRedesTitulo='."'$opcredestitulo';\n".'$MenuLateralRedesFB='."'$opcredesfb';\n".'$MenuLateralRedesYT='."'$opcredesyt';\n".'$MenuLateralRedesTW='."'$opcredestw';\n".'$MenuLateralRedesTK='."'$opcredestk';\n".'$MenuLateralRedesPT='."'$opcredespt';\n".'$MenuLateralRedesKF='."'$opcredeskf';\n".'$MenuLateralNoticias='."'$opcnoticias';\n".'$MenuLateralFrases='."'$opcfrases';\n".'$MenuLateralForolink='."'$opcforolink';\n".'$MenuLateralVisitas='."'$opcvisitas';\n".'$MenuLateralVersion='."'$opcversion';\n"."#ACTUALIZADO: $fechahora\n?>";
+$archiD="\n<?php #CONTENIDO POR EL USUARIO\n".'$MenuLateralRedes='."'$opcredes';\n".'$MenuLateralRedesTitulo='."'$opcredestitulo';\n".'$MenuLateralRedesFB='."'$opcredesfb';\n".'$MenuLateralRedesYT='."'$opcredesyt';\n".'$MenuLateralRedesTW='."'$opcredestw';\n".'$MenuLateralRedesTK='."'$opcredestk';\n".'$MenuLateralRedesPT='."'$opcredespt';\n".'$MenuLateralRedesKF='."'$opcredeskf';\n".'$MenuLateralNoticias='."'$opcnoticias';\n".'$MenuLateralRandom='."'$opcrandom';\n".'$MenuLateralPublicaciones='."'$opcpublicaciones';\n".'$MenuLateralVisitas='."'$opcvisitas';\n".'$MenuLateralVersion='."'$opcversion';\n"."#ACTUALIZADO: $fechahora\n?>";
 }
 ?>

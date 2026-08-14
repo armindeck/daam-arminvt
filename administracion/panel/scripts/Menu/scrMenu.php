@@ -13,9 +13,9 @@ $MenuE1C='';
 $MenuE2C='';
 $MenuE3C='';
 $MenuE4C='';
-$MenuElementos=4;
+$MenuElementos=1;
 $MenuScripts='on';
-#ACTUALIZADO: 2023-07-31 - 4:31pm
+#ACTUALIZADO: 2023-08-22 - 11:21pm
 ?>
 <?php #CONTENIDO POR EL USUARIO
 $MenuBotones='on';?>

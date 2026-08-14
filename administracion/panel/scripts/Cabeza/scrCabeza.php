@@ -2,9 +2,9 @@
 $Cabeza='on';
 $CabezaCodigos='';
 $CabezaE1='on';
-$CabezaE2='';
+$CabezaE2='on';
 $CabezaE3='';
-$CabezaE4='on';
+$CabezaE4='';
 $CabezaE1T='';
 $CabezaE2T='';
 $CabezaE3T='';
@@ -13,9 +13,9 @@ $CabezaE1C='';
 $CabezaE2C='';
 $CabezaE3C='';
 $CabezaE4C='';
-$CabezaElementos=4;
+$CabezaElementos=2;
 $CabezaScripts='on';
-#ACTUALIZADO: 2023-07-31 - 4:32pm
+#ACTUALIZADO: 2023-08-22 - 11:20pm
 ?>
 <?php #CONTENIDO POR EL USUARIO
 $CabezaRedes='on';
@@ -27,5 +27,5 @@ $CabezaRedesTW='on';
 $CabezaRedesTK='on';
 $CabezaRedesPT='on';
 $CabezaRedesKF='on';
-#ACTUALIZADO: 2023-07-31 - 4:32pm
+#ACTUALIZADO: 2023-08-22 - 11:20pm
 ?>

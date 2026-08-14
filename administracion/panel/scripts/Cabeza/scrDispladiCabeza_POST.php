@@ -1,5 +1,5 @@
 <?php #ENVIOS MEDIANTE POST PARA EL USUARIO
-if($_POST["opccabezascripts"]=="on"){
+if($_POST["opcmostrarscripts"]=="on"){
 #REDES SOCIALES
 if(isset($_POST['opcredes'])){ $opcredes=trim($_POST['opcredes']); } else { $opcredes=''; }
 if(isset($_POST['opctituloweb'])){ $opctituloweb=trim($_POST['opctituloweb']); } else { $opctituloweb=''; }

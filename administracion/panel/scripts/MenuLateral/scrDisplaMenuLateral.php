@@ -1,5 +1,5 @@
 <?php #CONTENIDO DE DISPLA Y MODIFICACION POR EL USUARIO ?>
-<?php if($i===1 && $MenuLateralRedes=='on'): ?>
+<?php if($i===1 && isset($MenuLateralRedes) && $MenuLateralRedes=='on'): ?>
     <hr><p class="t14"><?php echo $MenuLateralRedesTitulo; ?></p><hr>
 <?php if($MenuLateralRedesFB=='on'): ?>
     <a target="_blank" href="<?php echo $EnlaceFacebook; ?>"><i class="fab fa-facebook iredes"></i></a>
@@ -14,13 +14,13 @@
 <?php endif; if($MenuLateralRedesKF=='on'): ?>
     <hr><a target="_blank" class="t14 boton" href="<?php echo $EnlaceKofi; ?>">Invitame un Cafe <i class="fas fa-mug-hot"></i></a>
 <?php endif; endif; ?>
-<?php if($i===2 && $MenuLateralNoticias=='on'): ?>
+<?php if($i===2 && isset($MenuLateralNoticias) && $MenuLateralNoticias=='on'): ?>
     <div class="noticias" style="height: 300px; overflow: auto;">
-    <?php $AC_UBICACION=''; $AC_ARCHIVO='blog'; $MLADO=true; $ActivoNoticias=true;  $AccesoCargar=true;
+    <?php $AC_UBICACION=''; $AC_ARCHIVO='blog'; $MLADO=true; $ActivoNoticias=true; $TIPO='blog';  $AccesoCargar=true;
     require $AC_DIRECTORIO.'form/iobi/cargar.php'; ?>
     </div>
 <?php endif; ?>
-<?php if($i===3 && $MenuLateralFrases=='on'): ?>
+<?php if($i===3 && isset($MenuLateralRandom) && $MenuLateralRandom=='on'): ?>
     <p class="t12"><?php
 $random=rand(1,6);
 
@@ -43,13 +43,13 @@ $random=rand(1,6);
 	echo '<a target="_blank" href="'.$link.'">'.$mostrarFrase.'</a>';
 ?></p>
 <?php endif; ?>
-<?php if($i===4 && $MenuLateralForolink=='on'): ?>
+<?php if($i===4 && isset($MenuLateralPublicaciones) && $MenuLateralPublicaciones=='on'): ?>
     <?php $estados=$AC_DIRECTORIO.'form/data/data#forolink/estados/'; ?>
-    <p class="t12" title="Todos las publicaciones"><i class="fas fa-circle t12 azul"></i> <?php $estados_todos=file_get_contents($estados.'todos.txt'); echo $estados_todos.' total'; ?></p><hr>
+    <p class="t12" title="Todos las publicaciones"><i class="fas fa-circle t12 azul"></i> <?php if(file_exists($estados)){ $estados_todos=file_get_contents($estados.'todos.txt'); echo $estados_todos.' total'; } ?></p><hr>
 <?php endif; ?>
-<?php if($i===4 && $MenuLateralVisitas=='on'): ?>
+<?php if($i===4 && isset($MenuLateralVisitas) && $MenuLateralVisitas=='on'): ?>
     <p class="t12"><i class="fas fa-eye deri t12"></i> <?php $visi=file_get_contents($AC_DIRECTORIO.'visitas.txt'); echo $visi; ?></p><hr>
 <?php endif; ?>
-<?php if($i===4 && $MenuLateralVersion=='on'): ?>
+<?php if($i===4 && isset($MenuLateralVersion) && $MenuLateralVersion=='on'): ?>
     <p class="t12"><i class="fas fa-fire deri t12"></i> <?php echo $version; ?></p>
 <?php endif; ?>
