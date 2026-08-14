@@ -59,6 +59,9 @@ switch ($dmensaje) {
 
 	case 'usuoemare': $conmensaje='El nombre de usuario o el email ya se encuentran registrados.'; break;
 
+	case 'reaccion': $conmensaje='Oh! gracias por haber reaccionado!'; break;
+	case 'publicado': $conmensaje='Oh! gracias por haber publicado!'; break;
+
 	case 'regiexitoso': $conmensaje='El registro fue exitoso.'; break;
 
 	case 'regifallido': $conmensaje='El registro fallo.'; break;
@@ -71,21 +74,24 @@ switch ($dmensaje) {
 	case 'exisarchivo2': $conmensaje='Oh! los archivos existen! use: Modificador'; break;
 	case 'noexisarchivo': $conmensaje='Oh! no existe el archivo!'; break;
 	case 'direcreado': $conmensaje='Directorio creado!'; break;
+	case 'direliminado': $conmensaje='Directorio eliminado!'; break;
 	case 'direxiste': $conmensaje='Oh! el directorio existe!'; break;
 	case 'varcarpetanoexiste': $conmensaje='Oh! la variable carpeta no existe!'; break;
-	case 'informeverificar': $conmensaje='Atención, se muestra el siguiente informe:'; break;
+	case 'direcreados': $conmensaje='Atención: Se crearon los directorios.'; break;
+	case 'direbien': $conmensaje='Todos los directorios se encuentran bien.'; break;
 	case 'entrapublicada': $conmensaje='La entrada fue publicada!'; break;
 	case 'borradoresllenos': $conmensaje='Oh! parece que los borradores se encuentran llenos!'; break;
 
+	case 'accdenegado': $conmensaje='Oh! no tiene acceso a este directorio!'; break;
 	#case '': $conmensaje=''; break;
 
-	#default: $conmensaje='No hay mensaje que mostrar.'; break;
+	default: $conmensaje='No hay mensaje que mostrar.'; break;
 
 }
 
 
 
-$lugarMensaje='<p class="texini '.$bgc.'">'.$conmensaje.'</p>';
+$lugarMensaje='<p class="texinimen '.$bgc.'">'.$conmensaje.'</p>';
 
 }
 
