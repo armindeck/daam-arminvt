@@ -6,8 +6,9 @@ if($_SESSION['id']){
 if ($_SESSION['rol'] == 0) {
     $rol='Registrado';
 }
+if(!isset($TemaPorElUsuario)){ $TemaPorElUsuario='Default'; }
 $adm='';
-if($_SESSION['rol'] == 5){ $rol='Administrador'; $adm='<a class="boton" href="'.$AC_DIRECTORIOs.'administracion/">Administración</a>'; }
+if($_SESSION['rol'] == 5){ $rol='Administrador'; $adm='<a class="boton2" href="'.$AC_DIRECTORIOs.'administracion/">Administración</a>'; }
 if(strlen($_SESSION['redsocial'])==0){ $redSocial=$EnlaceWeb; } else { $redSocial=$_SESSION['redsocial']; }
 ///Inicio sesion
 $id=$_SESSION['id'];
@@ -40,9 +41,10 @@ $AC_CONTENIDO='<p class="texini">Bienvenid@ '.$_SESSION['nombre'].'</p>
     <li class="t12">Registro: '.$_SESSION['registro'].'</li>
     <li class="t12">Inicio: '.$_SESSION['inicio'].'</li>
     <li class="t12">Red social: '.$redSocial.'</li>
+    <li class="t12">Tema: '.$TemaPorElUsuario.'</li>
     </ol>
 </div>
-<p class="texini t14">'.$adm.'<a class="boton" href="perfil_editar'.$AGREGAR_PHP.'">Editar cuenta</a> <a class="boton" href="perfil_eliminar'.$AGREGAR_PHP.'">Eliminar cuenta</a></p>';
+<p class="texini t14">'.$adm.'<a class="boton" href="perfil_editar'.$AGREGAR_PHP.'">Editar cuenta</a> <a class="boton2" href="perfil_editar_contrasena'.$AGREGAR_PHP.'">Cambiar contraseña</a> <a class="boton" href="perfil_eliminar'.$AGREGAR_PHP.'">Eliminar cuenta</a></p>';
 include $AC_DIRECTORIO.'datos/displa.php';
 } else { header("Location: iniciar"); }
 ?>
