@@ -12,7 +12,7 @@ Usuario: admin
 Contraseña: Admin123
 Codigo: 123
 
-La contraseña, codigo y usuario la encuentran en el archivo: datos/extra.php
+La contraseña, codigo y usuario la encuentran en el archivo: datos/admin_data.php
 
 
 Para usar la base de datos, use MySQL e importe el archivo sql.
@@ -29,4 +29,4 @@ ATENCION:
 Espero que disfrutes esta pagina web :D
 Sayonara :3
 
-(c) 2024 Armin | dbproject.rf.gd
+(c) 2023 Armin | dbproject.rf.gd
