@@ -36,13 +36,13 @@ header i:hover{ font-size: 18px; }
 }
 
 nav{
-    padding: 0px 6px 0px 0px;
+    padding: 0px 6px 1px 0px;
     color: var(--mecolor);
     background: var(--menu);
 }
 nav a{
     display: inline-block;
-    padding: 6px 2px;
+    padding: 6px 2px 6px 4px;
     font-family: 'Boogaloo';
     color: var(--navacolor);
     background: none;
@@ -120,16 +120,19 @@ footer{
 footer a i{ color: var(--ifin); } footer a i:hover{ font-size: 18px; }
 
 .flexCon, footer{ width: 100%; margin: auto; }
-.texini, li{ margin: 4px; }
-.texini, li, .contexcn{
+.texini, .texinimen, li{ margin: 4px; }
+.texini, .texinimen, li, .contexcn{
     padding: 0.8em;
     border-radius: 4px;
-    color: var(--texinilicolor);
-    background: var(--texinili);
     box-shadow: 0px 0px 0px 1px rgb(0,0,0,.1);
 }
 
-.texini > a, .contexcn > a{ font-weight: bold; }
+.texini, li, .contexcn{
+    color: var(--texinilicolor);
+    background: var(--texinili);
+}
+
+.texini a, .contexcn a, .texinimen a{ font-weight: bold; }
 
 .contexcn{
     width: 350px;
@@ -141,8 +144,8 @@ footer a i{ color: var(--ifin); } footer a i:hover{ font-size: 18px; }
 .imagen .img1, .imagen .img2{ width: 100%; transition: 0.5s all ese-in-out; border-radius: 4px; }
 .imagen:hover .img1:hover,.imagen:hover .img2:hover{ transform: rotate(3deg) scale(1.2); transition: 0.5s; }
 
-.m2 a .imagen .img1{ max-width: 350px; height: 200px; }
-.m3 a .imagen .img1{ max-width: 185px; height: 250px; }
+.m2 a .imagen .img1, .m2 .imagen .img1{ max-width: 350px; height: 200px; }
+.m3 a .imagen .img1, .m3 .imagen .img1{ max-width: 185px; height: 250px; }
 
 .m3{ margin:2px; }
 .m3 a .contexcn{ max-width: 185px; max-height: 250px; }
