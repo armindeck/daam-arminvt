@@ -36,6 +36,8 @@ $AC_CONTENIDO='
 
     <a href="?ac=archivos"><i class="fas fa-file-code"></i> Archivos</a>
 
+    <a target="_blank" href="directorio.php"><i class="fas fa-sitemap"></i> Directorios</a>
+
     <a href="?ac=anuncios"><i class="fas fa-anuncios"></i> Anuncios</a><!-- newspaper -->
 
     <a href="?ac=editor"><i class="fas fa-edit"></i> Editor</a>
