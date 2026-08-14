@@ -121,6 +121,37 @@ if ($_POST['IniCrearArchivo']){
 
 } else
 
+#ACTUALIZAR EDITOR ----------------------->
+
+if ($_POST['IniSubirImagen']){
+
+    //$imagen=$_POST['imagen'];
+
+if(isset($_FILES)){
+    $nombre=$_FILES['imagen']['name'];
+    $tamano=$_FILES['imagen']['size'];
+    $tipo=$_FILES['imagen']['type'];
+    $error=$_FILES['imagen']['error'];
+    $tmp=$_FILES['imagen']['tmp_name'];
+
+    echo "Nombre: $nombre<br>Tamaño: $tamano<br>Tipo: $tipo<br>Error: $error<br>Tmp: $tmp";
+    if($error>0){ header("location:panel.php?ac=imagen&ms=err&msm=oherror"); }
+	    else{
+	    	if($tipo=='image/jpg' || $tipo=='image/jpeg' || $tipo=='image/png' || $tipo=='image/gif'){
+	    		if(file_exists("../../img/".$nombre)){
+	    			header("location:panel.php?ac=imagen&ms=err&msm=exisarchivo");
+	    		} else {
+	    			$guardar_en="../../img/".$nombre;
+	    			move_uploaded_file($tmp, $guardar_en);
+	    			header("location:panel.php?ac=imagen&ms=exi&msm=archisubido&dir=$guardar_en");
+		    	}
+	    	}
+	    	else { header("location:panel.php?ac=imagen&ms=err&msm=archinopermitido"); }
+	    }
+	}
+
+} else
+
 #ACTUALIZAR ANUNCIOS ----------------------->
 
 if ($_POST['IniAnuncio']){
@@ -204,6 +235,8 @@ if ($_POST['IniAnuncio']){
 		$cfg20=$_POST['cfg20'];
 
 		$cfg21=$_POST['cfg21'];
+		$cfglocalhost=darFormato(trim($_POST['cfglocalhost']));
+		$cfgadminexterno=darFormato(trim($_POST['cfgadminexterno']));
 
 		$cfgversion=$_POST['cfgversion'];
 
@@ -217,6 +250,9 @@ if ($_POST['IniAnuncio']){
 		if($cfg18==true){ $cfg18='.php'; } else { $cfg18=''; }
 
 		if($cfg19==true){ $cfg19="'https://'.".'$EnlaceWebNoHttps'.".'/'"; } else { $cfg19='$AC_DIRECTORIO'; }
+
+		$cfgadminexternoopc='$AC_DIRECTORIOs$UsuarioAdmin$AGREGAR_PHP';
+		if($cfgadminexterno!=''){ $cfgadminexternoopc=$cfgadminexterno; }
 
 $guardar='<?php #error_reporting(0);
 
@@ -262,13 +298,15 @@ $EnlaceWeb='."'".$cfg16."'".';
 
 $EnlaceWebNoHttps='."'".$cfg17."'".';
 
+$LocalHost='."'".$cfglocalhost."'".';
+
 $EnlaceWebS='.$cfg19.'; #'."'https://arminvt.site/'; --- ".'$AC_DIRECTORIO;
 
 $AC_DIRECTORIOs=$EnlaceWebS;
 
 $AGREGAR_PHP='."'".$cfg18."'".';
 
-$EnlaceAdmin=$AC_DIRECTORIOs.$UsuarioAdmin.$AGREGAR_PHP;
+$EnlaceAdmin="'.$cfgadminexternoopc.'";
 
 $EnlaceFacebook='."'https://facebook.com/'".'.$UsuarioFacebook;
 
@@ -316,50 +354,13 @@ require_once $AC_DIRECTORIO.'."'datos/extenciones.php';
 
 	}  else
 
-#ACTUALIZAR MENU LATERAL ----------------------->
+#ACTUALIZAR DISPLA ----------------------->
 
-if ($_POST['IniDispladiMenuLateral']){
+if ($_POST['IniDispladi']){
 
-	$opcmenulateral=trim($_POST['opcmenulateral']);
-	$opcmenulateralcodigos=trim($_POST['opcmenulateralcodigos']);
-
-	$opcmostrar1=trim($_POST['opcmostrar1']);
-	$opcmostrar2=trim($_POST['opcmostrar2']);
-	$opcmostrar3=trim($_POST['opcmostrar3']);
-	$opcmostrar4=trim($_POST['opcmostrar4']);
-
-	$opctitulo1=trim($_POST['opctitulo1']);
-	$opctitulo2=trim($_POST['opctitulo2']);
-	$opctitulo3=trim($_POST['opctitulo3']);
-	$opctitulo4=trim($_POST['opctitulo4']);
-
-	$opccontenido1=trim($_POST['opccontenido1']);
-	$opccontenido2=trim($_POST['opccontenido2']);
-	$opccontenido3=trim($_POST['opccontenido3']);
-	$opccontenido4=trim($_POST['opccontenido4']);
-
-	$opcelementos=$_POST['opcelementos'];
-	$opcscripts=$_POST['opcmenulateralscripts'];
-
-	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
-	$archiD='';
-	$arScrUsu='scripts/MenuLateral/scrDispladiMenuLateral.php';
-	$arScrUsu2='scripts/MenuLateral/scrDispladiMenuLateral_POST.php';
-    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	require $arScrUsu2;
-    }
-
-    file_put_contents('scripts/MenuLateral/scrMenuLateral.php',"<?php #CONTENIDO POR ARMIN\n".'$MenuLateral='."'$opcmenulateral';\n".'$MenuLateralCodigos='."'$opcmenulateralcodigos';\n".'$MenuLateralE1='."'$opcmostrar1';\n".'$MenuLateralE2='."'$opcmostrar2';\n".'$MenuLateralE3='."'$opcmostrar3';\n".'$MenuLateralE4='."'$opcmostrar4';\n".'$MenuLateralE1T='."'$opctitulo1';\n".'$MenuLateralE2T='."'$opctitulo2';\n".'$MenuLateralE3T='."'$opctitulo3';\n".'$MenuLateralE4T='."'$opctitulo4';\n".'$MenuLateralE1C='."'$opccontenido1';\n".'$MenuLateralE2C='."'$opccontenido2';\n".'$MenuLateralE3C='."'$opccontenido3';\n".'$MenuLateralE4C='."'$opccontenido4';\n".'$MenuLateralElementos='."$opcelementos;\n".'$MenuLateralScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
-
-    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
-    exit;
-} else
-
-#ACTUALIZAR PIE DE PAGINA ----------------------->
-
-if ($_POST['IniDispladiPiedePagina']){
-	$opcpiedepagina=trim($_POST['opcpiedepagina']);
-	$opcpiedepaginacodigos=trim($_POST['opcpiedepaginacodigos']);
+	$opcmostrar=trim($_POST['opcmostrar']);
+	$opcmostrarcodigos=trim($_POST['opcmostrarcodigos']);
+	$opcmostrarscripts=$_POST['opcmostrarscripts'];
 
 	$opcmostrar1=trim($_POST['opcmostrar1']);
 	$opcmostrar2=trim($_POST['opcmostrar2']);
@@ -377,94 +378,20 @@ if ($_POST['IniDispladiPiedePagina']){
 	$opccontenido4=trim($_POST['opccontenido4']);
 
 	$opcelementos=$_POST['opcelementos'];
-	$opcscripts=$_POST['opcpiedepaginascripts'];
+	$opcentrada=trim($_POST['opcentrada']);
+
+
+
 
 	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
 	$archiD='';
-	$arScrUsu='scripts/PiedePagina/scrDispladiPiedePagina.php';
-	$arScrUsu2='scripts/PiedePagina/scrDispladiPiedePagina_POST.php';
+	$arScrUsu='scripts/'.$opcentrada.'/scrDispladi'.$opcentrada.'.php';
+	$arScrUsu2='scripts/'.$opcentrada.'/scrDispladi'.$opcentrada.'_POST.php';
     if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
     	require $arScrUsu2;
     }
 
-    file_put_contents('scripts/PiedePagina/scrPiedePagina.php',"<?php #CONTENIDO POR ARMIN\n".'$PiedePagina='."'$opcpiedepagina';\n".'$PiedePaginaCodigos='."'$opcpiedepaginacodigos';\n".'$PiedePaginaE1='."'$opcmostrar1';\n".'$PiedePaginaE2='."'$opcmostrar2';\n".'$PiedePaginaE3='."'$opcmostrar3';\n".'$PiedePaginaE4='."'$opcmostrar4';\n".'$PiedePaginaE1T='."'$opctitulo1';\n".'$PiedePaginaE2T='."'$opctitulo2';\n".'$PiedePaginaE3T='."'$opctitulo3';\n".'$PiedePaginaE4T='."'$opctitulo4';\n".'$PiedePaginaE1C='."'$opccontenido1';\n".'$PiedePaginaE2C='."'$opccontenido2';\n".'$PiedePaginaE3C='."'$opccontenido3';\n".'$PiedePaginaE4C='."'$opccontenido4';\n".'$PiedePaginaElementos='."$opcelementos;\n".'$PiedePaginaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
-
-    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
-    exit;
-
-} else
-
-#ACTUALIZAR CABEZA ----------------------->
-
-if ($_POST['IniDispladiCabeza']){
-	$opccabeza=trim($_POST['opccabeza']);
-	$opccabezacodigos=trim($_POST['opccabezacodigos']);
-
-	$opcmostrar1=trim($_POST['opcmostrar1']);
-	$opcmostrar2=trim($_POST['opcmostrar2']);
-	$opcmostrar3=trim($_POST['opcmostrar3']);
-	$opcmostrar4=trim($_POST['opcmostrar4']);
-
-	$opctitulo1=trim($_POST['opctitulo1']);
-	$opctitulo2=trim($_POST['opctitulo2']);
-	$opctitulo3=trim($_POST['opctitulo3']);
-	$opctitulo4=trim($_POST['opctitulo4']);
-
-	$opccontenido1=trim($_POST['opccontenido1']);
-	$opccontenido2=trim($_POST['opccontenido2']);
-	$opccontenido3=trim($_POST['opccontenido3']);
-	$opccontenido4=trim($_POST['opccontenido4']);
-
-	$opcelementos=$_POST['opcelementos'];
-	$opcscripts=$_POST['opccabezascripts'];
-
-	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
-	$archiD='';
-	$arScrUsu='scripts/Cabeza/scrDispladiCabeza.php';
-	$arScrUsu2='scripts/Cabeza/scrDispladiCabeza_POST.php';
-    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	require $arScrUsu2;
-    }
-
-    file_put_contents('scripts/Cabeza/scrCabeza.php',"<?php #CONTENIDO POR ARMIN\n".'$Cabeza='."'$opccabeza';\n".'$CabezaCodigos='."'$opccabezacodigos';\n".'$CabezaE1='."'$opcmostrar1';\n".'$CabezaE2='."'$opcmostrar2';\n".'$CabezaE3='."'$opcmostrar3';\n".'$CabezaE4='."'$opcmostrar4';\n".'$CabezaE1T='."'$opctitulo1';\n".'$CabezaE2T='."'$opctitulo2';\n".'$CabezaE3T='."'$opctitulo3';\n".'$CabezaE4T='."'$opctitulo4';\n".'$CabezaE1C='."'$opccontenido1';\n".'$CabezaE2C='."'$opccontenido2';\n".'$CabezaE3C='."'$opccontenido3';\n".'$CabezaE4C='."'$opccontenido4';\n".'$CabezaElementos='."$opcelementos;\n".'$CabezaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
-
-    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
-    exit;
-} else
-
-#ACTUALIZAR MENU ----------------------->
-
-if ($_POST['IniDispladiMenu']){
-	$opcmenu=trim($_POST['opcmenu']);
-	$opcmenucodigos=trim($_POST['opcmenucodigos']);
-
-	$opcmostrar1=trim($_POST['opcmostrar1']);
-	$opcmostrar2=trim($_POST['opcmostrar2']);
-	$opcmostrar3=trim($_POST['opcmostrar3']);
-	$opcmostrar4=trim($_POST['opcmostrar4']);
-
-	$opctitulo1=trim($_POST['opctitulo1']);
-	$opctitulo2=trim($_POST['opctitulo2']);
-	$opctitulo3=trim($_POST['opctitulo3']);
-	$opctitulo4=trim($_POST['opctitulo4']);
-
-	$opccontenido1=trim($_POST['opccontenido1']);
-	$opccontenido2=trim($_POST['opccontenido2']);
-	$opccontenido3=trim($_POST['opccontenido3']);
-	$opccontenido4=trim($_POST['opccontenido4']);
-
-	$opcelementos=$_POST['opcelementos'];
-	$opcscripts=$_POST['opcmenuscripts'];
-
-	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
-	$archiD='';
-	$arScrUsu='scripts/Menu/scrDispladiMenu.php';
-	$arScrUsu2='scripts/Menu/scrDispladiMenu_POST.php';
-    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	require $arScrUsu2;
-    }
-
-    file_put_contents('scripts/Menu/scrMenu.php',"<?php #CONTENIDO POR ARMIN\n".'$Menu='."'$opcmenu';\n".'$MenuCodigos='."'$opcmenucodigos';\n".'$MenuE1='."'$opcmostrar1';\n".'$MenuE2='."'$opcmostrar2';\n".'$MenuE3='."'$opcmostrar3';\n".'$MenuE4='."'$opcmostrar4';\n".'$MenuE1T='."'$opctitulo1';\n".'$MenuE2T='."'$opctitulo2';\n".'$MenuE3T='."'$opctitulo3';\n".'$MenuE4T='."'$opctitulo4';\n".'$MenuE1C='."'$opccontenido1';\n".'$MenuE2C='."'$opccontenido2';\n".'$MenuE3C='."'$opccontenido3';\n".'$MenuE4C='."'$opccontenido4';\n".'$MenuElementos='."$opcelementos;\n".'$MenuScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+    file_put_contents('scripts/'.$opcentrada.'/scr'.$opcentrada.'.php',"<?php #CONTENIDO POR ARMIN\n".'$'.$opcentrada.'='."'$opcmostrar';\n".'$'.$opcentrada.'Codigos='."'$opcmostrarcodigos';\n".'$'.$opcentrada.'E1='."'$opcmostrar1';\n".'$'.$opcentrada.'E2='."'$opcmostrar2';\n".'$'.$opcentrada.'E3='."'$opcmostrar3';\n".'$'.$opcentrada.'E4='."'$opcmostrar4';\n".'$'.$opcentrada.'E1T='."'$opctitulo1';\n".'$'.$opcentrada.'E2T='."'$opctitulo2';\n".'$'.$opcentrada.'E3T='."'$opctitulo3';\n".'$'.$opcentrada.'E4T='."'$opctitulo4';\n".'$'.$opcentrada.'E1C='."'$opccontenido1';\n".'$'.$opcentrada.'E2C='."'$opccontenido2';\n".'$'.$opcentrada.'E3C='."'$opccontenido3';\n".'$'.$opcentrada.'E4C='."'$opccontenido4';\n".'$'.$opcentrada.'Elementos='."$opcelementos;\n".'$'.$opcentrada.'Scripts='."'$opcmostrarscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
 
     header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
     exit;
@@ -480,8 +407,10 @@ if ($_POST['IniVerificar']){
 	$vericar='dependencias'; require $necex;
 	$vericar='scripts/Cabeza'; require $necex;
 	$vericar='scripts/Menu'; require $necex;
+	$vericar='scripts/ContenidoExtra'; require $necex;
 	$vericar='scripts/MenuLateral'; require $necex;
 	$vericar='scripts/PiedePagina'; require $necex;
+	$vericar='scripts/Creador'; require $necex;
 	$vericar='etc'; require $necex;
 	$vericar='etc/fechas'; require $necex;
 	#>>>>>
