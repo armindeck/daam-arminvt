@@ -7,7 +7,7 @@ if(isset($_GET['ac'])){
 	switch($ac){
 		case 'verificar': require_once 'verificar.php'; break;
 		case 'creador': require_once 'creador.php'; break;
-		case 'modificador': require_once 'modificador.php'; break;
+		case 'imagen': require_once 'imagen.php'; break;
 		case 'archivos': require_once 'archivos.php'; break;
 		case 'anuncios': require_once 'anuncios.php'; break;
 		case 'configuracion': require_once 'configuraciones.php'; break;
