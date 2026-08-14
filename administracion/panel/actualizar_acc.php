@@ -199,6 +199,7 @@ if ($_POST['IniAnuncio']){
 
 		$cfg21=$_POST['cfg21'];
 
+		$cfgversion=$_POST['cfgversion'];
 
 
 		file_put_contents("extras/extraVariables.php",$cfg20);
@@ -287,6 +288,10 @@ $Año=date('."'Y'".');
 
 $fecha=date('."'Y-m-d'".');
 
+$fechahora=date('."'Y-m-d - g:ia'".');
+
+$version='."'".$cfgversion."'".';
+
 session_start();
 
 require_once $AC_DIRECTORIO.'."'datos/extra.php'".';
@@ -302,6 +307,160 @@ require_once $AC_DIRECTORIO.'."'datos/extenciones/extencionCargarTema.php';
 	header("location:panel.php?ac=configuracion&ms=exi&msm=datosactualizados");
 
 	}  else
+
+#ACTUALIZAR MENU LATERAL ----------------------->
+
+if ($_POST['IniDispladiMenuLateral']){
+
+	$opcmenulateral=trim($_POST['opcmenulateral']);
+	$opcmenulateralcodigos=trim($_POST['opcmenulateralcodigos']);
+
+	$opcmostrar1=trim($_POST['opcmostrar1']);
+	$opcmostrar2=trim($_POST['opcmostrar2']);
+	$opcmostrar3=trim($_POST['opcmostrar3']);
+	$opcmostrar4=trim($_POST['opcmostrar4']);
+
+	$opctitulo1=trim($_POST['opctitulo1']);
+	$opctitulo2=trim($_POST['opctitulo2']);
+	$opctitulo3=trim($_POST['opctitulo3']);
+	$opctitulo4=trim($_POST['opctitulo4']);
+
+	$opccontenido1=trim($_POST['opccontenido1']);
+	$opccontenido2=trim($_POST['opccontenido2']);
+	$opccontenido3=trim($_POST['opccontenido3']);
+	$opccontenido4=trim($_POST['opccontenido4']);
+
+	$opcelementos=$_POST['opcelementos'];
+	$opcscripts=$_POST['opcmenulateralscripts'];
+
+	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
+	$archiD='';
+	$arScrUsu='extras/MenuLateral/extraScriptsMenuLateral.php';
+	$arScrUsu2='extras/MenuLateral/extraScriptsMenuLateral_POST.php';
+    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
+    	include $arScrUsu2;
+    }
+
+    file_put_contents('extras/MenuLateral/extraMenuLateral.php',"<?php #CONTENIDO POR ARMIN\n".'$MenuLateral='."'$opcmenulateral';\n".'$MenuLateralCodigos='."'$opcmenulateralcodigos';\n".'$MenuLateralE1='."'$opcmostrar1';\n".'$MenuLateralE2='."'$opcmostrar2';\n".'$MenuLateralE3='."'$opcmostrar3';\n".'$MenuLateralE4='."'$opcmostrar4';\n".'$MenuLateralE1T='."'$opctitulo1';\n".'$MenuLateralE2T='."'$opctitulo2';\n".'$MenuLateralE3T='."'$opctitulo3';\n".'$MenuLateralE4T='."'$opctitulo4';\n".'$MenuLateralE1C='."'$opccontenido1';\n".'$MenuLateralE2C='."'$opccontenido2';\n".'$MenuLateralE3C='."'$opccontenido3';\n".'$MenuLateralE4C='."'$opccontenido4';\n".'$MenuLateralElementos='."$opcelementos;\n".'$MenuLateralScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+
+    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
+    exit;
+} else
+
+#ACTUALIZAR PIE DE PAGINA ----------------------->
+
+if ($_POST['IniDispladiPiedePagina']){
+	$opcpiedepagina=trim($_POST['opcpiedepagina']);
+	$opcpiedepaginacodigos=trim($_POST['opcpiedepaginacodigos']);
+
+	$opcmostrar1=trim($_POST['opcmostrar1']);
+	$opcmostrar2=trim($_POST['opcmostrar2']);
+	$opcmostrar3=trim($_POST['opcmostrar3']);
+	$opcmostrar4=trim($_POST['opcmostrar4']);
+
+	$opctitulo1=trim($_POST['opctitulo1']);
+	$opctitulo2=trim($_POST['opctitulo2']);
+	$opctitulo3=trim($_POST['opctitulo3']);
+	$opctitulo4=trim($_POST['opctitulo4']);
+
+	$opccontenido1=trim($_POST['opccontenido1']);
+	$opccontenido2=trim($_POST['opccontenido2']);
+	$opccontenido3=trim($_POST['opccontenido3']);
+	$opccontenido4=trim($_POST['opccontenido4']);
+
+	$opcelementos=$_POST['opcelementos'];
+	$opcscripts=$_POST['opcpiedepaginascripts'];
+
+	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
+	$archiD='';
+	$arScrUsu='extras/PiedePagina/extraScriptsPiedePagina.php';
+	$arScrUsu2='extras/PiedePagina/extraScriptsPiedePagina_POST.php';
+    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
+    	include $arScrUsu2;
+    }
+
+    file_put_contents('extras/PiedePagina/extraPiedePagina.php',"<?php #CONTENIDO POR ARMIN\n".'$PiedePagina='."'$opcpiedepagina';\n".'$PiedePaginaCodigos='."'$opcpiedepaginacodigos';\n".'$PiedePaginaE1='."'$opcmostrar1';\n".'$PiedePaginaE2='."'$opcmostrar2';\n".'$PiedePaginaE3='."'$opcmostrar3';\n".'$PiedePaginaE4='."'$opcmostrar4';\n".'$PiedePaginaE1T='."'$opctitulo1';\n".'$PiedePaginaE2T='."'$opctitulo2';\n".'$PiedePaginaE3T='."'$opctitulo3';\n".'$PiedePaginaE4T='."'$opctitulo4';\n".'$PiedePaginaE1C='."'$opccontenido1';\n".'$PiedePaginaE2C='."'$opccontenido2';\n".'$PiedePaginaE3C='."'$opccontenido3';\n".'$PiedePaginaE4C='."'$opccontenido4';\n".'$PiedePaginaElementos='."$opcelementos;\n".'$PiedePaginaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+
+    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
+    exit;
+
+} else
+
+#ACTUALIZAR CABEZA ----------------------->
+
+if ($_POST['IniDispladiCabeza']){
+	$opccabeza=trim($_POST['opccabeza']);
+	$opccabezacodigos=trim($_POST['opccabezacodigos']);
+
+	$opcmostrar1=trim($_POST['opcmostrar1']);
+	$opcmostrar2=trim($_POST['opcmostrar2']);
+	$opcmostrar3=trim($_POST['opcmostrar3']);
+	$opcmostrar4=trim($_POST['opcmostrar4']);
+
+	$opctitulo1=trim($_POST['opctitulo1']);
+	$opctitulo2=trim($_POST['opctitulo2']);
+	$opctitulo3=trim($_POST['opctitulo3']);
+	$opctitulo4=trim($_POST['opctitulo4']);
+
+	$opccontenido1=trim($_POST['opccontenido1']);
+	$opccontenido2=trim($_POST['opccontenido2']);
+	$opccontenido3=trim($_POST['opccontenido3']);
+	$opccontenido4=trim($_POST['opccontenido4']);
+
+	$opcelementos=$_POST['opcelementos'];
+	$opcscripts=$_POST['opccabezascripts'];
+
+	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
+	$archiD='';
+	$arScrUsu='extras/Cabeza/extraScriptsCabeza.php';
+	$arScrUsu2='extras/Cabeza/extraScriptsCabeza_POST.php';
+    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
+    	include $arScrUsu2;
+    }
+
+    file_put_contents('extras/Cabeza/extraCabeza.php',"<?php #CONTENIDO POR ARMIN\n".'$Cabeza='."'$opccabeza';\n".'$CabezaCodigos='."'$opccabezacodigos';\n".'$CabezaE1='."'$opcmostrar1';\n".'$CabezaE2='."'$opcmostrar2';\n".'$CabezaE3='."'$opcmostrar3';\n".'$CabezaE4='."'$opcmostrar4';\n".'$CabezaE1T='."'$opctitulo1';\n".'$CabezaE2T='."'$opctitulo2';\n".'$CabezaE3T='."'$opctitulo3';\n".'$CabezaE4T='."'$opctitulo4';\n".'$CabezaE1C='."'$opccontenido1';\n".'$CabezaE2C='."'$opccontenido2';\n".'$CabezaE3C='."'$opccontenido3';\n".'$CabezaE4C='."'$opccontenido4';\n".'$CabezaElementos='."$opcelementos;\n".'$CabezaScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+
+    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
+    exit;
+} else
+
+#ACTUALIZAR MENU ----------------------->
+
+if ($_POST['IniDispladiMenu']){
+	$opcmenu=trim($_POST['opcmenu']);
+	$opcmenucodigos=trim($_POST['opcmenucodigos']);
+
+	$opcmostrar1=trim($_POST['opcmostrar1']);
+	$opcmostrar2=trim($_POST['opcmostrar2']);
+	$opcmostrar3=trim($_POST['opcmostrar3']);
+	$opcmostrar4=trim($_POST['opcmostrar4']);
+
+	$opctitulo1=trim($_POST['opctitulo1']);
+	$opctitulo2=trim($_POST['opctitulo2']);
+	$opctitulo3=trim($_POST['opctitulo3']);
+	$opctitulo4=trim($_POST['opctitulo4']);
+
+	$opccontenido1=trim($_POST['opccontenido1']);
+	$opccontenido2=trim($_POST['opccontenido2']);
+	$opccontenido3=trim($_POST['opccontenido3']);
+	$opccontenido4=trim($_POST['opccontenido4']);
+
+	$opcelementos=$_POST['opcelementos'];
+	$opcscripts=$_POST['opcmenuscripts'];
+
+	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
+	$archiD='';
+	$arScrUsu='extras/Menu/extraScriptsMenu.php';
+	$arScrUsu2='extras/Menu/extraScriptsMenu_POST.php';
+    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
+    	include $arScrUsu2;
+    }
+
+    file_put_contents('extras/Menu/extraMenu.php',"<?php #CONTENIDO POR ARMIN\n".'$Menu='."'$opcmenu';\n".'$MenuCodigos='."'$opcmenucodigos';\n".'$MenuE1='."'$opcmostrar1';\n".'$MenuE2='."'$opcmostrar2';\n".'$MenuE3='."'$opcmostrar3';\n".'$MenuE4='."'$opcmostrar4';\n".'$MenuE1T='."'$opctitulo1';\n".'$MenuE2T='."'$opctitulo2';\n".'$MenuE3T='."'$opctitulo3';\n".'$MenuE4T='."'$opctitulo4';\n".'$MenuE1C='."'$opccontenido1';\n".'$MenuE2C='."'$opccontenido2';\n".'$MenuE3C='."'$opccontenido3';\n".'$MenuE4C='."'$opccontenido4';\n".'$MenuElementos='."$opcelementos;\n".'$MenuScripts='."'$opcscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+
+    header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
+    exit;
+} else
 
 #Verificar directorios ----------------------->
 
@@ -325,6 +484,30 @@ if ($_POST['IniVerificar']){
 		$ca3='&ca3='.$carpeta3;
 		$dc='creados';
 	}
+	$carpeta4='extras/MenuLateral';
+	if(!file_exists($carpeta4)){
+		mkdir($carpeta4);
+		$ca4='&ca4='.$carpeta4;
+		$dc='creados';
+	}
+	$carpeta5='extras/PiedePagina';
+	if(!file_exists($carpeta5)){
+		mkdir($carpeta5);
+		$ca5='&ca5='.$carpeta5;
+		$dc='creados';
+	}
+	$carpeta6='extras/Cabeza';
+	if(!file_exists($carpeta6)){
+		mkdir($carpeta6);
+		$ca6='&ca6='.$carpeta6;
+		$dc='creados';
+	}
+	$carpeta7='extras/Menu';
+	if(!file_exists($carpeta7)){
+		mkdir($carpeta7);
+		$ca7='&ca7='.$carpeta7;
+		$dc='creados';
+	}
 	if (isset($ca1)) {
 		echo $ca1;
 	}
@@ -334,11 +517,126 @@ if ($_POST['IniVerificar']){
 	if (isset($ca3)) {
 		echo $ca3;
 	}
-
-	$vamos='panel.php?ac=verificar&ms=err&msm=informeverificar&dc='.$dc.$ca1.$ca2.$ca3;
+	if (isset($ca4)) {
+		echo $ca4;
+	}
+	if (isset($ca5)) {
+		echo $ca5;
+	}
+	if (isset($ca6)) {
+		echo $ca6;
+	}
+	if (isset($ca7)) {
+		echo $ca7;
+	}
+	$vamos='panel.php?ac=verificar&ms=err&msm=informeverificar&dc='.$dc.$ca1.$ca2.$ca3.$ca4.$ca5.$ca6.$ca7;
 	header("location:{$vamos}");
 } else
 
+#ACTUALIZAR EDITOR ----------------------->
+
+if ($_POST['IniTema']){
+
+$opctema_nombre=$_POST['opctema_nombre'];
+
+$opctema_fondo_fondo=$_POST['opctema_fondo_fondo'];
+$opctema_fondo_color=$_POST['opctema_fondo_color'];
+$opctema_cabeza_fondo=$_POST['opctema_cabeza_fondo'];
+$opctema_cabeza_color=$_POST['opctema_cabeza_color'];
+$opctema_menu_fondo=$_POST['opctema_menu_fondo'];
+$opctema_menu_color=$_POST['opctema_menu_color'];
+$opctema_izquierda_fondo=$_POST['opctema_izquierda_fondo'];
+$opctema_izquierda_color=$_POST['opctema_izquierda_color'];
+$opctema_derecha_fondo=$_POST['opctema_derecha_fondo'];
+$opctema_derecha_color=$_POST['opctema_derecha_color'];
+$opctema_piedepagina_fondo=$_POST['opctema_piedepagina_fondo'];
+$opctema_piedepagina_color=$_POST['opctema_piedepagina_color'];
+$opctema_barra_fondo=$_POST['opctema_barra_fondo'];
+$opctema_marquee_fondo=$_POST['opctema_marquee_fondo'];
+$opctema_marquee_color=$_POST['opctema_marquee_color'];
+$opctema_contenedores_fondo=$_POST['opctema_contenedores_fondo'];
+$opctema_contenedores_color=$_POST['opctema_contenedores_color'];
+$opctema_contenedorm2_color=$_POST['opctema_contenedorm2_color'];
+$opctema_contenedorm2_h_color=$_POST['opctema_contenedorm2_h_color'];
+$opctema_catalogo_fondo=$_POST['opctema_catalogo_fondo'];
+$opctema_catalogo_color=$_POST['opctema_catalogo_color'];
+$opctema_enlaces_fondo=$_POST['opctema_enlaces_fondo'];
+$opctema_enlaces_color=$_POST['opctema_enlaces_color'];
+$opctema_enlaces_h_fondo=$_POST['opctema_enlaces_h_fondo'];
+$opctema_enlaces_h_color=$_POST['opctema_enlaces_h_color'];
+$opctema_menu_enlaces_fondo=$_POST['opctema_menu_enlaces_fondo'];
+$opctema_menu_enlaces_color=$_POST['opctema_menu_enlaces_color'];
+$opctema_menu_enlace_h_fondo=$_POST['opctema_menu_enlace_h_fondo'];
+$opctema_menu_enlace_h_color=$_POST['opctema_menu_enlace_h_color'];
+$opctema_ubicacion_fondo=$_POST['opctema_ubicacion_fondo'];
+$opctema_ubicacion_color=$_POST['opctema_ubicacion_color'];
+$opctema_ubicacion_enlace_iconos_fondo=$_POST['opctema_ubicacion_enlace_iconos_fondo'];
+$opctema_ubicacion_enlace_iconos_color=$_POST['opctema_ubicacion_enlace_iconos_color'];
+$opctema_hr_fondo=$_POST['opctema_hr_fondo'];
+$opctema_footer_enlace_iconos_fondo=$_POST['opctema_footer_enlace_iconos_fondo'];
+$opctema_footer_enlace_iconos_color=$_POST['opctema_footer_enlace_iconos_color'];
+$opctema_footer_enlace_iconos_h_fondo=$_POST['opctema_footer_enlace_iconos_h_fondo'];
+$opctema_footer_enlace_iconos_h_color=$_POST['opctema_footer_enlace_iconos_h_color'];
+$opctema_boton_fondo=$_POST['opctema_boton_fondo'];
+$opctema_boton_color=$_POST['opctema_boton_color'];
+$opctema_boton_h_fondo=$_POST['opctema_boton_h_fondo'];
+$opctema_boton_h_color=$_POST['opctema_boton_h_color'];
+$opctema_boton2_fondo=$_POST['opctema_boton2_fondo'];
+$opctema_boton2_color=$_POST['opctema_boton2_color'];
+$opctema_boton2_h_fondo=$_POST['opctema_boton2_h_fondo'];
+$opctema_boton2_h_color=$_POST['opctema_boton2_h_color'];
+$opctema_derecha_iconos_fondo=$_POST['opctema_derecha_iconos_fondo'];
+$opctema_derecha_iconos_color=$_POST['opctema_derecha_iconos_color'];
+$opctema_derecha_enlace_iconos_fondo=$_POST['opctema_derecha_enlace_iconos_fondo'];
+$opctema_derecha_enlace_iconos_color=$_POST['opctema_derecha_enlace_iconos_color'];
+$opctema_derecha_enlace_iconos_h_fondo=$_POST['opctema_derecha_enlace_iconos_h_fondo'];
+$opctema_derecha_enlace_iconos_h_color=$_POST['opctema_derecha_enlace_iconos_h_color'];
+$opctema_formulario_fondo=$_POST['opctema_formulario_fondo'];
+$opctema_formulario_color=$_POST['opctema_formulario_color'];
+$opctema_comentario_fondo=$_POST['opctema_comentario_fondo'];
+$opctema_comentario_color=$_POST['opctema_comentario_color'];
+$opctema_comentario_admin_fondo=$_POST['opctema_comentario_admin_fondo'];
+$opctema_comentario_admin_color=$_POST['opctema_comentario_admin_color'];
+$opctema_comentario_admin_h_fondo=$_POST['opctema_comentario_admin_h_fondo'];
+$opctema_comentario_admin_h_color=$_POST['opctema_comentario_admin_h_color'];
+$opctema_comentario_id_fondo=$_POST['opctema_comentario_id_fondo'];
+$opctema_comentario_id_color=$_POST['opctema_comentario_id_color'];
+$opctema_comentario_enlace_fondo=$_POST['opctema_comentario_enlace_fondo'];
+$opctema_comentario_enlace_color=$_POST['opctema_comentario_enlace_color'];
+$opctema_comentario_enlace_reportes_fondo=$_POST['opctema_comentario_enlace_reportes_fondo'];
+$opctema_comentario_enlace_reportes_color=$_POST['opctema_comentario_enlace_reportes_color'];
+$opctema_campo_fondo=$_POST['opctema_campo_fondo'];
+$opctema_campo_color=$_POST['opctema_campo_color'];
+$opctema_select_fondo=$_POST['opctema_select_fondo'];
+$opctema_select_color=$_POST['opctema_select_color'];
+$opctema_verificado_fondo=$_POST['opctema_verificado_fondo'];
+$opctema_verificado_color=$_POST['opctema_verificado_color'];
+$opctema_usuario_fondo=$_POST['opctema_usuario_fondo'];
+$opctema_usuario_color=$_POST['opctema_usuario_color'];
+$opctema_reaccionar_fondo=$_POST['opctema_reaccionar_fondo'];
+$opctema_reaccionar_color=$_POST['opctema_reaccionar_color'];
+$opctema_reaccionar_h_fondo=$_POST['opctema_reaccionar_h_fondo'];
+$opctema_reaccionar_h_color=$_POST['opctema_reaccionar_h_color'];
+
+$opctema_barra_borde=$_POST['opctema_barra_borde'];
+$opctema_tituloweb_h_borde=$_POST['opctema_tituloweb_h_borde'];
+$opctema_marquee_borde=$_POST['opctema_marquee_borde'];
+$opctema_texini_borde=$_POST['opctema_texini_borde'];
+$opctema_ubicacion_enlace_borde=$_POST['opctema_ubicacion_enlace_borde'];
+$opctema_derecha_contenedor_borde=$_POST['opctema_derecha_contenedor_borde'];
+$opctema_imagen_borde=$_POST['opctema_imagen_borde'];
+$opctema_imagen2_borde=$_POST['opctema_imagen2_borde'];
+$opctema_catalogo_borde=$_POST['opctema_catalogo_borde'];
+$opctema_formulario_borde=$_POST['opctema_formulario_borde'];
+$opctema_boton_borde=$_POST['opctema_boton_borde'];
+$opctema_comentario_borde=$_POST['opctema_comentario_borde'];
+$opctema_anuncios_borde=$_POST['opctema_anuncios_borde'];
+
+file_put_contents($AC_DIRECTORIO.'css/'.$opctema_nombre,"<?php #CONTENIDO POR ARMIN\n".'$opctema_nombre='."'$opctema_nombre';\n".'$opctema_fondo_fondo='."'$opctema_fondo_fondo';\n".'$opctema_fondo_color='."'$opctema_fondo_color';\n".'$opctema_cabeza_fondo='."'$opctema_cabeza_fondo';\n".'$opctema_cabeza_color='."'$opctema_cabeza_color';\n".'$opctema_menu_fondo='."'$opctema_menu_fondo';\n".'$opctema_menu_color='."'$opctema_menu_color';\n".'$opctema_izquierda_fondo='."'$opctema_izquierda_fondo';\n".'$opctema_izquierda_color='."'$opctema_izquierda_color';\n".'$opctema_derecha_fondo='."'$opctema_derecha_fondo';\n".'$opctema_derecha_color='."'$opctema_derecha_color';\n".'$opctema_piedepagina_fondo='."'$opctema_piedepagina_fondo';\n".'$opctema_piedepagina_color='."'$opctema_piedepagina_color';\n".'$opctema_barra_fondo='."'$opctema_barra_fondo';\n".'$opctema_marquee_fondo='."'$opctema_marquee_fondo';\n".'$opctema_marquee_color='."'$opctema_marquee_color';\n".'$opctema_contenedores_fondo='."'$opctema_contenedores_fondo';\n".'$opctema_contenedores_color='."'$opctema_contenedores_color';\n".'$opctema_contenedorm2_color='."'$opctema_contenedorm2_color';\n".'$opctema_contenedorm2_h_color='."'$opctema_contenedorm2_h_color';\n".'$opctema_catalogo_fondo='."'$opctema_catalogo_fondo';\n".'$opctema_catalogo_color='."'$opctema_catalogo_color';\n".'$opctema_enlaces_fondo='."'$opctema_enlaces_fondo';\n".'$opctema_enlaces_color='."'$opctema_enlaces_color';\n".'$opctema_enlaces_h_fondo='."'$opctema_enlaces_h_fondo';\n".'$opctema_enlaces_h_color='."'$opctema_enlaces_h_color';\n".'$opctema_menu_enlaces_fondo='."'$opctema_menu_enlaces_fondo';\n".'$opctema_menu_enlaces_color='."'$opctema_menu_enlaces_color';\n".'$opctema_menu_enlace_h_fondo='."'$opctema_menu_enlace_h_fondo';\n".'$opctema_menu_enlace_h_color='."'$opctema_menu_enlace_h_color';\n".'$opctema_ubicacion_fondo='."'$opctema_ubicacion_fondo';\n".'$opctema_ubicacion_color='."'$opctema_ubicacion_color';\n".'$opctema_ubicacion_enlace_iconos_fondo='."'$opctema_ubicacion_enlace_iconos_fondo';\n".'$opctema_ubicacion_enlace_iconos_color='."'$opctema_ubicacion_enlace_iconos_color';\n".'$opctema_hr_fondo='."'$opctema_hr_fondo';\n".'$opctema_footer_enlace_iconos_fondo='."'$opctema_footer_enlace_iconos_fondo';\n".'$opctema_footer_enlace_iconos_color='."'$opctema_footer_enlace_iconos_color';\n".'$opctema_footer_enlace_iconos_h_fondo='."'$opctema_footer_enlace_iconos_h_fondo';\n".'$opctema_footer_enlace_iconos_h_color='."'$opctema_footer_enlace_iconos_h_color';\n".'$opctema_boton_fondo='."'$opctema_boton_fondo';\n".'$opctema_boton_color='."'$opctema_boton_color';\n".'$opctema_boton_h_fondo='."'$opctema_boton_h_fondo';\n".'$opctema_boton_h_color='."'$opctema_boton_h_color';\n".'$opctema_boton2_fondo='."'$opctema_boton2_fondo';\n".'$opctema_boton2_color='."'$opctema_boton2_color';\n".'$opctema_boton2_h_fondo='."'$opctema_boton2_h_fondo';\n".'$opctema_boton2_h_color='."'$opctema_boton2_h_color';\n".'$opctema_derecha_iconos_fondo='."'$opctema_derecha_iconos_fondo';\n".'$opctema_derecha_iconos_color='."'$opctema_derecha_iconos_color';\n".'$opctema_derecha_enlace_iconos_fondo='."'$opctema_derecha_enlace_iconos_fondo';\n".'$opctema_derecha_enlace_iconos_color='."'$opctema_derecha_enlace_iconos_color';\n".'$opctema_derecha_enlace_iconos_h_fondo='."'$opctema_derecha_enlace_iconos_h_fondo';\n".'$opctema_derecha_enlace_iconos_h_color='."'$opctema_derecha_enlace_iconos_h_color';\n".'$opctema_formulario_fondo='."'$opctema_formulario_fondo';\n".'$opctema_formulario_color='."'$opctema_formulario_color';\n".'$opctema_comentario_fondo='."'$opctema_comentario_fondo';\n".'$opctema_comentario_color='."'$opctema_comentario_color';\n".'$opctema_comentario_admin_fondo='."'$opctema_comentario_admin_fondo';\n".'$opctema_comentario_admin_color='."'$opctema_comentario_admin_color';\n".'$opctema_comentario_admin_h_fondo='."'$opctema_comentario_admin_h_fondo';\n".'$opctema_comentario_admin_h_color='."'$opctema_comentario_admin_h_color';\n".'$opctema_comentario_id_fondo='."'$opctema_comentario_id_fondo';\n".'$opctema_comentario_id_color='."'$opctema_comentario_id_color';\n".'$opctema_comentario_enlace_fondo='."'$opctema_comentario_enlace_fondo';\n".'$opctema_comentario_enlace_color='."'$opctema_comentario_enlace_color';\n".'$opctema_comentario_enlace_reportes_fondo='."'$opctema_comentario_enlace_reportes_fondo';\n".'$opctema_comentario_enlace_reportes_color='."'$opctema_comentario_enlace_reportes_color';\n".'$opctema_campo_fondo='."'$opctema_campo_fondo';\n".'$opctema_campo_color='."'$opctema_campo_color';\n".'$opctema_select_fondo='."'$opctema_select_fondo';\n".'$opctema_select_color='."'$opctema_select_color';\n".'$opctema_verificado_fondo='."'$opctema_verificado_fondo';\n".'$opctema_verificado_color='."'$opctema_verificado_color';\n".'$opctema_usuario_fondo='."'$opctema_usuario_fondo';\n".'$opctema_usuario_color='."'$opctema_usuario_color';\n".'$opctema_reaccionar_fondo='."'$opctema_reaccionar_fondo';\n".'$opctema_reaccionar_color='."'$opctema_reaccionar_color';\n".'$opctema_reaccionar_h_fondo='."'$opctema_reaccionar_h_fondo';\n".'$opctema_reaccionar_h_color='."'$opctema_reaccionar_h_color';\n".'$opctema_barra_borde='."'$opctema_barra_borde';\n".'$opctema_tituloweb_h_borde='."'$opctema_tituloweb_h_borde';\n".'$opctema_marquee_borde='."'$opctema_marquee_borde';\n".'$opctema_texini_borde='."'$opctema_texini_borde';\n".'$opctema_ubicacion_enlace_borde='."'$opctema_ubicacion_enlace_borde';\n".'$opctema_derecha_contenedor_borde='."'$opctema_derecha_contenedor_borde';\n".'$opctema_imagen_borde='."'$opctema_imagen_borde';\n".'$opctema_imagen2_borde='."'$opctema_imagen2_borde';\n".'$opctema_catalogo_borde='."'$opctema_catalogo_borde';\n".'$opctema_formulario_borde='."'$opctema_formulario_borde';\n".'$opctema_boton_borde='."'$opctema_boton_borde';\n".'$opctema_comentario_borde='."'$opctema_comentario_borde';\n".'$opctema_anuncios_borde='."'$opctema_anuncios_borde';\n"."#ACTUALIZADO: $fechahora\n?>");
+	
+	header("location:panel.php?ac=tema&ms=exi&msm=datosactualizados");
+
+} else
 
 
 #CERRAR SESION ----------------------->
