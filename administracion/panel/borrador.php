@@ -53,8 +53,8 @@ if (!empty($_POST) || !empty($_GET)){
         $InfoOpcEditable='Modifica: <b>'.$ArchivoOpcEditable.'</b> |';
     } else { $InfoEditable=''; $InfoOpcEditable=''; $ModArchivo=$ArchivoEditable; $opcModArchivo=$ArchivoOpcEditable; }
 
-    $informacion="Directorio: <b>$opc10</b> | Ubicación: <b>$opc11</b> | $InfoEditable$InfoOpcEditable Archivo: <b>$opc12</b> | Tipo: <b>$opc9</b> | Anuncio: <b>$opc8V</b> | Imagen: <b>$opc4</b> | Catalogo: <b>$opc2</b>";
-    $datos_introducidos="&opc1=$opc1&opc2=$opc2&opc3=$opc3&opc4=$opc4&opc5=$opc5&opc6=$opc6&opc8=$opc8V&opc9=$opc9&opc10=$opc10&opc11=$opc11&opc12=$opc12".$ModArchivo.$opcModArchivo;
+    $informacion="Directorio: <b>$opc10</b> | Ubicación: <b>$opc11</b> | $InfoEditable$InfoOpcEditable Archivo: <b>$opc12</b> | Tipo: <b>$opc9</b> | Anuncio: <b>$opc8V</b> | Imagen: <b>$opc4</b> | Catalogo: <b>$opc2</b> | Emergentes: <b>$opcXMensaje</b> | Privado: <b>$opcXAccesoAdmin</b>  | Galeria: <b>$opcXGaleria</b>";
+    $datos_introducidos="&opc1=$opc1&opc2=$opc2&opc3=$opc3&opc4=$opc4&opc5=$opc5&opc6=$opc6&opc8=$opc8V&opc9=$opc9&opc10=$opc10&opc11=$opc11&opc12=$opc12&opcXMensaje=$opcXMensaje&opcXAccesoAdmin=$opcXAccesoAdmin&opcXGaleria=$opcXGaleria".$ModArchivo.$opcModArchivo;
     $ubiBorrador='borrador';
 ?>
 <!DOCTYPE html>
@@ -96,4 +96,5 @@ if (!empty($_POST) || !empty($_GET)){
 <?php require_once $AC_DIRECTORIO.'datos/displa.php'; ?>
 </body>
 </html>
-<?php } else { $AC_DIREC='../../'; $AC_ENCONTRAR='creador/'; require_once $AC_DIREC.'error.php'; } ?>
+<?php } else { if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}"); } ?>
