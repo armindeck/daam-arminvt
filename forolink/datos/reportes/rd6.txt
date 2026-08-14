@@ -1,0 +1,20 @@
+N: 1
+C: spam
+M: Hubiera sido bueno que explicara su canal.
+F: 15 Jun 2023 - 4:05pm
+---->
+N: 2
+C: otro
+M: Las personas que no explican sus contenidos, no pueden seguir aquí.
+F: 15 Jun 2023 - 4:05pm
+---->
+N: 3
+C: spam
+M: Manten el orden ante todo.
+F: 15 Jun 2023 - 4:06pm
+---->
+N: 4
+C: spam
+M: Ya no estarás aquí Pablo.
+F: 15 Jun 2023 - 4:07pm
+---->
