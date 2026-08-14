@@ -29,7 +29,7 @@ if (!empty($_POST['IniForo']) || !empty($_POST['IniComentarios']) || !empty($_PO
 
         #DIGITOS DE COMPROBACION
         $d_usuario = (strlen($c_usuario) >= 4 && strlen($c_usuario) <= 15);
-        $d_comentario = (strlen($c_comentario) >= 10 && strlen($c_comentario) <= 1400);
+        $d_comentario = (strlen($c_comentario) >= 10 && strlen($c_comentario) <= 5000);
         $d_codigo=strlen($c_codigo) == strlen($adminprivado['codigo']);
         $d_imagen = strlen($c_imagen) >= 15;
 
