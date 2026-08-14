@@ -22,6 +22,10 @@ require_once $AC_DIRECTORIO.'datos/permisos_usuarios.php';
 				$eliminar="DELETE FROM usuarios WHERE id='$id'";
 
 				$resultado=mysqli_query($conexion,$eliminar);
+				$usperfil=$AC_DIRECTORIO.'perfiles/';
+				$usperfiltemas=$usperfil.'temas/';
+				$usperfiltemasusu=$usperfiltemas.'tm'.$_SESSION['usuario'].'.txt';
+				unlink($usperfiltemasusu);
 				session_destroy();
 				header("Location: iniciar?ms=err&msm=cuentaeliminada");
 			} else { header("Location: perfil_eliminar?ms=err&msm=contrainco"); }
