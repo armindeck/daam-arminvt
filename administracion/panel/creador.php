@@ -1,6 +1,6 @@
-<?php if(isset($TIPO)){ if($TIPO='panel'){
-if (isset($_GET['archiguar'])) {
-    echo '<p class="texini bgazul">Se guardo en el borrador #'.$_GET['archiguar'];
+<?php if(isset($TIPO) && $TIPO=='panel'){ ?>
+<?php if (isset($_GET['archiguar'])) {
+    echo '<p class="texinimen bgazul">Se guardo en el borrador #'.$_GET['archiguar'];
 }
 if (isset($_POST['IniModificar'])) {
     $ModArchivo=$_POST['archivo'];
@@ -12,7 +12,7 @@ if (isset($_POST['IniModificar'])) {
     } else {
         $permiExtras=false;
         $PermiEditar=false;
-        echo '<p class="texini bgrojo">El archivo no existe!</p>';
+        echo '<p class="texinimen bgrojo">El archivo no existe!</p>';
     }
 }
 if(isset($_GET['di']) && $_GET['di'] == true){
@@ -34,7 +34,7 @@ if(isset($_GET['di']) && $_GET['di'] == true){
         } else {
             $permiExtras=false;
             $PermiEditar=false;
-            echo '<p class="texini bgrojo">El archivo no existe!</p>';
+            echo '<p class="texinimen bgrojo">El archivo no existe!</p>';
         }
         
     }
@@ -43,6 +43,13 @@ if(isset($_GET['di']) && $_GET['di'] == true){
         switch ($_GET['opcBorrador']) {
             case 2: $opcBorradorB='selected'; break;
             case 3: $opcBorradorC='selected'; break;
+            case 4: $opcBorradorD='selected'; break;
+            case 5: $opcBorradorE='selected'; break;
+            case 6: $opcBorradorF='selected'; break;
+            case 7: $opcBorradorG='selected'; break;
+            case 8: $opcBorradorH='selected'; break;
+            case 9: $opcBorradorI='selected'; break;
+            case 10: $opcBorradorJ='selected'; break;
         }
         $permiExtras=true;
     }
@@ -62,6 +69,15 @@ if (isset($permiExtras) && $permiExtras == true) {
         case '../../../': $opc10D='selected'; break;
         case '../../../../': $opc10E='selected'; break;
     }
+    if ($opcXMensaje=='on') {
+        $opcXMensajeS='checked';
+    }
+    if ($opcXAccesoAdmin=='on') {
+        $opcXAccesoAdminS='checked';
+    }
+    if ($opcXGaleria=='on') {
+        $opcXGaleriaS='checked';
+    }
 }
 
 ?>
@@ -76,7 +92,18 @@ if (isset($permiExtras) && $permiExtras == true) {
             <input type="text" value="<?php if(isset($opc4)){ echo $opc4; }; ?>" name="opc4" placeholder="Imagen" minlength="4" required>
             <input type="text" value="<?php if(isset($opc5)){ echo $opc5; }; ?>" name="opc5" placeholder="Titulo" minlength="4" required>
             <input type="text" value="<?php if(isset($opc6)){ echo $opc6; }; ?>" name="opc6" placeholder="Descripción breve" minlength="4" required>
+            <?php if(isset($PermiEditar) && $PermiEditar==true or isset($_GET['opcBorrador'])): ?>
+            <p class="texinimen bgrojo">Recuerde: Si usas codigos, copie en editor.</p>
+            <?php endif; ?>
             <textarea class="texeditor2" name="opc7" placeholder="Contenido" minlength="4" required><?php if(isset($opc7)){ echo $opc7; }; ?></textarea>
+            <?php $paccodigos=false;
+            if(isset($PermiEditar) && $PermiEditar==true) { $Cmodi=$AC_DIRECTORIO.'datos/contenidos/'.$ModArchivo.'.php'; $paccodigos=true; }
+            if(isset($_GET['opcBorrador'])){ $Cmodi='borradores/'.$_GET['opcBorrador'].'.php'; $paccodigos=true; }
+            if($paccodigos==true){
+                if(file_exists($Cmodi)){
+                    $mos=htmlspecialchars(file_get_contents($Cmodi)); echo '<hr>Codigos: <span class="t12">'.$Cmodi.'</span><hr><textarea>'.$mos.'</textarea';
+                }
+            } ?>
             <span>Anuncio</span> <select name="opc8">
                 <option value="si">Si</option>
                 <option value="no" <?php if(isset($_GET['opc8']) && $_GET['opc8']=='no'){ echo 'selected'; } ?>>No</option>
@@ -94,7 +121,10 @@ if (isset($permiExtras) && $permiExtras == true) {
                 <option value="../../" <?php if(isset($opc10C)){ echo $opc10C; }; ?>>../../</option>
                 <option value="../../../" <?php if(isset($opc10D)){ echo $opc10D; }; ?>>../../../</option>
                 <option value="../../../../" <?php if(isset($opc10E)){ echo $opc10E; }; ?>>../../../../</option>
-            </select><br>
+            </select><hr>
+            <span>Mensaje</span> <input type="checkbox" name="opcXMensaje" <?php if(isset($opcXMensajeS) && $opcXMensajeS=='checked'){ echo 'checked'; }; ?>>
+            <span>Privado</span> <input type="checkbox" name="opcXAccesoAdmin" <?php if(isset($opcXAccesoAdminS) && $opcXAccesoAdminS=='checked'){ echo 'checked'; }; ?>>
+            <span>Galeria</span> <input type="checkbox" name="opcXGaleria" <?php if(isset($opcXGaleriaS) && $opcXGaleriaS=='checked'){ echo 'checked'; }; ?>><hr>
             <input type="text" value="<?php if(isset($opc11)){ echo $opc11; }; ?>" name="opc11" placeholder="Ubicación <opcional/>" minlength="4">
             <input type="text" value="<?php if(isset($opc12)){ echo $opc12; }; ?>" name="opc12" placeholder="Nombre del archivo" minlength="4" required>
             <?php if (isset($PermiEditar) && $PermiEditar==true) { ?><hr>
@@ -106,7 +136,9 @@ if (isset($permiExtras) && $permiExtras == true) {
             </select>
             <?php } ?>
             <hr>
-            <input type="submit" name="publicar" value="Mostrar &#xf044">
+            <input type="submit" name="publicar" value="Mostrar &#xf044"><hr>
+            <a target="_blank" class="boton" href="<?php echo $AC_DIRECTORIO.'codigos'.$AGREGAR_PHP; ?>">Codigos <i class="fas fa-external-link-alt"></i></a>
+            <a target="_blank" class="boton" href="<?php echo $AC_DIRECTORIO.'imagenes'.$AGREGAR_PHP; ?>">Imagenes <i class="fas fa-external-link-alt"></i></a>
         </form><hr>
         <form action="borrador.php" method="get">
             <span>Borradores</span>
@@ -114,6 +146,13 @@ if (isset($permiExtras) && $permiExtras == true) {
                 <option value="1">1</option>
                 <option value="2" <?php if(isset($opcBorradorB)){ echo $opcBorradorB; }; ?>>2</option>
                 <option value="3" <?php if(isset($opcBorradorC)){ echo $opcBorradorC; }; ?>>3</option>
+                <option value="4" <?php if(isset($opcBorradorD)){ echo $opcBorradorD; }; ?>>4</option>
+                <option value="5" <?php if(isset($opcBorradorE)){ echo $opcBorradorE; }; ?>>5</option>
+                <option value="6" <?php if(isset($opcBorradorF)){ echo $opcBorradorF; }; ?>>6</option>
+                <option value="7" <?php if(isset($opcBorradorG)){ echo $opcBorradorG; }; ?>>7</option>
+                <option value="8" <?php if(isset($opcBorradorH)){ echo $opcBorradorH; }; ?>>8</option>
+                <option value="9" <?php if(isset($opcBorradorI)){ echo $opcBorradorI; }; ?>>9</option>
+                <option value="10" <?php if(isset($opcBorradorJ)){ echo $opcBorradorJ; }; ?>>10</option>
             </select>
             <input class="oculto" type="text" name="IniCrearCarpeta" value="borradores">
             <input type="submit" name="borradores" value="Mostrar &#xf044">
@@ -131,9 +170,12 @@ if (isset($permiExtras) && $permiExtras == true) {
             <ol>
                 <li>&lt;p class="texini"&gt;Hola!&lt;/p&gt;</li>
                 <li>&lt;ol&gt; &lt;li class="t12"&gt;Información&lt;/li&gt; &lt;/ol&gt;</li>
-                <li><?php echo $AC_DESCRIPCION_creador; ?></li>
-                <li>Disfruta de la versión 0.3 Beta mejorada!</li>
+                <li>El sistema de creación de paginas se encarga de generar las paginas de una forma más rápida y optimizado con el formulario sin necesidad de tener que crear un archivo y copiar los códigos. Este sistema fue creado por Armin/DBHS</li>
+                <li>Disfruta de la versión 0.3.1 Beta mejorada!</li>
             </ol>
         </div>
     </div>
-<?php } } else { $AC_DIREC='../../'; $AC_ENCONTRAR=''; include $AC_DIREC.'error.php'; } ?>
+<?php } else {
+    if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}");
+} ?>
