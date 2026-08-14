@@ -26,7 +26,7 @@
 <p class="texini">Configuración avanzada <span class="t12">v0.3.1 Beta</span></p>
 <form class="formulario" method="post">
 	<input type="text" name="opcnombrearchivo" value="<?php if(isset($opctema_nombre)){ echo $opctema_nombre; } ?>" placeholder="Archivo.php" required>
-	<input type="submit" name="veriarchivo" value="Verificar">
+	<input type="submit" name="veriarchivo" value="Verificar &#xf002">
 	<?php if(isset($mov) && $mov==true){ ?> <a class="boton" href="panel.php?ac=tema&temamodificado=true&temamodificadoarc=<?php echo $veri; ?>">Mostrar</a> <a class="boton" href="panel.php?ac=tema&temamodificadono=false">Normal</a> <input class="boton2" type="submit" name="eliarchivo" value="Eliminar"> <?php } ?>
 </form>
 <form method="post" action="actualizar.php">
