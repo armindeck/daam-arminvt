@@ -76,7 +76,7 @@ $fecha=date('Y-m-d');
 
 $fechahora=date('Y-m-d - g:ia');
 
-$version='v0.3 Beta';
+$version='v0.3.1 Beta';
 
 session_start();
 
@@ -84,6 +84,8 @@ require_once $AC_DIRECTORIO.'datos/extra.php';
 
 require_once $AC_DIRECTORIO.'datos/mensajes.php';
 
-require_once $AC_DIRECTORIO.'datos/extenciones/extencionCargarTema.php';
+$ex='CargarTema';
+
+require_once $AC_DIRECTORIO.'datos/extenciones.php';
 
 ?>
