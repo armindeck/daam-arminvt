@@ -14,14 +14,13 @@ $id=$_SESSION['id'];
 $actualizar="UPDATE usuarios SET inicio='$fecha' WHERE id='$id'";
 $resultado=mysqli_query($conexion,$actualizar);
 
-require $AC_DIRECTORIO.'descripciones.php';
-$AC_METADESCRIPCION=$AC_DESCRIPCION_armin;
+$AC_METADESCRIPCION='Perfil';
 $AC_METADESCRIPCION2='Acerca del creador de '.$NombreWeb.' - '.$NombreAdmin;
 $AC_METAETIQUETA='Acerca de '.$NombreAdmin.', acerca de '.$NombreAdminCompleto;
 $AC_IMG='arminvt1.png';
 $AC_EXTRA=true;
 $AC_TITULO='Perfil de '.$_SESSION['nombre'];
-$AC_DESCRIPCION=$AC_DESCRIPCION_armin;
+$AC_DESCRIPCION='Perfil';
 $AC_FECHA='22 Feb 2023 - 1:20pm';
 $AC_CONTENIDO='<p class="texini">Bienvenid@ '.$_SESSION['nombre'].'</p>
 <p class="texini t14">En este apartado encontraras los comentarios, datos y configuracion de tu cuenta.</p>'.$lugarMensaje.'

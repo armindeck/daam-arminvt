@@ -1,17 +1,24 @@
-<?php #CONTENIDO POR ARMIN
-$AC_DIRECTORIO='./';
-require_once $AC_DIRECTORIO.'datos/datos.php';
-require_once $AC_DIRECTORIO.'descripciones.php';
-$AC_METADESCRIPCION='NONE';
-$AC_METADESCRIPCION2='NONE';
-$AC_METAETIQUETA='NONE';
-$AC_IMG='NONE.png';
-$AC_EXTRA=false;
-$AC_TITULO='Imagenes';
-$AC_DESCRIPCION=$AC_DESCRIPCION_imagenes;
-$AC_FECHA='01 Jul 2023 - 11:05pm';
-$directorio = $AC_DIRECTORIO.'img/';
-$AC_CONTENIDO='<p class="texini">Todas las imagenes!</p>';
-$TIPO='CargarImagenes';
-require_once $AC_DIRECTORIO.'datos/displa.php';
+<?php #CONTENIDO POR ARMIN
+$AC_DIRECTORIO='./';
+require_once $AC_DIRECTORIO.'datos/contenidos/cn_imagenes.php';
+$AC_UBICACION=$opc11;
+$AC_ARCHIVO=$opc12;
+require_once $AC_DIRECTORIO.'datos/datos.php';
+if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 5) {
+$AC_METADESCRIPCION=$opc1;
+$AC_METADESCRIPCION2=$opc1;
+$AC_METAETIQUETA=$opc3;
+$AC_IMG=$opc4;
+$AC_EXTRA=$opc8;
+$AC_TITULO=$opc5;
+$AC_CATALOGO=$opc2;
+$AC_DESCRIPCION=$opc6;
+$AC_FECHA='2023-07-29 - 11:31am';
+$AC_CONTENIDO=$opc7;
+$GALERIA=true;
+require_once $AC_DIRECTORIO.'datos/displa.php';
+$AC_EXISTE=$opcExiste;
+$AC_ESTADO=$opcEstado;
+#v0.3.1 Beta
+} else { require_once "./error.php"; }
 ?>

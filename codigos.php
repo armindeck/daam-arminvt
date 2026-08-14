@@ -1,6 +1,23 @@
-<?php $AC_DIRECTORIO='./'; require_once 'datos/datos.php';
-if(isset($_SESSION['id']) && $_SESSION['rol'] == 5) {
-
-echo htmlspecialchars('<br> = #BR# | <b> = #BA# | </b> = #BC# | <i> = #IA# | </i> = #IC# | <hr> = #HR#');
-
-} else { $AC_DIREC='./'; $AC_ENCONTRAR=''; require_once $AC_DIREC.'error.php'; } ?>
+<?php #CONTENIDO POR ARMIN
+$AC_DIRECTORIO='./';
+require_once $AC_DIRECTORIO.'datos/contenidos/cn_codigos.php';
+$AC_UBICACION=$opc11;
+$AC_ARCHIVO=$opc12;
+require_once $AC_DIRECTORIO.'datos/datos.php';
+if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 5) {
+$AC_METADESCRIPCION=$opc1;
+$AC_METADESCRIPCION2=$opc1;
+$AC_METAETIQUETA=$opc3;
+$AC_IMG=$opc4;
+$AC_EXTRA=$opc8;
+$AC_TITULO=$opc5;
+$AC_CATALOGO=$opc2;
+$AC_DESCRIPCION=$opc6;
+$AC_FECHA='2023-07-29 - 10:47am';
+$AC_CONTENIDO=$opc7;
+require_once $AC_DIRECTORIO.'datos/displa.php';
+$AC_EXISTE=$opcExiste;
+$AC_ESTADO=$opcEstado;
+#v0.3.1 Beta
+} else { require_once "./error.php"; }
+?>

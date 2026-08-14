@@ -6,7 +6,7 @@ if($_SESSION['id']){
 require_once $AC_DIRECTORIO.'datos/permisos_usuarios.php';
 
 	if(!empty($_POST['IniActualizar']) && !empty($_POST['nombre']) && !empty($_POST['usuario']) && !empty($_POST['email']) && !empty($_POST['redsocial']) && !empty($_POST['contrasena'])){
-	    require $AC_DIRECTORIO.'datos/extenciones/extencionDarFormato.php';
+	    $ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
 
 	    $nombre=darFormatoNoSimbolos(trim($_POST['nombre']));
 	    $usuario=darFormatoNoSimbolos(trim($_POST['usuario']));

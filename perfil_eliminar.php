@@ -8,14 +8,13 @@ if ($_SESSION['rol'] == 0) {
 if($_SESSION['rol'] == 5){ $rol='Administrador'; }
 if(strlen($_SESSION['redsocial'])==0){ $redSocial=$EnlaceWeb; } else { $redSocial=$_SESSION['redsocial']; }
 
-require $AC_DIRECTORIO.'descripciones.php';
-$AC_METADESCRIPCION=$AC_DESCRIPCION_armin;
+$AC_METADESCRIPCION='Eliminar perfil';
 $AC_METADESCRIPCION2='Acerca del creador de '.$NombreWeb.' - '.$NombreAdmin;
 $AC_METAETIQUETA='Acerca de '.$NombreAdmin.', acerca de '.$NombreAdminCompleto;
 $AC_IMG='arminvt1.png';
 $AC_EXTRA=true;
 $AC_TITULO='Eliminar cuenta de @'.$_SESSION['usuario'];
-$AC_DESCRIPCION=$AC_DESCRIPCION_armin;
+$AC_DESCRIPCION='Eliminar perfil';
 $AC_FECHA='22 Feb 2023 - 1:20pm';
 $AC_CONTENIDO='<p class="texini">Seccion de eliminacion de cuenta - '.$_SESSION['nombre'].'</p>
 <p class="texini t14">Para eliminar la cuenta debe llenar el formulario.</p>'.$lugarMensaje.'

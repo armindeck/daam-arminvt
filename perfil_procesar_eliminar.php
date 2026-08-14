@@ -6,7 +6,7 @@ if($_SESSION['id']){
 require_once $AC_DIRECTORIO.'datos/permisos_usuarios.php';
 
 	if(!empty($_POST['IniEliminar']) && !empty($_POST['motivos']) && !empty($_POST['aceptar']) && !empty($_POST['contrasena'])){
-	    require $AC_DIRECTORIO.'datos/extenciones/extencionDarFormato.php';
+	    $ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
 
 	    $motivos=darFormatoNoSimbolos(trim($_POST['motivos']));
 	    $aceptar=darFormatoNoSimbolos(trim($_POST['aceptar']));

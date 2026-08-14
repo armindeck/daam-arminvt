@@ -1,14 +1,13 @@
 <?php #CONTENIDO POR ARMIN
 $AC_DIRECTORIO='./';
 include $AC_DIRECTORIO.'datos/datos.php';
-require $AC_DIRECTORIO.'descripciones.php';
 $AC_METADESCRIPCION='none';
 $AC_METADESCRIPCION2='none';
 $AC_METAETIQUETA='none';
 $AC_IMG='arminvtmin.png';
 $AC_EXTRA=false;
 $AC_TITULO='Iniciar sesión';
-$AC_DESCRIPCION=$AC_DESCRIPCION_administracion;
+$AC_DESCRIPCION='Iniciar sesión';
 $AC_FECHA='03 Mar 2023 - 5:23pm';
 #>>>>>>>>>>>>>>
 $formulario='<p class="texini">Bienvenido a la sección de inicio de sesión</p>
@@ -26,7 +25,7 @@ if(isset($_SESSION['id'])){
     header("Location: perfil");
 } else if(!empty($_POST['IniSesion'])){
     require_once $AC_DIRECTORIO.'datos/permisos_usuarios.php';
-    require $AC_DIRECTORIO.'datos/extenciones/extencionDarFormato.php';
+    $ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
     $_SESSION['usuario']=darFormatoNoSimbolos(trim($_POST['usuario']));
     $_SESSION['contrasena']=darFormato(trim($_POST['contrasena']));
 
