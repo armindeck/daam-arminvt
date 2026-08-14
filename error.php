@@ -12,7 +12,7 @@ $AC_EXTRA=$opc8;
 $AC_TITULO=$opc5;
 $AC_CATALOGO=$opc2;
 $AC_DESCRIPCION=$opc6;
-$AC_FECHA='2023-07-29 - 11:42am';
+$AC_FECHA='2023-08-01 - 3:42pm';
 $MENSAJE=true;
 $AC_CONTENIDO=$opc7;
 require_once $AC_DIRECTORIO.'datos/displa.php';

@@ -12,10 +12,10 @@ $AC_EXTRA=$opc8;
 $AC_TITULO=$opc5;
 $AC_CATALOGO=$opc2;
 $AC_DESCRIPCION=$opc6;
-$AC_FECHA='2023-07-27 - 10:23pm';
+$AC_FECHA='2023-08-01 - 3:26pm';
 $AC_CONTENIDO=$opc7;
 require_once $AC_DIRECTORIO.'datos/displa.php';
 $AC_EXISTE=$opcExiste;
 $AC_ESTADO=$opcEstado;
-#v0.3 Beta
+#v0.3.1 Beta
 ?>
