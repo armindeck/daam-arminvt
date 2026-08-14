@@ -6,16 +6,17 @@ require $AC_DIRECTORIO.'descripciones.php';
 $contenido='<p class="texini t14">~Oh!. Parece que no hay ningún comentario que reportar...</p>
 </div>';
 
-if (isset($_GET['id']) && isset($_GET['carpeta'])) {
+if (isset($_GET['id']) && isset($_GET['ubicacion']) && isset($_GET['carpeta'])) {
 	$id=$_GET['id']-1;
 	$idN=$_GET['id'];
+	$ubicacion=$_GET['ubicacion'];
 	$carpeta=$_GET['carpeta'];
-	$verificar_carpeta=$AC_DIRECTORIO.$carpeta.'/datos/pubdatos.php';
+	$verificar_carpeta=$AC_DIRECTORIO.$ubicacion.$carpeta.'/datos/pubdatos.php';
 	if(file_exists($verificar_carpeta)){ require_once $verificar_carpeta;
 
-	if($comentario[$id]['id'] == $idN && $comentario[$id]['carpeta'] == $carpeta){
+	if($comentario[$id]['id'] == $idN && $comentario[$id]['ubicacion'] == $ubicacion && $comentario[$id]['carpeta'] == $carpeta){
 
-$enlace_reacciones=$AC_DIRECTORIO.$comentario[$id]['carpeta']."/datos/reacciones/";
+$enlace_reacciones=$AC_DIRECTORIO.$comentario[$id]['ubicacion'].$comentario[$id]['carpeta']."/datos/reacciones/";
 
 #DE CARGAR
 
@@ -26,7 +27,7 @@ if($comentario[$id]['rol']=='admin'){
 	$emoji='<i class="fas fa-splotch cverified" title="verificado"></i>';
 	$c_inicio='<a class="admin" target="_blank" href="'.$EnlaceAdmin.'" title="'.$NombreAdmin.' es el Administrador :3">'.$NombreAdmin.'</a> '.$emoji.' <span class="id" title="'.$NombreAdmin.' es el @id'.$comentario[$id]['id'].' 7w7">@id'.$comentario[$id]['id'].'</span>';
 }
-
+#DESDE AQUI SEGUIR EDITANDO
 $c_enlace='<a target="_blank" rel="nofollow" class="t12 link" href="'.$AC_DIRECTORIOs.'salir'.$AGREGAR_PHP.'?id='.$comentario[$id]['id'].'&carpeta='.$comentario[$id]['carpeta'].'&enlace='.$comentario[$id]['enlace'].'" title="Seguir a '.$comentario[$id]['enlace'].'">'.(substr($comentario[$id]['enlace'], 0, 25)).'...</a> <i class="fas fa-meteor forlinkcolor"></i>';
 
 $c_reacciones='<form method="post" action="'.$AC_DIRECTORIO.$comentario[$id]['carpeta'].'/reac'.$AGREGAR_PHP.'?id='.$comentario[$id]['id'].'&dir='.$AC_DIRECTORIO.$comentario[$id]['carpeta'].'/"> <input class="reaccion" type="submit" name="like" value="&#xf164; '.(file_get_contents($enlace_reacciones.'l'.$comentario[$id]['id'].'.txt')).'">
