@@ -10,21 +10,21 @@ $AC_EXTRA=true;
 $AC_TITULO='🎁COMO HACER UN MENU EPICO! 🔥 🔴 GAME MAKER 2023 ✅';
 $AC_DESCRIPCION=$AC_DESCRIPCION_menuepicogms;
 $AC_FECHA='19 May 2023 - 9:07pm';
-$AC_CONTENIDO='<p class="texini">'.$AC_DESCRIPCION.'</p>
+$AC_CONTENIDO='<p class="texini">Crea un Menú Epico desde cero, incluso si no tienes experiencia previa en GML. Aprenderás a crear el menú por código y de una forma optimizada, e incluso con una alternativa bien épica!</p>
 <p class="texini">Contenido del video: <a target="_blank" class="boton" href="https://www.mediafire.com/file/fvbtkgebr7cwzbf/contenido_menu.zip/file">Descargar <i class="fas fa-fire"></i></a> - Peso: 100kb</p>
 <div class="flexCon">
- <iframe width="480" height="260" src="https://www.youtube.com/embed/HHHBgqxVCRk" title="'.$AC_DESCRIPCION.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <iframe width="480" height="260" src="https://www.youtube.com/embed/HHHBgqxVCRk" title="Crea un Menú Epico desde cero, incluso si no tienes experiencia previa en GML. Aprenderás a crear el menú por código y de una forma optimizada, e incluso con una alternativa bien épica!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 <p class="texini t14">Imágenes</p>
 <div class="flexCon">
  <div class="m2">
-  <div class="imagen"><img class="img1" loading="lazy" src="'.$AC_DIRECTORIO.'img/menuepicogms.png"></div>
+  <div class="imagen"><img class="img1" loading="lazy" src="../img/menuepicogms.png"></div>
  </div>
  <div class="m2">
-  <div class="imagen"><img class="img1" loading="lazy" src="'.$AC_DIRECTORIO.'img/menuepicogms2.png"></div>
+  <div class="imagen"><img class="img1" loading="lazy" src="../img/menuepicogms2.png"></div>
  </div>
  <div class="m2">
-  <div class="imagen"><img class="img1" loading="lazy" src="'.$AC_DIRECTORIO.'img/menuepicogms3.png"></div>
+  <div class="imagen"><img class="img1" loading="lazy" src="../img/menuepicogms3.png"></div>
  </div>
 </div>';
 include $AC_DIRECTORIO.'datos/displa.php';

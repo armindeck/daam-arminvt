@@ -11,7 +11,7 @@ $AC_TITULO='La HISTORIA de ANIMEFLV | Polémicas | Colaboraciones | Controversia
 $AC_DESCRIPCION=$AC_DESCRIPCION_historiaanimeflv;
 $AC_FECHA='30 Apr 2023 - 11:06am';
 $AC_CONTENIDO='<div class="flexCon">
- <iframe width="480" height="260" src="https://www.youtube.com/embed/rUVnoIo9GOw" title="'.$AC_DESCRIPCION.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <iframe width="480" height="260" src="https://www.youtube.com/embed/rUVnoIo9GOw" title="AnimeFLV es una página web de anime que fue lanzada en los años 2010 y 2011. Desde sus inicios, ofreció un gran catálogo de animes accesibles para todos sin necesidad de registrarse. Los animes estaban subtitulados..." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <ol>
     <li class="t14 tb">La Evolución de AnimeFLV: De un Proyecto Pequeño a un Sitio de Anime Reconocido</li>
     <li class="t14">¡Hola, otakus! Mi nombre es ArminVT y hoy voy a hablarles sobre uno de los sitios web más icónicos de la industria del anime. Un sitio que ha sido la fuente de inspiración de muchos, y un verdadero hogar para los amantes del anime. ¡Así es, estoy hablando de AnimeFLV!<br>

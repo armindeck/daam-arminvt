@@ -12,7 +12,7 @@ $AC_DESCRIPCION=$AC_DESCRIPCION_paginavtuber;
 $AC_FECHA='20 Mar 2023 - 11:12pm';
 $AC_CONTENIDO='<p class="texini">Contenido del video: <a target="_blank" class="boton" href="https://www.mediafire.com/file/d3xzx659zhroq29/">Descargar <i class="fas fa-fire"></i></a> - Peso: 828kb</p>
 <div class="flexCon">
- <iframe width="480" height="260" src="https://www.youtube.com/embed/VsKraZwK6hI" title="'.$AC_DESCRIPCION.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <iframe width="480" height="260" src="https://www.youtube.com/embed/VsKraZwK6hI" title="Crea tu primera página web para Vtuber desde cero, incluso si no tienes experiencia previa en HTML. Aprenderás a agregar imágenes, textos, enlaces, tablas y mucho más. ¡Disfruta creando tu propia página! :3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <ol>
     <li class="t14 tb">Información</li>
     <li class="t12">Nombre: Contenido</li>
@@ -26,13 +26,13 @@ $AC_CONTENIDO='<p class="texini">Contenido del video: <a target="_blank" class="
 <p class="texini t14">Imágenes</p>
 <div class="flexCon">
  <div class="m2">
-  <div class="imagen"><img class="img1" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvtwebvtuber1.png"></div>
+  <div class="imagen"><img class="img1" loading="lazy" src="../img/arminvtwebvtuber1.png"></div>
  </div>
  <div class="m2">
-  <div class="imagen"><img class="img1" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvtwebvtuber2.png"></div>
+  <div class="imagen"><img class="img1" loading="lazy" src="../img/arminvtwebvtuber2.png"></div>
  </div>
  <div class="m2">
-  <div class="imagen"><img class="img1" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvtwebvtuber3.png"></div>
+  <div class="imagen"><img class="img1" loading="lazy" src="../img/arminvtwebvtuber3.png"></div>
  </div>
 </div>
 <p class="texini">Espero que disfruten haciendo la página web :3</p>';
