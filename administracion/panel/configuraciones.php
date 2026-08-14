@@ -1,4 +1,4 @@
-<?php if(isset($TIPO)){ if($TIPO='panel'){ ?>
+<?php if(isset($TIPO) && $TIPO=='panel'){ ?>
 	<p class="texini">Configuración avanzada <span class="t12">v0.3 Beta</span></p>
 <form class="flexCon" method="post" action="actualizar.php">
 	<div class="formulario">
@@ -32,14 +32,17 @@
 	if($EnlaceWebS=='https://'.$EnlaceWebNoHttps.'/'){ echo 'checked'; } ?>>
 	</div>
 	<div class="formulario" style="width:100%;">
-		<span>Extras</span> <textarea name="cfg20" placeholder="Variables y resultados extras"><?php $mostrar=file_get_contents('extras/extraVariables.php'); echo $mostrar; ?></textarea>
+		<span>Extras</span> <textarea name="cfg20" placeholder="Variables y resultados extras"><?php if(file_exists($scrSecundarios)){ $mostrar=file_get_contents($scrSecundarios); echo $mostrar; } ?></textarea>
 	</div>
 	<div class="formulario" style="width:100%;">
-		<span>Scripts</span> <textarea class="texeditor2" name="cfg21" placeholder="Analitycs"><?php $mostrar=file_get_contents('extras/extraScripts.php'); echo $mostrar; ?></textarea>
+		<span>Scripts</span> <textarea class="texeditor2" name="cfg21" placeholder="Analitycs"><?php if(file_exists($scrExtrasdispla)){ $mostrar=file_get_contents($scrExtrasdispla); echo $mostrar; } ?></textarea>
 	</div>
 	<div>
         <input class="boton" type="reset" value="Cancelar &#xf00d">
         <input class="boton" type="submit" name="IniConfig" value="Actualizar &#xf044">
     </div>
 </form>
-<?php } } else { $AC_DIREC='../../'; $AC_ENCONTRAR=''; include $AC_DIREC.'error.php'; } ?>
+<?php } else {
+    if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}");
+} ?>
