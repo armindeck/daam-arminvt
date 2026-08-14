@@ -70,6 +70,10 @@ switch ($dmensaje) {
 
 	case 'elimiarchivo': $conmensaje='El archivo fue eliminado!'; break;
 	case 'archivoselimi': $conmensaje='Los archivos fueron eliminados!'; break;
+
+	case 'archisubido': $conmensaje='El archivo fue subido!'; break;
+	case 'archinopermitido': $conmensaje='El archivo no es permitido!'; break;
+	
 	case 'exisarchivo': $conmensaje='Oh! el archivo existe!'; break;
 	case 'exisarchivo2': $conmensaje='Oh! los archivos existen! use: Modificador'; break;
 	case 'noexisarchivo': $conmensaje='Oh! no existe el archivo!'; break;
