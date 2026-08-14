@@ -25,12 +25,15 @@ if(isset($TIPO) && $TIPO=='panel'){ #PRINCIPALES ?>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=salir">Salir</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil">Perfil</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil_editar">P. Editar</a>
+<a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil_editar_contrasena">P. E. Contraseña</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil_eliminar">P. Eliminar</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil_procesar">P. Procesar</a>
+<a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil_procesar_contrasena">P. P.Contraseña</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=perfil_procesar_eliminar">P. P. Eliminar</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=reportar">Reportar</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=reportarexito">R. Exito</a>
 <a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=version">Versión</a>
+<a class="boton" href="panel.php?ac=editor&u=inicio&c=inicio&a=LEEME<?php if(isset($ledb)){ echo $ledb; } ?>">Leeme</a>
 
 <hr>
 <?php endif; ?>
@@ -67,6 +70,7 @@ if(isset($TIPO) && $TIPO=='panel'){ #PRINCIPALES ?>
 
 <?php if(isset($c) && $c=='data' && isset($u) && $u=='form'): ?>
 
+<a class="boton" href="panel.php?ac=editor&u=form&c=data&a=actualizaciones">Actualizaciones</a>
 <a class="boton" href="panel.php?ac=editor&u=form&c=data&a=blog">Blog</a>
 <a class="boton" href="panel.php?ac=editor&u=form&c=data&a=forolink">ForoLink</a>
 
@@ -87,6 +91,7 @@ if(isset($TIPO) && $TIPO=='panel'){ #PRINCIPALES ?>
 
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=Cabeza">Cabeza</a>
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu">Menu</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra">Contenido Extra</a>
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=MenuLateral">Menu Lateral</a>
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=PiedePagina">Pie de Pagina</a>
 
@@ -107,6 +112,15 @@ if(isset($TIPO) && $TIPO=='panel'){ #PRINCIPALES ?>
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu&a=scrDisplaMenu">Displa</a>
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu&a=scrDispladiMenu">Displadi</a>
 <a class="boton" href="panel.php?ac=editor&u=scripts&c=Menu&a=scrDispladiMenu_POST">POST</a>
+
+<hr>
+<?php endif; ?>
+
+<?php if(isset($c) && $c=='ContenidoExtra' && isset($u) && $u=='scripts'): ?>
+
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra&a=scrDisplaContenidoExtra">Displa</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra&a=scrDispladiContenidoExtra">Displadi</a>
+<a class="boton" href="panel.php?ac=editor&u=scripts&c=ContenidoExtra&a=scrDispladiContenidoExtra_POST">POST</a>
 
 <hr>
 <?php endif; ?>
