@@ -3,6 +3,10 @@
 		background: <?php echo $opctema_fondo_fondo; ?>;
 		color: <?php echo $opctema_fondo_color; ?>;
 	}
+	body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb, .noticias::-webkit-scrollbar-thumb {
+		background: <?php echo $opctema_barra_fondo; ?>;
+		border-radius: <?php echo $opctema_barra_borde; ?>;
+	}
 	header{
 		background: <?php echo $opctema_cabeza_fondo; ?>;
 		color: <?php echo $opctema_cabeza_color; ?>;
@@ -11,7 +15,7 @@
 		background: <?php echo $opctema_menu_fondo; ?>;
 		color: <?php echo $opctema_menu_color; ?>;
 	}
-	.aside{
+	aside{
 		background: <?php echo $opctema_izquierda_fondo; ?>;
 		color: <?php echo $opctema_izquierda_color; ?>;
 	}
@@ -23,10 +27,7 @@
 		background: <?php echo $opctema_piedepagina_fondo; ?>;
 		color: <?php echo $opctema_piedepagina_color; ?>;
 	}
-	body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb, .noticias::-webkit-scrollbar-thumb {
-		background: <?php echo $opctema_barra_fondo; ?>;
-		border-radius: <?php echo $opctema_barra_borde; ?>;
-	}
+	
 	marquee{
 		background: <?php echo $opctema_marquee_fondo; ?>;
 		color: <?php echo $opctema_marquee_color; ?>;
@@ -36,6 +37,9 @@
 		background: <?php echo $opctema_contenedores_fondo; ?>;
 		color: <?php echo $opctema_contenedores_color; ?>;
 		border-radius: <?php echo $opctema_texini_borde; ?>;
+	}
+	.texinimen{
+		border-radius: <?php echo $opctema_texinimen_borde; ?>;
 	}
 	.m2 a{
 		color: <?php echo $opctema_contenedorm2_color; ?>;
@@ -73,6 +77,10 @@
 		background: <?php echo $opctema_ubicacion_enlace_iconos_fondo; ?>;
 		color: <?php echo $opctema_ubicacion_enlace_iconos_color; ?>;
 	}
+	.titulo a:hover, .titulo a:hover i:hover{
+		background: <?php echo $opctema_ubicacion_enlace_iconos_h_fondo; ?>;
+		color: <?php echo $opctema_ubicacion_enlace_iconos_h_color; ?>;
+	}
 	hr{
 		background: <?php echo $opctema_hr_fondo; ?>;
 	}
@@ -84,10 +92,12 @@
 		background: <?php echo $opctema_footer_enlace_iconos_h_fondo; ?>;
 		color: <?php echo $opctema_footer_enlace_iconos_h_color; ?>;
 	}
+	.boton, .boton2, .formulario input[type=submit]{
+		border-radius: <?php echo $opctema_boton_borde; ?>;
+	}
 	.boton, .formulario input[type=submit]{
 		background: <?php echo $opctema_boton_fondo; ?>;
 		color: <?php echo $opctema_boton_color; ?>;
-		border-radius: <?php echo $opctema_boton_borde; ?>;
 	}
 	.boton:hover, .formulario input[type=submit]:hover{
 		background: <?php echo $opctema_boton_h_fondo; ?>;
@@ -101,15 +111,15 @@
 		background: <?php echo $opctema_boton2_h_fondo; ?>;
 		color: <?php echo $opctema_boton2_h_color; ?>;
 	}
-	.menu-lateral p i{
+	.bord .t12 svg, .bord .t12 i{
 		background: <?php echo $opctema_derecha_iconos_fondo; ?>;
 		color: <?php echo $opctema_derecha_iconos_color; ?>;
 	}
-	.menu-lateral a, .menu-lateral a i{
+	.iredes{
 		background: <?php echo $opctema_derecha_enlace_iconos_fondo; ?>;
 		color: <?php echo $opctema_derecha_enlace_iconos_color; ?>;
 	}
-	.menu-lateral a:hover, .menu-lateral a:hover i:hover{
+	.iredes:hover{
 		background: <?php echo $opctema_derecha_enlace_iconos_h_fondo; ?>;
 		color: <?php echo $opctema_derecha_enlace_iconos_h_color; ?>;
 	}
@@ -139,7 +149,7 @@
 		background: <?php echo $opctema_comentario_enlace_fondo; ?>;
 		color: <?php echo $opctema_comentario_enlace_color; ?>;
 	}
-	.comentario .repor{
+	.repor a{
 		background: <?php echo $opctema_comentario_enlace_reportes_fondo; ?>;
 		color: <?php echo $opctema_comentario_enlace_reportes_color; ?>;
 	}
@@ -167,12 +177,17 @@
 		border-radius: <?php echo $opctema_tituloweb_h_borde; ?>;
 	}
 	.bord{
+		background: <?php echo $opctema_contenedor_derecha_fondo; ?>;
+		color: <?php echo $opctema_contenedor_derecha_color; ?>;
 		border-radius: <?php echo $opctema_derecha_contenedor_borde; ?>;
 	}
-	.imagen, .imagen .img1{
+	.imagen{
 		border-radius: <?php echo $opctema_imagen_borde; ?>;
 	}
-	.imagen, .imagen .img2{
+	.imagen .img1{
+		border-radius: <?php echo $opctema_imagen1_borde; ?>;
+	}
+	.imagen .img2{
 		border-radius: <?php echo $opctema_imagen2_borde; ?>;
 	}
 	.anuncio, .anuncio2{
