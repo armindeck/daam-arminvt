@@ -463,4 +463,141 @@ $comentario=[
 
 'fecha'=>'13 Jul 2023 - 6:51pm'
 
+],
+
+[
+
+'id'=>25,
+
+'tipo'=>'forolink',
+
+'ubicacion'=>'',
+
+'archivo'=>'forolink',
+
+'rol'=>'admin',
+
+'nombre'=>'Armin',
+
+'enlace'=>'https://arminvt.site/',
+
+'comentario'=>'Disfruta de muchos otros proyectos!',
+
+'imagen'=>'http://arminvt.site/img/arminvtcodigo.png',
+
+'fecha'=>'20 Jul 2023 - 10:17pm'
+
+],
+
+[
+
+'id'=>26,
+
+'tipo'=>'forolink',
+
+'ubicacion'=>'',
+
+'archivo'=>'forolink',
+
+'rol'=>'usuario',
+
+'nombre'=>'now17',
+
+'enlace'=>'https://www.now.com/',
+
+'comentario'=>'this now is now',
+
+'fecha'=>''
+
+],
+[
+'id'=>27,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'Anonimo',
+'enlace'=>'https://regionpacifica.com/wp-content/uploads/2018/07/mapa_region_pacifica.jpg',
+'comentario'=>'Mapa no. 1 pacifico',
+'imagen'=>'https://regionpacifica.com/wp-content/uploads/2018/07/mapa_region_pacifica.jpg',
+'fecha'=>'2023-07-31 - 2:06pm'
+],
+[
+'id'=>28,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'pepito',
+'enlace'=>'https://www.youtube.com/watch?v=5mXTuJ7sH1g&list=PLns5S08IJc2xxylXm1tE_xmm6NC4fnfG9&index=2',
+'comentario'=>'de juegos para gamers',
+'fecha'=>'2023-08-02 - 6:20pm'
+],
+[
+'id'=>29,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'Bin Laden',
+'enlace'=>'https://youtu.be/LCtZIC57pQY',
+'comentario'=>'Allahu akbar',
+'fecha'=>'2023-08-03 - 2:10pm'
+],
+[
+'id'=>30,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'Bin Laden',
+'enlace'=>'https://youtu.be/LCtZIC57pQY',
+'comentario'=>'Pasen bombas',
+'fecha'=>'2023-08-03 - 2:10pm'
+],
+[
+'id'=>31,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'Bin Laden',
+'enlace'=>'https://youtu.be/LCtZIC57pQY',
+'comentario'=>'Ala es grande',
+'fecha'=>'2023-08-03 - 2:11pm'
+],
+[
+'id'=>32,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'yopete',
+'enlace'=>'http://www.ptardo.com',
+'comentario'=>'el bananero pt',
+'imagen'=>'https://worldmusicba.com/wp-content/webp-express/webp-images/uploads/2023/04/contratar-a-el-bananero-07.jpg.webp',
+'fecha'=>'2023-08-04 - 9:15am'
+],
+[
+'id'=>33,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'juancarlos',
+'enlace'=>'https://juancarlos.com/',
+'comentario'=>'mi sitio web',
+'imagen'=>'https://juancarlos.com/',
+'fecha'=>'2023-08-04 - 9:20am'
+],
+[
+'id'=>34,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'JesusELH',
+'enlace'=>'https://www.youtube.com/@jesuselh',
+'comentario'=>'suscribete a mi canal papu :VVVVVvvvvvv',
+'fecha'=>'2023-08-11 - 4:40pm'
 ]];
