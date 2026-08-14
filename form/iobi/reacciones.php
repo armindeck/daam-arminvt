@@ -11,7 +11,7 @@ if (!empty($_POST['like']) or !empty($_POST['dislike'])) {
 			$verificado2=true;
 			$id=$_GET['id']; $ubi=$_GET['ubi']; $arc=$_GET['arc'];
 			$cdir=darFormatoIobi($ubi).$arc;
-			$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/data#'.$cdir;
+			$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/'.$cdir;
 			$UbicacionArchivoContador=$NUEVA_UBICACION.'/reacciones/'.$fue.$id.'.txt';
 			$ex='Contador'; require $AC_DIRECTORIO.'datos/extenciones.php';
 			#echo '../../'.$ubi.$arc.'?ms=exi&msm=reaccion';
