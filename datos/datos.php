@@ -1,3 +1,3 @@
 <?php #CARGAR DATOS :v
-include $AC_DIRECTORIO.'administracion/panel/datos.php';
+require_once $AC_DIRECTORIO.'administracion/panel/datos.php';
 ?>
