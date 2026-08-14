@@ -121,6 +121,23 @@ if ($_POST['IniCrearArchivo']){
 
 } else
 
+
+#RENOMBRAR ----------------------->
+
+if ($_POST['IniCambiarNombre']){
+    $antiguo=$_POST['antiguo'];
+    $nuevo=$_POST['nuevo'];
+    if (file_exists($AC_DIRECTORIO.$antiguo) && !file_exists($AC_DIRECTORIO.$nuevo)) {
+		rename($AC_DIRECTORIO.$antiguo,$AC_DIRECTORIO.$nuevo);
+		$vamos='panel.php?ac=archivos&ms=exi&msm=datosactualizados';
+		header("location:{$vamos}");
+} else if(file_exists($AC_DIRECTORIO.$nuevo)){
+	$vamos='panel.php?ac=archivos&ms=err&msm=exisarchivo';
+	header("location:{$vamos}");
+}
+
+} else
+
 #ACTUALIZAR EDITOR ----------------------->
 
 if ($_POST['IniSubirImagen']){
@@ -357,41 +374,84 @@ require_once $AC_DIRECTORIO.'."'datos/extenciones.php';
 #ACTUALIZAR DISPLA ----------------------->
 
 if ($_POST['IniDispladi']){
+/*
+m = Mostrar
+me = Mostrar Elemento
+mscr = Mostrar Scripts
+cscr = Cargar Scripts
+ti = Titulo
+con = Contenido
+ce = cantidad de elementos
+*/
+	$vinterna=trim($_POST['vinterna']);
+	$dis_cscr=trim($_POST['dis_cscr']);
+	if($dis_cscr!=''){ $dis_cscr='true'; } else { $dis_cscr='false'; }
+	for ($i=0; $i < 5; $i++) {
+		$dis_mscr[$i]=trim($_POST['dis_mscr'.$i]);
+		if(!isset($_POST['dis_ce'.$i])){ $dis_ce[$i]=1; }
+		if(isset($_POST['dis_ce'.$i])){ $dis_ce[$i]=trim($_POST['dis_ce'.$i]); }
+		if(isset($_POST['dis_m'.$i])){ $dis_m[$i]=trim($_POST['dis_m'.$i]); } else { $dis_m[$i]=''; }
+		if(isset($_POST['dis_ti_0_'.$i])){ $dis_ti_0_[$i]=trim($_POST['dis_ti_0_'.$i]); } else { $dis_ti_0_[$i]=''; }
+		if(isset($_POST['dis_ti_1_'.$i])){ $dis_ti_1_[$i]=trim($_POST['dis_ti_1_'.$i]); } else { $dis_ti_1_[$i]=''; }
+		if(isset($_POST['dis_ti_2_'.$i])){ $dis_ti_2_[$i]=trim($_POST['dis_ti_2_'.$i]); } else { $dis_ti_2_[$i]=''; }
+		if(isset($_POST['dis_ti_3_'.$i])){ $dis_ti_3_[$i]=trim($_POST['dis_ti_3_'.$i]); } else { $dis_ti_3_[$i]=''; }
+		if(isset($_POST['dis_ti_4_'.$i])){ $dis_ti_4_[$i]=trim($_POST['dis_ti_4_'.$i]); } else { $dis_ti_4_[$i]=''; }
+		if(isset($_POST['dis_con_0_'.$i])){ $dis_con_0_[$i]=trim($_POST['dis_con_0_'.$i]); }
+		if(isset($_POST['dis_con_1_'.$i])){ $dis_con_1_[$i]=trim($_POST['dis_con_1_'.$i]); }
+		if(isset($_POST['dis_con_2_'.$i])){ $dis_con_2_[$i]=trim($_POST['dis_con_2_'.$i]); }
+		if(isset($_POST['dis_con_3_'.$i])){ $dis_con_3_[$i]=trim($_POST['dis_con_3_'.$i]); }
+		if(isset($_POST['dis_con_4_'.$i])){ $dis_con_4_[$i]=trim($_POST['dis_con_4_'.$i]); }
+		if(isset($_POST['dis_me_0_'.$i])){ $dis_me_0_[$i]=trim($_POST['dis_me_0_'.$i]); } else { $dis_me_0_[$i]=''; }
+		if(isset($_POST['dis_me_1_'.$i])){ $dis_me_1_[$i]=trim($_POST['dis_me_1_'.$i]); } else { $dis_me_1_[$i]=''; }
+		if(isset($_POST['dis_me_2_'.$i])){ $dis_me_2_[$i]=trim($_POST['dis_me_2_'.$i]); } else { $dis_me_2_[$i]=''; }
+		if(isset($_POST['dis_me_3_'.$i])){ $dis_me_3_[$i]=trim($_POST['dis_me_3_'.$i]); } else { $dis_me_3_[$i]=''; }
+		if(isset($_POST['dis_me_4_'.$i])){ $dis_me_4_[$i]=trim($_POST['dis_me_4_'.$i]); } else { $dis_me_4_[$i]=''; }
+	}
 
-	$opcmostrar=trim($_POST['opcmostrar']);
-	$opcmostrarcodigos=trim($_POST['opcmostrarcodigos']);
-	$opcmostrarscripts=$_POST['opcmostrarscripts'];
-
-	$opcmostrar1=trim($_POST['opcmostrar1']);
-	$opcmostrar2=trim($_POST['opcmostrar2']);
-	$opcmostrar3=trim($_POST['opcmostrar3']);
-	$opcmostrar4=trim($_POST['opcmostrar4']);
-
-	$opctitulo1=trim($_POST['opctitulo1']);
-	$opctitulo2=trim($_POST['opctitulo2']);
-	$opctitulo3=trim($_POST['opctitulo3']);
-	$opctitulo4=trim($_POST['opctitulo4']);
-
-	$opccontenido1=trim($_POST['opccontenido1']);
-	$opccontenido2=trim($_POST['opccontenido2']);
-	$opccontenido3=trim($_POST['opccontenido3']);
-	$opccontenido4=trim($_POST['opccontenido4']);
-
-	$opcelementos=$_POST['opcelementos'];
-	$opcentrada=trim($_POST['opcentrada']);
-
-
-
-
-	#SCRIPTS DEL USUARIO >>>>>>>>>>>>>>>>>>>>>>>
-	$archiD='';
-	$arScrUsu='scripts/'.$opcentrada.'/scrDispladi'.$opcentrada.'.php';
-	$arScrUsu2='scripts/'.$opcentrada.'/scrDispladi'.$opcentrada.'_POST.php';
-    if (file_exists($arScrUsu) && file_exists($arScrUsu2)) {
-    	require $arScrUsu2;
-    }
-
-    file_put_contents('scripts/'.$opcentrada.'/scr'.$opcentrada.'.php',"<?php #CONTENIDO POR ARMIN\n".'$'.$opcentrada.'='."'$opcmostrar';\n".'$'.$opcentrada.'Codigos='."'$opcmostrarcodigos';\n".'$'.$opcentrada.'E1='."'$opcmostrar1';\n".'$'.$opcentrada.'E2='."'$opcmostrar2';\n".'$'.$opcentrada.'E3='."'$opcmostrar3';\n".'$'.$opcentrada.'E4='."'$opcmostrar4';\n".'$'.$opcentrada.'E1T='."'$opctitulo1';\n".'$'.$opcentrada.'E2T='."'$opctitulo2';\n".'$'.$opcentrada.'E3T='."'$opctitulo3';\n".'$'.$opcentrada.'E4T='."'$opctitulo4';\n".'$'.$opcentrada.'E1C='."'$opccontenido1';\n".'$'.$opcentrada.'E2C='."'$opccontenido2';\n".'$'.$opcentrada.'E3C='."'$opccontenido3';\n".'$'.$opcentrada.'E4C='."'$opccontenido4';\n".'$'.$opcentrada.'Elementos='."$opcelementos;\n".'$'.$opcentrada.'Scripts='."'$opcmostrarscripts';\n"."#ACTUALIZADO: $fechahora\n?>".$archiD);
+    $guardar="<?php #scrDispla\n#0.Cabeza, 1. Menu, 2. Contenido, 3. Menu Lateral, 4. Pie\n#0.Mostrar, 1. Cantidad de Elementos, 2. C. Scripts, 3. Elementos
+$"."displadi[0]=['".$dis_m[0]."',".$dis_ce[0].",[
+		['".$dis_me_0_[0]."','".$dis_ti_0_[0]."','".$dis_con_0_[0]."'],
+		['".$dis_me_0_[1]."','".$dis_ti_0_[1]."','".$dis_con_0_[1]."'],
+		['".$dis_me_0_[2]."','".$dis_ti_0_[2]."','".$dis_con_0_[2]."'],
+		['".$dis_me_0_[3]."','".$dis_ti_0_[3]."','".$dis_con_0_[3]."']
+	]
+];
+$"."displadi[1]=['".$dis_m[1]."',".$dis_ce[1].",[
+		['".$dis_me_1_[0]."','".$dis_ti_1_[0]."','".$dis_con_1_[0]."'],
+		['".$dis_me_1_[1]."','".$dis_ti_1_[1]."','".$dis_con_1_[1]."'],
+		['".$dis_me_1_[2]."','".$dis_ti_1_[2]."','".$dis_con_1_[2]."'],
+		['".$dis_me_1_[3]."','".$dis_ti_1_[3]."','".$dis_con_1_[3]."']
+	]
+];
+$"."displadi[2]=['".$dis_m[2]."',".$dis_ce[2].",[
+		['".$dis_me_2_[0]."','".$dis_ti_2_[0]."','".$dis_con_2_[0]."'],
+		['".$dis_me_2_[1]."','".$dis_ti_2_[1]."','".$dis_con_2_[1]."'],
+		['".$dis_me_2_[2]."','".$dis_ti_2_[2]."','".$dis_con_2_[2]."'],
+		['".$dis_me_2_[3]."','".$dis_ti_2_[3]."','".$dis_con_2_[3]."']
+	]
+];
+$"."displadi[3]=['".$dis_m[3]."',".$dis_ce[3].",[
+		['".$dis_me_3_[0]."','".$dis_ti_3_[0]."','".$dis_con_3_[0]."'],
+		['".$dis_me_3_[1]."','".$dis_ti_3_[1]."','".$dis_con_3_[1]."'],
+		['".$dis_me_3_[2]."','".$dis_ti_3_[2]."','".$dis_con_3_[2]."'],
+		['".$dis_me_3_[3]."','".$dis_ti_3_[3]."','".$dis_con_3_[3]."']
+	]
+];
+$"."displadi[4]=['".$dis_m[4]."',".$dis_ce[4].",[
+		['".$dis_me_4_[0]."','".$dis_ti_4_[0]."','".$dis_con_4_[0]."'],
+		['".$dis_me_4_[1]."','".$dis_ti_4_[1]."','".$dis_con_4_[1]."'],
+		['".$dis_me_4_[2]."','".$dis_ti_4_[2]."','".$dis_con_4_[2]."'],
+		['".$dis_me_4_[3]."','".$dis_ti_4_[3]."','".$dis_con_4_[3]."']
+	]
+];
+$"."carScripts=".$dis_cscr.";
+$"."mosScripts=['".$dis_mscr[0]."','".$dis_mscr[1]."','".$dis_mscr[2]."','".$dis_mscr[3]."','".$dis_mscr[4]."']; #MOSTRAR SCRIPTS EN DISPLADI
+#Modificado: ".$fechahora.' ~ '.$vinterna."\n?>";
+	$scrCUS='scripts/us/scrCUS.php';
+	$scrCUSPOST='scripts/us/scrDispladiCUS_POST.php';
+	$archiD='pepe';
+	if(file_exists($scrCUSPOST)){ require $scrCUSPOST; file_put_contents($scrCUS,$archiD); }
+    file_put_contents('scripts/scrDispla.php',$guardar);
 
     header("location:panel.php?ac=displadi&ms=exi&msm=datosactualizados");
     exit;
