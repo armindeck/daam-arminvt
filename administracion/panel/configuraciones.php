@@ -1,4 +1,5 @@
 <?php if(isset($TIPO)){ if($TIPO='panel'){ ?>
+	<p class="texini">Configuración avanzada <span class="t12">v0.3 Beta</span></p>
 <form class="flexCon" method="post" action="actualizar.php">
 	<div class="formulario">
 	<p class="tb">Nombres</p><hr>
@@ -24,8 +25,9 @@
 	<p class="tb">Enlaces</p><hr>
 	<span>Web:</span> <input type="text" name="cfg16" value="<?php echo $EnlaceWeb; ?>" placeholder="http://web.com"><br>
 	<span>Web no https:</span> <input type="text" name="cfg17" value="<?php echo $EnlaceWebNoHttps; ?>" placeholder="web.com"><br>
+	<span>Versión</span> <input type="text" name="cfgversion" value="<?php echo $version; ?>" placeholder="v0.3 Beta"><hr>
 	<span>Activar .PHP:</span> <input type="checkbox" name="cfg18" <?php
-	if($AGREGAR_PHP=='.php'){ echo 'checked'; } ?>><br>
+	if($AGREGAR_PHP=='.php'){ echo 'checked'; } ?>><hr>
 	<span>Activar HTTPS:</span> <input type="checkbox" name="cfg19" <?php
 	if($EnlaceWebS=='https://'.$EnlaceWebNoHttps.'/'){ echo 'checked'; } ?>>
 	</div>
