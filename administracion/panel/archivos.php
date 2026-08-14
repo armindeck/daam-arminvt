@@ -2,7 +2,7 @@
 <p class="texini">Creador y eliminador de archivos y carpetas <span class="t14">v0.3 Beta</span></p>
 <form class="formulario" method="post" action="actualizar.php">
 	<span>Eliminar archivo</span><br>
-	<input type="text" name="archivo" value="administracion/panel/">
+	<input type="text" name="archivo" value="">
 	<input name="IniEliminarArchivo" type="submit" value="Eliminar &#xf1f8">
 </form>
 <form class="formulario" method="post" action="actualizar.php">
