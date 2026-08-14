@@ -1,0 +1,17 @@
+Options All -Indexes
+
+RewriteEngine On
+
+# Permitir acceso a archivos sin extensión
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)/?$ $1.php [L]
+
+DirectoryIndex index.php index.html index.htm index2.html
+
+ErrorDocument 400 http://dbproject.rf.gd/error?400
+ErrorDocument 401 http://dbproject.rf.gd/error?401
+ErrorDocument 403 http://dbproject.rf.gd/error?403
+ErrorDocument 404 http://dbproject.rf.gd/error?404
+ErrorDocument 500 http://dbproject.rf.gd/error?500
+ErrorDocument 503 http://dbproject.rf.gd/error?503
