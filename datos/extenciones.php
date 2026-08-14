@@ -6,7 +6,7 @@ if(isset($ex)){
 
 if($ex=='CargarEntradas'){
 
-	echo '<div class="flexCon">';
+	/*echo '<div class="flexCon">';
 
 	foreach (array_reverse($entradas) as $contenido) {
 
@@ -31,7 +31,8 @@ if($ex=='CargarEntradas'){
 			</div>';
 
 	};
-	echo '</div><hr><div class="flexCon">';
+	echo '</div><hr>'; */
+	echo '<div class="flexCon">';
 	foreach (array_reverse($entradas) as $contenido) {
 
 		if(isset($contenido['nuevo']) && $contenido['nuevo']=='n'){
@@ -57,36 +58,6 @@ if($ex=='CargarEntradas'){
 	};
 
 	echo '</div>';
-
-} else
-
-#EX CARGAR FRASES
-
-if($ex=='CargarFrases'){
-
-	require_once $AC_DIRECTORIO.'descripciones.php';
-
-	$random=rand(1,7);
-
-	switch ($random){
-
-		case 1: $mostrarFrase=$AC_DESCRIPCION_armin; $link=$EnlaceAdmin; break;
-
-		case 2: $mostrarFrase=$AC_DESCRIPCION_index; $link=$AC_DIRECTORIOs; break;
-
-		case 3: $mostrarFrase=$AC_DESCRIPCION_reglas; $link=$AC_DIRECTORIOs.'reglas'.$AGREGAR_PHP; break;
-
-		case 4: $mostrarFrase=$AC_DESCRIPCION_reportar; $link=$AC_DIRECTORIOs.'reportar'.$AGREGAR_PHP; break;
-
-		case 5: $mostrarFrase=$AC_DESCRIPCION_error; $link=$AC_DIRECTORIOs.'error'.$AGREGAR_PHP; break;
-
-		case 6: $mostrarFrase=$AC_DESCRIPCION_forolink; $link=$AC_DIRECTORIOs.'forolink/'; break;
-
-		case 7: $mostrarFrase=$AC_DESCRIPCION_reportarexito; $link=$AC_DIRECTORIOs.'reportarexito'.$AGREGAR_PHP; break;
-
-	}
-
-	echo '<a target="_blank" href="'.$link.'">'.$mostrarFrase.'</a>';
 
 } else
 
@@ -139,7 +110,8 @@ if($ex=='Contador'){
 } else
 
 if($ex=='CargarImagenes'){
-
+	if(isset($directorio)){ $directorio=$directorio; }
+	else { $directorio=$AC_DIRECTORIO.'img/'; }
 	$archivos = scandir($directorio);
 
 	echo '<div class="flexCon">';
@@ -169,6 +141,13 @@ if($ex=='CargarImagenes'){
 	echo '</div>';
 
 } else
+
+#EX VERIFICAR CARPETAS
+
+if($ex=='VerificarCarpetas'){
+	if(!file_exists($vericar)){ mkdir($vericar); $pasaen='&ms=err&msm=direcreados'; }
+} else
+
 
 #EX CREAR CARPETAS
 
@@ -304,6 +283,13 @@ if($ex=='DarFormato'){
 		return $string;
 
 	}
+
+	function darFormatoIobi($string) { $string = str_replace(array('/'), '-', $string); return $string; }
+	function darFormatoConTXT($string) {
+		$string = str_replace(array('.php'), '.txt', $string);
+		$string = str_replace(array('.css'), '.txt', $string);
+		$string = str_replace(array('.htaccess'), '.htaccess.txt', $string);
+	return $string; }
 
 } else { $lugar=$AC_DIRECTORIO.'error'.$AGREGAR_PHP.'?ms=err&msm=noselecex'; }
 
