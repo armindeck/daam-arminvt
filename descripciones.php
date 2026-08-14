@@ -1,0 +1,24 @@
+<?php #DESCRIPCIONES
+#error_reporting(0);
+$AC_DESCRIPCION_armin='Soy una persona amable que le gusta ser Vtuber y crear paginas web de distintos temas, como las store de app y juegos, además me gusta crear foros como forolink y las demás paginas que e creado a lo largo de mis días estudiando y aprendiendo HTML, CSS y PHP.';
+$AC_DESCRIPCION_salir='Sigamos un camino distinto al del forolink de '.$NombreWeb.', quiero conocer nuevos territorios y conocer gente nueva que me inspire y me apoye en este nuevo camino.';
+$AC_DESCRIPCION_index=$NombreWeb.' es un sitio web donde puede divertirte comentando en los forolink, viendo videos, publicaciones, descargando juegos, aplicaciones y muchas cosas más.';
+$AC_DESCRIPCION_reglas='Las reglas mantienen el equilibrio de los forolink y brindan una mejor comunidad para el entretenimiento y la diversión de los usuarios en la plataforma.';
+$AC_DESCRIPCION_reportar='Los comentarios que incumplas con reglas deben ser reportados y verificados para después ser eliminados, los comentarios que incumplen las reglas afectan a los demás usuarios, por eso es mejor que sean eliminado lo más pronto posible.';
+$AC_DESCRIPCION_error='Muchas veces cometemos errores en la vida, pero seguimos a delante y mejoramos nuestro punto de vista de las cosas, es por eso que es mejor avanzar y no quedarnos en el pasado, sigue a delante mi estimado.';
+$AC_DESCRIPCION_forolink='ForoLink es un apartado donde se pueden compartir enlaces de forma anonima, comparte tus enlaces sin tener que registrarte, solo publica lo que quieras y cuando quieras!';
+$AC_DESCRIPCION_creador='El sistema de creación de paginas se encarga de generar las paginas de una forma más rápida y optimizado con el formulario sin necesidad de tener que crear un archivo y copiar los códigos. Este sistema fue creado por '.$NombreAdmin.'.';
+$AC_DESCRIPCION_reportarexito='Las personas como tu son las que mejoran forolink, esperemos que seas de los buenos y me ayudes con los reportes de comentarios que incumplan las reglas de forolink.';
+$AC_DESCRIPCION_acerca=$EnlaceWebNoHttps.' es la página oficial de '.$NombreAdmin.', vtuber, desarrollador y diseñador independiente y dueño del canal de youtube '.$NombreYouTube.'.';
+$AC_DESCRIPCION_administracion='none';
+$AC_DESCRIPCION_paginavtuber='Crea tu primera página web para Vtuber desde cero, incluso si no tienes experiencia previa en HTML. Aprenderás a agregar imágenes, textos, enlaces, tablas y mucho más. ¡Disfruta creando tu propia página! :3';
+$AC_DESCRIPCION_primerjuegogm8='Crea tu primer juego con Game Maker desde cero, incluso si no tienes experiencia previa en programación. Aprenderás a agregar personajes, objetos, efectos especiales y mucho más. ¡Disfruta creando tu propio juego! :3';
+$AC_DESCRIPCION_historiaanimeflv='AnimeFLV es una página web de anime que fue lanzada en los años 2010 y 2011. Desde sus inicios, ofreció un gran catálogo de animes accesibles para todos sin necesidad de registrarse. Los animes estaban subtitulados...';
+$AC_DESCRIPCION_panel='NONE';
+$AC_DESCRIPCION_blog='NONE';
+$AC_DESCRIPCION_cursohtmlbasico='Curso de HTML Básico: Aprende a desarrollar una página web, añadir textos, colores, imágenes, videos, enlaces, tablas y formularios. Cada lección incluye una actividad práctica y al final del curso realizarás una actividad final integradora para aplicar todo lo aprendido.';
+$AC_DESCRIPCION_menuepicogms='Crea un Menú Epico desde cero, incluso si no tienes experiencia previa en GML. Aprenderás a crear el menú por código y de una forma optimizada, e incluso con una alternativa bien épica!';
+$AC_DESCRIPCION_imagenes='NONE';
+$AC_DESCRIPCION_plantasvszombies='Cree Plants Vs Zombies en 5 Dias! y asi se ve!';
+$AC_DESCRIPCION_index='He creado Plantas contra zombies en tan solo 4 dias! y lo hice usando Game Maker!';
+$AC_DESCRIPCION_plantasvszombies='He creado Plantas contra zombies en tan solo 4 dias! y lo hice usando Game Maker!';
