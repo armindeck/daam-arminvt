@@ -34,7 +34,7 @@ if(isset($_SESSION['id'])){
 
     if(
         strlen($usuario) >= 4 && strlen($usuario) <= 20 &&
-        strlen($contrasena) >= 6 && strlen($contrasena) <= 50
+        strlen($contrasena) >= 6 && strlen($contrasena) <= 100
     ) {
 
         $validar="SELECT * FROM usuarios where usuario = '$usuario' and contrasena = '$contrasena'";
@@ -52,10 +52,10 @@ if(isset($_SESSION['id'])){
             $_SESSION['inicio']=$row['inicio'];
             $_SESSION['redsocial']=$row['redsocial'];
             header("Location: perfil?sesion=true");
-        } else { header("Location: iniciar.php?ms=err&msm=datosingreinco"); }
+        } else { header("Location: iniciar.php?ms=err&msm=datosingreinco"); session_destroy(); }
         mysqli_free_result($resultado);
         mysqli_close($conexion);
-    } else { header("Location: iniciar.php?ms=err&msm=datosnocum"); }
+    } else { header("Location: iniciar.php?ms=err&msm=datosnocum"); session_destroy(); }
 }
 
 $AC_CONTENIDO=$formulario.$lugarMensaje;
