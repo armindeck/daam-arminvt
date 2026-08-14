@@ -77,13 +77,14 @@ if(file_exists($NUEVA_UBICACION.'/pubdatos.php')){
         echo "\n".'<div class="comentario">'.$mostrarComentarioFinal.'</div>';
     endforeach;
 } else {
-    if($TIPO=='blog'){
-        echo '<p class="texini">Oh! ~ Parece que todavia no hay publicaciones!</p>';
-    } else if($TIPO=='foro'){
-        echo '<p class="texini">Oh! ~ Parece que todavia no hay publicaciones! <span class="t12">~ Se el primero en publicar :3</span></p>';
-    } else if($TIPO=='comentarios'){
-        echo '<p class="texini">Oh! ~ Parece que todavia no hay comentarios! <span class="t12">~ Se el primero en comentar :3</span></p>';
+    $MMSMT='<p class="texini">Oh! ~ Parece que todavia no hay publicaciones!</p>';
+    if($TIPO=='foro'){
+        $MMSMT=$MMSMT.'<p class="texini t12">~ Se el primero en publicar :3</p>';
     }
+    if($TIPO=='comentarios'){
+        $MMSMT=$MMSMT.'<p class="texini t12">~ Se el primero en comentar :3</p>';
+    }
+    echo $MMSMT;
 }
 echo "\n";
 } else {
