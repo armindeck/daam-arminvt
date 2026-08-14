@@ -1,5 +1,5 @@
 <?php if(isset($TIPO) && $TIPO=='panel'){ ?>
-	<p class="texini">Configuración avanzada <span class="t12">v0.3 Beta</span></p>
+	<p class="texini">Configuración avanzada <span class="t12">v0.3.2 Beta</span></p>
 <form class="flexCon" method="post" action="actualizar.php">
 	<div class="formulario">
 	<p class="tb">Nombres</p><hr>
@@ -23,13 +23,25 @@
 	<span>Tiktok:</span> <input type="text" name="cfg14" value="<?php echo $UsuarioTiktok; ?>" placeholder="Tiktok"><br>
 	<span>Kofi:</span> <input type="text" name="cfg15" value="<?php echo $UsuarioKofi; ?>" placeholder="Kofi"><hr>
 	<p class="tb">Enlaces</p><hr>
-	<span>Web:</span> <input type="text" name="cfg16" value="<?php echo $EnlaceWeb; ?>" placeholder="http://web.com"><br>
+	<span>Web:</span> <input type="url" name="cfg16" value="<?php echo $EnlaceWeb; ?>" placeholder="http://web.com"><br>
 	<span>Web no https:</span> <input type="text" name="cfg17" value="<?php echo $EnlaceWebNoHttps; ?>" placeholder="web.com"><br>
+	<span>Admin: </span> <input type="url" name="cfgadminexterno" placeholder="Enlace Admin" value="<?php
+	if($EnlaceAdmin!="$AC_DIRECTORIOs$UsuarioAdmin$AGREGAR_PHP"){ echo $EnlaceAdmin; }
+	?>"><br>
+	<span>LocalHost:</span> <input type="text" name="cfglocalhost" value="<?php echo $LocalHost; ?>" placeholder="paginaweb"><br>
 	<span>Versión</span> <input type="text" name="cfgversion" value="<?php echo $version; ?>" placeholder="v0.3 Beta"><hr>
-	<span>Activar .PHP:</span> <input type="checkbox" name="cfg18" <?php
-	if($AGREGAR_PHP=='.php'){ echo 'checked'; } ?>><hr>
-	<span>Activar HTTPS:</span> <input type="checkbox" name="cfg19" <?php
-	if($EnlaceWebS=='https://'.$EnlaceWebNoHttps.'/'){ echo 'checked'; } ?>>
+		<div class="flexRow">
+			<span>Activar .PHP:</span>
+			<div class="der">
+				<input type="checkbox" name="cfg18" <?php if($AGREGAR_PHP=='.php'){ echo 'checked'; } ?>>
+			</div>
+		</div><hr>
+		<div class="flexRow">
+			<span>Activar HTTPS:</span>
+			<div class="der">
+				<input type="checkbox" name="cfg19" <?php if($EnlaceWebS=='https://'.$EnlaceWebNoHttps.'/'){ echo 'checked'; } ?>>
+			</div>
+		</div>
 	</div>
 	<div class="formulario" style="width:100%;">
 		<span>Extras</span> <textarea name="cfg20" placeholder="Variables y resultados extras"><?php if(file_exists($scrSecundarios)){ $mostrar=file_get_contents($scrSecundarios); echo $mostrar; } ?></textarea>
