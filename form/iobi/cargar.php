@@ -3,7 +3,7 @@
 if(isset($AccesoCargar) && $AccesoCargar==true){
 #DarFomato ahora carga desde displa
 #$ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
-$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/data#'.darFormatoIobi($AC_UBICACION).$AC_ARCHIVO;
+$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/'.darFormatoIobi($AC_UBICACION).$AC_ARCHIVO;
 $UBICACION_IOBI=$AC_DIRECTORIO.'form/iobi/';
 
 #echo $NUEVA_UBICACION;
