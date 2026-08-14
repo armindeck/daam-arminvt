@@ -10,6 +10,7 @@ require_once $AC_DIRECTORIO.'datos/permisos_usuarios.php';
 
 	    $nombre=darFormatoNoSimbolos(trim($_POST['nombre']));
 	    $usuario=darFormatoNoSimbolos(trim($_POST['usuario']));
+	    $tema=darFormatoNoSimbolos(trim($_POST['tema']));
 	    $email=darFormato(trim($_POST['email']));
 	    $redsocial=darFormato(trim($_POST['redsocial']));
 	    $contrasena=md5(darFormato(trim($_POST['contrasena'])));
@@ -30,9 +31,19 @@ require_once $AC_DIRECTORIO.'datos/permisos_usuarios.php';
 
 		if($row['contrasena']){
 			$actualizar="UPDATE usuarios SET nombre='$nombre', usuario='$usuario', email='$email', redsocial='$redsocial' WHERE id='$id'";
+			$usperfil=$AC_DIRECTORIO.'perfiles/';
+			$usperfiltemas=$usperfil.'temas/';
+			$usperfiltemasusu=$usperfiltemas.'tm'.$_SESSION['usuario'].'.txt';
+			
+			if(!file_exists($usperfil) || !file_exists($usperfiltemas)){
+				$crear_carpetas=$usperfiltemas; $ex='CrearCarpetas'; require $AC_DIRECTORIO.'datos/extenciones.php';
+			}
+
+			file_put_contents($usperfiltemas.'tm'.$usuario.'.txt',$tema);
 
 			$resultado=mysqli_query($conexion,$actualizar);
 			if ($usuario !=$_SESSION['usuario']) {
+				unlink($usperfiltemasusu);
 				session_destroy();
 				header("Location: iniciar?ms=exi&msm=cuentaactualizada");
 			}
