@@ -1,6 +1,6 @@
 /* TEMA Light POR ARMIN */
 :root{
-	--fondo: #FCFCFC;			--focolor: #FFF;
+	--fondo: #FCFCFC;			--focolor: #484848;
 	--cabeza: rgb(0,0,0,.8);	--cacolor: #FFF;
 	--menu: #515A5A;		--mecolor: #FFF;
 	--izq: #FCFCFC;		--izcolor: #323232;
@@ -28,7 +28,7 @@
 	--cuser: #989898;
 	--creac: none; --creacolor: #484848; --creacolorhov: #1882A8;
 
-	--ctg: #1882A8; --ctgcolor: #FFF; --marquee: #FFF; --marqueecolor: #484848; --texinili: #FFF; --formCrear: #FFF;
+	--ctg: #1882A8; --ctgcolor: #FFF; --marquee: #FFF; --marqueecolor: #484848; --texinili: #FFF; --texinilicolor: #484848; --formCrear: #FFF;
 	--m2acolor: #484848; --m2ahocolor: #1882A8;
 /*
 	--videosup: rgb(0,0,0,.7); --vidsupa: rgb(0,0,0,.0); --vidsupacolor: #FFF; --vidsupahover: rgb(0,0,0,.2); --vidsupahocolor: #FFF;
