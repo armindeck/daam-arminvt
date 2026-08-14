@@ -48,6 +48,7 @@ if(isset($_SESSION['id'])){
         $resultado=mysqli_query($conexion,$verificar);
         $row=mysqli_fetch_assoc($resultado);
         if($usuario == $row['usuario'] || $email == $row['email']){
+            session_destroy();
             header("Location: registrar.php?ms=err&msm=usuoemare");
         } else {
             $en=md5($contrasena);
@@ -55,9 +56,9 @@ if(isset($_SESSION['id'])){
 
             $resultado=mysqli_query($conexion,$insertar);
 
-            if($resultado){ header("Location: iniciar.php?ms=exi&msm=regiexitoso"); } else { header("Location: registrar.php?ms=err&msm=regifallido"); }
+            if($resultado){ header("Location: iniciar.php?ms=exi&msm=regiexitoso"); session_destroy(); } else { header("Location: registrar.php?ms=err&msm=regifallido"); session_destroy(); }
         }
-    } else { header("Location: registrar.php?ms=err&msm=datosnocum"); }
+    } else { header("Location: registrar.php?ms=err&msm=datosnocum"); session_destroy(); }
 }
 
 $AC_CONTENIDO=$formulario.$lugarMensaje;
