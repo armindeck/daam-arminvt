@@ -24,7 +24,7 @@ $AC_CONTENIDO='<p class="texini">Bienvenidos a la biografia de Armin!</p>
     <li class="t12">Canal: '.$NombreAdminCompleto.'</li>
     <li class="t12">Apodo: '.$NombreAdmin.'</li>
     <li class="t12">País: Colombia</li>
-    <li class="t12">Edad: 19</li>
+    <li class="t12">Edad: 20</li>
     <li class="t12">Estudios finalizados: Primaria y Secundaria</li>
     <li class="t12">Estudios en proceso: SENA</li>
     <li class="t12">Lenguajes: Español :3</li>
