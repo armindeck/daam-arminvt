@@ -1,4 +1,4 @@
-<?php if(isset($TIPO)){ if($TIPO='panel'){ ?>
+<?php if(isset($TIPO) && $TIPO=='panel'){ ?>
 <?php
 	if (!empty($_POST['veriarchivo'])) {
 		if (isset($_POST['opcnombrearchivo']) && $_POST['opcnombrearchivo'] != '') {
@@ -6,34 +6,34 @@
 			$veridi=$AC_DIRECTORIO.'css/';
 			if (file_exists("$veridi$veri")) {
 				require "$veridi$veri";
-				echo '<p class="texini bgamarillo c48 tb">El archivo se cargo exitosamente!</p>';
+				echo '<p class="texinimen bgamarillo c48 tb">El archivo se cargo exitosamente!</p>';
 				$mov=true;
 			} else {
-				echo '<p class="texini bgrojo">Oh! parece que el archivo no existe!</p>';
+				echo '<p class="texinimen bgrojo">Oh! parece que el archivo no existe!</p>';
 			}
 		} else {
-			echo '<p class="texini bgrojo">Oh! no se envio el nombre del archivo!</p>';
+			echo '<p class="texinimen bgrojo">Oh! no se envio el nombre del archivo!</p>';
 		}
 	}
 	if (!empty($_POST['eliarchivo'])) {
 		$veri=$_POST['opcnombrearchivo']; $veridi=$AC_DIRECTORIO.'css/';
 		if(file_exists("$veridi$veri")){
 			unlink("$veridi$veri");
-			echo '<p class="texini bgrojo">El archivo se elimino!</p>';
+			echo '<p class="texinimen bgrojo">El archivo se elimino!</p>';
 		}
 	}
 ?>
-<p class="texini">Configuración avanzada <span class="t12">v0.3 Beta</span></p>
+<p class="texini">Configuración avanzada <span class="t12">v0.3.1 Beta</span></p>
 <form class="formulario" method="post">
 	<input type="text" name="opcnombrearchivo" value="<?php if(isset($opctema_nombre)){ echo $opctema_nombre; } ?>" placeholder="Archivo.php" required>
 	<input type="submit" name="veriarchivo" value="Verificar">
-	<?php if(isset($mov) && $mov==true){ ?> <a class="boton" href="panel.php?ac=tema&temamodificado=true&temamodificadoarc=<?php echo $veri; ?>">Mostrar</a> <a class="boton" href="panel.php?ac=tema&temamodificadono=false">Normal</a> <input type="submit" name="eliarchivo" value="eliminar"> <?php } ?>
+	<?php if(isset($mov) && $mov==true){ ?> <a class="boton" href="panel.php?ac=tema&temamodificado=true&temamodificadoarc=<?php echo $veri; ?>">Mostrar</a> <a class="boton" href="panel.php?ac=tema&temamodificadono=false">Normal</a> <input class="boton2" type="submit" name="eliarchivo" value="Eliminar"> <?php } ?>
 </form>
 <form method="post" action="actualizar.php">
 	<div class="flexCon">
 		<div class="formulario">
 			<b>Nombre del archivo</b><hr>
-			<input type="text" name="opctema_nombre" placeholder="Nombre del archivo, no .php" value="<?php if(isset($opctema_nombre)){ echo $opctema_nombre; } ?>"><hr>
+			<input type="text" name="opctema_nombre" placeholder="Nombre del archivo.php" value="<?php if(isset($opctema_nombre)){ echo $opctema_nombre; } ?>"><hr>
 			<b>Estilos principales</b><hr>
 			<b>Fondo</b><hr>
 			BG <input type="text" name="opctema_fondo_fondo" placeholder="Fondo" value="<?php if(isset($opctema_fondo_fondo)){ echo $opctema_fondo_fondo; } ?>"><br>
@@ -54,7 +54,7 @@
 			BG <input type="text" name="opctema_piedepagina_fondo" placeholder="Fondo" value="<?php if(isset($opctema_piedepagina_fondo)){ echo $opctema_piedepagina_fondo; } ?>"><br>
 			CO <input type="text" name="opctema_piedepagina_color" placeholder="Color" value="<?php if(isset($opctema_piedepagina_color)){ echo $opctema_piedepagina_color; } ?>"><hr>
 			<b>Barra</b><hr>
-			BG <input type="text" name="opctema_barra_fondo" placeholder="Fondo" value="<?php if(isset($opctema_barra_fondo)){ echo $opctema_barra_fondo; } ?>"><hr>
+			BG <input type="text" name="opctema_barra_fondo" placeholder="Fondo" value="<?php if(isset($opctema_barra_fondo)){ echo $opctema_barra_fondo; } ?>">
 		</div>
 		<div class="formulario">
 			<b>Estilos secundarios</b><hr>
@@ -68,6 +68,9 @@
 			CO <input type="text" name="opctema_contenedorm2_color" placeholder="Color" value="<?php if(isset($opctema_contenedorm2_color)){ echo $opctema_contenedorm2_color; } ?>"><hr>
 			<b>Contenedor M2: Hover</b><hr>
 			CO <input type="text" name="opctema_contenedorm2_h_color" placeholder="Color" value="<?php if(isset($opctema_contenedorm2_h_color)){ echo $opctema_contenedorm2_h_color; } ?>"><hr>
+			<b>Contenedor: Derecha</b><hr>
+			BG <input type="text" name="opctema_contenedor_derecha_fondo" placeholder="Fondo" value="<?php if(isset($opctema_contenedor_derecha_fondo)){ echo $opctema_contenedor_derecha_fondo; } ?>"><br>
+			CO <input type="text" name="opctema_contenedor_derecha_color" placeholder="Color" value="<?php if(isset($opctema_contenedor_derecha_color)){ echo $opctema_contenedor_derecha_color; } ?>"><hr>
 			<b>Catalogo</b><hr>
 			BG <input type="text" name="opctema_catalogo_fondo" placeholder="Fondo" value="<?php if(isset($opctema_catalogo_fondo)){ echo $opctema_catalogo_fondo; } ?>"><br>
 			CO <input type="text" name="opctema_catalogo_color" placeholder="Color" value="<?php if(isset($opctema_catalogo_color)){ echo $opctema_catalogo_color; } ?>"><hr>
@@ -89,6 +92,9 @@
 			<b>Ubicación: Enlace & Iconos</b><hr>
 			BG <input type="text" name="opctema_ubicacion_enlace_iconos_fondo" placeholder="Fondo" value="<?php if(isset($opctema_ubicacion_enlace_iconos_fondo)){ echo $opctema_ubicacion_enlace_iconos_fondo; } ?>"><br>
 			CO <input type="text" name="opctema_ubicacion_enlace_iconos_color" placeholder="Color" value="<?php if(isset($opctema_ubicacion_enlace_iconos_color)){ echo $opctema_ubicacion_enlace_iconos_color; } ?>"><hr>
+			<b>Ubicación: E & I - Hover</b><hr>
+			BG <input type="text" name="opctema_ubicacion_enlace_iconos_h_fondo" placeholder="Fondo" value="<?php if(isset($opctema_ubicacion_enlace_iconos_h_fondo)){ echo $opctema_ubicacion_enlace_iconos_h_fondo; } ?>"><br>
+			CO <input type="text" name="opctema_ubicacion_enlace_iconos_h_color" placeholder="Color" value="<?php if(isset($opctema_ubicacion_enlace_iconos_h_color)){ echo $opctema_ubicacion_enlace_iconos_h_color; } ?>"><hr>
 			<b>HR</b><hr>
 			BG <input type="text" name="opctema_hr_fondo" placeholder="Fondo" value="<?php if(isset($opctema_hr_fondo)){ echo $opctema_hr_fondo; } ?>"><hr>
 			<b>Footer: Enlace & Iconos</b><hr>
@@ -117,7 +123,7 @@
 			CO <input type="text" name="opctema_derecha_enlace_iconos_color" placeholder="Color" value="<?php if(isset($opctema_derecha_enlace_iconos_color)){ echo $opctema_derecha_enlace_iconos_color; } ?>"><hr>
 			<b>Derecha: E & I - Hover</b><hr>
 			BG <input type="text" name="opctema_derecha_enlace_iconos_h_fondo" placeholder="Fondo" value="<?php if(isset($opctema_derecha_enlace_iconos_h_fondo)){ echo $opctema_derecha_enlace_iconos_h_fondo; } ?>"><br>
-			CO <input type="text" name="opctema_derecha_enlace_iconos_h_color" placeholder="Color" value="<?php if(isset($opctema_derecha_enlace_iconos_h_color)){ echo $opctema_derecha_enlace_iconos_h_color; } ?>"><hr>
+			CO <input type="text" name="opctema_derecha_enlace_iconos_h_color" placeholder="Color" value="<?php if(isset($opctema_derecha_enlace_iconos_h_color)){ echo $opctema_derecha_enlace_iconos_h_color; } ?>">
 		</div>
 		<div class="formulario">
 			<b>Estilos terciarios</b><hr>
@@ -145,7 +151,7 @@
 			<b>Campo</b><hr>
 			BG <input type="text" name="opctema_campo_fondo" placeholder="Fondo" value="<?php if(isset($opctema_campo_fondo)){ echo $opctema_campo_fondo; } ?>"><br>
 			CO <input type="text" name="opctema_campo_color" placeholder="Color" value="<?php if(isset($opctema_campo_color)){ echo $opctema_campo_color; } ?>"><hr>
-			<b>Select</b><hr>
+			<b>Select > Option</b><hr>
 			BG <input type="text" name="opctema_select_fondo" placeholder="Fondo" value="<?php if(isset($opctema_select_fondo)){ echo $opctema_select_fondo; } ?>"><br>
 			CO <input type="text" name="opctema_select_color" placeholder="Color" value="<?php if(isset($opctema_select_color)){ echo $opctema_select_color; } ?>"><hr>
 			<b>Verificado</b><hr>
@@ -171,12 +177,16 @@
 			BD <input type="text" name="opctema_marquee_borde" placeholder="Borde PX" value="<?php if(isset($opctema_marquee_borde)){ echo $opctema_marquee_borde; } ?>"><hr>
 			<b>Texini</b><hr>
 			BD <input type="text" name="opctema_texini_borde" placeholder="Borde PX" value="<?php if(isset($opctema_texini_borde)){ echo $opctema_texini_borde; } ?>"><hr>
+			<b>Texinimen</b><hr>
+			BD <input type="text" name="opctema_texinimen_borde" placeholder="Borde PX" value="<?php if(isset($opctema_texinimen_borde)){ echo $opctema_texinimen_borde; } ?>"><hr>
 			<b>Ubicación: Enlace</b><hr>
 			BD <input type="text" name="opctema_ubicacion_enlace_borde" placeholder="Borde PX" value="<?php if(isset($opctema_ubicacion_enlace_borde)){ echo $opctema_ubicacion_enlace_borde; } ?>"><hr>
 			<b>Derecha: Contenedor</b><hr>
 			BD <input type="text" name="opctema_derecha_contenedor_borde" placeholder="Borde PX" value="<?php if(isset($opctema_derecha_contenedor_borde)){ echo $opctema_derecha_contenedor_borde; } ?>"><hr>
 			<b>Imagen</b><hr>
 			BD <input type="text" name="opctema_imagen_borde" placeholder="Borde PX" value="<?php if(isset($opctema_imagen_borde)){ echo $opctema_imagen_borde; } ?>"><hr>
+			<b>Imagen1</b><hr>
+			BD <input type="text" name="opctema_imagen1_borde" placeholder="Borde PX" value="<?php if(isset($opctema_imagen1_borde)){ echo $opctema_imagen1_borde; } ?>"><hr>
 			<b>Imagen2</b><hr>
 			BD <input type="text" name="opctema_imagen2_borde" placeholder="Borde PX" value="<?php if(isset($opctema_imagen2_borde)){ echo $opctema_imagen2_borde; } ?>"><hr>
 			<b>Catalogo</b><hr>
@@ -196,4 +206,7 @@
 	    <input class="boton" type="submit" name="IniTema" value="Actualizar &#xf044">
     </div>
 </form>
-<?php } } else { $AC_DIREC='../../'; $AC_ENCONTRAR=''; include $AC_DIREC.'error.php'; } ?>
+<?php } else {
+    if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
+    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}");
+} ?>
