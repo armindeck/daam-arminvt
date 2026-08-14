@@ -16,7 +16,7 @@ if($c=='inicio'){
 	if($a=='entradas'){ $final=$AdPa.'entradas.php'; }
 
 }
-if($c=='Cabeza' || $c=='Menu' || $c=='ContenidoExtra' || $c=='MenuLateral' || $c=='PiedePagina'){
+if($c=='us'){
 
 	$final=$AdPa.'scripts/'.$c.'/'.$a.'.php';
 	$final2=$AdPa.'scripts/'.$c.'/';
@@ -24,7 +24,7 @@ if($c=='Cabeza' || $c=='Menu' || $c=='ContenidoExtra' || $c=='MenuLateral' || $c
 
 if($c=='iobi'){ $final='form/'.$c.'/'.$a.'.php'; } 
 
-if($c=='data'){ $final='form/data/data#'.$a.'/pubdatos.php'; }
+if($c=='data'){ $final='form/data/'.$a.'/pubdatos.php'; }
 
 
 #TERMINA ?>
