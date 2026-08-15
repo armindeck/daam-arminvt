@@ -1,5 +1,5 @@
 <?php #CONTENIDO POR ARMIN
-$opctema_nombre='temaDarkPCGAMEXBOXV6.php';
+$opctema_nombre='tema_DarkPCGAMEXBOXV6.php';
 $opctema_fondo_fondo='#000';
 $opctema_fondo_color='#EEE';
 $opctema_cabeza_fondo='#191919';

@@ -1,5 +1,5 @@
 <?php #CONTENIDO POR ARMIN
-$opctema_nombre='temaLightDanado.php';
+$opctema_nombre='tema_LightDanado.php';
 $opctema_fondo_fondo='#A1A1A1';
 $opctema_fondo_color='rgba(39, 39, 33, .8)';
 $opctema_cabeza_fondo='#C4C4C4';

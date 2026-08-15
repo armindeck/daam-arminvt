@@ -1,5 +1,5 @@
 <?php #CONTENIDO POR ARMIN
-$opctema_nombre='temaDarkCuniiCh.php';
+$opctema_nombre='tema_DarkCuniiCh.php';
 $opctema_fondo_fondo='#303D4F';
 $opctema_fondo_color='#EEE';
 $opctema_cabeza_fondo='#2A323E';

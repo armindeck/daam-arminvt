@@ -15,7 +15,7 @@
 		background: <?php echo $opctema_menu_fondo; ?>;
 		color: <?php echo $opctema_menu_color; ?>;
 	}
-	aside{
+	main{
 		background: <?php echo $opctema_izquierda_fondo; ?>;
 		color: <?php echo $opctema_izquierda_color; ?>;
 	}

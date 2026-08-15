@@ -1,5 +1,5 @@
 <?php #CONTENIDO POR ARMIN
-$opctema_nombre='temaLightGXNCV5.php';
+$opctema_nombre='tema_LightGXNCV5.php';
 $opctema_fondo_fondo='yellow';
 $opctema_fondo_color='yellow';
 $opctema_cabeza_fondo='yellow';
