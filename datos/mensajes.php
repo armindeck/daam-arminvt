@@ -85,6 +85,7 @@ switch ($dmensaje) {
 	case 'direbien': $conmensaje='Todos los directorios se encuentran bien.'; break;
 	case 'entrapublicada': $conmensaje='La entrada fue publicada!'; break;
 	case 'borradoresllenos': $conmensaje='Oh! parece que los borradores se encuentran llenos!'; break;
+	case 'reporexito': $conmensaje='El comentario fue reportado exitosamente.'; break;
 
 	case 'accdenegado': $conmensaje='Oh! no tiene acceso a este directorio!'; break;
 	#case '': $conmensaje=''; break;
