@@ -2,7 +2,7 @@
 $opc1='Actualizaciones';
 $opc2='Actualizaciones';
 $opc3='Actualizaciones';
-$opc4='miniatura.png';
+$opc4='arminvtcodigo.png';
 $opc5='Actualizaciones';
 $opc6='Actualizaciones';
 $opcXMensaje='on';
@@ -14,7 +14,7 @@ $opc9='blog';
 $opc10='./';
 $opc11='';
 $opc12='actualizaciones';
-$fecha="2023-08-23 - 4:11pm";
+$fecha="2024-01-24 - 10:01am";
 $opcEstado='publico';
 $opcExiste=true;
 #v0.3.1 Beta
