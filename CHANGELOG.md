@@ -1,6 +1,21 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
+## [0.3.4 Beta] - 11/02/2024
+
+### 🔎 Nuevo buscador y mejoras varias
+
+Versión que introduce un buscador integrado y mejoras en administración, usabilidad y estilos.
+
+- Buscador integrado: nueva funcionalidad de búsqueda (`buscar.php`) para localizar contenidos en Blog, ForoLink y secciones de videos/proyectos. Incluye formulario de búsqueda y resultados centralizados.
+- Integración UI: añadidos scripts y componentes en `Cabeza`, `Menu` y `PiedePagina` para mostrar el formulario de búsqueda y opciones de usuario.
+- Publicaciones y formularios: mejoras en carga y procesamiento de datos (`cargar.php`, `procesar.php`, `form/iobi/*`) y aumento del límite de comentarios/textarea.
+- Temas y estilos: ajustes en `css/` (`estilo.css`, `temaDark.php`, `temaDark2.php`) para compatibilidad visual con el buscador y nuevas opciones de personalización.
+- Panel administrativo: refactor y mejoras en las páginas del panel relacionadas con contenido y scripts del panel.
+- Recursos y activos: nuevos assets de imagen y refinamientos en presentación de entradas.
+- Correcciones menores: rutas, includes/requires y actualizaciones de `version.txt` a `v0.3.4 Beta`.
+
+
 ## [0.3.3 Beta] - 01/09/2023
 
 ### ⚙️ Mejoras, correcciones y nuevas funciones
