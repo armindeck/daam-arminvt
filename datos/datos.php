@@ -40,7 +40,7 @@ date_default_timezone_set("America/Bogota");
 $Año=date('Y');
 $fecha=date('Y-m-d');
 $fechahora=date('Y-m-d - g:ia');
-$version='v0.3.4c stable';
+$version='v0.3.3b stable';
 session_start();
 require_once $AC_DIRECTORIO.'datos/system.php';
 require_once $AC_DIRECTORIO.'datos/extra.php';
