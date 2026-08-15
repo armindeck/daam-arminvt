@@ -262,7 +262,7 @@ $elem=1;  $ex='scrDispladi'; require $AC_DIRECTORIO.'datos/extenciones.php'; ?>
 
                 echo '<form class="formulario" method="get" action="'.$AC_DIRECTORIO.'buscar'.$AGREGAR_PHP.'">
 
-                Resultados de la busqueda: <input name="s" type="text" value="'. $s .'" placeholder="Buscar"><input type="submit" value="Buscar"></form>';
+                Resultados de la busqueda: <input name="s" type="text" value="'. htmlspecialchars($s) .'" placeholder="Buscar"><input type="submit" value="Buscar"></form>';
 
                 // Directorio de archivos a buscar
 
