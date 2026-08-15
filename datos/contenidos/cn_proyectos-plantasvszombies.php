@@ -5,16 +5,14 @@ $opc3='Plants Vs Zombies FanMade, Cree Plants Vs Zombies en 5 Dias! y asi se ve!
 $opc4='pvzfan3.png';
 $opc5='Cree Plants Vs Zombies en 5 Dias! y asi se ve!';
 $opc6='Cree Plantas Vs Zombies en 5 dias usando Game Maker! ademas se encuentra disponible para Android y PC, links Directos!';
-$opcXMensaje='on';
-$opcXAccesoAdmin='';
-$opcXGaleria='';
-$opc7='<p class="texini">Cree Plantas Vs Zombies en 5 dias usando Game Maker! ademas se encuentra disponible para Android y PC, links Directos!</p><p class="texini">Descargar para: <a target="_blank" class="boton" href="https://www.mediafire.com/file/2p6uwnimov1ymlo/PvZ-Android-v1.0.0.1byArminVT.zip/file">Android <i class="fab fa-android"></i></a> - <a target="_blank" class="boton" href="https://www.mediafire.com/file/xa0zjbtdmnut0w8/PvZ-Windows-v1.0.0.1byArminVT.zip/file">Windows <i class="fab fa-windows"></i></a> - <a target="_blank" class="boton" href="https://www.mediafire.com/file/mni5s19as87kzl6/PvZ-HTML5-v1.0.0.1byArminVT.zip/file">Web <i class="fab fa-html5"></i></a></p><ol><li class="t16  tb">Requisitos</li><li class="t12">Android 6+ / Windows XP+</li><li class="t12">20MB de Espacio</li><li class="t12">Formato: ZIP / APK / EXE / HTML</li></ol><div class="flexCon"> <div class="m2">  <div class="imagen"><img class="img1" loading="lazy" src="../img/pvzfan.png"></div> </div> <div class="m2">  <div class="imagen"><img class="img1" loading="lazy" src="../img/pvzfan2.png"></div> </div> <div class="m2">  <div class="imagen"><img class="img1" loading="lazy" src="../img/pvzfan3.png"></div> </div></div>';
+$opcXMensaje='';
+$opc7='<p class="texini">Cree Plantas Vs Zombies en 5 dias usando Game Maker! ademas se encuentra disponible para Android y PC, links Directos!</p><p class="texini">Descargar para: <a target="_blank" class="boton" href="https://www.mediafire.com/file/for7d6wrxs6s06l/PvZ_Android.apk/file">Android <i class="fab fa-android"></i></a> - <a target="_blank" class="boton" href="https://www.mediafire.com/file/454befyfx9twfvu/PvZ_Windows.zip/file">Windows <i class="fab fa-windows"></i></a></p><ol><li class="t16  tb">Requisitos</li><li class="t12">Android 6+ / Windows XP+</li><li class="t12">20MB de Espacio</li><li class="t12">Formato: ZIP / APK / EXE</li></ol><div class="flexCon"> <div class="m2">  <div class="imagen"><img class="img1" loading="lazy" src="../img/pvzfan.png"></div> </div> <div class="m2">  <div class="imagen"><img class="img1" loading="lazy" src="../img/pvzfan2.png"></div> </div> <div class="m2">  <div class="imagen"><img class="img1" loading="lazy" src="../img/pvzfan3.png"></div> </div></div>';
 $opc8='si';
-$opc9='comentarios';
+$opc9='normal';
 $opc10='../';
 $opc11='proyectos/';
 $opc12='plantasvszombies';
-$fecha="2023-10-22 - 3:02pm";
+$fecha="2023-07-28 - 11:03pm";
 $opcEstado='publico';
 $opcExiste=true;
 #v0.3.1 Beta
