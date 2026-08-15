@@ -12,7 +12,7 @@ $opctema_derecha_fondo='none';
 $opctema_derecha_color='#FFF';
 $opctema_piedepagina_fondo='#1C2833';
 $opctema_piedepagina_color='#FFF';
-$opctema_barra_fondo='#808080';
+$opctema_barra_fondo='green';
 $opctema_marquee_fondo='#474747';
 $opctema_marquee_color='#D1D1D1';
 $opctema_contenedores_fondo='#474747';
@@ -21,10 +21,10 @@ $opctema_contenedorm2_color='#D1D1D1';
 $opctema_contenedorm2_h_color='#FFF';
 $opctema_contenedor_derecha_fondo='#474747';
 $opctema_contenedor_derecha_color='#FFF';
-$opctema_catalogo_fondo='#1882A8';
+$opctema_catalogo_fondo='green';
 $opctema_catalogo_color='#FFF';
 $opctema_enlaces_fondo='none';
-$opctema_enlaces_color='orange';
+$opctema_enlaces_color='green';
 $opctema_enlaces_h_fondo='none';
 $opctema_enlaces_h_color='#FFD64C';
 $opctema_menu_enlaces_fondo='none';
@@ -97,5 +97,5 @@ $opctema_formulario_borde='0px';
 $opctema_boton_borde='0px';
 $opctema_comentario_borde='0px';
 $opctema_anuncios_borde='0px';
-#ACTUALIZADO: 2023-08-02 - 8:10pm
+#ACTUALIZADO: 2023-12-14 - 1:35pm
 ?>

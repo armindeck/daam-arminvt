@@ -1,6 +1,6 @@
 <?php #CONTENIDO POR ARMIN
 $opctema_nombre='temaDark.php';
-$opctema_fondo_fondo='red';
+$opctema_fondo_fondo='#343434';
 $opctema_fondo_color='green';
 $opctema_cabeza_fondo='rgba(0,0,0,0.205)';
 $opctema_cabeza_color='#FFF';
@@ -97,5 +97,5 @@ $opctema_formulario_borde='8px';
 $opctema_boton_borde='4px';
 $opctema_comentario_borde='4px';
 $opctema_anuncios_borde='4px';
-#ACTUALIZADO: 2023-08-11 - 11:13pm
+#ACTUALIZADO: 2023-12-14 - 1:31pm
 ?>
