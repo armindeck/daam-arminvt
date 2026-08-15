@@ -1,27 +1,53 @@
-<?php #Mostrar u ocultar elementos
+<?php #Contenido por el usuario
 $scrUS_CabezaRedes='on';
 $scrUS_CabezaTituloWeb='on';
+$scrUS_CabezaTituloWebIcono='fas fa-meteor';
 $scrUS_CabezaTema='on';
 $scrUS_CabezaRedesFB='on';
 $scrUS_CabezaRedesYT='on';
-$scrUS_CabezaRedesTW='';
+$scrUS_CabezaRedesTW='on';
 $scrUS_CabezaRedesTK='on';
 $scrUS_CabezaRedesPT='on';
 $scrUS_CabezaRedesKF='on';
 $scrUS_MenuBotones='on';
+$scrUS_MenuBotones_Cantidad='5';
+$scrUS_MenuBotones_Icono_[1]='fas fa-inicio';
+$scrUS_MenuBotones_Texto_[1]='Inicio';
+$scrUS_MenuBotones_Enlace_[1]='';
+$scrUS_MenuBotones_Icono_[2]='fas fa-fire';
+$scrUS_MenuBotones_Texto_[2]='Forolink';
+$scrUS_MenuBotones_Enlace_[2]='forolink';
+$scrUS_MenuBotones_Icono_[3]='fas fa-history';
+$scrUS_MenuBotones_Texto_[3]='Actualizaciones';
+$scrUS_MenuBotones_Enlace_[3]='actualizaciones';
+$scrUS_MenuBotones_Icono_[4]='fas fa-user';
+$scrUS_MenuBotones_Texto_[4]='Iniciar';
+$scrUS_MenuBotones_Enlace_[4]='iniciar';
+$scrUS_MenuBotones_Icono_[5]='fab fa-youtube';
+$scrUS_MenuBotones_Texto_[5]='Sígueme';
+$scrUS_MenuBotones_Enlace_[5]='https://youtube.com/@SoyArminDeck?sub_confirmation=1';
+$scrUS_MenuBotones_Enlace_Http_[5]='on';
+$scrUS_MenuBotones_Enlace_Externo_[5]='on';
+$scrUS_ContenidoExtra='';
+$scrUS_ContenidoExtra_Enlace='https://dbproject.rf.gd/';
+$scrUS_ContenidoExtra_Enlace_Imagen='https://dbproject.rf.gd/assets/img/min_daamper.png';
+$scrUS_ContenidoExtra_Contenido='Disfruta de los mejores animes por MegaAnime.rf.gd';
 $scrUS_MenuLateralRedes='on';
 $scrUS_MenuLateralRedesTitulo='Sígueme';
 $scrUS_MenuLateralRedesFB='on';
 $scrUS_MenuLateralRedesYT='on';
-$scrUS_MenuLateralRedesTW='';
+$scrUS_MenuLateralRedesTW='on';
 $scrUS_MenuLateralRedesTK='on';
 $scrUS_MenuLateralRedesPT='on';
 $scrUS_MenuLateralRedesKF='on';
 $scrUS_MenuLateralNoticias='on';
-$scrUS_MenuLateralRandom='on';
-$scrUS_MenuLateralPublicaciones='on';
+$scrUS_MenuLateralNoticiasCarpeta='actualizaciones';
+$scrUS_MenuLateralRandom='';
+$scrUS_MenuLateralExtras='on';
+$scrUS_MenuLateralContadorComentarios='on';
+$scrUS_MenuLateralContadorComentariosCarpeta='forolink';
 $scrUS_MenuLateralVisitas='on';
 $scrUS_MenuLateralVersion='on';
 $scrUS_PiedePaginaDerechos='on';
-#ACTUALIZADO: 2024-09-29 - 11:30am ~ v0.3.3 Beta
+#ACTUALIZADO:  ~ v0.1b Beta Estable ~ 10.06.2024
 ?>
