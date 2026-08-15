@@ -1,9 +1,27 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
+## [0.3.3b Stable] - 22/03/2025
+
+### 🔧 Modularización del panel administrativo y mejoras de seguridad
+
+Versión estable enfocada en reorganizar y modularizar el panel administrativo para mejor mantenibilidad y seguridad. Se separan procesos en carpetas dedicadas, se mejora la gestión de imágenes y borradores, y se implementa versionado dinámico.
+
+- **Explorador de archivos**: Interfaz sencilla para navegar, crear, renombrar y eliminar archivos y carpetas desde el panel.
+- **Editor de archivos**: Editor básico integrado para ver y editar contenido de archivos directamente en el panel.
+- **Modularización de procesos**: Cada módulo (archivos, imágenes, configuraciones, displadi, creador) con carpeta `procesa.php` independiente para mejor separación de responsabilidades.
+- **Sistema de borradores mejorado**: Cambio de numérico (1-10) a naming convencional (`bo_nombre.php`) para mayor flexibilidad y control.
+- **Gestión de imágenes reforzada**: Validación de tamaño (máx 1MB), tipos específicos (.jpg, .jpeg, .png, .gif), renombrado automático y prevención de duplicados con sufijo.
+- **Versionado dinámico**: Versiones leídas desde archivos `.x` en lugar de hardcodeadas (`archivos.x`, `imagen.x`, `displadi.x`, `configuraciones.x`).
+- **UX mejorada**: Placeholders informativos en formularios, instrucciones de optimización de imágenes (TinyPNG), validación de cliente mejorada.
+- **Seguridad**: Sanitización de nombres de archivo, validación strict de tipos, prevención de sobrescrituras.
+- **CSS actualizado**: Cambio de etiqueta `<aside>` a `<main>` (semántica HTML5), nuevas clases para checkboxes estilizados (`.boton-check`, `.check-*`).
+
 ## [0.3.4 Beta] - 11/02/2024
 
 ### 🔎 Nuevo buscador y mejoras varias
+
+⚠️ No habran mas versiones de esta rama
 
 Versión que introduce un buscador integrado y mejoras en administración, usabilidad y estilos.
 
