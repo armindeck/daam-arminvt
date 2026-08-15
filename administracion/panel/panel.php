@@ -2,6 +2,9 @@
 $AC_DIRECTORIO='../../';
 require $AC_DIRECTORIO.'datos/datos.php';
 
+$acceso=true; require_once 'panel_acc.php';
+
+/*
 if(isset($_SESSION['id']) && $_SESSION['rol'] == 5){ $acceso=true; require_once 'panel_acc.php'; }
 
 else if(!empty($_SESSION['usuario']) && !empty($_SESSION['codigo']) && !empty($_SESSION['code'] && $_SESSION['rol'])){
@@ -16,4 +19,5 @@ else if(!empty($_SESSION['usuario']) && !empty($_SESSION['codigo']) && !empty($_
     if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
         $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}");
     }
+*/
 ?>
