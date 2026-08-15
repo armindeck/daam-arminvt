@@ -8,7 +8,7 @@ if (isset($_GET['id']) && isset($_GET['ubi']) && isset($_GET['arc']) && isset($_
 	$ERROR_DARFORMATO=true;
 	$ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php';
 	$cdir=darFormatoIobi($ubi).$arc;
-	$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/data#'.$cdir;
+	$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/'.$cdir;
 
 	$arc_pubdatos=$NUEVA_UBICACION.'/pubdatos.php';
 	if(file_exists($arc_pubdatos)){
