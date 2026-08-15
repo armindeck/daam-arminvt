@@ -600,4 +600,28 @@ $comentario=[
 'enlace'=>'https://www.youtube.com/@jesuselh',
 'comentario'=>'suscribete a mi canal papu :VVVVVvvvvvv',
 'fecha'=>'2023-08-11 - 4:40pm'
+],
+[
+'id'=>35,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'Hernancitodev',
+'enlace'=>'https://hernandevweb.000webhostapp.com/index.html',
+'comentario'=>'Mi pagina XD soy Hernandev 100%100 real xDXDXDDDDDD',
+'imagen'=>'https://hernandevweb.000webhostapp.com/menu/h2.png',
+'fecha'=>'2023-12-20 - 5:52pm'
+],
+[
+'id'=>36,
+'tipo'=>'forolink',
+'ubicacion'=>'',
+'archivo'=>'forolink',
+'rol'=>'usuario',
+'nombre'=>'Hernancitodev',
+'enlace'=>'https://hernandevweb.000webhostapp.com/index.html',
+'comentario'=>'MI PAGINAAA',
+'imagen'=>'https://hernandevweb.000webhostapp.com/menu/h2.png',
+'fecha'=>'2024-01-15 - 8:32pm'
 ]];
