@@ -11,7 +11,7 @@ if (isset($_GET['id']) && isset($_GET['ubi']) && isset($_GET['arc'])) {
 	$id=$_GET['id']-1; $idN=$_GET['id'];
 	$ubi=$_GET['ubi']; $arc=$_GET['arc'];
 	$ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php'; $ERROR_DARFORMATO=true;
-	$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/data#'.darFormatoIobi($ubi).$arc;
+	$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/'.darFormatoIobi($ubi).$arc;
 	$UBICACION_IOBI=$AC_DIRECTORIO.'form/iobi/';
 	$verificar_carpeta=$AC_DIRECTORIO.$ubi.$arc.'/datos/pubdatos.php';
 	if(file_exists($NUEVA_UBICACION.'/pubdatos.php')){ require_once $NUEVA_UBICACION.'/pubdatos.php';
