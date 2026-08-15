@@ -22,7 +22,7 @@ if (isset($_GET['id']) && isset($_GET['ubi']) && isset($_GET['arc'])) {
 		$ex='DarFormato'; require $AC_DIRECTORIO.'datos/extenciones.php'; $ERROR_DARFORMATO=true;
 		$caso=darFormato(trim($_POST['caso']));
 		$motivos = darFormato(trim($_POST['motivos']));
-		$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/data#'.darFormatoIobi($ubi).$arc;
+		$NUEVA_UBICACION=$AC_DIRECTORIO.'form/data/'.darFormatoIobi($ubi).$arc;
 		$UBICACION_IOBI=$AC_DIRECTORIO.'form/iobi/';
 
 		$verificar_carpeta=$NUEVA_UBICACION.'/pubdatos.php';
@@ -53,6 +53,7 @@ if (isset($_GET['id']) && isset($_GET['ubi']) && isset($_GET['arc'])) {
 					'.$mostrar.'
 					<a class="boton" href="'.$AC_DIRECTORIO.'">Regresar</a>
 					</div>';
+			header("Location: $ubi$arc?ms=err&msm=reporexito");
 		}
 	}
 }
