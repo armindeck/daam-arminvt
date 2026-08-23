@@ -1,6 +1,13 @@
 Options All -Indexes
 IndexIgnore *.gif *.jpg *.png *.ini
 
+# ================================
+# Configuración de errores y entorno
+# ================================
+php_flag display_errors On
+php_flag display_startup_errors On
+php_value error_reporting -1
+
 # Bloquear archivos
 <FilesMatch "\.(htaccess|htpasswd|phps|log|bak|TXT)$">
  Order Allow,Deny
