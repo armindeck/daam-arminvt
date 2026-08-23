@@ -1,6 +1,11 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
+## [0.3.5 Dev] - 22/08/2026
+
+- Configuraciones (en proceso)
+- Cambie todo el funcionamiento de como se cargan y actualizan los anuncios
+
 ## [0.3.3b Stable] - 22/03/2025
 
 ### 🔧 Modularización del panel administrativo y mejoras de seguridad
