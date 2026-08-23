@@ -1,0 +1,19 @@
+{
+    "ads": {
+        "message": {
+            "active": true,
+            "content": "🎁 Disfruta de las ultimas updates de daam por dbproject! ✅",
+            "link": "https://dbproject.rf.gd/"
+        },
+        "banner": {
+            "active": true,
+            "image": "img/anuncio.png",
+            "link": "https://dbproject.rf.gd/"
+        },
+        "thumbnail": {
+            "active": true,
+            "image": "img/min-daam.png",
+            "link": "https://dbproject.rf.gd/web/daamper"
+        }
+    }
+}
