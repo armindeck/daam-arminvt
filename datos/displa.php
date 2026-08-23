@@ -95,11 +95,7 @@ if(isset($_GET['s']) && $_GET['s'] == 'cerrar'){ session_destroy(); $lugar=$AC_D
 $elem=1;  $ex='scrDispladi'; require $AC_DIRECTORIO.'datos/extenciones.php'; ?>
 <section>
     <main>
-        <?php if($AC_EXTRA == 'si'){
-            if(isset($texMensaje) && isset($anuncio)){
-                echo '<div class="cen">'.$texMensaje.$anuncio.'</div>';
-            }
-        } ?>
+        <?= $AC_EXTRA == 'si' ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], $AC_DIRECTORIO) : "" ?>
         <p class="titulo">
             <a href="<?php echo $AC_DIRECTORIO; ?>">Inicio</a> >
             <?php echo $AC_TITULO;
