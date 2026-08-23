@@ -1,6 +1,7 @@
 <?php #CONTENIDO POR ARMIN
 $AC_DIRECTORIO='../../';
 require $AC_DIRECTORIO.'datos/datos.php';
+require_once __DIR__."/../../datos/init.php";
 if(isset($_SESSION['id']) && $_SESSION['rol'] == 5){ $acceso=true; require_once 'actualizar_acc.php'; }
 
 else if(!empty($_SESSION['usuario']) && !empty($_SESSION['codigo']) && !empty($_SESSION['code'])){
