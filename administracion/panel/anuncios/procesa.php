@@ -1,16 +1,26 @@
 <?php
-#ACTUALIZAR ANUNCIOS ----------------------->
-if ($_POST['IniAnuncio']){
-    $sms=$_POST['mensaje'];
-    $enlace=$_POST['enlace'];
-    $enlaceanuncio=$_POST['anuncio'];
-    $enlaceanuncio2=$_POST['anuncio2'];
-    $linkimga=$_POST['imga'];
-    $linkimga2=$_POST['imga2'];
-    $texMensaje=$_POST['texMensaje'];
-    $mosAnuncio=$_POST['mosAnuncio'];
-    $mosAnuncio2=$_POST['mosAnuncio2'];
-    file_put_contents('../dependencias/dpanuncio.php',"<?php\n".'$sms='."'$sms';\n".'$link='."'$enlace';\n".'$linkanuncio='."'$enlaceanuncio';\n".'$linkanuncio2='."'$enlaceanuncio2';\n".'$linkimga='."'$linkimga';\n".'$linkimga2='."'$linkimga2';\n".'$texMensaje='."'$texMensaje';\n".'$mosAnuncio='."'$mosAnuncio';\n".'$mosAnuncio2='."'$mosAnuncio2';\n?>");
-    header("location: ../panel.php?ac=anuncios&ms=exi&msm=datosactualizados");
-}
-?>
+
+if (!isset($_POST['IniAnuncio'])) return;
+
+$file_path = pathData() . "/config.json";
+$data = readJson($file_path);
+$data["ads"] = [
+  "message" => [
+    "active" => !empty($_POST["message_active"]),
+    "content" => secureString($_POST["message_content"] ?? ""),
+    "link" => secureString($_POST["message_link"] ?? ""),
+  ],
+  "banner" => [
+    "active" => !empty($_POST["banner_active"]),
+    "image" => secureString($_POST["banner_image"] ?? ""),
+    "link" => secureString($_POST["banner_link"] ?? ""),
+  ],
+  "thumbnail" => [
+    "active" => !empty($_POST["thumbnail_active"]),
+    "image" => secureString($_POST["thumbnail_image"] ?? ""),
+    "link" => secureString($_POST["thumbnail_link"] ?? "")
+  ]
+];
+
+$result = writeJson($file_path, $data) ? "datosactualizados" : "datosnoactualizados";
+redirect("./panel.php?ac=anuncios&ms=exi&msm=$result");
