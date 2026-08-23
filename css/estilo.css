@@ -20,6 +20,101 @@ section, .flexCon, footer{ flex-wrap: wrap; justify-content: space-around; }
 .flexCen{ justify-content: center; }
 .cen{ text-align: center; }
 
+.flex {
+    display: flex;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-evenly {
+    justify-content: space-evenly;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nograp {
+    flex-wrap: nowrap;
+}
+
+.p-4 {
+    padding: 4px;
+}
+
+.p-4 {
+    padding: 6px;
+}
+
+.p-8 {
+    padding: 8px;
+}
+
+.gap-0 {
+    gap: 0px;
+}
+
+.gap-2 {
+    gap: 2px;
+}
+
+.gap-4 {
+    gap: 4px;
+}
+
+.gap-6 {
+    gap: 6px;
+}
+
+.gap-8 {
+    gap: 8px;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.t-strong {
+    font-weight: bold;
+}
+
+.t-small {
+    font-size: small;
+}
+
+.textarea-full {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+
 header{
     padding: 0.50em;
     color: var(--cacolor);
