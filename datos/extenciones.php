@@ -635,7 +635,7 @@ if($ex=='scrDispladi'){
 			case 4: $mi='<footer>'; $me='<div>'; $mef='</div>'; $mif='</footer>'; break;
 		}
 		echo $mi;
-		if($elem==3 && isset($anuncio2)) { echo $anuncio2; }
+		echo $elem == 3 ? viewAdsThumbnail(CONFIG["ads"] ?? [], $AC_DIRECTORIO) : "";
 		for ($ii=0; $ii < $displadi[$elem][1]; $ii++):
 			if($displadi[$elem][2][$ii][0] != ''):
 				echo $me; $ver='';
