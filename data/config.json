@@ -1,4 +1,15 @@
 {
+    "page_name": "daam",
+    "page_link": "https://armionegai.rf.gd",
+    "page_year": "2026",
+    "page_about": "",
+    "page_tags": "",
+    "page_scripts": "",
+    "page_scripts_active": false,
+    "page_ssl_active": false,
+    "page_extension_php_active": true,
+    "page_debug_active": true,
+    "page_timezone": "America/Bogota",
     "ads": {
         "message": {
             "active": true,
