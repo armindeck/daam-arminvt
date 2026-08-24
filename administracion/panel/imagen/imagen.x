@@ -1,1 +1,0 @@
-v0.1b Beta Estable ~ 10.06.2024
