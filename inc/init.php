@@ -12,6 +12,7 @@ define("VISITS", readJson(pathDataVisits()));
 define("TIMEZONE", readJson(pathDataTimezone()));
 define("USERS", readJson(pathDataUsers()));
 define("POSTS", readJson(pathDataPosts()));
+define("PHP_EXTENSION", (CONFIG["page_extension_php_active"] ?? false) ? ".php" : "");
 
 session_start([
   "cookie_secure" => true, // Solo HTTPS
