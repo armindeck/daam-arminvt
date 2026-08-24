@@ -17,7 +17,7 @@ $formulario='<p class="texini">Bienvenido a la sección de inicio de sesión</p>
         <input type="text" name="usuario" placeholder="Usuario &#xf007" required>
         <input type="password" name="contrasena" placeholder="Contraseña &#xf084" required><hr>
         <input type="submit" name="IniSesion" value="Iniciar &#xf007">
-        <hr><p class="cen t12">~ Eres grande papu ~ <a href="registrar'.$AGREGAR_PHP.'">Registrarse</a></p>
+        <hr><p class="cen t12">~ Eres grande papu ~ <a href="registrar'.PHP_EXTENSION.'">Registrarse</a></p>
     </form>
 </div>';
 #>>>>>>>>>>>>>>

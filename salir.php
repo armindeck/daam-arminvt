@@ -50,7 +50,7 @@ if (isset($_GET['id']) && isset($_GET['ubi']) && isset($_GET['arc']) && isset($_
 		$AC_CATALOGO=$opc2;
 		$AC_DESCRIPCION=$opc6;
 		$AC_FECHA='2023-07-28 - 2:20pm';
-		$AC_CONTENIDO='<p class="texini">Saliendo de '.$EnlaceWebNoHttps.'...</p>	<p class="texini t14">Quiero que sepas que el sitio al que vas a acceder no es mío y no me hago responsable de lo que suceda allá.<br>Si necesitas reportar el enlace puedes hacerlo desde la zona de <a href="reportar'.$AGREGAR_PHP.'?id='.$id.'&ubi='.$ubi.'&arc='.$arc.'">reportes</a></p>	<p class="texini t12">Enlace al que sera dirigido: '.$enlace.'</p><p class="texini t14">Sigamos un camino distinto al del forolink de '.$NombreWeb.', quiero conocer nuevos territorios y conocer gente nueva que me inspire y me apoye en este nuevo camino.</p>';
+		$AC_CONTENIDO='<p class="texini">Saliendo...</p>	<p class="texini t14">Quiero que sepas que el sitio al que vas a acceder no es mío y no me hago responsable de lo que suceda allá.<br>Si necesitas reportar el enlace puedes hacerlo desde la zona de <a href="reportar'.PHP_EXTENSION.'?id='.$id.'&ubi='.$ubi.'&arc='.$arc.'">reportes</a></p>	<p class="texini t12">Enlace al que sera dirigido: '.$enlace.'</p><p class="texini t14">Sigamos un camino distinto al del forolink!, quiero conocer nuevos territorios y conocer gente nueva que me inspire y me apoye en este nuevo camino.</p>';
 		require_once $AC_DIRECTORIO.'datos/displa.php';
 		$AC_EXISTE=$opcExiste;
 		$AC_ESTADO=$opcEstado;

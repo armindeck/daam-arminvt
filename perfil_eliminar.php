@@ -6,11 +6,11 @@ if ($_SESSION['rol'] == 0) {
     $rol='Registrado';
 }
 if($_SESSION['rol'] == 5){ $rol='Administrador'; }
-if(strlen($_SESSION['redsocial'])==0){ $redSocial=$EnlaceWeb; } else { $redSocial=$_SESSION['redsocial']; }
+if(strlen($_SESSION['redsocial'])==0){ $redSocial=(CONFIG["page_link"] ?? "); } else { $redSocial=$_SESSION['redsocial']; }
 
 $AC_METADESCRIPCION='Eliminar perfil';
-$AC_METADESCRIPCION2='Acerca del creador de '.$NombreWeb.' - '.$NombreAdmin;
-$AC_METAETIQUETA='Acerca de '.$NombreAdmin.', acerca de '.$NombreAdminCompleto;
+$AC_METADESCRIPCION2='Eliminar perfil';
+$AC_METAETIQUETA='eliminar perfil';
 $AC_IMG='arminvt1.png';
 $AC_EXTRA=true;
 $AC_TITULO='Eliminar cuenta de @'.$_SESSION['usuario'];
@@ -38,7 +38,7 @@ $AC_CONTENIDO='<p class="texini">Seccion de eliminacion de cuenta - '.$_SESSION[
     <input class="boton" type="reset" value="Cancelar">
     </form>
 </div>
-<p class="texini t14"><a class="boton" href="perfil'.$AGREGAR_PHP.'">Volver</a>';
+<p class="texini t14"><a class="boton" href="perfil'.PHP_EXTENSION.'">Volver</a>';
 include $AC_DIRECTORIO.'datos/displa.php';
 } else { header("Location: iniciar"); }
 ?>

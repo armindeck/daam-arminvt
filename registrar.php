@@ -20,7 +20,7 @@ $formulario='<p class="texini">Bienvenido a la sección de registro</p>
         <input type="email" name="email" placeholder="Email &#xf003" title="Email > 4" required>
         <input type="password" name="contrasena" placeholder="Contraseña &#xf084" title="Contrasena > 6" required><hr>
         <input type="submit" name="IniRegistro" value="Registrar &#xf007">
-        <hr><p class="cen t12">~ Eres grande papu ~ <a href="iniciar'.$AGREGAR_PHP.'">Iniciar sesión</a></p>
+        <hr><p class="cen t12">~ Eres grande papu ~ <a href="iniciar'.PHP_EXTENSION.'">Iniciar sesión</a></p>
     </form>
 </div>';
 #>>>>>>>>>>>>>>
@@ -52,7 +52,7 @@ if(isset($_SESSION['id'])){
             header("Location: registrar.php?ms=err&msm=usuoemare");
         } else {
             $en=md5($contrasena);
-            $insertar="INSERT INTO usuarios(usuario, contrasena, nombre, email, rol, registro, inicio, redsocial) VALUES('$usuario','$en','$nombre','$email','0','$fecha','$fecha','')";
+            $insertar="INSERT INTO usuarios(usuario, contrasena, nombre, email, rol, registro, inicio, redsocial) VALUES('$usuario','$en','$nombre','$email','0',dateTime(),dateTime(),'')";
 
             $resultado=mysqli_query($conexion,$insertar);
 

@@ -8,16 +8,16 @@ if ($_SESSION['rol'] == 0) {
 }
 if(!isset($TemaPorElUsuario)){ $TemaPorElUsuario='Default'; }
 $adm='';
-if($_SESSION['rol'] == 5){ $rol='Administrador'; $adm='<a class="boton2" href="'.$AC_DIRECTORIOs.'administracion/">Administración</a>'; }
-if(strlen($_SESSION['redsocial'])==0){ $redSocial=$EnlaceWeb; } else { $redSocial=$_SESSION['redsocial']; }
+if($_SESSION['rol'] == 5){ $rol='Administrador'; $adm='<a class="boton2" href="'.$AC_DIRECTORIO.'administracion/">Administración</a>'; }
+if(strlen($_SESSION['redsocial'])==0){ $redSocial=CONFIG["page_link"] ?? ""; } else { $redSocial=$_SESSION['redsocial']; }
 ///Inicio sesion
 $id=$_SESSION['id'];
-$actualizar="UPDATE usuarios SET inicio='$fecha' WHERE id='$id'";
+$actualizar="UPDATE usuarios SET inicio='fecha' WHERE id='$id'";
 $resultado=mysqli_query($conexion,$actualizar);
 
 $AC_METADESCRIPCION='Perfil';
-$AC_METADESCRIPCION2='Acerca del creador de '.$NombreWeb.' - '.$NombreAdmin;
-$AC_METAETIQUETA='Acerca de '.$NombreAdmin.', acerca de '.$NombreAdminCompleto;
+$AC_METADESCRIPCION2='Perfil';
+$AC_METAETIQUETA='Perfil';
 $AC_IMG='arminvt1.png';
 $AC_EXTRA=true;
 $AC_TITULO='Perfil de '.$_SESSION['nombre'];
@@ -28,7 +28,7 @@ $AC_CONTENIDO='<p class="texini">Bienvenid@ '.$_SESSION['nombre'].'</p>
 <div class="flexCon">
 	<div class="m2">
 		<div class="imagen">
-            <img class="img2" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvt1.png" title="Armin 0.1 Beta by '.$NombreWeb.'">
+            <img class="img2" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvt1.png" title="Image">
 		</div>
 		<p class="contexcn t10">Armin v0.1 Beta</p>
 	</div>
@@ -44,7 +44,7 @@ $AC_CONTENIDO='<p class="texini">Bienvenid@ '.$_SESSION['nombre'].'</p>
     <li class="t12">Tema: '.$TemaPorElUsuario.'</li>
     </ol>
 </div>
-<p class="texini t14">'.$adm.'<a class="boton" href="perfil_editar'.$AGREGAR_PHP.'">Editar cuenta</a> <a class="boton2" href="perfil_editar_contrasena'.$AGREGAR_PHP.'">Cambiar contraseña</a> <a class="boton" href="perfil_eliminar'.$AGREGAR_PHP.'">Eliminar cuenta</a></p>';
+<p class="texini t14">'.$adm.'<a class="boton" href="perfil_editar'.PHP_EXTENSION.'">Editar cuenta</a> <a class="boton2" href="perfil_editar_contrasena'.PHP_EXTENSION.'">Cambiar contraseña</a> <a class="boton" href="perfil_eliminar'.PHP_EXTENSION.'">Eliminar cuenta</a></p>';
 include $AC_DIRECTORIO.'datos/displa.php';
 } else { header("Location: iniciar"); }
 ?>

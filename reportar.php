@@ -27,16 +27,16 @@ $c_inicio='<span class="usuario">'.$comentario[$id]['nombre'].' '.$emoji.'</span
 
 if($comentario[$id]['rol']=='admin'){
 	$emoji='<i class="fas fa-splotch cverified" title="verificado"></i>';
-	$c_inicio='<a class="admin" target="_blank" href="'.$EnlaceAdmin.'" title="'.$NombreAdmin.' es el Administrador :3">'.$NombreAdmin.'</a> '.$emoji.' <span class="id" title="'.$NombreAdmin.' es el @id'.$comentario[$id]['id'].' 7w7">@id'.$comentario[$id]['id'].'</span>';
+	$c_inicio='<a class="admin" target="_blank" title="'.$comentario[$id]['nombre'].' es el Administrador :3">'.$comentario[$id]['nombre'].'</a> '.$emoji.' <span class="id" title="'.$comentario[$id]['nombre'].' es el @id'.$comentario[$id]['id'].' 7w7">@id'.$comentario[$id]['id'].'</span>';
 }
 #DESDE AQUI SEGUIR EDITANDO
 if ($comentario[$id]['tipo']=='forolink' || $comentario[$id]['tipo']=='blog' or !isset($comentario[$id]['tipo'])) {
-            $c_enlace='<a target="_blank" rel="nofollow" class="t12 link" href="'.$AC_DIRECTORIOs.'salir'.$AGREGAR_PHP.'?id='.$comentario[$id]['id'].'&ubi='.$comentario[$id]['ubicacion'].'&arc='.$comentario[$id]['archivo'].'&enlace='.$comentario[$id]['enlace'].'" title="Seguir a '.$comentario[$id]['enlace'].'">'.(substr($comentario[$id]['enlace'], 0, 25)).'...</a> <i class="fas fa-meteor forlinkcolor"></i>';
+            $c_enlace='<a target="_blank" rel="nofollow" class="t12 link" href="'.$AC_DIRECTORIO.'salir'.PHP_EXTENSION.'?id='.$comentario[$id]['id'].'&ubi='.$comentario[$id]['ubicacion'].'&arc='.$comentario[$id]['archivo'].'&enlace='.$comentario[$id]['enlace'].'" title="Seguir a '.$comentario[$id]['enlace'].'">'.(substr($comentario[$id]['enlace'], 0, 25)).'...</a> <i class="fas fa-meteor forlinkcolor"></i>';
             $enlace_imagen=true;
         } else { $c_enlace=''; $comentario[$id]['enlace']=''; $enlace_imagen=false; }
 
 
-$c_reacciones='<form method="post" action="'.$UBICACION_IOBI.'reacciones'.$AGREGAR_PHP.'?id='.$comentario[$id]['id'].'&ubi='.$comentario[$id]['ubicacion'].'&arc='.$comentario[$id]['archivo'].$AGREGAR_PHP.'"> <input class="reaccion" type="submit" name="like" value="&#xf164; '.(file_get_contents($enlace_reacciones.'l'.$comentario[$id]['id'].'.txt')).'">
+$c_reacciones='<form method="post" action="'.$UBICACION_IOBI.'reacciones'.PHP_EXTENSION.'?id='.$comentario[$id]['id'].'&ubi='.$comentario[$id]['ubicacion'].'&arc='.$comentario[$id]['archivo'].PHP_EXTENSION.'"> <input class="reaccion" type="submit" name="like" value="&#xf164; '.(file_get_contents($enlace_reacciones.'l'.$comentario[$id]['id'].'.txt')).'">
         <input class="reaccion" type="submit" name="dislike" value="&#xf165; '.(file_get_contents($enlace_reacciones.'d'.$comentario[$id]['id'].'.txt')).'">
         </form>';
 
@@ -63,10 +63,10 @@ if($estodelcomentario > 3){
 if($estodelcomentario >= 99){
 	$mostrarComentarioFinal=$eliminado;
 }
-	$texto=array('<p class="t14 tb">Comentario que deseo reportar por incumplir las <a target="_blank" href="reglas'.$AGREGAR_PHP.'">reglas</a></p>','<p>Motivos por los que deseo reportar el comentario</p>','<p class="t14">Solo reporta la publicación si incumple con las <a href="'.$AC_DIRECTORIOs.'reglas'.$AGREGAR_PHP.'">reglas</a></p>');
+	$texto=array('<p class="t14 tb">Comentario que deseo reportar por incumplir las <a target="_blank" href="reglas'.PHP_EXTENSION.'">reglas</a></p>','<p>Motivos por los que deseo reportar el comentario</p>','<p class="t14">Solo reporta la publicación si incumple con las <a href="'.$AC_DIRECTORIO.'reglas'.PHP_EXTENSION.'">reglas</a></p>');
 	$contenido='<div class="comentario">'.$mostrarComentarioFinal.'</div><hr>
 	<div class="flexRow flexCen">
-	<form method="post" class="formulario" action="reportarexito'.$AGREGAR_PHP.'?id='.$idN.'&ubi='.$ubi.'&arc='.$arc.'">'.$texto[1].'<hr>
+	<form method="post" class="formulario" action="reportarexito'.PHP_EXTENSION.'?id='.$idN.'&ubi='.$ubi.'&arc='.$arc.'">'.$texto[1].'<hr>
 		<select name="caso">
 			<option value="acoso">Acoso</option>
 			<option value="engaño">Engaño</option>
@@ -95,7 +95,7 @@ $AC_TITULO=$opc5;
 $AC_CATALOGO=$opc2;
 $AC_DESCRIPCION=$opc6;
 $AC_FECHA='2023-07-30 - 12:12am';
-$AC_CONTENIDO='<p class="texini">Bienvenido a la sección de reportes.<br><span class="t14">En esta sección puedes reportar comentarios inadecuados o que incumplan con las <a target="_blank" href="reglas'.$AGREGAR_PHP.'">reglas</a></span></p>'.$texto[0].$contenido;
+$AC_CONTENIDO='<p class="texini">Bienvenido a la sección de reportes.<br><span class="t14">En esta sección puedes reportar comentarios inadecuados o que incumplan con las <a target="_blank" href="reglas'.PHP_EXTENSION.'">reglas</a></span></p>'.$texto[0].$contenido;
 require_once $AC_DIRECTORIO.'datos/displa.php';
 $AC_EXISTE=$opcExiste;
 $AC_ESTADO=$opcEstado;

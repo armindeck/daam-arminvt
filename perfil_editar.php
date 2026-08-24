@@ -6,11 +6,11 @@ if ($_SESSION['rol'] == 0) {
     $rol='Registrado';
 }
 if($_SESSION['rol'] == 5){ $rol='Administrador'; }
-if(strlen($_SESSION['redsocial'])==0){ $redSocial=$EnlaceWeb; } else { $redSocial=$_SESSION['redsocial']; }
+if(strlen($_SESSION['redsocial'])==0){ $redSocial=CONFIG["page_link"] ?? ""; } else { $redSocial=$_SESSION['redsocial']; }
 
 $AC_METADESCRIPCION='Editar perfil';
-$AC_METADESCRIPCION2='Acerca del creador de '.$NombreWeb.' - '.$NombreAdmin;
-$AC_METAETIQUETA='Acerca de '.$NombreAdmin.', acerca de '.$NombreAdminCompleto;
+$AC_METADESCRIPCION2='Editar perfil';
+$AC_METAETIQUETA='editar perfil';
 $AC_IMG='arminvt1.png';
 $AC_EXTRA=true;
 $AC_TITULO='Editar cuenta de @'.$_SESSION['usuario'];
@@ -21,7 +21,7 @@ $AC_CONTENIDO='<p class="texini">Sección de edición de cuenta de '.$_SESSION['
 <div class="flexCon">
 	<div class="m2">
 		<div class="imagen">
-            <img class="img2" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvt1.png" title="Armin 0.1 Beta by '.$NombreWeb.'">
+            <img class="img2" loading="lazy" src="'.$AC_DIRECTORIO.'img/arminvt1.png" title="Image">
 		</div>
 		<p class="contexcn t10">Armin v0.1 Beta</p>
 	</div>
@@ -44,7 +44,7 @@ $AC_CONTENIDO='<p class="texini">Sección de edición de cuenta de '.$_SESSION['
     <input type="submit" name="IniActualizar" value="Actualizar">
     </form>
 </div>
-<p class="texini t14"><a class="boton" href="perfil'.$AGREGAR_PHP.'">Volver</a>';
+<p class="texini t14"><a class="boton" href="perfil'.PHP_EXTENSION.'">Volver</a>';
 include $AC_DIRECTORIO.'datos/displa.php';
 } else { header("Location: iniciar"); }
 ?>

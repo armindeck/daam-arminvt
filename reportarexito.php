@@ -59,7 +59,7 @@ if (isset($_GET['id']) && isset($_GET['ubi']) && isset($_GET['arc'])) {
 }
 $AC_CONTENIDO='<div class="izqcon">
 '.$mostrar.'
-<a class="boton" href="'.$AC_DIRECTORIOs.'">Regresar</a>
+<a class="boton" href="'.$AC_DIRECTORIO.'">Regresar</a>
 </div>';
 require_once $AC_DIRECTORIO.'datos/displa.php';
 $AC_EXISTE=$opcExiste;
