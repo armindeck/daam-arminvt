@@ -1,8 +1,6 @@
 <?php
 
-if (!isset($_POST['IniAnuncio'])) return;
-
-$file_path = pathData() . "/config.json";
+$file_path = pathDataConfig();
 $data = readJson($file_path);
 $data["ads"] = [
   "message" => [
@@ -23,4 +21,4 @@ $data["ads"] = [
 ];
 
 $result = writeJson($file_path, $data) ? "datosactualizados" : "datosnoactualizados";
-redirect("./panel.php?ac=anuncios&ms=exi&msm=$result");
+redirect("./admin.php?sc=ads&ms=exi&msm=$result");
