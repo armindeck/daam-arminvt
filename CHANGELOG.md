@@ -1,8 +1,10 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
-## [0.3.5 Dev] - 22/08/2026
+## [0.5.0 Dev] - 23/08/2026
 
+- Ahora las entradas estan en un archivo json
+- Movi todo el panel administrativo a `inc/views/admin|actions/admin`
 - Configuraciones (en proceso)
 - Cambie todo el funcionamiento de como se cargan y actualizan los anuncios
 
