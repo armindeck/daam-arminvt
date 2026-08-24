@@ -167,7 +167,7 @@ if (isset($permiExtras) && $permiExtras == true) {
                 </select>
                 <input name="IniModificar" type="submit" value="Modificar &#xf044">
             </form><hr>
-            Extras <a target="_blank" class="boton2" href="<?php echo $AC_DIRECTORIO.'imagenes'.$AGREGAR_PHP; ?>">Imagenes <i class="fas fa-external-link-alt"></i></a>
+            Extras <a target="_blank" class="boton2" href="<?php echo $AC_DIRECTORIO.'imagenes'.PHP_EXTENSION; ?>">Imagenes <i class="fas fa-external-link-alt"></i></a>
         </div><hr>
         <form class="formulario" action="<?php echo panel_creador_carpeta; ?>borrador.php<?php if (isset($_GET['opcBorrador'])) { echo '?opcBorrador='.$_GET['opcBorrador']; } ?>" method="post">
 

@@ -110,15 +110,15 @@ if(isset($_SESSION['id']) || isset($_SESSION['usuario'])){
 
             <input class="oculto campo key" type="password" name="codigo" value="<?php if (isset($FCodigo)) { echo $FCodigo; } ?>" placeholder="Code &#xf084" title="Codigo :3" maxlength="10">
 
-            <div class="der"><a target="_blank" class="der t14" href="<?php echo $AC_DIRECTORIOs.'reglas'.$AGREGAR_PHP; ?>">Reglas</a></div>
+            <div class="der"><a target="_blank" class="der t14" href="<?php echo $AC_DIRECTORIO.'reglas'.PHP_EXTENSION; ?>">Reglas</a></div>
 
         </div><hr>
 
         <?php if (isset($FCamposExtras) && $FCamposExtras==true): ?>
 
-                <a target="_blank" class="boton2" href="<?php echo $AC_DIRECTORIO.'codigos'.$AGREGAR_PHP; ?>">Codigos <i class="fas fa-external-link-alt"></i></a>
+                <a target="_blank" class="boton2" href="<?php echo $AC_DIRECTORIO.'codigos'.PHP_EXTENSION; ?>">Codigos <i class="fas fa-external-link-alt"></i></a>
 
-                <a target="_blank" class="boton2" href="<?php echo $AC_DIRECTORIO.'imagenes'.$AGREGAR_PHP; ?>">Imagenes <i class="fas fa-external-link-alt"></i></a>
+                <a target="_blank" class="boton2" href="<?php echo $AC_DIRECTORIO.'imagenes'.PHP_EXTENSION; ?>">Imagenes <i class="fas fa-external-link-alt"></i></a>
 
                 <hr>
 

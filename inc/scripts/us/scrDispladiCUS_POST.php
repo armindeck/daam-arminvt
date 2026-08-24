@@ -97,5 +97,5 @@ $scrUS_MenuLateralContadorComentariosCarpeta='."'$opcmenulateralcontadorcomentar
 $scrUS_MenuLateralVisitas='."'$opcmenulateralvisitas';".'
 $scrUS_MenuLateralVersion='."'$opcmenulateralversion';".'
 $scrUS_PiedePaginaDerechos='."'$opcpiedepaginaderechos';"."
-#ACTUALIZADO: $fechahora ~ $vinterna\n?>";
+#ACTUALIZADO: ".dateTime()." ~ $vinterna\n?>";
 }

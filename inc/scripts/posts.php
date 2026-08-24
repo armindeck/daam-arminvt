@@ -70,7 +70,7 @@ if (isset($exP)) {
             $Edi='$opcEdi='."'$ModArchivo'".";\n".'$opcEdi2='."'$opcModArchivo'".";\n";
         } else { $Edi=''; }
 
-        $ArchivoModDatosContenido="<?php #CONTENIDO POR ARMIN\n".'$opc1='."'$opc1'".";\n".'$opc2='."'$opc2'".";\n".'$opc3='."'$opc3'".";\n".'$opc4='."'$opc4'".";\n".'$opc5='."'$opc5'".";\n".'$opc6='."'$opc6'".";\n".'$opcXMensaje='."'$opcXMensaje';\n".'$opcXAccesoAdmin='."'$opcXAccesoAdmin';\n".'$opcXGaleria='."'$opcXGaleria';\n".'$opc7='."'$opc7'".";\n".'$opc8='."'$opc8V'".";\n".'$opc9='."'$opc9'".";\n".'$opc10='."'$opc10'".";\n".'$opc11='."'$opc11'".";\n".'$opc12='."'$opc12'".";\n".'$fecha="'.$fechahora.'";'."\n$Edi".'$opcEstado='."'publico';\n".'$opcExiste=true;'."\n#".$versionCreador."\n?>";
+        $ArchivoModDatosContenido="<?php #CONTENIDO POR ARMIN\n".'$opc1='."'$opc1'".";\n".'$opc2='."'$opc2'".";\n".'$opc3='."'$opc3'".";\n".'$opc4='."'$opc4'".";\n".'$opc5='."'$opc5'".";\n".'$opc6='."'$opc6'".";\n".'$opcXMensaje='."'$opcXMensaje';\n".'$opcXAccesoAdmin='."'$opcXAccesoAdmin';\n".'$opcXGaleria='."'$opcXGaleria';\n".'$opc7='."'$opc7'".";\n".'$opc8='."'$opc8V'".";\n".'$opc9='."'$opc9'".";\n".'$opc10='."'$opc10'".";\n".'$opc11='."'$opc11'".";\n".'$opc12='."'$opc12'".";\n".'$fecha="'.dateTime().'";'."\n$Edi".'$opcEstado='."'publico';\n".'$opcExiste=true;'."\n#".$versionCreador."\n?>";
     }
     #EXTENCION
     if ($exP=='exPArchivoModComplementos') {
@@ -91,7 +91,7 @@ $AC_EXTRA=$opc8;
 $AC_TITULO=$opc5;
 $AC_CATALOGO=$opc2;
 $AC_DESCRIPCION=$opc6;
-$AC_FECHA='."'$fechahora'".';'.$fmenSa.'
+$AC_FECHA='."'".dateTime()."'".';'.$fmenSa.'
 $AC_CONTENIDO=$opc7;'.$ftipo.$fgaleria.'
 require_once $AC_DIRECTORIO.'."'datos/displa.php'".';
 $AC_EXISTE=$opcExiste;

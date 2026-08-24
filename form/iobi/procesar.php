@@ -88,7 +88,7 @@ if (!empty($_POST['IniForo']) || !empty($_POST['IniComentarios']) || !empty($_PO
 
             #CARGAR Y GUARDAR CONTENIDO
             $archivo=$NUEVA_UBICACION.'/pubdatos.php';
-            $guardar="[\n'id'=>$id,\n'tipo'=>'$tipo',\n'ubicacion'=>'$AC_UBICACION',\n'archivo'=>'$AC_ARCHIVO',\n'rol'=>'$rol',\n'nombre'=>'$c_usuario'$enlace,\n'comentario'=>'$c_comentario'$imagen,\n'fecha'=>'$fechahora'\n]";
+            $guardar="[\n'id'=>$id,\n'tipo'=>'$tipo',\n'ubicacion'=>'$AC_UBICACION',\n'archivo'=>'$AC_ARCHIVO',\n'rol'=>'$rol',\n'nombre'=>'$c_usuario'$enlace,\n'comentario'=>'$c_comentario'$imagen,\n'fecha'=>'". dateTime() ."'\n]";
 
             if(!file_exists($archivo)){
                 file_put_contents($archivo,"<?php\n".'$'."comentario=[\n".$guardar.'];');

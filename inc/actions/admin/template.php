@@ -73,7 +73,7 @@ $"."displadi[4]=['".$dis_m[4]."',".$dis_ce[4].",[
 ];
 $"."carScripts=".$dis_cscr.";
 $"."mosScripts=['".$dis_mscr[0]."','".$dis_mscr[1]."','".$dis_mscr[2]."','".$dis_mscr[3]."','".$dis_mscr[4]."']; #MOSTRAR SCRIPTS EN DISPLADI
-#Modificado: ".$fechahora.' ~ '.$vinterna."\n?>";
+#Modificado: ".dateTime().' ~ '.$vinterna."\n?>";
 	$scrCUS='../scripts/us/scrCUS.php';
 	$scrCUSPOST='../scripts/us/scrDispladiCUS_POST.php';
 	$archiD='pepe';

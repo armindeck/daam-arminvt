@@ -20,16 +20,16 @@ if(file_exists($NUEVA_UBICACION.'/pubdatos.php')){
 
         if($item['rol']=='admin'){
             $emoji='<i class="fas fa-splotch cverified" title="verificado"></i>';
-            $c_inicio='<a class="admin" target="_blank" href="'.$EnlaceAdmin.'" title="'.$NombreAdmin.' es el Administrador :3">'.$NombreAdmin.'</a> '.$emoji.' <span class="id" title="'.$NombreAdmin.' es el @id'.$item['id'].' 7w7">@id'.$item['id'].'</span>';
+            $c_inicio='<a class="admin" target="_blank" title="'.$item["nombre"].' es el Administrador :3">'.$item["nombre"].'</a> '.$emoji.' <span class="id" title="'.$item["nombre"].' es el @id'.$item['id'].' 7w7">@id'.$item['id'].'</span>';
         }
         if ($item['tipo']=='forolink' || $item['tipo']=='blog' or !isset($item['tipo'])) {
-            $c_enlace='<a target="_blank" rel="nofollow" class="t12 link" href="'.$AC_DIRECTORIOs.'salir'.$AGREGAR_PHP.'?id='.$item['id'].'&ubi='.$item['ubicacion'].'&arc='.$item['archivo'].'&enlace='.$item['enlace'].'" title="Seguir a '.$item['enlace'].'">'.(substr($item['enlace'], 0, 25)).'...</a> <i class="fas fa-meteor forlinkcolor"></i>';
+            $c_enlace='<a target="_blank" rel="nofollow" class="t12 link" href="'.$AC_DIRECTORIO.'salir'.PHP_EXTENSION.'?id='.$item['id'].'&ubi='.$item['ubicacion'].'&arc='.$item['archivo'].'&enlace='.$item['enlace'].'" title="Seguir a '.$item['enlace'].'">'.(substr($item['enlace'], 0, 25)).'...</a> <i class="fas fa-meteor forlinkcolor"></i>';
             $enlace_imagen=true;
         } else { $c_enlace=''; $item['enlace']=''; $enlace_imagen=false; }
-        #$c_reportar='<a target="_blank" class="t12 repor" title="Reportar a '.$item['nombre'].' con @ID'.$item['id'].' :F" href="'.$AC_DIRECTORIOs.'reportar'.$AGREGAR_PHP.'?id='.$item['id'].'&archivo='.$item['archivo'].'">Reportar</a>';
-        $c_reportar='<span class="t12 repor"><a target="_blank" href="'.$AC_DIRECTORIOs.'reportar'.$AGREGAR_PHP.'?id='.$item['id'].'&ubi='.$item['ubicacion'].'&arc='.$item['archivo'].'">reportar</a></span>';
+        #$c_reportar='<a target="_blank" class="t12 repor" title="Reportar a '.$item['nombre'].' con @ID'.$item['id'].' :F" href="'.$AC_DIRECTORIO.'reportar'.PHP_EXTENSION.'?id='.$item['id'].'&archivo='.$item['archivo'].'">Reportar</a>';
+        $c_reportar='<span class="t12 repor"><a target="_blank" href="'.$AC_DIRECTORIO.'reportar'.PHP_EXTENSION.'?id='.$item['id'].'&ubi='.$item['ubicacion'].'&arc='.$item['archivo'].'">reportar</a></span>';
         #$c_reportar='<span class="t12 repor">reparando...</span>'; #QUITAR CUANDO REPARE LA SECCION DE REPORTAR
-        $c_reacciones='<form method="post" action="'.$UBICACION_IOBI.'reacciones'.$AGREGAR_PHP.'?id='.$item['id'].'&ubi='.$AC_UBICACION.'&arc='.$AC_ARCHIVO.$AGREGAR_PHP.'"> <input class="reaccion" type="submit" name="like" value="&#xf164; '.(file_get_contents($enlace_reacciones.'l'.$item['id'].'.txt')).'">
+        $c_reacciones='<form method="post" action="'.$UBICACION_IOBI.'reacciones'.PHP_EXTENSION.'?id='.$item['id'].'&ubi='.$AC_UBICACION.'&arc='.$AC_ARCHIVO.PHP_EXTENSION.'"> <input class="reaccion" type="submit" name="like" value="&#xf164; '.(file_get_contents($enlace_reacciones.'l'.$item['id'].'.txt')).'">
         <input class="reaccion" type="submit" name="dislike" value="&#xf165; '.(file_get_contents($enlace_reacciones.'d'.$item['id'].'.txt')).'">
         </form>';
 
@@ -61,7 +61,7 @@ if(file_exists($NUEVA_UBICACION.'/pubdatos.php')){
             } else {
                 $conIMG=$item['imagen'];
             }
-            $texto_dividido=$dividir_texto.'<div class="flexCon"><hr><div class="m2"><a target="_blank" href="'.$AC_DIRECTORIOs.'salir'.$AGREGAR_PHP.'?id='.$item['id'].'&arc='.$item['archivo'].'&ubi='.$item['ubicacion'].'&enlace='.$conIMG.'"><div class="imagen"><img class="img1" src="'.$item['imagen'].'"></div></a></div></div>';
+            $texto_dividido=$dividir_texto.'<div class="flexCon"><hr><div class="m2"><a target="_blank" href="'.$AC_DIRECTORIO.'salir'.PHP_EXTENSION.'?id='.$item['id'].'&arc='.$item['archivo'].'&ubi='.$item['ubicacion'].'&enlace='.$conIMG.'"><div class="imagen"><img class="img1" src="'.$item['imagen'].'"></div></a></div></div>';
         } else { $texto_dividido=$dividir_texto; }
 
         $estodelcomentario=file_get_contents($UbicacionArchivoContador);

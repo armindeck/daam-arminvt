@@ -253,7 +253,7 @@ if ($_POST['IniAnuncio']){
 
 		if($cfg19==true){ $cfg19="'https://'.".'$EnlaceWebNoHttps'.".'/'"; } else { $cfg19='$AC_DIRECTORIO'; }
 
-		$cfgadminexternoopc='$AC_DIRECTORIOs$UsuarioAdmin$AGREGAR_PHP';
+		$cfgadminexternoopc='$AC_DIRECTORIO$UsuarioAdmin$AGREGAR_PHP';
 		if($cfgadminexterno!=''){ $cfgadminexternoopc=$cfgadminexterno; }
 
 $guardar='<?php #error_reporting(0);
@@ -296,7 +296,7 @@ $UsuarioKofi='."'".$cfg15."'".';
 
 #ENLACES
 
-$EnlaceWeb='."'".$cfg16."'".';
+(CONFIG["page_link"] ?? ")='."'".$cfg16."'".';
 
 $EnlaceWebNoHttps='."'".$cfg17."'".';
 
@@ -304,7 +304,7 @@ $LocalHost='."'".$cfglocalhost."'".';
 
 $EnlaceWebS='.$cfg19.'; #'."'https://arminvt.site/'; --- ".'$AC_DIRECTORIO;
 
-$AC_DIRECTORIOs=$EnlaceWebS;
+$AC_DIRECTORIO=$EnlaceWebS;
 
 $AGREGAR_PHP='."'".$cfg18."'".';
 
