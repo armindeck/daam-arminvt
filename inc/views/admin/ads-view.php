@@ -1,13 +1,5 @@
-<?php
-
-$AC_DIRECTORIO = $AC_DIRECTORIO ?? "../../";
-if(!isset($TIPO) || $TIPO != "panel"){
-  redirect($AC_DIRECTORIO."error.php?ms=err&msm=accdenegado");
-}
-
-?>
 <div class="flex flex-evenly">
-  <form method="post" action="actualizar.php" style="width: 100%; max-width: 720px;">
+  <form method="post" style="width: 100%; max-width: 720px;">
     <div class="formulario" style="width: 99%;">
       <div class="p-4 t-strong">
         Anuncios > Mensaje
@@ -35,8 +27,12 @@ if(!isset($TIPO) || $TIPO != "panel"){
       </div>
       <hr>
       <div class="flex flex-between p-8">
-        <input class="boton2" type="reset" value="Cancelar">
-        <input class="boton" type="submit" name="IniAnuncio" value="Actualizar">
+        <button class="boton" type="reset">
+          ❌ Cancelar
+        </button>
+        <button class="boton" type="submit" name="proccess" value="ads">
+          💾 Guardar
+        </button>
       </div>
     </div>
   </form>
