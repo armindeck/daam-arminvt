@@ -1,5 +1,7 @@
 <?php
 
+if(!isset($_POST["proccess"]) || $_POST["proccess"] != "settings") return;
+
 $file_path = pathDataConfig();
 $data_origin = readJson($file_path);
 
