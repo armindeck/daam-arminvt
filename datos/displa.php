@@ -38,10 +38,7 @@ require $AC_DIRECTORIO . 'datos/extenciones.php';
   <meta name="twitter:description" content="<?php echo $AC_METADESCRIPCION; ?>">
   <meta name="twitter:image" content="<?php echo (CONFIG["page_link"] ?? "") . '/img/' . $AC_IMG; ?>">
   <meta name="keywords" content="<?php echo ($AC_METADESCRIPCION . ", " . $AC_METADESCRIPCION2 . ", " . $AC_METAETIQUETA . ", " . date("Y") . ", " . (CONFIG["page_name"] ?? "") . ", " .  (CONFIG["page_link"] ?? "")); ?>">
-  <?php $scrExtrasdispla = $AC_DIRECTORIO . 'inc/views/admin/scrExtrasdispla.php';
-  if (file_exists($scrExtrasdispla)) {
-    require_once $scrExtrasdispla;
-  } ?>
+  <?= !empty(CONFIG["page_scripts_active"]) ? CONFIG["page_scripts"] ?? "" : "" ?>
   <?php
   if (isset($_GET['temamodificado']) && $_GET['temamodificado'] == true && isset($_GET['temamodificadoarc'])) {
     $arc = $_GET['temamodificadoarc'];
@@ -74,35 +71,6 @@ require $AC_DIRECTORIO . 'datos/extenciones.php';
       require_once $tm;
     }
   } ?>
-  <?php #TEMA POR EL USUARIO
-  if (isset($PermisoPorElUsuarioTema) && $PermisoPorElUsuarioTema == true) {
-    switch ($TemaPorElUsuario) {
-      case 'temaLight':
-        $tmuse = 'tema_Light';
-        break;
-      case 'temaLight2':
-        $tmuse = 'tema_LightGXNCV5';
-        break;
-      case 'temaDark':
-        $tmuse = 'tema_Dark';
-        break;
-      case 'temaDark2':
-        $tmuse = 'tema_DarkPCGAMEXBOXV6';
-        break;
-      case 'temaBlue':
-        $tmuse = 'tema_DarkCuniiCh';
-        break;
-      default:
-        $tmuse = '';
-        break;
-    }
-    if ($tmuse != '') {
-      require $AC_DIRECTORIO . 'css/' . $tmuse . '.php';
-      require $AC_DIRECTORIO . 'css/temafinal.php';
-    }
-  }
-  #TEMA POR EL USUARIO 
-  ?>
 </head>
 
 <body>
