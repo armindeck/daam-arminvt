@@ -42,16 +42,7 @@ if($elem==1): #MENU
 		}
 	}
 endif;
-if($elem==2): #CONTENIDO EXTRA
-	if($ii==0){
-		if(isset($scrUS_ContenidoExtra) && $scrUS_ContenidoExtra!=''){
-			if(isset($AC_UBICACION) && $AC_UBICACION=='ver/'){
-			$ubi_con_extra=$AC_DIRECTORIO.'administracion/panel/scripts/us/recursos/scrContenidoExtra_Anuncio.php';
-			if(file_exists($ubi_con_extra)){ require $ubi_con_extra; }
-			}
-		}
-	}
-endif;
+
 if($elem==3): #MENU LATERAL
 	if($ii==0){
 		if(isset($scrUS_MenuLateralRedes) && $scrUS_MenuLateralRedes!=''){
@@ -99,9 +90,7 @@ if($elem==3): #MENU LATERAL
 	    		echo '</p><hr>';
 	    	}
 	    	if(isset($scrUS_MenuLateralVisitas) && $scrUS_MenuLateralVisitas!=''){
-	    		echo '<p class="t12"><i class="fas fa-eye deri t12"></i> ';
-	    		$visi=file_get_contents($AC_DIRECTORIO.'visitas.txt');
-	    		echo $visi.'</p><hr>';
+	    		echo '<p class="t12"><i class="fas fa-eye deri t12"></i> '. (VISITS["total"] ?? 0) .'</p><hr>';
 	    	}
 	    	if(isset($scrUS_MenuLateralVersion) && $scrUS_MenuLateralVersion!=''){
 	    		echo '<p class="t12"><i class="fas fa-fire deri t12"></i> '.CORE['core_version'].' '.CORE['core_state'].'</p>';
