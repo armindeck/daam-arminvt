@@ -99,7 +99,7 @@ if ($ex == 'CargarEntradas') {
 } elseif ($ex == 'scrDispladi') {
 	#0.Cabeza, 1. Menu, 2. Contenido, 3. Menu Lateral, 4. Pie
 	#0.Mostrar, 1. Cantidad de Elementos, 2. C. Scripts, 3. Elementos
-	$dirScripts = $AC_DIRECTORIO . 'inc/views/admin/scripts/';
+	$dirScripts = $AC_DIRECTORIO . 'inc/scripts/';
 	$scrDispla = $dirScripts . 'scrDispla.php';
 	if (file_exists($scrDispla)) {
 		require_once $scrDispla;
@@ -150,7 +150,7 @@ if ($ex == 'CargarEntradas') {
 				if ($displadi[$elem][2][$ii][2] != '') {
 					echo $displadi[$elem][2][$ii][2];
 				}
-				$arcMNL = $AC_DIRECTORIO . 'inc/views/admin/scripts/us/scrDisplaCUS.php';
+				$arcMNL = $AC_DIRECTORIO . 'inc/scripts/us/scrDisplaCUS.php';
 				if (file_exists($arcMNL)) {
 					require $arcMNL;
 				}
