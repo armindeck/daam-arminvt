@@ -4,18 +4,9 @@ require_once __DIR__.'/extenciones.php';
 ?>
 <?php #BUSCADOR
 $E['directorios'] = [
-	'administracion/panel/',
-	'administracion/panel/creador/',
-	'administracion/panel/imagen/',
-	'administracion/panel/archivos/',
-	'administracion/panel/anuncios/',
-	'administracion/panel/editor/',
-	'administracion/panel/configuraciones/',
-	'administracion/panel/displadi/',
-	'administracion/panel/tema/',
-	'administracion/panel/scripts/',
-	'administracion/panel/scripts/us/',
-	'administracion/panel/scripts/us/recursos/',
+	'inc/views/admin/',
+	'inc/scripts/',
+	'inc/scripts/us/',
 	'datos/',
 	'form/iobi/',
 	'css/'
