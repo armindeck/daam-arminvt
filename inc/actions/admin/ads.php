@@ -1,5 +1,7 @@
 <?php
 
+if(!isset($_POST["proccess"]) || $_POST["proccess"] != "ads") return;
+
 $file_path = pathDataConfig();
 $data = readJson($file_path);
 $data["ads"] = [
