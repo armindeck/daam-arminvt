@@ -35,15 +35,6 @@ if($idi==1):
 		?>
 <?php endif; endif; ?>
 
-<?php #CONTENIDO EXTRA ------------------------------>
-if($idi==2):
-	if($i==0): ?>
-	<hr><span>Mostrar Anuncio <input type="checkbox" name="opccontenidoextra" <?php if(isset($scrUS_ContenidoExtra) && $scrUS_ContenidoExtra!=''){ echo 'checked'; } ?>></span>
-	<hr><span>Enlace <input type="url" name="opccontenidoextra_enlace" value="<?php if(isset($scrUS_ContenidoExtra_Enlace) && $scrUS_ContenidoExtra_Enlace!=''){ echo $scrUS_ContenidoExtra_Enlace; } ?>" placeholder="https://enlace.com/"></span>
-	<hr><span>Enlace Imagen <input type="url" name="opccontenidoextra_enlace_imagen" value="<?php if(isset($scrUS_ContenidoExtra_Enlace_Imagen) && $scrUS_ContenidoExtra_Enlace_Imagen!=''){ echo $scrUS_ContenidoExtra_Enlace_Imagen; } ?>" placeholder="https://enlace.com/img.png"></span>
-	<hr><span>Contenido</span><br><textarea name="opccontenidoextra_contenido" placeholder="Texto del anuncio"><?php if(isset($scrUS_ContenidoExtra_Contenido) && $scrUS_ContenidoExtra_Contenido!=''){ echo $scrUS_ContenidoExtra_Contenido; } ?></textarea>
-<?php endif; endif; ?>
-
 <?php #MENU LATERAL ------------------------------>
 if($idi==3):
 	if($i==0): ?>
