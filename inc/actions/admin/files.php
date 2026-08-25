@@ -10,8 +10,6 @@ if ($_POST['IniEliminarArchivo']){
 	$ubi='?ac=archivos';
 	if(isset($_POST['direccion'])){
 		$ubi=$_POST['direccion'].'&permiso=true';
-		$fechae=$_POST['fechae'];
-		unlink($AC_DIRECTORIO.'administracion/panel/etc/fechas/'.$fechae);
 	}
 
     $vamos='../panel.php'.$ubi.'&ms=err&msm=elimiarchivo';
@@ -50,7 +48,7 @@ if ($_POST['IniCrearCarpeta'] || $_GET['IniCrearCarpeta']){
     	$carpeta=trim($_GET['IniCrearCarpeta']);
     	$vamos='../panel.php?ac=creador&ms=exi&msm=direcreado';
     	$vamosExisteCarpeta='panel.php?ac=creador&ms=err&msm=direxiste';
-    	$directorio="administracion/panel/$carpeta";
+    	$directorio=$carpeta;
     }
     if (file_exists($carpeta)) {
     	header("Location: {$vamosExisteCarpeta}");
