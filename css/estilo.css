@@ -108,6 +108,10 @@ section, .flexCon, footer{ flex-wrap: wrap; justify-content: space-around; }
     font-size: small;
 }
 
+.t-center {
+    text-align: center;
+}
+
 .textarea-full {
     display: block;
     width: 100%;
