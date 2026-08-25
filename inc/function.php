@@ -46,6 +46,11 @@ function pathDataPosts(): string
   return pathData() . "/posts.json";
 }
 
+function pathDataAdmin(): string
+{
+  return pathData() . "/admin.json";
+}
+
 function secureString(string $string): string
 {
   return trim(htmlspecialchars($string));
@@ -71,7 +76,7 @@ function readJson(string $file_path): array
 
 function generateFilesData(): void
 {
-  foreach (["core", "config", "timezone", "alerts", "visits", "users", "posts"] as $value) {
+  foreach (["core", "config", "admin", "timezone", "alerts", "visits", "users", "posts"] as $value) {
     if (!file_exists(pathData() . "/$value.json"))
       writeJson(pathData() . "/$value.json", []);
   }
@@ -249,6 +254,28 @@ function logout(): bool
   unset($_SESSION["user_id"]);
   unset($_SESSION["user_rol"]);
   return true;
+}
+
+function postSearchById(int $post_id, array $posts, bool $data_only = true): array
+{
+  foreach ($posts as $key => $post) {
+    if ($post_id == $post["post_id"]) {
+      return $data_only ? $post : ["key" => $key, "value" => $post];
+    }
+  }
+
+  return [];
+}
+
+function postSearchBySlug(string $slug, array $posts, bool $data_only = true): array
+{
+  foreach ($posts as $key => $post) {
+    if (strtolower($slug) == strtolower($post["slug"])) {
+      return $data_only ? $post : ["key" => $key, "value" => $post];
+    }
+  }
+
+  return [];
 }
 
 function passwordHash(string $password): string
