@@ -1,20 +1,20 @@
-<?php if(isset($TIPO) && $TIPO=='panel'){
-if(isset($_GET['ac'])){
-	$ac=$_GET['ac'];
-	switch($ac){
-		case 'creador': require_once 'creador/creador.php'; break;
-		case 'imagen': require_once 'imagen/imagen.php'; break;
-		case 'archivos': require_once 'archivos/archivos.php'; break;
-		case 'anuncios': require_once 'anuncios/anuncios.php'; break;
-		case 'configuracion': require_once 'configuraciones/configuraciones.php'; break;
-		case 'displadi': require_once 'displadi/displadi.php'; break;
-		case 'tema': require_once 'tema/tema.php'; break;
-		case 'editor': require_once 'editor/editor.php'; break;
+<?php
 
-		default: echo 'Oh! no existe el get ingresado...'; break;
-	}
-}
-} else {
-    if(isset($AC_DIRECTORIO)){ $AC_DIRECTORIO=$AC_DIRECTORIO; } else { $AC_DIRECTORIO='../../'; }
-    $vamos=$AC_DIRECTORIO."error.php?ms=err&msm=accdenegado"; header("Location: {$vamos}");
-} ?>
+$sc = secureString($_GET['sc'] ?? "");
+$sc_in_section = in_array($sc, array_map(fn($section) => $section["id"], ADMIN["section"] ?? ""));
+$path_file = __DIR__."/admin/{$sc}-view.php";
+$file_exists = file_exists($path_file);
+$file_exists_process = file_exists($path_file);
+$show_message = !empty($sc) && (!$file_exists || !$sc_in_section);
+$load_section = $sc_in_section && $file_exists;
+
+
+$sections = implode("", array_map(fn($section) => "<a href=\"?sc={$section['id']}\"><i class=\"{$section['icon']}\"></i> {$section['label']}</a>", ADMIN["section"] ?? ""));
+
+echo "<nav>$sections</nav>";
+
+echo $show_message ? "<div class=\"p-8 t-center\">No existe la sección <strong>$sc</strong> o esta en construcción.</div>" : "";
+
+if(!$load_section) return;
+
+require_once __DIR__."/admin/{$sc}-view.php";
