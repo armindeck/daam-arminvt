@@ -36,6 +36,11 @@ if (!empty($_GET["logout"])) {
   redirect("./error");
 }
 
+if (!empty($id) && $id[0].$id[1] == "./admin.php"){
+  //if(!auth() || !isAdmin()) redirect("./iniciar.php?ms=err&msm=accdenegado");
+  require_once __DIR__."/admin.php";
+}
+
 #setVisits("/blog/los-mejores-momentos-del-2026", VISITS);
 
 require_once __DIR__."/scripts/scrPosts.php";
