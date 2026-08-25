@@ -1,8 +1,11 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
-## [0.5.0 Dev] - 23/08/2026
+## [0.6.0 Dev] - 25/08/2026
 
+- Elimine la seleccion de tema
+- Mejore la extructura interna de como se cargan los datos antes de lanzar la plantilla
+- Ahora el panel administrativo estara en `./admin.php`
 - Ahora las entradas estan en un archivo json
 - Movi todo el panel administrativo a `inc/views/admin|actions/admin`
 - Configuraciones (en proceso)
