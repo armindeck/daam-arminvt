@@ -4,7 +4,7 @@
     {"id": "upload-image", "label": "Subir imagen", "icon": "fas fa-image"},
     {"id": "ads", "label": "Anuncios", "icon": "fas fa-newspaper"},
     {"id": "settings", "label": "Configuración", "icon": "fas fa-cog"},
-    {"id": "template", "label": "Plantilla", "icon": "fas fa-html5"},
+    {"id": "template", "label": "Plantilla", "icon": "fab fa-html5"},
     {"id": "explorer", "label": "Explorador", "icon": "fas fa-sitemap"},
     {"id": "information", "label": "Información", "icon": "fas fa-tractor"}
   ]
