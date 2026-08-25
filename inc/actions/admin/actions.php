@@ -34,7 +34,6 @@ if ($_POST['IniEditor']){
     $editor=$_POST['editar'];
     $fechae=$_POST['fechae'];
 
-    file_put_contents($AC_DIRECTORIO.'administracion/panel/etc/fechas/'.$fechae,"$version | $fechahora");
     file_put_contents($AC_DIRECTORIO.$archivo,$editor);
 
     $vamos='panel.php'.$direccion.'&ms=exi&msm=datosactualizados';
@@ -54,7 +53,6 @@ if ($_POST['IniEliminarArchivo']){
 	if(isset($_POST['direccion'])){
 		$ubi=$_POST['direccion'].'&permiso=true';
 		$fechae=$_POST['fechae'];
-		unlink($AC_DIRECTORIO.'administracion/panel/etc/fechas/'.$fechae);
 	}
 
     $vamos='panel.php'.$ubi.'&ms=err&msm=elimiarchivo';
@@ -442,29 +440,6 @@ $"."mosScripts=['".$dis_mscr[0]."','".$dis_mscr[1]."','".$dis_mscr[2]."','".$dis
     exit;
 } else
 
-#VERIFICAR DIRECTORIOS ----------------------->
-
-if ($_POST['IniVerificar']){
-	$pasaen='&ms=exi&msm=direbien'; $ex='VerificarCarpetas'; $necex=$AC_DIRECTORIO.'datos/extenciones.php';
-	#>>>>>
-	$vericar='borradores'; require $necex;
-	$vericar='scripts'; require $necex;
-	$vericar='dependencias'; require $necex;
-	$vericar='scripts/Cabeza'; require $necex;
-	$vericar='scripts/Menu'; require $necex;
-	$vericar='scripts/ContenidoExtra'; require $necex;
-	$vericar='scripts/MenuLateral'; require $necex;
-	$vericar='scripts/PiedePagina'; require $necex;
-	$vericar='scripts/Creador'; require $necex;
-	$vericar='etc'; require $necex;
-	$vericar='etc/fechas'; require $necex;
-	#>>>>>
-	$vamos='panel.php?ac=verificar'.$pasaen;
-	header("location:{$vamos}");
-} else
-
-#ACTUALIZAR EDITOR ----------------------->
-
 if ($_POST['IniTema']){
 
 $opctema_nombre=$_POST['opctema_nombre'];
@@ -577,9 +552,9 @@ file_put_contents($AC_DIRECTORIO.'css/'.$opctema_nombre,"<?php #CONTENIDO POR AR
 
 #CERRAR SESION ----------------------->
 
-if($_GET['ac']){
+if($_GET['sc']){
 
-	$s=$_GET['ac'];
+	$s=$_GET['sc'];
 
 	if($s=='salir'){
 
