@@ -7,6 +7,7 @@ generateFilesData();
 
 define("CORE", readJson(pathDataCore()));
 define("CONFIG", readJson(pathDataConfig()));
+define("ADMIN", readJson(pathDataAdmin()));
 define("ALERTS", readJson(pathDataAlerts()));
 define("VISITS", readJson(pathDataVisits()));
 define("TIMEZONE", readJson(pathDataTimezone()));
@@ -36,3 +37,11 @@ if (!empty($_GET["logout"])) {
 }
 
 #setVisits("/blog/los-mejores-momentos-del-2026", VISITS);
+
+require_once __DIR__."/scripts/scrPosts.php";
+
+$adminprivado = readJson(pathData()."/admin-private-deprecated.json");
+
+require_once $AC_DIRECTORIO.'datos/mensajes.php';
+$ex='CargarTema';
+require_once $AC_DIRECTORIO.'datos/extenciones.php';
