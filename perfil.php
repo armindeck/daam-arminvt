@@ -6,7 +6,7 @@ if($_SESSION['id']){
 if ($_SESSION['rol'] == 0) {
     $rol='Registrado';
 }
-if(!isset($TemaPorElUsuario)){ $TemaPorElUsuario='Default'; }
+
 $adm='';
 if($_SESSION['rol'] == 5){ $rol='Administrador'; $adm='<a class="boton2" href="'.$AC_DIRECTORIO.'administracion/">Administración</a>'; }
 if(strlen($_SESSION['redsocial'])==0){ $redSocial=CONFIG["page_link"] ?? ""; } else { $redSocial=$_SESSION['redsocial']; }
@@ -41,7 +41,7 @@ $AC_CONTENIDO='<p class="texini">Bienvenid@ '.$_SESSION['nombre'].'</p>
     <li class="t12">Registro: '.$_SESSION['registro'].'</li>
     <li class="t12">Inicio: '.$_SESSION['inicio'].'</li>
     <li class="t12">Red social: '.$redSocial.'</li>
-    <li class="t12">Tema: '.$TemaPorElUsuario.'</li>
+    <li class="t12">Tema: Default</li>
     </ol>
 </div>
 <p class="texini t14">'.$adm.'<a class="boton" href="perfil_editar'.PHP_EXTENSION.'">Editar cuenta</a> <a class="boton2" href="perfil_editar_contrasena'.PHP_EXTENSION.'">Cambiar contraseña</a> <a class="boton" href="perfil_eliminar'.PHP_EXTENSION.'">Eliminar cuenta</a></p>';
