@@ -1,5 +1,4 @@
-Options All -Indexes
-IndexIgnore *.gif *.jpg *.png *.ini
+# daam - Licencia de Uso No Transferible - (c) 2023 Armin Deck - https://github.com/armindeck/daam-arminvt
 
 # ================================
 # Configuración de errores y entorno
@@ -8,24 +7,52 @@ php_flag display_errors On
 php_flag display_startup_errors On
 php_value error_reporting -1
 
-# Bloquear archivos
-<FilesMatch "\.(htaccess|htpasswd|phps|log|bak|TXT)$">
- Order Allow,Deny
- Deny from all
+# Charset por defecto
+AddDefaultCharset UTF-8
+
+# Zona horaria
+php_value date.timezone "America/Bogota"
+
+# ================================
+# Seguridad
+# ================================
+
+# Bloquear listado de directorios (403 Forbidden si no hay index.php/html)
+Options -Indexes
+
+# Bloquear acceso a archivos ocultos (.htaccess, .gitignore, .env, etc.)
+<FilesMatch "^\.">
+    Require all denied
 </FilesMatch>
 
+# Bloquear acceso a archivos sensibles típicos
+<FilesMatch "(composer\.json|composer\.lock|package\.json|database\.json|yarn\.lock|phpunit\.xml|\.env)">
+    Require all denied
+</FilesMatch>
+
+# ================================
+# Sistema de rutas
+# ================================
 RewriteEngine On
+# REPLACE_REDIRECT_HTTPS
+
+# Permitir acceso directo a /assets
+RewriteCond %{REQUEST_URI} ^/(assets)/ [NC]
+RewriteRule ^ - [L]
 
 # Permitir acceso a archivos sin extensión
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^([^\.]+)/?$ $1.php [L]
 
+# ================================
+# Errores personalizados
+# ================================
 DirectoryIndex index.php index.html index.htm index2.html
 
-ErrorDocument 400 http://dbproject.rf.gd/error?400
-ErrorDocument 401 http://dbproject.rf.gd/error?401
-ErrorDocument 403 http://dbproject.rf.gd/error?403
-ErrorDocument 404 http://dbproject.rf.gd/error?404
-ErrorDocument 500 http://dbproject.rf.gd/error?500
-ErrorDocument 503 http://dbproject.rf.gd/error?503
+ErrorDocument 400 https://dbproject.rf.gd/error?e=400
+ErrorDocument 401 https://dbproject.rf.gd/error?e=401
+ErrorDocument 403 https://dbproject.rf.gd/error?e=403
+ErrorDocument 404 https://dbproject.rf.gd/error?e=404
+ErrorDocument 500 https://dbproject.rf.gd/error?e=500
+ErrorDocument 503 https://dbproject.rf.gd/error?e=503
