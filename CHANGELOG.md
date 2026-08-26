@@ -3,13 +3,14 @@ Descubre las nuevas novedades de daamper!
 
 ## [0.6.0 Dev] - 25/08/2026
 
+- Mejora la seguridad en el .htaccess y se puede actualizar desde las configuraciones
 - Elimine la seleccion de tema
 - Mejore la extructura interna de como se cargan los datos antes de lanzar la plantilla
 - Ahora el panel administrativo estara en `./admin.php`
 - Ahora las entradas estan en un archivo json
 - Movi todo el panel administrativo a `inc/views/admin|actions/admin`
-- Configuraciones (en proceso)
-- Cambie todo el funcionamiento de como se cargan y actualizan los anuncios
+- Configuraciones (nombre de la página, enlace de la página, año publicada, zona horaria, llave publica de captcha, llave privada de captcha, acerca de, etiquetas, scripts, habilitar scripts, ssl, extension .php, modo debug, enlaces de errores).
+- Cambie todo el funcionamiento de como se cargan y actualizan los anuncios y las configuraciones
 
 ## [0.3.3b Stable] - 22/03/2025
 
