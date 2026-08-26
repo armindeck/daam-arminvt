@@ -1,30 +1,42 @@
 {
     "page_name": "daam",
     "page_link": "https://armionegai.rf.gd",
+    "page_timezone": "America/Bogota",
     "page_year": "2026",
     "page_about": "",
-    "page_tags": "",
-    "page_scripts": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css\" integrity=\"sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />",
+    "page_tags": "armionegai.rf.gd, dbproject.rf.gd",
+    "page_scripts": "<!-- GOOGLE -->\r\n\r\n<!-- FONT AWESOME -->\r\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css\" integrity=\"sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />\r\n\r\n<!-- OTHER -->\r\n<meta property=\"og:locale\" content=\"es_CO\" />\r\n<meta name=\"facebook:site\" content=\"@tobix64\" />\r\n<meta name=\"twitter:site\" content=\"@armindeck\" />\r\n<meta name=\"youtube:site\" content=\"@tobix64\" />\r\n<meta name=\"github:site\" content=\"@armindeck\" />",
     "page_scripts_active": true,
     "page_ssl_active": false,
     "page_extension_php_active": true,
     "page_debug_active": true,
-    "page_timezone": "America/Bogota",
+    "captcha": {
+        "public": "",
+        "private": ""
+    },
+    "page_links": {
+        "400": "https://dbproject.rf.gd/error?e=400",
+        "401": "https://dbproject.rf.gd/error?e=401",
+        "403": "https://dbproject.rf.gd/error?e=403",
+        "404": "https://dbproject.rf.gd/error?e=404",
+        "500": "https://dbproject.rf.gd/error?e=500",
+        "503": "https://dbproject.rf.gd/error?e=503"
+    },
     "ads": {
         "message": {
             "active": true,
-            "content": "🎁 Disfruta de las ultimas updates de daam por dbproject! ✅",
-            "link": "https://dbproject.rf.gd/"
+            "content": "🎁 Disfruta de las ultimas actualizaciones de daam desde dbproject! ✅",
+            "link": "https://dbproject.rf.gd"
         },
         "banner": {
             "active": true,
             "image": "img/anuncio.png",
-            "link": "https://dbproject.rf.gd/"
+            "link": "https://dbproject.rf.gd"
         },
         "thumbnail": {
             "active": true,
             "image": "img/min-daam.png",
-            "link": "https://dbproject.rf.gd/web/daamper"
+            "link": "https://dbproject.rf.gd"
         }
     }
 }
