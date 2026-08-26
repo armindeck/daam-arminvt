@@ -37,7 +37,7 @@ require $AC_DIRECTORIO . 'datos/extenciones.php';
   <meta name="twitter:title" content="<?php echo $AC_TITULO; ?>">
   <meta name="twitter:description" content="<?php echo $AC_METADESCRIPCION; ?>">
   <meta name="twitter:image" content="<?php echo (CONFIG["page_link"] ?? "") . '/img/' . $AC_IMG; ?>">
-  <meta name="keywords" content="<?php echo ($AC_METADESCRIPCION . ", " . $AC_METADESCRIPCION2 . ", " . $AC_METAETIQUETA . ", " . date("Y") . ", " . (CONFIG["page_name"] ?? "") . ", " .  (CONFIG["page_link"] ?? "")); ?>">
+  <meta name="keywords" content="<?= $AC_METAETIQUETA . ", " . (CONFIG["page_tags"] ?? "") ?>">
   <?= !empty(CONFIG["page_scripts_active"]) ? CONFIG["page_scripts"] ?? "" : "" ?>
 </head>
 
