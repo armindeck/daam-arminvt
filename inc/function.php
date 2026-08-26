@@ -371,7 +371,7 @@ function viewAdsMessageMovementAndBanner(array $ads, string $directory): string
   return "<center>" . viewAdsMessageMovement($ads) . (($ads["message"]["active"] ?? false) == true ? "<hr>" : "") . viewAdsBanner($ads, $directory) . "</center>";
 }
 
-function viewSelect(string $name, array $list, string $selected = "", string $style = "max-width: 100%;", string $class = ""): string
+function viewSelect(string $name, array $list, string $selected = "", string $style = "max-width: 100%;", string $class = "", string $id = ""): string
 {
   $options = implode("", array_map(function ($item) use ($selected) {
     if (is_array($item)) {
@@ -400,7 +400,7 @@ function viewSelect(string $name, array $list, string $selected = "", string $st
   }, $list));
 
   $escName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-  return "<select name=\"{$escName}\" style=\"$style\" class=\"$class\">" . $options . "</select>";
+  return "<select name=\"{$escName}\" id=\"$id\" style=\"$style\" class=\"$class\">" . $options . "</select>";
 }
 
 
