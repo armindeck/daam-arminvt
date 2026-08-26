@@ -14,6 +14,8 @@ define("TIMEZONE", readJson(pathDataTimezone()));
 define("USERS", readJson(pathDataUsers()));
 define("POSTS", readJson(pathDataPosts()));
 define("PHP_EXTENSION", (CONFIG["page_extension_php_active"] ?? false) ? ".php" : "");
+define("DIR", $AC_DIRECTORIO ?? $id[0] ?? "./");
+define("FILEPATH", !empty(($AC_UBICACION ?? "") . ($AC_ARCHIVO ?? "")) ? $AC_UBICACION.$AC_ARCHIVO : $id[1] ?? "");
 
 session_start([
   "cookie_secure" => true, // Solo HTTPS
@@ -27,17 +29,17 @@ error_reporting(CONFIG["page_debug_active"] ?? false);
 
 # AUTH VERIFY
 if (auth() && !authVerify(USERS)) {
-  if (logout()) redirect("./iniciar.php");
-  redirect("./error");
+  if (logout()) redirect(DIR."iniciar.php");
+  redirect(DIR."error");
 }
 
 if (!empty($_GET["logout"])) {
-  if (logout()) redirect("./iniciar.php?ms=exi&msm=sesionfinalizada");
-  redirect("./error");
+  if (logout()) redirect(DIR."iniciar.php?ms=exi&msm=sesionfinalizada");
+  redirect(DIR."error");
 }
 
 if (!empty($id) && $id[0].$id[1] == "./admin.php"){
-  //if(!auth() || !isAdmin()) redirect("./iniciar.php?ms=err&msm=accdenegado");
+  //if(!auth() || !isAdmin()) redirect(DIR."iniciar.php?ms=err&msm=accdenegado");
   require_once __DIR__."/admin.php";
 }
 
@@ -47,6 +49,6 @@ require_once __DIR__."/scripts/scrPosts.php";
 
 $adminprivado = readJson(pathData()."/admin-private-deprecated.json");
 
-require_once $AC_DIRECTORIO.'datos/mensajes.php';
+require_once DIR.'datos/mensajes.php';
 $ex='CargarTema';
-require_once $AC_DIRECTORIO.'datos/extenciones.php';
+require_once DIR.'datos/extenciones.php';
