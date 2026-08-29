@@ -48,7 +48,7 @@ if (!empty($id) && $id[0].$id[1] == "./admin.php"){
   require_once __DIR__."/admin.php";
 }
 
-#setVisits("/blog/los-mejores-momentos-del-2026", VISITS);
+setVisits(SLUG, VISITS);
 
 require_once __DIR__."/scripts/scrPosts.php";
 
