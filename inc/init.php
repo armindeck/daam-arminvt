@@ -17,6 +17,8 @@ define("PHP_EXTENSION", (CONFIG["page_extension_php_active"] ?? false) ? ".php" 
 define("DIR", $AC_DIRECTORIO ?? $id[0] ?? "./");
 define("FILEPATH", !empty(($AC_UBICACION ?? "") . ($AC_ARCHIVO ?? "")) ? $AC_UBICACION.$AC_ARCHIVO : $id[1] ?? "");
 define("SLUG", "/" . (ltrim(str_replace(".php", "", FILEPATH), "/")));
+define("URL", (CONFIG["page_link"] ?? "") . SLUG);
+define("URL_NOT_INDEX", (CONFIG["page_link"] ?? "") . rtrim(SLUG, "index"));
 
 session_start([
   "cookie_secure" => true, // Solo HTTPS
@@ -43,7 +45,7 @@ if (!empty($_GET["logout"])) {
 
 setTheme();
 
-if (!empty($id) && $id[0].$id[1] == "./admin.php"){
+if (SLUG == "/admin"){
   //if(!auth() || !isAdmin()) redirect(DIR."iniciar.php?ms=err&msm=accdenegado");
   require_once __DIR__."/admin.php";
 }
