@@ -22,10 +22,9 @@ $displadi[2]=['',1,[
 		['','','']
 	]
 ];
-$displadi[3]=['on',4,[
-		['on','Administrador','<a class="boton" target="_blank" href="https://dbproject.rf.gd/">Armin</a>'],
-		['on','Actualizaciones <a target="_blank" href="https://dbproject.rf.gd/web/daam"> <i class="fas fa-blog iredes"></i></a>',''],
-		['on','Paginas epicas','<a target="_blank" href="https://dbproject.rf.gd">dbproject</a><hr><a target="_blank" href="https://megaanime.rf.gd">MegaAnime</a><hr><a target="_blank" href="https://">Aliados de Jura</a><hr><a target="_blank" href="https://hentaiplus.rf.gd">HentaiPlus +18</a><hr><a target="_blank" href="https://rexxxzone.com">RexxZone +18</a>'],
+$displadi[3]=['on',3,[
+		['on','<a target="_blank" href="https://dbproject.rf.gd/web/daam">Actualizaciones <i class="fas fa-blog iredes"></i></a>',''],
+		['on','Recomendados','<a target="_blank" href="https://dbproject.rf.gd">dbproject</a><hr><a target="_blank" href="https://megaanime.rf.gd">MegaAnime</a>'],
 		['on','Extras','']
 	]
 ];
