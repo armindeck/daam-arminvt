@@ -8,7 +8,7 @@ $URL = $URL_WEB . $URL_FINAL;
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?= CONFIG["page_language"] ?? "es" ?>">
 
 <head>
   <meta charset="UTF-8">
@@ -35,7 +35,7 @@ $URL = $URL_WEB . $URL_FINAL;
   <?= !empty(CONFIG["page_scripts_active"]) ? CONFIG["page_scripts"] ?? "" : "" ?>
 </head>
 
-<body data-theme="<?= getTheme(CONFIG["theme"] ?? "") ?>">
+<body data-theme="<?= getTheme(CONFIG["page_theme"] ?? "") ?>">
   <?php $elem = 0;
   $ex = 'scrDispladi';
   require DIR . 'datos/extenciones.php';
@@ -45,10 +45,6 @@ $URL = $URL_WEB . $URL_FINAL;
   <section>
     <main>
       <?= $AC_EXTRA == 'si' ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "" ?>
-      <p class="titulo">
-        <a href="<?= DIR ?>">Inicio</a> >
-        <?= $AC_TITULO . (!empty($_GET["sc"]) ? ' > ' . secureString($_GET['sc']) : "") ?>
-      </p>
       <?= !empty($MENSAJE) ? $lugarMensaje ?? "" : "" ?>
       <?= $AC_CONTENIDO ?? "" ?>
       <?php
