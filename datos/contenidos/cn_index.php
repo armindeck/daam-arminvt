@@ -8,7 +8,7 @@ $opc6='arminvt es un sitio web donde puede divertirte comentando en los forolink
 $opcXMensaje='';
 $opcXAccesoAdmin='';
 $opcXGaleria='';
-$opc7='<p class="texinimen bgrojo">Se encuentra disponible la versión 0.3.4c Estable! y llega con nuevas mejoras!</p><p class="texini">Hola!, soy <a target="_blank" href="https://dbproject.rf.gd/">Armin</a> y soy vtuber, desarrollador de sitios web y juegos que comparto en mi <a target="_blank" href="https://youtube.com/@SoyArminDeck">Canal de YouTube</a>. Además me gusta dibujar, editar y crear videos, los cuales son subidos al canal. Desarrollo páginas web como la presente <span class="tb">ArmiOnegai</span> donde subo mis contenidos de información y actualizaciones de ciertos temas. <a target="_blank" href="https://dbproject.rf.gd/">¡Sigue a delante!</a></p><div class="cen"><a class="boton2" target="_blank" href="https://youtube.com/@SoyArminDeck?sub_confirmation=1"><i class="fab fa-youtube"></i> Suscribete</a><a class="boton" target="_blank" href="iniciar">Iniciar <i class="fas fa-user"></i></a><a class="boton2" target="_blank" href="forolink">ForoLink <i class="fas fa-fire"></i></a>	</div><hr>	<p class="titulo">Últimos proyectos</p><hr>';
+$opc7='<p class="texini">Hola!, soy Armin y soy vtuber, desarrollador de sitios web y juegos que comparto en mi canal de YouTube @tobix64. Además me gusta dibujar, editar y crear videos, los cuales son subidos al canal. Desarrollo páginas web como la presente ArmiOnegai donde subo mis contenidos de información y actualizaciones de ciertos temas.</p>';
 $opc8='si';
 $opc9='entradas';
 $opc10='./';
