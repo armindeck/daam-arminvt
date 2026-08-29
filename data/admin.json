@@ -7,5 +7,9 @@
     {"id": "template", "label": "Plantilla", "icon": "fab fa-html5"},
     {"id": "explorer", "label": "Explorador", "icon": "fas fa-sitemap"},
     {"id": "information", "label": "Información", "icon": "fas fa-tractor"}
-  ]
+  ],
+  "settings": {
+    "themes": ["light", "dark"],
+    "languages": ["es"]
+  } 
 }
