@@ -15,7 +15,7 @@ if ($ex == 'CargarEntradas') {
 			'<p class="ctg' . $contenido['nuevo'] . '">' . $contenido['etiqueta'] . '</p>' .
 			'<a href="' . DIR . $contenido['ubicacion'] . $contenido['archivo'] . PHP_EXTENSION . '">' .
 			'<div class="imagen">' .
-			'<img class="img1" src="' . DIR . 'img/' . $contenido['imagen'] . '" loading="lazy" alt="' . substr($contenido['descripcion'], 0, 50) . '...">' .
+			'<img class="img1" src="' . DIR . $contenido['imagen'] . '" loading="lazy" alt="' . substr($contenido['descripcion'], 0, 50) . '...">' .
 			'</div>' .
 			'<p class="contexcn t14">' . substr($contenido['descripcion'], 0, 145) . '...</p></a>' .
 			'</div>';
