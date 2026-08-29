@@ -2,7 +2,85 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Boogaloo');
 
-/**********************ACTUALIZACION***************************/
+:root, [data-theme="light"] {
+	--fondo: #FCFCFC;			--focolor: #484848;
+	--cabeza: rgb(0,0,0,.8);	--cacolor: #FFF;
+	--menu: #515A5A;		--mecolor: #FFF;
+	--izq: #FCFCFC;		--izcolor: #323232;
+	--der: #FFF;		--decolor: #323232;
+	--fin: #1C2833;		--ficolor: #FFF;
+	--barra: #CCC;
+
+	--navacolor: #FFF;	--navahover: rgb(0,0,0,.3); --navahocolor: #FFF;
+	--titulo: none; --titcolor: #484848; --titacolor: #484848; --titicolor: #484848; --titahocolor: #1882A8;
+	--hr: rgb(0,0,0,.1);
+	--ifin: #FFF;
+
+	--boton: #1882A8;			--bocolor: #FFF;	--boborde: none;	--bohover: #156f90;		--bohocolor: #FFF;
+	--boton2: none;			--bocolor2: #484848;	--boborde2: #CCC; --boborde2_: none;	--bohover2: #156f90;		--bohocolor2: #FFF;
+	
+	--acolor: #1882A8;	--ahover: #156f90;
+	--dertitcolor: #FFF; --deri: #484848; --dericolor: rgb(0,0,0,.7); --derihocolor: #156f90;
+
+	--form: #FFF; --forcaja: #FFF; --formcolor: #484848;
+	--foradmincolor: #1882A8; --foradminhocolor: #156f90; --foridcolor: #1882A8; --forlinkcolor: red; --forreporcolor: #484848;
+	--campo: rgb(0,0,0,.1); --campocolor: #323232;
+
+	--option: #FFF; --optioncolor: #323232;
+	--cverified: #1882A8;
+	--cuser: #989898;
+	--creac: none; --creacolor: #484848; --creacolorhov: #1882A8;
+
+	--ctg: #1882A8; --ctgcolor: #FFF; --marquee: #FFF; --marqueecolor: #484848; --texinili: #FFF; --texinilicolor: #484848; --formCrear: #FFF;
+	--m2acolor: #484848; --m2ahocolor: #1882A8;
+/*
+	--videosup: rgb(0,0,0,.7); --vidsupa: rgb(0,0,0,.0); --vidsupacolor: #FFF; --vidsupahover: rgb(0,0,0,.2); --vidsupahocolor: #FFF;
+	--info: #FFF;
+	--titinfo: rgb(0,0,0,.7); --titinfocolor: #FFF;
+
+	--dertit: #1882A8;
+*/
+}
+
+[data-theme="dark"] {
+	--fondo: #343434;			--focolor: #FFF;
+	--cabeza: rgba(0, 0, 0, 0.205);	--cacolor: #FFF;
+	--menu: #474747;		--mecolor: #FFF;
+	--izq: none;		--izcolor: #FFF;
+	--der: #474747;		--decolor: #FFF;
+	--fin: #1C2833;		--ficolor: #FFF;
+	--barra: #808080;
+
+	--navacolor: #FFF;	--navahover: rgb(0,0,0,.3); --navahocolor: #FFF;
+	--titulo: none; --titcolor: #d1d1d1; --titacolor: #d1d1d1; --titicolor: #d1d1d1; --titahocolor: #d1d1d1;
+	--hr: rgb(0,0,0,.1);
+	--ifin: #FFF;
+
+	--boton: #5e5e5e;			--bocolor: #FFF;	--boborde: rgba(0,0,0,0.205);	--bohover: #5a5a5a;		--bohocolor: #FFF;
+	--boton2: none;			--bocolor2: #d1d1d1;	--boborde2: #484848; --boborde2_: none;	--bohover2: #5e5e5e;		--bohocolor2: #FFF;
+
+	--acolor: orange;	--ahover: #FFD64C;
+	--dertitcolor: #FFF; --deri: #d1d1d1; --dericolor: #d1d1d1; --derihocolor: #FFF;
+
+	--form: #474747; --forcaja: #474747; --formcolor: #FFF;
+	--foradmincolor: #3cff00; --foradminhocolor: #31cc02; --foridcolor: #1da818; --forlinkcolor: orange; --forreporcolor: #d1d1d1;
+	--campo: rgb(0,0,0,.1); --campocolor: #FFF;
+
+	--option: #474747; --optioncolor: #FFF;
+	--cverified: #3cff00;
+	--cuser: #989898;
+	--creac: none; --creacolor: #d1d1d1; --creacolorhov: #FFF;
+
+	--ctg: #1882A8; --ctgcolor: #ffffff; --marquee: #474747; --marqueecolor: #d1d1d1; --texinili: #474747; --texinilicolor: #FFF;
+	--m2acolor: #d1d1d1; --m2ahocolor: #FFF;
+/*
+	--videosup: rgb(0,0,0,.7); --vidsupa: rgb(0,0,0,.0); --vidsupacolor: #FFF; --vidsupahover: rgb(0,0,0,.2); --vidsupahocolor: #FFF;
+	--info: #FFF;
+	--titinfo: rgb(0,0,0,.7); --titinfocolor: #FFF;
+
+	--dertit: orange;
+*/
+}
 
 *{ margin: 0px; padding: 0px; box-sizing: border-box; font-family: 'Poppins', 'FontAwesome', sans-serif; font-size: 16px; text-decoration: none; }
 body, textarea{ background: var(--fondo); color: var(--focolor); overflow: auto; }
