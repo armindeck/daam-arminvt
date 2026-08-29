@@ -13,16 +13,16 @@
   <meta property="og:description" content="<?= $AC_METADESCRIPCION2 ?? "" ?>" />
   <meta property="og:url" content="<?= URL_NOT_INDEX ?>">
   <link rel="canonical" href="<?= URL_NOT_INDEX ?>">
-  <meta property="og:image" content="<?= DIR . '/img/' . $AC_IMG; ?>" />
+  <meta property="og:image" content="<?= DIR . '/assets/img/' . $AC_IMG; ?>" />
   <meta property="og:site_name" content="<?= CONFIG["page_name"] ?? "" ?>" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<?= $AC_TITULO ?? "" ?>">
   <meta name="twitter:description" content="<?= $AC_METADESCRIPCION ?? "" ?>">
-  <meta name="twitter:image" content="<?= DIR . '/img/' . $AC_IMG; ?>">
+  <meta name="twitter:image" content="<?= DIR . '/assets/img/' . $AC_IMG; ?>">
   <meta name="keywords" content="<?= ($AC_METAETIQUETA ?? "") . ", " . (CONFIG["page_tags"] ?? "") ?>">
   <?= !empty(CONFIG["page_scripts_active"]) ? CONFIG["page_scripts"] ?? "" : "" ?>
   <style type="text/css">
-    <?= file_exists(DIR."css/".(CONFIG["page_style"] ?? "")) ? file_get_contents(DIR."css/".(CONFIG["page_style"] ?? "")) ?? "" : "" ?>
+    <?= file_exists(DIR."assets/css/".(CONFIG["page_style"] ?? "")) ? file_get_contents(DIR."assets/css/".(CONFIG["page_style"] ?? "")) ?? "" : "" ?>
   </style>
 </head>
 
@@ -46,8 +46,8 @@
         echo '<div class="flexCon">';
         for ($i = 0; $i <= 25; $i++) {
           echo '<div class="m2">
-                    <div class="imagen"><a target="_blank" href="' . DIR . 'img/chb' . $i . '.PNG"><img class="img1" loading="lazy" src="' . DIR . 'img/chb' . $i . '.PNG" alt="' . $AC_TITULO . '" title="' . $AC_TITULO . '"></a></div>
-                </div>';
+              <div class="imagen"><a target="_blank" href="' . DIR . 'assets/img/chb' . $i . '.PNG"><img class="img1" loading="lazy" src="' . DIR . 'img/chb' . $i . '.PNG" alt="' . $AC_TITULO . '" title="' . $AC_TITULO . '"></a></div>
+          </div>';
         }
         echo '</div>';
       }
@@ -55,6 +55,20 @@
         $ex = 'DarFormato';
         require DIR . 'datos/extenciones.php';
       }
+
+      if(SLUG == "/admin"){
+        echo $lugarMensaje;
+        require DIR . 'inc/views/admin-view.php';
+      }
+
+      if(SLUG == "/index"){
+        $entradas = readJson(pathData() . "/entries.json");
+        $ex = 'CargarEntradas';
+        require DIR . 'datos/extenciones.php';
+      }
+
+      
+
       if (isset($TIPO)) {
         $iobi_dir = DIR . 'form/iobi/';
         if ($TIPO == 'blog') {
@@ -66,18 +80,6 @@
         if ($TIPO == 'foro' || $TIPO == 'comentarios') {
           $accesoIobiform = true;
           $accesoIobicargar = true;
-        }
-        switch ($TIPO) {
-          case 'panel':
-            $NoAumentarContador = true;
-            echo $lugarMensaje;
-            require DIR . 'inc/views/admin-view.php';
-            break;
-          case 'entradas':
-            $entradas = readJson(pathData() . "/entries.json");
-            $ex = 'CargarEntradas';
-            require DIR . 'datos/extenciones.php';
-            break;
         }
       }
       if (isset($GALERIA) && $GALERIA == true) {
