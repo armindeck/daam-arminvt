@@ -320,6 +320,22 @@ function setVisits(string $slug, array $visits): bool
   return writeJson(pathDataVisits(), $visits);
 }
 
+function getTheme(string $theme = "light"): string {
+  return $_SESSION['tmp']['theme'] ?? $theme;
+}
+
+function setTheme(): void {
+  if(empty($_GET["theme"])) return;
+
+  $theme = match($_GET["theme"]){
+    "light" => "light",
+    "dark" => "dark",
+    default => "light"
+  };
+
+  $_SESSION['tmp']['theme'] = $theme;
+}
+
 # ------------- ViewsComponents --------------
 
 function viewAdsMessageMovement(array $ads): string
