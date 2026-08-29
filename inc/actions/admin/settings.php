@@ -11,6 +11,7 @@ $data = [
   "page_timezone" => secureString($_POST["page_timezone"] ?? ""),
   "page_language" => secureString($_POST["page_language"] ?? ""),
   "page_theme" => secureString($_POST["page_theme"] ?? ""),
+  "page_style" => secureString($_POST["page_style"] ?? ""),
   "page_year" => secureString($_POST["page_year"] ?? ""),
   "page_about" => secureString($_POST["page_about"] ?? ""),
   "page_tags" => secureString($_POST["page_tags"] ?? ""),

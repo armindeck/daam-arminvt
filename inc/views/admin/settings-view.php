@@ -17,6 +17,8 @@
 				<?= viewSelect("page_language", ADMIN["settings"]["languages"] ?? [], CONFIG["page_language"] ?? "") ?>
 				<label for="page_theme">Tema:</label>
 				<?= viewSelect("page_theme", ADMIN["settings"]["themes"] ?? [], CONFIG["page_theme"] ?? "") ?>
+				<label for="page_style">Estilo:</label>
+				<?= viewSelect("page_style", ADMIN["settings"]["styles"] ?? [], CONFIG["page_style"] ?? "") ?>
 				<label for="captcha_public_key">Llave pública de captcha:</label>
 				<input type="text" name="captcha_public_key" id="captcha_public_key" placeholder="Ingresa la llave pública de captcha" value="<?= CONFIG["captcha"]["public"] ?? "" ?>">
 				<label for="captcha_private_key">Llave privada de captcha:</label>
