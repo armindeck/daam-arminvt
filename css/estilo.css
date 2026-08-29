@@ -227,7 +227,7 @@ nav{
 }
 nav a{
     display: inline-block;
-    padding: 6px 2px 6px 4px;
+    padding: 8px;
     font-family: 'Boogaloo';
     color: var(--navacolor);
     background: none;
@@ -375,7 +375,7 @@ input[type=checkbox]{
 }
 .boton, .boton2, .formulario input[type=submit]{
     margin: 1px 2px;
-    padding: 4px 6px 4px 6px;
+    padding: 8px;
 }
 .boton, .formulario input[type=submit]{
     color: var(--bocolor);
@@ -413,7 +413,7 @@ input[type=checkbox]{
 
 input[type=text], input[type=number], input[type=email], input[type=url], input[type=password], textarea, select, .campo{
     margin: 1px;
-    padding: 4px;
+    padding: 8px;
     border-width: 1px;
     color: var(--campocolor);
     background: var(--campo);
@@ -433,8 +433,8 @@ select .optg, select optgroup{
 textarea{
     display: block;
     width: 100%;
-    padding: 4px;
-    margin-bottom: 4px;
+    min-width: 100%;
+    max-width: 100%;
 }
 
 .texeditor{ min-height: 500px; }
