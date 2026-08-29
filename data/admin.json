@@ -10,6 +10,7 @@
   ],
   "settings": {
     "themes": ["light", "dark"],
-    "languages": ["es"]
-  } 
+    "languages": ["es"],
+    "styles": ["classic.css"]
+  }
 }
