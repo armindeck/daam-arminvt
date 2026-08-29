@@ -5,6 +5,9 @@ require_once __DIR__ . "/function-deprecated.php";
 
 generateFilesData();
 
+define("DIR", $AC_DIRECTORIO ?? $id[0] ?? "./");
+define("FILEPATH", !empty(($AC_UBICACION ?? "") . ($AC_ARCHIVO ?? "")) ? $AC_UBICACION.$AC_ARCHIVO : $id[1] ?? "");
+define("SLUG", "/" . (ltrim(str_replace(".php", "", FILEPATH), "/")));
 define("CORE", readJson(pathDataCore()));
 define("CONFIG", readJson(pathDataConfig()));
 define("ADMIN", readJson(pathDataAdmin()));
@@ -13,10 +16,8 @@ define("VISITS", readJson(pathDataVisits()));
 define("TIMEZONE", readJson(pathDataTimezone()));
 define("USERS", readJson(pathDataUsers()));
 define("POSTS", readJson(pathDataPosts()));
+define("POST", postSearchBySlug(SLUG, POSTS));
 define("PHP_EXTENSION", (CONFIG["page_extension_php_active"] ?? false) ? ".php" : "");
-define("DIR", $AC_DIRECTORIO ?? $id[0] ?? "./");
-define("FILEPATH", !empty(($AC_UBICACION ?? "") . ($AC_ARCHIVO ?? "")) ? $AC_UBICACION.$AC_ARCHIVO : $id[1] ?? "");
-define("SLUG", "/" . (ltrim(str_replace(".php", "", FILEPATH), "/")));
 define("URL", (CONFIG["page_link"] ?? "") . SLUG);
 define("URL_NOT_INDEX", (CONFIG["page_link"] ?? "") . rtrim(SLUG, "index"));
 
