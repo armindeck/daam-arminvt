@@ -90,8 +90,8 @@ function redirect(string $route): void
 
 function imagesList(): array
 {
-  $images = glob(raiz() . "/img/*.*");
-  $base = array_map(fn($images) => "img/" . basename($images), $images);
+  $images = glob(raiz() . "/assets/img/*.*");
+  $base = array_map(fn($images) => "assets/img/" . basename($images), $images);
   return $base;
 }
 
