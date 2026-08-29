@@ -31,17 +31,6 @@ if ($ex == 'CargarEntradas') {
 		$contador++;
 	}
 	file_put_contents($UbicacionArchivoContador, $contador);
-} elseif ($ex == 'CargarImagenes') {
-	$directorio = $directorio ?? DIR . 'img/';
-	$archivos = scandir($directorio);
-
-	echo '<div class="flexCon">';
-	foreach ($archivos as $archivo) {
-		if ($archivo !== '.' && $archivo !== '..') {
-			echo '<div class="m2"><p class="ctg">' . $archivo . '</p><div class="imagen"><img class="img1" loading="lazy" src="' . $directorio . $archivo . '"></div></div>';
-		}
-	}
-	echo '</div>';
 } elseif ($ex == 'CrearCarpetas') {
 	if (!file_exists($crear_carpetas)) {
 		if (!mkdir($crear_carpetas, 0777, true));
