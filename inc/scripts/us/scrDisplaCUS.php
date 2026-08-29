@@ -2,16 +2,16 @@
 if($elem==0): #CABEZA
 	if($ii==0){
 		if(isset($scrUS_CabezaTituloWeb) && $scrUS_CabezaTituloWeb!=''){
-			echo '<a class="tituloWeb t18" href="'.$AC_DIRECTORIO.'">'.(CONFIG["page_name"] ?? "").' <i class="'.(isset($scrUS_CabezaTituloWebIcono) ? $scrUS_CabezaTituloWebIcono : '').'"></i></a>';
+			echo '<a class="tituloWeb t18" href="'.DIR.'">'.(CONFIG["page_name"] ?? "").' <i class="'.(isset($scrUS_CabezaTituloWebIcono) ? $scrUS_CabezaTituloWebIcono : '').'"></i></a>';
 		}
 	}
 	if($ii==1){
 		if(isset($scrUS_CabezaRedes) && $scrUS_CabezaRedes!=''){
 			echo '<div class="der">';
 				if (!empty($_SESSION['id'])){
-					echo '<a class="boton" href="'.$AC_DIRECTORIO.'perfil'.PHP_EXTENSION.'">Perfil</a><a class="boton" href="?s=cerrar">Salir</a> ';
+					echo '<a class="boton" href="'.DIR.'perfil'.PHP_EXTENSION.'">Perfil</a><a class="boton" href="?s=cerrar">Salir</a> ';
 				}
-				if($scrUS_CabezaTema!=''){ echo '<a href="'.$colores.'"><i class="'.$emojiTema.'"></i></a> '; }
+				if($scrUS_CabezaTema!=''){ echo '<a href="?theme='.(getTheme() == "dark" ? "light" : "dark").'"><i class="fas fa-'.(getTheme() == "dark" ? "sun" : "moon").'"></i></a> '; }
 				if($scrUS_CabezaRedesFB!=''){ echo '<a target="_blank" href=""><i class="fab fa-facebook"></i></a> '; }
 				if($scrUS_CabezaRedesYT!=''){ echo '<a target="_blank" href=""><i class="fab fa-youtube"></i></a> '; }
 				if($scrUS_CabezaRedesTW!=''){ echo '<a target="_blank" href=""><i class="fab fa-twitter"></i></a> '; }
@@ -32,7 +32,7 @@ if($elem==1): #MENU
 							if(isset($scrUS_MenuBotones_Enlace_Http_[$i]) && $scrUS_MenuBotones_Enlace_Http_[$i] != ''){
 								echo $scrUS_MenuBotones_Enlace_[$i];
 							} else {
-								echo $AC_DIRECTORIO.$scrUS_MenuBotones_Enlace_[$i].
+								echo DIR.$scrUS_MenuBotones_Enlace_[$i].
 								($scrUS_MenuBotones_Enlace_[$i]!='' ? PHP_EXTENSION : '');
 							}
 						}
@@ -59,7 +59,7 @@ if($elem==3): #MENU LATERAL
 		if(isset($scrUS_MenuLateralNoticias) && $scrUS_MenuLateralNoticias!=''){
 			echo '<div class="noticias" style="height: 300px; overflow: auto;">';
 			$AC_UBICACION=''; $AC_ARCHIVO=isset($scrUS_MenuLateralNoticiasCarpeta) ? $scrUS_MenuLateralNoticiasCarpeta : ''; $MLADO=true; $ActivoNoticias=true; $TIPO='blog';  $AccesoCargar=true;
-			require $AC_DIRECTORIO.'form/iobi/cargar.php';
+			require DIR.'form/iobi/cargar.php';
 			echo '</div>';
 		}
 	}
@@ -68,12 +68,12 @@ if($elem==3): #MENU LATERAL
 			echo '<p class="t12">';
 			$random=rand(1,6);
 			switch ($random){
-				case 1: $mostrarFrase='Soy una persona amable que le gusta ser Vtuber y crear paginas web de distintos temas, como las store de app y juegos, además me gusta crear foros como forolink y las demás paginas que e creado a lo largo de mis días estudiando y aprendiendo HTML, CSS y PHP.'; $link=$AC_DIRECTORIO; break;
-				case 2: $mostrarFrase='Sitio web donde puede divertirte comentando en los forolink, viendo videos, publicaciones, descargando juegos, aplicaciones y muchas cosas más.'; $link=$AC_DIRECTORIO; break;
-				case 3: $mostrarFrase='Las reglas mantienen el equilibrio de los forolink y brindan una mejor comunidad para el entretenimiento y la diversión de los usuarios en la plataforma.'; $link=$AC_DIRECTORIO.'reglas'.PHP_EXTENSION; break;
-				case 4: $mostrarFrase='Muchas veces cometemos errores en la vida, pero seguimos a delante y mejoramos nuestro punto de vista de las cosas, es por eso que es mejor avanzar y no quedarnos en el pasado, sigue a delante mi estimado.'; $link=$AC_DIRECTORIO.'error'.PHP_EXTENSION; break;
-				case 5: $mostrarFrase='ForoLink es un apartado donde se pueden compartir enlaces de forma anonima, comparte tus enlaces sin tener que registrarte, solo publica lo que quieras y cuando quieras!'; $link=$AC_DIRECTORIO.'forolink'.PHP_EXTENSION; break;
-				case 6: $mostrarFrase='Vuber, desarrollador y diseñador independiente y dueño del canal de youtube Tobix64'; $link=$AC_DIRECTORIO.'acerca'.PHP_EXTENSION; break;
+				case 1: $mostrarFrase='Soy una persona amable que le gusta ser Vtuber y crear paginas web de distintos temas, como las store de app y juegos, además me gusta crear foros como forolink y las demás paginas que e creado a lo largo de mis días estudiando y aprendiendo HTML, CSS y PHP.'; $link=DIR; break;
+				case 2: $mostrarFrase='Sitio web donde puede divertirte comentando en los forolink, viendo videos, publicaciones, descargando juegos, aplicaciones y muchas cosas más.'; $link=DIR; break;
+				case 3: $mostrarFrase='Las reglas mantienen el equilibrio de los forolink y brindan una mejor comunidad para el entretenimiento y la diversión de los usuarios en la plataforma.'; $link=DIR.'reglas'.PHP_EXTENSION; break;
+				case 4: $mostrarFrase='Muchas veces cometemos errores en la vida, pero seguimos a delante y mejoramos nuestro punto de vista de las cosas, es por eso que es mejor avanzar y no quedarnos en el pasado, sigue a delante mi estimado.'; $link=DIR.'error'.PHP_EXTENSION; break;
+				case 5: $mostrarFrase='ForoLink es un apartado donde se pueden compartir enlaces de forma anonima, comparte tus enlaces sin tener que registrarte, solo publica lo que quieras y cuando quieras!'; $link=DIR.'forolink'.PHP_EXTENSION; break;
+				case 6: $mostrarFrase='Vuber, desarrollador y diseñador independiente y dueño del canal de youtube Tobix64'; $link=DIR.'acerca'.PHP_EXTENSION; break;
 			}
 			echo '<a target="_blank" href="'.$link.'">'.$mostrarFrase.'</a></p>';
 		}
@@ -81,7 +81,7 @@ if($elem==3): #MENU LATERAL
 	if($ii==3){
 		if(isset($scrUS_MenuLateralExtras) && $scrUS_MenuLateralExtras!=''){
 			if(isset($scrUS_MenuLateralContadorComentarios) && $scrUS_MenuLateralContadorComentarios != ''){
-	    		$estados=$AC_DIRECTORIO.'form/data/'.$scrUS_MenuLateralContadorComentariosCarpeta.'/estados/';
+	    		$estados=DIR.'form/data/'.$scrUS_MenuLateralContadorComentariosCarpeta.'/estados/';
 	    		echo '<p class="t12" title="Comentarios"><i class="fas fa-circle t12 azul"></i> ';
 	    		if(file_exists($estados)){
 	    			$estados_todos=file_get_contents($estados.'todos.txt');
