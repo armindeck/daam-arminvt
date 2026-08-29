@@ -33,12 +33,12 @@
         },
         "banner": {
             "active": true,
-            "image": "img/anuncio.png",
+            "image": "assets/img/anuncio.png",
             "link": "https://dbproject.rf.gd"
         },
         "thumbnail": {
             "active": true,
-            "image": "img/min-daam.png",
+            "image": "assets/img/min-daam.png",
             "link": "https://dbproject.rf.gd"
         }
     }
