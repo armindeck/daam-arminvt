@@ -42,15 +42,6 @@
       $elem = 2;
       $ex = 'scrDispladi';
       require DIR . 'datos/extenciones.php';
-      if (isset($forimg)) {
-        echo '<div class="flexCon">';
-        for ($i = 0; $i <= 25; $i++) {
-          echo '<div class="m2">
-              <div class="imagen"><a target="_blank" href="' . DIR . 'assets/img/chb' . $i . '.PNG"><img class="img1" loading="lazy" src="' . DIR . 'img/chb' . $i . '.PNG" alt="' . $AC_TITULO . '" title="' . $AC_TITULO . '"></a></div>
-          </div>';
-        }
-        echo '</div>';
-      }
       if (!isset($ERROR_DARFORMATO)) {
         $ex = 'DarFormato';
         require DIR . 'datos/extenciones.php';
@@ -67,36 +58,17 @@
         require DIR . 'datos/extenciones.php';
       }
 
-      
-
-      if (isset($TIPO)) {
-        $iobi_dir = DIR . 'form/iobi/';
-        if ($TIPO == 'blog') {
-          if (isset($_SESSION['rol']) && $_SESSION['rol'] == 5) {
-            $accesoIobiform = true;
-          }
-          $accesoIobicargar = true;
-        }
-        if ($TIPO == 'foro' || $TIPO == 'comentarios') {
-          $accesoIobiform = true;
-          $accesoIobicargar = true;
-        }
-      }
       if (isset($GALERIA) && $GALERIA == true) {
         $ex = 'CargarImagenes';
         require DIR . 'datos/extenciones.php';
       }
-      if (isset($accesoIobiform) && $accesoIobiform == true) {
-        if (file_exists($iobi_dir . 'formulario.php')) {
-          $AccesoFormulario = true;
-          require $iobi_dir . 'formulario.php';
-        }
-      }
-      if (isset($accesoIobicargar) && $accesoIobicargar == true) {
-        if (file_exists($iobi_dir . 'cargar.php')) {
-          $AccesoCargar = true;
-          require $iobi_dir . 'cargar.php';
-        }
+
+      if(POST["comments_active"] ?? false){
+        $iobi_dir = DIR . 'form/iobi/';
+        $AccesoFormulario = true;
+        require $iobi_dir . 'formulario.php';
+        $AccesoCargar = true;
+        require $iobi_dir . 'cargar.php';
       }
       ?>
     </main>
