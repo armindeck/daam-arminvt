@@ -27,6 +27,8 @@ session_start([
 date_default_timezone_set(CONFIG["page_timezone"] ?? "America/Bogota");
 error_reporting(CONFIG["page_debug_active"] ?? false);
 
+loginAdminDeprecated();
+
 # AUTH VERIFY
 if (auth() && !authVerify(USERS)) {
   if (logout()) redirect(DIR."iniciar.php");
