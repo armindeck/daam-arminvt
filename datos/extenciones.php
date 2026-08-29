@@ -13,59 +13,14 @@ if ($ex == 'CargarEntradas') {
 		}
 		echo '<div class="m2">' .
 			'<p class="ctg' . $contenido['nuevo'] . '">' . $contenido['etiqueta'] . '</p>' .
-			'<a href="' . $AC_DIRECTORIO . $contenido['ubicacion'] . $contenido['archivo'] . PHP_EXTENSION . '">' .
+			'<a href="' . DIR . $contenido['ubicacion'] . $contenido['archivo'] . PHP_EXTENSION . '">' .
 			'<div class="imagen">' .
-			'<img class="img1" src="' . $AC_DIRECTORIO . 'img/' . $contenido['imagen'] . '" loading="lazy" alt="' . substr($contenido['descripcion'], 0, 50) . '...">' .
+			'<img class="img1" src="' . DIR . 'img/' . $contenido['imagen'] . '" loading="lazy" alt="' . substr($contenido['descripcion'], 0, 50) . '...">' .
 			'</div>' .
 			'<p class="contexcn t14">' . substr($contenido['descripcion'], 0, 145) . '...</p></a>' .
 			'</div>';
 	}
 	echo '</div>';
-} elseif ($ex == 'CargarTema') {
-	$opcionTema = fopen($AC_DIRECTORIO . 'css/opcion.php', 'r+');
-	$leeropcionTema = fgets($opcionTema, 20);
-	if (isset($_GET['theme'])) {
-		$tema = $_GET['theme'];
-		if ($tema == 'Light') {
-			if ($leeropcionTema == '') $leeropcionTema = "0";
-			rewind($opcionTema);
-			fputs($opcionTema, 0);
-		}
-		if ($tema == 'Dark') {
-			if ($leeropcionTema == '') $leeropcionTema = "1";
-			rewind($opcionTema);
-			fputs($opcionTema, 1);
-		}
-		$guardarUltimaOpcion = '';
-	}
-	fclose($opcionTema);
-
-	$enviosGET = '';
-	if (isset($URL_FINAL)) {
-		$enviosGET = '?';
-		if ($URL_WEB == 'localhost') {
-			$enviosGET = $AC_DIRECTORIO . darFormatoURL_FINAL($URL, "");
-
-
-			#echo 'EnviosGET: '.$enviosGET;
-			if (empty($_GET)) {
-				$enviosGET = $enviosGET . '?';
-			} else {
-				$enviosGET = $enviosGET . '&';
-			}
-		}
-	}
-
-	if ($leeropcionTema == 0) {
-		$cargarEstilo = 'light.css';
-		$colores = $enviosGET . 'theme=Dark';
-		$emojiTema = 'fas fa-moon';
-	}
-	if ($leeropcionTema == 1) {
-		$cargarEstilo = 'dark.css';
-		$colores = $enviosGET . 'theme=Light';
-		$emojiTema = 'fas fa-sun';
-	}
 } elseif ($ex == 'Contador') {
 	if (!file_exists($UbicacionArchivoContador)) {
 		file_put_contents($UbicacionArchivoContador, "0");
@@ -77,7 +32,7 @@ if ($ex == 'CargarEntradas') {
 	}
 	file_put_contents($UbicacionArchivoContador, $contador);
 } elseif ($ex == 'CargarImagenes') {
-	$directorio = $directorio ?? $AC_DIRECTORIO . 'img/';
+	$directorio = $directorio ?? DIR . 'img/';
 	$archivos = scandir($directorio);
 
 	echo '<div class="flexCon">';
@@ -87,11 +42,6 @@ if ($ex == 'CargarEntradas') {
 		}
 	}
 	echo '</div>';
-} elseif ($ex == 'VerificarCarpetas') {
-	if (!file_exists($vericar)) {
-		mkdir($vericar);
-		$pasaen = '&ms=err&msm=direcreados';
-	}
 } elseif ($ex == 'CrearCarpetas') {
 	if (!file_exists($crear_carpetas)) {
 		if (!mkdir($crear_carpetas, 0777, true));
@@ -99,7 +49,7 @@ if ($ex == 'CargarEntradas') {
 } elseif ($ex == 'scrDispladi') {
 	#0.Cabeza, 1. Menu, 2. Contenido, 3. Menu Lateral, 4. Pie
 	#0.Mostrar, 1. Cantidad de Elementos, 2. C. Scripts, 3. Elementos
-	$dirScripts = $AC_DIRECTORIO . 'inc/scripts/';
+	$dirScripts = DIR . 'inc/scripts/';
 	$scrDispla = $dirScripts . 'scrDispla.php';
 	if (file_exists($scrDispla)) {
 		require_once $scrDispla;
@@ -138,7 +88,7 @@ if ($ex == 'CargarEntradas') {
 				break;
 		}
 		echo $mi;
-		echo $elem == 3 ? viewAdsThumbnail(CONFIG["ads"] ?? [], $AC_DIRECTORIO) : "";
+		echo $elem == 3 ? viewAdsThumbnail(CONFIG["ads"] ?? [], DIR) : "";
 		for ($ii = 0; $ii < $displadi[$elem][1]; $ii++):
 			if ($displadi[$elem][2][$ii][0] != ''):
 				echo $me;
@@ -150,7 +100,7 @@ if ($ex == 'CargarEntradas') {
 				if ($displadi[$elem][2][$ii][2] != '') {
 					echo $displadi[$elem][2][$ii][2];
 				}
-				$arcMNL = $AC_DIRECTORIO . 'inc/scripts/us/scrDisplaCUS.php';
+				$arcMNL = DIR . 'inc/scripts/us/scrDisplaCUS.php';
 				if (file_exists($arcMNL)) {
 					require $arcMNL;
 				}
