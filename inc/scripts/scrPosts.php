@@ -3,8 +3,7 @@
 if(isset($AC_DIRECTORIO)) return;
 if(!isset($id)) die("Posts no identificado");
 
-$slug = "/" . (ltrim(str_replace(".php", "", FILEPATH), "/"));
-$post_data = postSearchBySlug($slug, POSTS);
+$post_data = postSearchBySlug(SLUG, POSTS);
 
 $AC_DIRECTORIO = DIR;
 

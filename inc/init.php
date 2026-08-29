@@ -16,6 +16,7 @@ define("POSTS", readJson(pathDataPosts()));
 define("PHP_EXTENSION", (CONFIG["page_extension_php_active"] ?? false) ? ".php" : "");
 define("DIR", $AC_DIRECTORIO ?? $id[0] ?? "./");
 define("FILEPATH", !empty(($AC_UBICACION ?? "") . ($AC_ARCHIVO ?? "")) ? $AC_UBICACION.$AC_ARCHIVO : $id[1] ?? "");
+define("SLUG", "/" . (ltrim(str_replace(".php", "", FILEPATH), "/")));
 
 session_start([
   "cookie_secure" => true, // Solo HTTPS
