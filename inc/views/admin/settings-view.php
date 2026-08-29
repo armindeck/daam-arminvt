@@ -13,6 +13,10 @@
 				<input type="number" min="1900" max="5000" name="page_year" id="page_year" placeholder="Ingrese el año de publicación de la página" value="<?= CONFIG["page_year"] ?? "" ?>">
 				<label for="page_timezone">Zona horaria:</label>
 				<?= viewSelect("page_timezone", TIMEZONE, CONFIG["page_timezone"] ?? "", id: "page_timezone") ?>
+				<label for="page_language">Idioma:</label>
+				<?= viewSelect("page_language", ADMIN["settings"]["languages"] ?? [], CONFIG["page_language"] ?? "") ?>
+				<label for="page_theme">Tema:</label>
+				<?= viewSelect("page_theme", ADMIN["settings"]["themes"] ?? [], CONFIG["page_theme"] ?? "") ?>
 				<label for="captcha_public_key">Llave pública de captcha:</label>
 				<input type="text" name="captcha_public_key" id="captcha_public_key" placeholder="Ingresa la llave pública de captcha" value="<?= CONFIG["captcha"]["public"] ?? "" ?>">
 				<label for="captcha_private_key">Llave privada de captcha:</label>
