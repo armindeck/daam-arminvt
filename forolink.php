@@ -1,4 +1,6 @@
-<?php #CONTENIDO POR ARMIN
+<?php $id = ["./", "forolink.php"]; require_once $id[0]."inc/init.php";
+/*
+#CONTENIDO POR ARMIN
 $AC_DIRECTORIO='./';
 require_once $AC_DIRECTORIO.'datos/contenidos/cn_forolink.php';
 $AC_UBICACION=$opc11;
@@ -20,4 +22,5 @@ require_once $AC_DIRECTORIO.'datos/displa.php';
 $AC_EXISTE=$opcExiste;
 $AC_ESTADO=$opcEstado;
 #v0.3.1 Beta
+*/
 ?>
