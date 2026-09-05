@@ -342,6 +342,16 @@ function setTheme(): void {
   $_SESSION['tmp']['theme'] = $theme;
 }
 
+function stringCommands(string $string, array $commands, string $directory = ""): string{
+  foreach($commands as $command => $value){
+    if($command == "img["){
+      $value .= $directory . "assets/img/";
+    }
+    $string = str_replace($command, $value, $string);
+  }
+  return $string;
+}
+
 # ------------- ViewsComponents --------------
 
 function viewAdsMessageMovement(array $ads): string
