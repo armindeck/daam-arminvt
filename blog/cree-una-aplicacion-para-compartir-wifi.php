@@ -1,1 +1,1 @@
-<?php $id = ["./", "blog/cree-una-aplicacion-para-compartir-wifi.php"]; require_once $id[0]."inc/init.php";
+<?php $id = ["../", "blog/cree-una-aplicacion-para-compartir-wifi.php"]; require_once $id[0]."inc/init.php";

@@ -1,1 +1,1 @@
-<?php $id = ["./", "blog/cree-plantas-vs-zombies-en-5-dias.php"]; require_once $id[0]."inc/init.php";
+<?php $id = ["../", "blog/cree-plantas-vs-zombies-en-5-dias.php"]; require_once $id[0]."inc/init.php";

@@ -1,1 +1,1 @@
-<?php $id = ["./", "blog/crear-pagina-web-vtuber.php"]; require_once $id[0]."inc/init.php";
+<?php $id = ["../", "blog/crear-pagina-web-vtuber.php"]; require_once $id[0]."inc/init.php";

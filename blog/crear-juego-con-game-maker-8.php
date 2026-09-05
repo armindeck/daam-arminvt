@@ -1,1 +1,1 @@
-<?php $id = ["./", "blog/crear-juego-con-game-maker-8.php"]; require_once $id[0]."inc/init.php";
+<?php $id = ["../", "blog/crear-juego-con-game-maker-8.php"]; require_once $id[0]."inc/init.php";

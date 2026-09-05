@@ -1,1 +1,1 @@
-<?php $id = ["./", "blog/project-eli.php"]; require_once $id[0]."inc/init.php";
+<?php $id = ["../", "blog/project-eli.php"]; require_once $id[0]."inc/init.php";

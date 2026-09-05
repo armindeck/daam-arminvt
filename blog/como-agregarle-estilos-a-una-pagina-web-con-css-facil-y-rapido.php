@@ -1,1 +1,1 @@
-<?php $id = ["./", "blog/como-agregarle-estilos-a-una-pagina-web-con-css-facil-y-rapido.php"]; require_once $id[0]."inc/init.php";
+<?php $id = ["../", "blog/como-agregarle-estilos-a-una-pagina-web-con-css-facil-y-rapido.php"]; require_once $id[0]."inc/init.php";
