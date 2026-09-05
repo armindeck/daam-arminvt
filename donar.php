@@ -1,1 +1,0 @@
-<?php require_once "datos/datos.php"; header("location: {$EnlacePatreon}"); ?>
