@@ -53,13 +53,8 @@
       }
 
       if(SLUG == "/index"){
-        $entradas = readJson(pathData() . "/entries.json");
+        $entradas = POSTS;
         $ex = 'CargarEntradas';
-        require DIR . 'datos/extenciones.php';
-      }
-
-      if (isset($GALERIA) && $GALERIA == true) {
-        $ex = 'CargarImagenes';
         require DIR . 'datos/extenciones.php';
       }
 
