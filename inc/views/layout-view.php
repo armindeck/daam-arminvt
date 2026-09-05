@@ -37,7 +37,7 @@
     <main>
       <?= $AC_EXTRA == 'si' ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "" ?>
       <?= !empty($MENSAJE) ? $lugarMensaje ?? "" : "" ?>
-      <?= $AC_CONTENIDO ?? "" ?>
+      <?= stringCommands(michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? ""), readJson(pathData()."/commands.json"), DIR) ?>
       <?php
       $elem = 2;
       $ex = 'scrDispladi';
