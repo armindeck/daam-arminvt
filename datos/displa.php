@@ -1,1 +1,0 @@
-<?php require_once raiz()."/inc/views/layout-view.php";
