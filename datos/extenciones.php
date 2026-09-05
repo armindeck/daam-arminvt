@@ -5,22 +5,17 @@ if (!isset($ex)) return;
 if ($ex == 'CargarEntradas') {
 	echo '<div class="flexCon">';
 	foreach (array_reverse($entradas) as $contenido) {
-		if (isset($contenido['nuevo']) && $contenido['nuevo'] == 'n') {
-			$contenido['etiqueta'] = 'Nuevo';
-		} else {
-			$contenido['nuevo'] = '';
-			$contenido['etiqueta'];
+		if($contenido["type"] != "blog" || $contenido["status"] != "published") continue;
+			echo '<div class="m2">' .
+				'<p class="ctg">' . ($contenido['catalog'] ?? "") . '</p>' .
+				'<a href="' . DIR . ltrim($contenido["slug"] ?? "", "/") . PHP_EXTENSION . '">' .
+				'<div class="imagen">' .
+				'<img class="img1" src="' . DIR . ($contenido['image'] ?? "") . '" loading="lazy" alt="' . substr($contenido['fragment'] ?? "", 0, 50) . '...">' .
+				'</div>' .
+				'<p class="contexcn t14">' . substr($contenido['fragment'] ?? "", 0, 145) . '...</p></a>' .
+				'</div>';
 		}
-		echo '<div class="m2">' .
-			'<p class="ctg' . $contenido['nuevo'] . '">' . $contenido['etiqueta'] . '</p>' .
-			'<a href="' . DIR . $contenido['ubicacion'] . $contenido['archivo'] . PHP_EXTENSION . '">' .
-			'<div class="imagen">' .
-			'<img class="img1" src="' . DIR . $contenido['imagen'] . '" loading="lazy" alt="' . substr($contenido['descripcion'], 0, 50) . '...">' .
-			'</div>' .
-			'<p class="contexcn t14">' . substr($contenido['descripcion'], 0, 145) . '...</p></a>' .
-			'</div>';
-	}
-	echo '</div>';
+		echo '</div>';
 } elseif ($ex == 'Contador') {
 	if (!file_exists($UbicacionArchivoContador)) {
 		file_put_contents($UbicacionArchivoContador, "0");
