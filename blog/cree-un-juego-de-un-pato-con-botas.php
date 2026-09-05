@@ -1,0 +1,1 @@
+<?php $id = ["./", "blog/cree-un-juego-de-un-pato-con-botas.php"]; require_once $id[0]."inc/init.php";

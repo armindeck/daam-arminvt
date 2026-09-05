@@ -1,0 +1,1 @@
+<?php $id = ["./", "blog/juegos-y-apps-que-hice-2018-a-2024.php"]; require_once $id[0]."inc/init.php";
