@@ -86,7 +86,7 @@
   "`----------`": "<span style=\"margin-left: 160px;\"></span>",
   "**************************** DEFECTUOSOS ****************************": "**************************** DEFECTUOSOS ****************************",
   "img{": "<img loading=\"lazy\" src=\"",
-  "imgl{": "<img loading=\"lazy\" src=\"cmd[directory_image_complete];",
+  "imgl{": "<img loading=\"lazy\" src=\"",
   "iframe{": "<iframe width=\"800\" height=\"450\" src=\"",
   "}iframe;": "\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
   "};": "\">",
