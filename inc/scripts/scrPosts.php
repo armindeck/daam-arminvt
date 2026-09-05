@@ -20,4 +20,4 @@ $AC_DESCRIPCION = POST["fragment"] ?? "";
 $AC_FECHA = POST["date_last_updated"] ?? "";
 $AC_CONTENIDO = POST["content"] ?? "";
 $TIPO = POST["type"] ?? "";
-require_once DIR.'datos/displa.php';
+require_once raiz()."/inc/views/layout-view.php";
