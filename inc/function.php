@@ -344,7 +344,7 @@ function setTheme(): void {
 
 function stringCommands(string $string, array $commands, string $directory = ""): string{
   foreach($commands as $command => $value){
-    if($command == "img["){
+    if(in_array($command, ["img[", "imgl{"])){
       $value .= $directory . "assets/img/";
     }
     $string = str_replace($command, $value, $string);
