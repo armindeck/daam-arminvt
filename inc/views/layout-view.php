@@ -6,8 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= ($AC_TITULO ?? "") . " - " . (CONFIG["page_name"] ?? "") ?></title>
-  <link rel="preload" href="<?= DIR ?>img/logo.png" as="image">
-  <link rel="icon" type="image/png" href="<?= DIR ?>img/logo.png" sizes="128x128">
+  <link rel="preload" href="<?= DIR ?>assets/img/favicon.png" as="image">
+  <link rel="icon" type="image/png" href="<?= DIR ?>assets/img/favicon.png" sizes="128x128">
   <meta name="description" content="<?= $AC_METADESCRIPCION ?? "" ?>" />
   <meta property="og:title" content="<?= $AC_TITULO ?? "" ?>" />
   <meta property="og:description" content="<?= $AC_METADESCRIPCION2 ?? "" ?>" />
