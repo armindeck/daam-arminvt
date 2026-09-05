@@ -33,7 +33,7 @@
         },
         "banner": {
             "active": true,
-            "image": "assets/img/anuncio.png",
+            "image": "assets/img/banner-ads.png",
             "link": "https://dbproject.rf.gd"
         },
         "thumbnail": {
