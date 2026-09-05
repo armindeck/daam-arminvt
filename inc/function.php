@@ -286,12 +286,12 @@ function postSearchBySlug(string $slug, array $posts, bool $data_only = true): a
 
 function passwordHash(string $password): string
 {
-  return passwordHash($password);
+  return password_hash($password, PASSWORD_DEFAULT);
 }
 
-function passwordVerify(string $password, string $passwordHash): string
+function passwordVerify(string $password, string $passwordHash): bool
 {
-  return passwordVerify($password, $passwordHash);
+  return password_verify($password, $passwordHash);
 }
 
 function dateTime(): string
