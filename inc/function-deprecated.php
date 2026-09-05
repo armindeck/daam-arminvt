@@ -35,21 +35,6 @@ function darFormatoIobi($string): string
   return str_replace('/', '-', $string);
 }
 
-function darFormatoConTXT($string): string
-{
-  $string = str_replace(['.php', '.css'], '.txt', $string);
-  $string = str_replace('.htaccess', '.htaccess.txt', $string);
-  return $string;
-}
-
-function darFormatoURL_FINAL($string, $LH): string
-{
-  $string = str_replace("$LH", '', $string);
-  $string = str_replace('&theme=Light', '', $string);
-  $string = str_replace('&theme=Dark', '', $string);
-  return $string;
-}
-
 
 /* ----------- EDITOR|EXPLORER ------------- */
 function LocalBuscar($buscar){
