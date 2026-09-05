@@ -1,8 +1,10 @@
 # Changelog
 Descubre las nuevas novedades de daamper!
 
-## [0.6.0 Dev] - 25/08/2026
+## [0.6.0 Dev] - 05/09/2026
 
+- Nueva extructura en los posts, imcompatibilidad con los anteriores.
+- Ahora se puede utilizar php-markdown by Michel Fortin y los comandos sencillos de Daamper
 - Mejora la seguridad en el .htaccess y se puede actualizar desde las configuraciones
 - Elimine la seleccion de tema
 - Mejore la extructura interna de como se cargan los datos antes de lanzar la plantilla
