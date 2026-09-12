@@ -22,7 +22,7 @@
   <meta name="keywords" content="<?= ($AC_METAETIQUETA ?? "") . ", " . (CONFIG["page_tags"] ?? "") ?>">
   <?= !empty(CONFIG["page_scripts_active"]) ? CONFIG["page_scripts"] ?? "" : "" ?>
   <style type="text/css">
-    <?= file_exists(DIR."assets/css/".(CONFIG["page_style"] ?? "")) ? file_get_contents(DIR."assets/css/".(CONFIG["page_style"] ?? "")) ?? "" : "" ?>
+    <?= file_exists(DIR . "assets/css/" . (CONFIG["page_style"] ?? "")) ? file_get_contents(DIR . "assets/css/" . (CONFIG["page_style"] ?? "")) ?? "" : "" ?>
   </style>
 </head>
 
@@ -33,11 +33,11 @@
   $elem = 1;
   $ex = 'scrDispladi';
   require DIR . 'datos/extenciones.php'; ?>
-  <section>
+  <div class="main-container">
     <main>
-      <?= $AC_EXTRA == 'si' ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "" ?>
+      <?= $AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "" ?>
       <?= !empty($MENSAJE) ? $lugarMensaje ?? "" : "" ?>
-      <?= stringCommands(michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? ""), readJson(pathData()."/commands.json"), DIR) ?>
+      <?= stringCommands(michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? ""), readJson(pathData() . "/commands.json"), DIR) ?>
       <?php
       $elem = 2;
       $ex = 'scrDispladi';
@@ -47,18 +47,28 @@
         require DIR . 'datos/extenciones.php';
       }
 
-      if(SLUG == "/admin"){
+      if (SLUG == "/admin") {
         echo $lugarMensaje;
         require DIR . 'inc/views/admin-view.php';
       }
 
-      if(SLUG == "/index"){
+      if (SLUG == "/profile") {
+        echo $lugarMensaje;
+        echo view("profile", ["user" => userLoginSearch(USERS), "active_tab" => secureString($_GET["tab"] ?? "overview")]);
+      }
+
+      if(in_array(SLUG, ["/login", "/register", "/forgot-password"])) {
+        echo $lugarMensaje;
+        echo view(ltrim(SLUG, "/"), $_SESSION["form_data"] ?? []);
+      }
+
+      if (SLUG == "/index") {
         $entradas = POSTS;
         $ex = 'CargarEntradas';
         require DIR . 'datos/extenciones.php';
       }
 
-      if(POST["comments_active"] ?? false){
+      if (POST["comments_active"] ?? false) {
         $iobi_dir = DIR . 'form/iobi/';
         $AccesoFormulario = true;
         require $iobi_dir . 'formulario.php';
@@ -70,7 +80,7 @@
     <?php $elem = 3;
     $ex = 'scrDispladi';
     require DIR . 'datos/extenciones.php'; ?>
-  </section>
+  </div class="main-container">
   <?php $elem = 4;
   $ex = 'scrDispladi';
   require DIR . 'datos/extenciones.php'; ?>
