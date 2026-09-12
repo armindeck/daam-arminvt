@@ -1,0 +1,1 @@
+<?php $id = ["./", "forgot-password.php"]; require_once $id[0]."inc/init.php";
