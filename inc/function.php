@@ -100,6 +100,18 @@ function imagesListAndBaseName(): array
   return array_map(fn($images) => ["complete" => $images, "base" => basename($images)], imagesList());
 }
 
+function view(string $view, array $data = []): string
+{
+  $path_file_view = __DIR__ . "/views/$view-view.php";
+  if (!file_exists($path_file_view)) {
+    throw new \Exception("View file not found: " . $path_file_view);
+  }
+  extract($data);
+  ob_start();
+  require $path_file_view;
+  return ob_get_clean();
+}
+
 function auth(): bool
 {
   return isset($_SESSION["user_id"]) && isset($_SESSION["user_rol"]);
@@ -110,7 +122,12 @@ function authVerify(array $users): bool
   if (!auth()) return false;
 
   $user = userLoginSearch($users);
-  return !empty($user) && $user["value"]["is_active"];
+  if(empty($user)) return false;
+  if(!$user["is_active"] || $user["rol"] !== $_SESSION["user_rol"]) {
+    logout();
+    return false;
+  }
+  return !empty($user) && $user["is_active"] && $user["rol"] === $_SESSION["user_rol"];
 }
 
 function isAdmin(): bool
@@ -129,12 +146,15 @@ function login(string $username_ord_email, string $password, array $users): bool
   $user = userSearchByUserNameOrdEmail($username_ord_email, $users, false);
   if (empty($user) || !$user["value"]["is_active"]) return false;
 
-  $users[$user["key"]]["date_last_login"] = dateTime();
-  $users[$user["key"]]["history"][] = ["login", dateTime()];
-  if (writeJson(pathDataUsers(), $users)) {
-    $_SESSION["user_id"] = $user["value"]["user_id"];
-    $_SESSION["user_rol"] = $user["value"]["user_rol"];
-    return true;
+  if(passwordVerify($password, $users[$user["key"]]["password"])) {
+    $users[$user["key"]]["date_last_login"] = dateTime();
+    $users[$user["key"]]["history"][] = ["login", dateTime()];
+
+    if (writeJson(pathDataUsers(), $users)) {
+      $_SESSION["user_id"] = $user["value"]["user_id"];
+      $_SESSION["user_rol"] = $user["value"]["rol"];
+      return true;
+    }
   }
 
   return false;
