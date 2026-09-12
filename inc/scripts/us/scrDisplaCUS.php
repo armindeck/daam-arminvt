@@ -8,9 +8,7 @@ if($elem==0): #CABEZA
 	if($ii==1){
 		if(isset($scrUS_CabezaRedes) && $scrUS_CabezaRedes!=''){
 			echo '<div class="der">';
-				if (!empty($_SESSION['id'])){
-					echo '<a class="boton" href="'.DIR.'perfil'.PHP_EXTENSION.'">Perfil</a><a class="boton" href="?s=cerrar">Salir</a> ';
-				}
+				echo auth() ? '<a class="boton" href="?logout=true">Salir</a> ' : '';
 				echo !empty($scrUS_CabezaTema) ? '<a href="?theme='.(getTheme() == "dark" ? "light" : "dark").'"><i class="fas fa-'.(getTheme() == "dark" ? "sun" : "moon").'"></i></a> ' : "";
 				echo !empty($scrUS_CabezaRedesFB) ? '<a target="_blank" href=""><i class="fab fa-facebook"></i></a> ' : "";
 				echo !empty($scrUS_CabezaRedesYT) ? '<a target="_blank" href=""><i class="fab fa-youtube"></i></a> ' : "";
