@@ -1,8 +1,12 @@
 # Changelog
-Descubre las nuevas novedades de daamper!
+Descubre las nuevas novedades de daam!
 
-## [0.6.0 Dev] - 05/09/2026
+## [0.6.0 Dev] - 12/09/2026
 
+- Ya se puede acceder a `/admin` con el inicio de sesión con un rol de **admin**.
+- Mejoras visuales...
+- Nueva sección de perfil con configuracion y actividad (dev).
+- Nuevas secciones de inicio de sesión, registro, recuperacion de cuenta(Dev).
 - Nueva extructura en los posts, imcompatibilidad con los anteriores.
 - Ahora se puede utilizar php-markdown by Michel Fortin y los comandos sencillos de Daamper
 - Mejora la seguridad en el .htaccess y se puede actualizar desde las configuraciones
