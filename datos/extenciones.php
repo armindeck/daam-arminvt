@@ -47,11 +47,11 @@ if ($ex == 'CargarEntradas') {
 		$mef = '';
 		switch ($elem) {
 			case 0:
-				$mi = '<header>';
+				$mi = '<header class="header">';
 				$mif = '</header>';
 				break;
 			case 1:
-				$mi = '<nav>';
+				$mi = '<nav class="nav">';
 				$mif = '</nav>';
 				break;
 			case 2:
@@ -65,7 +65,7 @@ if ($ex == 'CargarEntradas') {
 				$mif = '</div>';
 				break;
 			case 4:
-				$mi = '<footer>';
+				$mi = '<footer class="footer">';
 				$me = '<div>';
 				$mef = '</div>';
 				$mif = '</footer>';
