@@ -1,8 +1,9 @@
 # Changelog
 Descubre las nuevas novedades de daam!
 
-## [0.6.0 Dev] - 12/09/2026
+## [0.6.0 Dev] - 14/09/2026
 
+- Mejora visual en las card del inicio.
 - Ya se puede acceder a `/admin` con el inicio de sesión con un rol de **admin**.
 - Mejoras visuales...
 - Nueva sección de perfil con configuracion y actividad (dev).
