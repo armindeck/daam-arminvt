@@ -4,9 +4,6 @@ if(isset($AC_DIRECTORIO)) return;
 if(!isset($id)) die("Posts no identificado");
 
 $AC_DIRECTORIO = DIR;
-
-$acceso = true;
-
 $AC_UBICACION = !empty(FILEPATH) ? str_replace("./", "", rtrim(dirname(FILEPATH), "/") . "/") : "";
 $AC_ARCHIVO = basename(FILEPATH);
 $AC_METADESCRIPCION = POST["fragment"] ?? "";
