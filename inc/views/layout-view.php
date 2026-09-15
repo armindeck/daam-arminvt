@@ -28,44 +28,34 @@
 
 <body data-theme="<?= getTheme(CONFIG["page_theme"] ?? "") ?>">
   <?php $elem = 0;
-  $ex = 'scrDispladi';
-  require DIR . 'datos/extenciones.php';
+  require DIR . "inc/scripts/template.php";
   $elem = 1;
-  $ex = 'scrDispladi';
-  require DIR . 'datos/extenciones.php'; ?>
+  require DIR . "inc/scripts/template.php"; ?>
   <div class="main-container">
     <main>
       <?= $AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "" ?>
-      <?= !empty($MENSAJE) ? $lugarMensaje ?? "" : "" ?>
+      <?= !empty($MENSAJE) ? view("components/alert") ?? "" : "" ?>
       <?= stringCommands(michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? ""), readJson(pathData() . "/commands.json"), DIR) ?>
-      <?php
-      $elem = 2;
-      $ex = 'scrDispladi';
-      require DIR . 'datos/extenciones.php';
-      if (!isset($ERROR_DARFORMATO)) {
-        $ex = 'DarFormato';
-        require DIR . 'datos/extenciones.php';
-      }
+      <?php $elem = 2;
+      require DIR . "inc/scripts/template.php";
 
       if (SLUG == "/admin") {
-        echo $lugarMensaje;
+        echo view("components/alert");
         require DIR . 'inc/views/admin-view.php';
       }
 
       if (SLUG == "/profile") {
-        echo $lugarMensaje;
+        echo view("components/alert");
         echo view("profile", ["user" => userLoginSearch(USERS), "active_tab" => secureString($_GET["tab"] ?? "overview")]);
       }
 
-      if(in_array(SLUG, ["/login", "/register", "/forgot-password"])) {
-        echo $lugarMensaje;
+      if (in_array(SLUG, ["/login", "/register", "/forgot-password"])) {
+        echo view("components/alert");
         echo view(ltrim(SLUG, "/"), $_SESSION["form_data"] ?? []);
       }
 
       if (SLUG == "/index") {
-        $entradas = POSTS;
-        $ex = 'CargarEntradas';
-        require DIR . 'datos/extenciones.php';
+        echo view("components/entries-cards", ["posts" => POSTS]);
       }
 
       if (POST["comments_active"] ?? false) {
@@ -78,12 +68,10 @@
       ?>
     </main>
     <?php $elem = 3;
-    $ex = 'scrDispladi';
-    require DIR . 'datos/extenciones.php'; ?>
-  </div class="main-container">
+    require DIR . "inc/scripts/template.php"; ?>
+  </div>
   <?php $elem = 4;
-  $ex = 'scrDispladi';
-  require DIR . 'datos/extenciones.php'; ?>
+  require DIR . "inc/scripts/template.php"; ?>
 </body>
 
 </html>
