@@ -33,20 +33,10 @@ define("URL_NOT_INDEX", (CONFIG["page_link"] ?? "") . rtrim(SLUG, "index"));
 date_default_timezone_set(CONFIG["page_timezone"] ?? "America/Bogota");
 error_reporting(CONFIG["page_debug_active"] ?? false);
 
-loginAdminDeprecated();
-//register("admin", "Admin", "admin@example.com", "admin123", "admin123", USERS);
-//var_dump(login("admin", "admin123", USERS));
-//var_dump(auth());
-# AUTH VERIFY
 setTheme();
 setVisits(SLUG, VISITS);
 
 require_once __DIR__ . "/web.php";
-
+//require_once __DIR__ . "/scripts/template.php";
 require_once __DIR__ . "/scripts/scrPosts.php";
-
-$adminprivado = readJson(pathData() . "/admin-private-deprecated.json");
-
-require_once DIR . 'datos/mensajes.php';
-$ex = 'CargarTema';
-require_once DIR . 'datos/extenciones.php';
+unset($_SESSION["form_data"]);
