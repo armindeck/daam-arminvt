@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "user_id": 0,
+        "username": "admin",
+        "name": "Admin",
+        "password": "$2y$10$N7S7dMqdGUaaVfzmliEcoeijWsq.sHNjK0LRRRAUri/2n7f0MdwV6",
+        "email": "admin@example.com",
+        "avatar": "",
+        "rol": "admin",
+        "is_active": true,
+        "state": "active",
+        "recovery_code": "R953-17LV5-79QUHO1",
+        "date_last_login": "2026-09-14 20:22:44",
+        "date_registered": "2026-09-14 20:22:43",
+        "history": [
+            [
+                "login",
+                "2026-09-14 20:22:44"
+            ]
+        ]
+    }
+]
