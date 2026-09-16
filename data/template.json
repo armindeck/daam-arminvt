@@ -1,0 +1,8 @@
+{
+    "classic": {
+        "id": "classic",
+        "layout": "<header class=\"header\">\r\n  <div class=\"t-strong\">\r\n    link-dir-text[{{ page_name }} icon[fas fa-meteor]icon;]link;\r\n  </div>\r\n  <div class=\"flex flex-wrap gap-8\">\r\n    {{ linkChangeTheme }}\r\n    link-external[https://github.com/armindeck]/[icon[fab fa-github]icon;]link;\r\n    link-external[https://dbproject.rf.gd]/[icon[fas fa-hamburger]icon;]link;\r\n    link-external[https://facebook.com/tobix64]/[icon[fab fa-facebook]icon;]link;\r\n  </div>\r\n</header>\r\n\r\n<nav class=\"nav\">\r\n  link-dir-text[icon[fas fa-home]icon; Inicio]link;\r\n  link-dir[forolink]/[icon[fas fa-fire]icon; Forolink]link;\r\n  link-dir[login]/[icon[fas fa-user]icon; Cuenta]link;\r\n  {{ linkAndIconLogout }}\r\n</nav>\r\n\r\n<div class=\"main-container\">\r\n  {{ viewAdsMessajeAndBanner }}\r\n  <main>\r\n    {{ viewAlertMessage }}\r\n    {{ post_content }}\r\n    {{ viewsRequire }}\r\n  </main>\r\n</div>\r\n\r\n<footer class=\"footer\">\r\n</footer>",
+        "date_created": "2026-09-14 23:13:16",
+        "date_updated": "2026-09-15 23:29:38"
+    }
+}
