@@ -17,4 +17,26 @@ $AC_DESCRIPCION = POST["fragment"] ?? "";
 $AC_FECHA = POST["date_last_updated"] ?? "";
 $AC_CONTENIDO = POST["content"] ?? "";
 $TIPO = POST["type"] ?? "";
+
+$post = POST;
+$post["content"] = michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? "");
+$post["content"] = stringCommands($post["content"], commands(CONFIG, CORE, SLUG, URL, URL_NOT_INDEX, getTheme(CONFIG["page_theme"] ?? ""), DIR, auth(), $post));
+$viewAdsMessajeAndBanner = $AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "";
+$viewAlertMessage = !empty($MENSAJE) ? view("components/alert") ?? "" : "";
+
+/*$viewsRequire = SLUG == "/admin" ? view("components/alert") . view("admin", [
+    "show_message_admin" => $show_message_admin ?? "",
+    "get_sc" => $get_sc ?? "",
+    "load_section_admin" => $load_section_admin ?? false
+]) : "";
+*/
+$viewsRequire = SLUG == "/profile" ? view("components/alert") . view("profile", [
+    "user" => userLoginSearch(USERS),
+    "active_tab" => secureString($_GET["tab"] ?? "overview")
+]) : "";
+
+$viewsRequire .= in_array(SLUG, ["/login", "/register", "/forgot-password"]) ? view("components/alert") . view(ltrim(SLUG, "/"), $_SESSION["form_data"] ?? []) : "";
+
+$viewsRequire .= SLUG == "/index" ? view("components/entries-cards", ["posts" => POSTS]) : "";
+
 require_once raiz()."/inc/views/layout-view.php";
