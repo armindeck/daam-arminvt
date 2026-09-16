@@ -21,4 +21,8 @@ if (in_array(SLUG, ["/login", "/register", "/forgot-password"])) {
 if (SLUG == "/admin") {
     if (!isAdmin()) redirect(DIR . "login" . PHP_EXTENSION . "?ms=err&msm=accdenegado");
     require_once __DIR__ . "/admin.php";
+    echo view("admin", $admin);
+    return;
 }
+
+require_once __DIR__ . "/scripts/scrPosts.php";
