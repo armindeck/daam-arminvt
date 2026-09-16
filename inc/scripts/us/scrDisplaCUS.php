@@ -8,7 +8,6 @@ if($elem==0): #CABEZA
 	if($ii==1){
 		if(isset($scrUS_CabezaRedes) && $scrUS_CabezaRedes!=''){
 			echo '<div class="der">';
-				echo auth() ? '<a class="boton" href="?logout=true">Salir</a> ' : '';
 				echo !empty($scrUS_CabezaTema) ? '<a href="?theme='.(getTheme() == "dark" ? "light" : "dark").'"><i class="fas fa-'.(getTheme() == "dark" ? "sun" : "moon").'"></i></a> ' : "";
 				echo !empty($scrUS_CabezaRedesFB) ? '<a target="_blank" href=""><i class="fab fa-facebook"></i></a> ' : "";
 				echo !empty($scrUS_CabezaRedesYT) ? '<a target="_blank" href=""><i class="fab fa-youtube"></i></a> ' : "";
@@ -36,6 +35,7 @@ if($elem==1): #MENU
 						}
 					?>"<?php echo isset($scrUS_MenuBotones_Enlace_Externo_[$i]) && $scrUS_MenuBotones_Enlace_Externo_[$i] != '' ? ' target="_blank"' : ''; ?>><i class="<?php echo isset($scrUS_MenuBotones_Icono_[$i]) ? $scrUS_MenuBotones_Icono_[$i] : ''; ?>"></i> <?php echo isset($scrUS_MenuBotones_Texto_[$i]) ? $scrUS_MenuBotones_Texto_[$i] : ''; ?></a>
 				<?php }
+				echo auth() ? '<a href="?logout=true"><i class="fas fa-sign-out-alt"></i> Salir</a> ' : '';
 			}
 		}
 	}
