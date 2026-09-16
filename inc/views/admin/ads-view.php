@@ -1,9 +1,7 @@
-<div class="flex flex-evenly">
-  <form method="post" style="width: 100%; max-width: 920px;">
-    <details class="formulario" style="width: 99%;" open>
-      <summary class="p-4 t-strong">
-        Anuncios: Mensaje
-      </summary>
+<main class="flex flex-evenly flex-1">
+  <form method="post" class="form-3">
+    <div class="flex flex-column gap-6">
+      <h2 class="p-8 t-center">Anuncios</h2>
       <div class="flex flex-column gap-4">
         <textarea class="textarea-full" rows="5" name="message_content" placeholder="Mensaje"><?= CONFIG["ads"]["message"]["content"] ?? "" ?></textarea>
         <input type="url" name="message_link" placeholder="Enlace" value="<?= CONFIG["ads"]["message"]["link"] ?? "" ?>">
@@ -27,13 +25,13 @@
       </div>
       <hr>
       <div class="flex flex-between p-8">
-        <button class="boton2" type="reset">
+        <button class="boton-transparent-border" type="reset">
           ❌ Cancelar
         </button>
         <button class="boton" type="submit" name="proccess" value="ads">
           💾 Guardar
         </button>
       </div>
-    </details>
+    </div>
   </form>
-</div>
+</main>
