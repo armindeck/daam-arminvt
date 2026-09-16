@@ -8,6 +8,8 @@ session_start([
 ]);
 
 require_once __DIR__ . "/function.php";
+require_once __DIR__ . "/scripts/commands.php";
+require_once __DIR__ . "/template.php";
 require_once __DIR__ . "/function-deprecated.php";
 require_once __DIR__ . "/lib/Markdown.php";
 require_once __DIR__ . "/lib/MarkdownExtra.php";
@@ -19,6 +21,7 @@ define("FILEPATH", !empty(($AC_UBICACION ?? "") . ($AC_ARCHIVO ?? "")) ? $AC_UBI
 define("SLUG", "/" . (ltrim(str_replace(".php", "", FILEPATH), "/")));
 define("CORE", readJson(pathDataCore()));
 define("CONFIG", readJson(pathDataConfig()));
+define("TEMPLATE", readJson(pathDataTemplate()));
 define("ADMIN", readJson(pathDataAdmin()));
 define("ALERTS", readJson(pathDataAlerts()));
 define("VISITS", readJson(pathDataVisits()));
@@ -37,6 +40,5 @@ setTheme();
 setVisits(SLUG, VISITS);
 
 require_once __DIR__ . "/web.php";
-//require_once __DIR__ . "/scripts/template.php";
-require_once __DIR__ . "/scripts/scrPosts.php";
 unset($_SESSION["form_data"]);
+destroyAlert();
