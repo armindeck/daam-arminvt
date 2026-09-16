@@ -27,15 +27,16 @@
 </head>
 
 <body data-theme="<?= getTheme(CONFIG["page_theme"] ?? "") ?>">
+  <?= template(CONFIG["page_template"] ?? "", TEMPLATE ?? [], commands(CONFIG, CORE, SLUG, URL, URL_NOT_INDEX, getTheme(CONFIG["page_theme"] ?? ""), DIR, auth(), $post ?? [], $viewAdsMessajeAndBanner ?? "", $viewAlertMessage ?? "", $viewsRequire ?? "")) ?>
   <?php $elem = 0;
   require DIR . "inc/scripts/template.php";
   $elem = 1;
   require DIR . "inc/scripts/template.php"; ?>
   <div class="main-container">
     <main>
-      <?= $AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "" ?>
+      <?php /*$AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : ""*/ ?>
       <?= !empty($MENSAJE) ? view("components/alert") ?? "" : "" ?>
-      <?= stringCommands(michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? ""), readJson(pathData() . "/commands.json"), DIR) ?>
+      <?= $post["content"] ?? "" ?>
       <?php $elem = 2;
       require DIR . "inc/scripts/template.php";
 
