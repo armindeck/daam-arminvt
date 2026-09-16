@@ -46,6 +46,11 @@ function pathDataPosts(): string
   return pathData() . "/posts.json";
 }
 
+function pathDataTemplate(): string
+{
+  return pathData() . "/template.json";
+}
+
 function pathDataAdmin(): string
 {
   return pathData() . "/admin.json";
@@ -54,6 +59,52 @@ function pathDataAdmin(): string
 function secureString(string $string): string
 {
   return trim(htmlspecialchars($string));
+}
+
+function secureStringFile(string $string): string {
+  $string = strtolower(secureString($string));
+  $string = str_replace(["-", "_"], " ", $string);
+  $string = str_replace(" ", "-", removeSymbols($string));
+  $string = replaceAccents($string);
+  $string = replaceEnye($string);
+  return $string;
+}
+
+function removeSymbols(string $string): string {
+  return str_replace([
+    '☺', '☻', '♥', '♦', '♣', '♠', '•', '◘', '○', '◙',
+    '♂', '♀', '♪', '♫', '☼', '►', '◄', '↕', '‼', '¶',
+    '§', '▬', '↨', '↑', '↓', '→', '←', '∟', '↔', '▲',
+    '▼', '!', '"', '#', '$', '%', '&', '(', ')', '*',
+    '+', ',', ':', ';', '<', '=', '>', '?', '@', '[',
+    ']', '^', '`', '{', '|', '}', '~', '⌂', 'ª', 'º',
+    '¿', '®', '¬', '½', '¼', '¡', '«', '»', '░', '▒',
+    '▓', '│', '┤', '©', '╣', '║', '╗', '╝', '¢', '¥',
+    '┐', '└', '‼', '┴', '┬', '├', '─', '┼', '╚', '╔',
+    '╩', '╦', '╠', '═', '╬', '¤', 'ð', '┘', '┌', '█',
+    '▄', '¦', '▀', '¯', '´', '±', '³', '²', '¶', '§',
+    '÷', '¸', '°', '¨', '·', '¹', '³', '²', '■', "'",
+    '“', '”', '-', '/', '_'
+  ], '', $string);
+};
+
+function replaceAccents(string $string): string {
+  foreach ([
+    "á" => "a", "Á" => "A",
+    "é" => "e", "É" => "E",
+    "í" => "i", "Í" => "I",
+    "ó" => "o", "Ó" => "O",
+    "ú" => "u", "Ú" => "U",
+  ] as $key => $value) {
+    $string = str_replace($key, $value, $string);
+  }
+  return $string;
+}
+
+function replaceEnye(string $string): string {
+  $string = str_replace('ñ', 'n', $string);
+  $string = str_replace('Ñ', 'N', $string);
+  return $string;
 }
 
 function writeJson(string $file_path, array $data): bool
@@ -76,7 +127,7 @@ function readJson(string $file_path): array
 
 function generateFilesData(): void
 {
-  foreach (["core", "config", "admin", "timezone", "alerts", "visits", "users", "posts"] as $value) {
+  foreach (["core", "config", "template", "admin", "timezone", "alerts", "visits", "users", "posts"] as $value) {
     if (!file_exists(pathData() . "/$value.json"))
       writeJson(pathData() . "/$value.json", []);
   }
@@ -356,14 +407,20 @@ function setTheme(): void {
   $_SESSION['tmp']['theme'] = $theme;
 }
 
-function stringCommands(string $string, array $commands, string $directory = ""): string{
-  foreach($commands as $command => $value){
-    if(in_array($command, ["img[", "imgl{"])){
-      $value .= $directory . "assets/img/";
-    }
-    $string = str_replace($command, $value, $string);
-  }
-  return $string;
+function setAlert(string $type, string $message): void {
+  $_SESSION["alert"] = [
+    "active" => true,
+    "type" => $type,
+    "message" => $message
+  ];
+}
+
+function getAlert(): array {
+  return $_SESSION["alert"] ?? [];
+}
+
+function destroyAlert(): void {
+  unset($_SESSION["alert"]);
 }
 
 # ------------- ViewsComponents --------------
