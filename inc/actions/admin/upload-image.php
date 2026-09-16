@@ -1,59 +1,56 @@
-<?php $AC_DIRECTORIO = '../../../';
-    function archivoAceptado($string){
-        $string = str_replace('/','-',$string);
-        return $string;
-    }
-    function normalizar($valor){
-        $valor = htmlspecialchars($valor);
-        $valor = trim($valor);
-        $valor = stripcslashes($valor);
-        return $valor;
-    }
-    function error($string, $direccion = false){
-        die('<h3>'.$string . '</h3><br><a style="padding: 8px; color:white; background:#484848; border-radius:4px; text-decoration:none;" href="../'.($direccion != false ? $direccion : 'panel.php?ac=imagen').'">Volver</a>');
-        exit;
-    };
-    if(isset($_GET['s'])){
-        error('Se subio la imagen: ' . normalizar($_GET['s']),'panel.php?ac=imagen&dir=../../img/'.normalizar($_GET['s']));
-        exit;
-    }
-    if(isset($_FILES['imagen']) && $_FILES['imagen']['error'] !== UPLOAD_ERR_NO_FILE){
-        $file = 'imagen';
-        $file_nombre = $_FILES[$file]['name'];
-        $file_tamano = $_FILES[$file]['size'];
-        $file_tipo = $_FILES[$file]['type'];
-        $file_error = $_FILES[$file]['error'];
-        $file_tmp = $_FILES[$file]['tmp_name'];
-        //echo "Nombre: $file_nombre<br>Tamaño: $file_tamano<br>Tipo: $file_tipo<br>Error: $file_error<br>Tmp: $file_tmp";
-        if($file_error>0){ 
-            error('Parece que hubo un error');
-         } else {
-            if($file_tipo=='image/jpg' || $file_tipo=='image/jpeg' || $file_tipo=='image/png' || $file_tipo=='image/gif'){
-                #$unMegabyteEnBytes = 1024 * 1024;
-                #echo "Un megabyte equivale a: $unMegabyteEnBytes bytes";      
-                if($file_tamano>1048576){
-                    error('El tamaño maximo es de 1mb');
-                }{
-                    $ubicacion_imagen = $AC_DIRECTORIO.'img/';
-                    $_POST['imagen_nombre'] = normalizar(archivoAceptado($_POST['imagen_nombre']));
-                    $nuevo_nombre = !empty($_POST['imagen_nombre']) ? $_POST['imagen_nombre'] : $file_nombre;
-                    $numero = 0;
-                    $nombre_final = $nuevo_nombre;
-                    $sin_extencion = substr($nuevo_nombre, 0, -4);
-                    $extension = '.'.pathinfo($nuevo_nombre, PATHINFO_EXTENSION);
+<?php
 
-                    while(file_exists($ubicacion_imagen.$nombre_final)){
-                        $numero++;
-                        $nombre_final = $sin_extencion . '_' . $numero . $extension;
-                    }
-                    move_uploaded_file($file_tmp, $ubicacion_imagen.$nombre_final);
-                    header("Location: subir.php?s=$nombre_final");
-                }
-            } else {
-                error('Solo se acceptan formatos: jpg, jpeg, png y gif');
-            }
-        }
-    } else {
-        error('Parece que hubo un error');
-    }
-?>
+if(!isset($_POST["proccess"]) || $_POST["proccess"] != "upload-image") return;
+
+$file = "image";
+$file_name = $_FILES[$file]['name'] ?? "";
+$file_size = $_FILES[$file]['size'] ?? "";
+$file_type = $_FILES[$file]['type'] ?? "";
+$file_error = $_FILES[$file]['error'] ?? 1;
+$file_tmp = $_FILES[$file]['tmp_name'] ?? "";
+
+if (!isset($_FILES[$file]) || $file_error === UPLOAD_ERR_NO_FILE || $file_error > 0) {
+  setAlert("error", "Error al subir la imagen");
+  redirect(DIR."admin".PHP_EXTENSION."?sc=upload-image");
+}
+
+if (!in_array($file_type, ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'])) {
+  setAlert("error", "El formato de la imagen no es soportado");
+  redirect(DIR."admin".PHP_EXTENSION."?sc=upload-image");
+}
+
+$peso_maximo_megas = 2; // #mb ~ 1mb
+$peso_maximo_total = 1048576 * $peso_maximo_megas;
+
+if ($file_size > $peso_maximo_total) {
+  setAlert("error", "La imagen tiene que tener un peso menor o igual a {$peso_maximo_megas}mb");
+  redirect(DIR."admin".PHP_EXTENSION."?sc=upload-image");
+}
+
+$path_images = DIR . "assets/img/";
+$path_extension = pathinfo($file_name, PATHINFO_EXTENSION);
+
+$_POST['image_name'] = secureStringFile($_POST['image_name'] ?? "");
+$new_name = !empty($_POST['image_name']) ? $_POST['image_name'] : secureStringFile($file_name);
+
+$explode = explode(".", $new_name);
+$extension = count($explode) > 1 ? $explode[count($explode)-1] : $path_extension;
+$strlen = strlen($new_name);
+$not_extencion = count($explode) > 1 ? substr($new_name, 0, ($strlen - strlen($extension) - 1)) : $new_name;
+$name_end = $not_extencion . '.' . $path_extension;
+
+$number = 0;
+while(file_exists($path_images.$name_end)){
+  $number++;
+  $name_end = $not_extencion . '-' . $number .'.'. $path_extension;
+}
+
+$path_image_uploaded = $path_images.$name_end;
+
+if(move_uploaded_file($file_tmp, $path_image_uploaded)){
+  setAlert("success", "Se subio la imagen: <a target=\"_blank\" href=\"$path_image_uploaded\">Mostrar <i class=\"fas fa-external-link-alt\"></i></a>");
+  redirect(DIR."admin".PHP_EXTENSION."?sc=upload-image");
+}
+
+setAlert("error", "Error al subir la imagen");
+redirect(DIR."admin".PHP_EXTENSION."?sc=upload-image");
