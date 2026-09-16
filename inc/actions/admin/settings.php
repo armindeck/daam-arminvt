@@ -10,6 +10,7 @@ $data = [
   "page_link" => rtrim(secureString($_POST["page_link"] ?? ""), "/"),
   "page_timezone" => secureString($_POST["page_timezone"] ?? ""),
   "page_language" => secureString($_POST["page_language"] ?? ""),
+  "page_template" => secureString($_POST["page_template"] ?? ""),
   "page_theme" => secureString($_POST["page_theme"] ?? ""),
   "page_style" => secureString($_POST["page_style"] ?? ""),
   "page_year" => secureString($_POST["page_year"] ?? ""),
@@ -70,4 +71,6 @@ $modify = $data["page_ssl_active"] ? str_replace($text_replace["ssl"], $code_red
 $modify = str_replace($text_replace["links"], $code_change_error_link, $modify);
 
 $save_htaccess = file_put_contents($file_path_htaccess, $modify);
-redirect("./admin.php?sc=settings&ms=exi&msm=$result");
+
+setAlert($result ? "success" : "error", $result ? "Datos actualizados" : "Error al actualizar los datos");
+redirect(DIR . "admin" . PHP_EXTENSION . "?sc=settings");
