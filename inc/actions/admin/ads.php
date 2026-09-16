@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_POST["proccess"]) || $_POST["proccess"] != "ads") return;
+if (!isset($_POST["proccess"]) || $_POST["proccess"] != "ads") return;
 
 $file_path = pathDataConfig();
 $data = readJson($file_path);
@@ -22,5 +22,6 @@ $data["ads"] = [
   ]
 ];
 
-$result = writeJson($file_path, $data) ? "datosactualizados" : "datosnoactualizados";
-redirect("./admin.php?sc=ads&ms=exi&msm=$result");
+$result = writeJson($file_path, $data);
+setAlert($result ? "success" : "error", $result ? "Datos actualizados" : "Error al actualizar los datos");
+redirect(DIR . "admin" . PHP_EXTENSION . "?sc=ads");
