@@ -398,6 +398,7 @@ textarea:focus {
   border-style: solid;
   border-width: 1px;
   outline: 0;
+  text-decoration: none;
 }
 
 .boton {
@@ -586,6 +587,15 @@ textarea:focus {
 
 .p-10 {
   padding: 10px;
+}
+
+.p-x-4 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.p-r-4 {
+  padding-right: 4px;
 }
 
 .m-y-8 {
