@@ -465,7 +465,7 @@ textarea:focus {
 
 .flex {
   display: flex;
-  flex-wrap: 2px;
+  flex-wrap: wrap;
 }
 
 .flex-wrap {
@@ -602,6 +602,24 @@ textarea:focus {
   text-align: center;
 }
 
+@media (min-width: 921px) {
+  .items-center-desktop {
+    align-items: center;
+  }
+
+  .flex-1-desktop {
+    flex: 1;
+  }
+
+  .max-w-250-desktop {
+    max-width: 250px;
+  }
+
+  .max-w-500-desktop {
+    max-width: 500px;
+  }
+}
+
 @media (max-width: 920px) {
   .nav {
     flex-direction: column;
@@ -609,5 +627,21 @@ textarea:focus {
 
   .nav a {
     padding-left: 16px;
+  }
+
+  .flex-column-mobil {
+    flex-direction: column;
+  }
+
+  .flex-1-mobil {
+    flex: 1;
+  }
+
+  .w-full-mobil {
+    width: 100%;
+  }
+
+  .max-w-full-mobil {
+    max-width: 100%;
   }
 }
