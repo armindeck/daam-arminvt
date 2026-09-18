@@ -1,11 +1,35 @@
 <?php
 
-if(!isset($_POST["proccess"]) || $_POST["proccess"] != "template") return;
+if(!isset($_POST["proccess"]) || !in_array($_POST["proccess"], ["template", "template-delete"])) return;
 
 $file_path = pathDataTemplate();
 $read = readJson($file_path);
 
-$id = strtolower(str_replace(".json", "", secureString($_POST["template_id"] ?? "")));
+$selected_template = strtolower(str_replace(".json", "", secureStringFile($_POST["templates"] ?? "")));
+$id = strtolower(str_replace(".json", "", secureStringFile($_POST["template_id"] ?? $selected_template)));
+
+if ($_POST["proccess"] === "template-delete") {
+    if (empty($selected_template) || empty($id) || $selected_template !== $id || !isset($read[$id])) {
+        setAlert("error", "La plantilla seleccionada no es válida para eliminar.");
+        redirect(DIR."admin".PHP_EXTENSION."?sc=template");
+        return;
+    }
+
+    unset($read[$id]);
+    $result = writeJson($file_path, $read);
+
+    if ($result && (CONFIG["page_template"] ?? "") === $id) {
+        $config_path = pathDataConfig();
+        $config = readJson($config_path);
+        $remaining_templates = array_keys($read);
+        $config["page_template"] = $remaining_templates[0] ?? "classic";
+        writeJson($config_path, $config);
+    }
+
+    setAlert($result ? "success" : "error", $result ? "Plantilla eliminada" : "Error al eliminar la plantilla");
+    redirect(DIR."admin".PHP_EXTENSION."?sc=template");
+    return;
+}
 
 $read[$id] = [
     "id" => $id,
