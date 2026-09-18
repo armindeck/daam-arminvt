@@ -9,6 +9,8 @@ Descubre las nuevas novedades de daam!
 - Agregue un nuevo campo en la configuración para seleccionar la plantilla
 - Nueva sección de plantilla mediante codigos (dev)
     - Tambien se pueden utilizar comandos!
+    - Se pueden eliminar plantillas
+    - Mejoras visuales
 - Nuevo dashboard! - Funciona de forma independiente.
 - Mejora visual en las card del inicio.
 - Ya se puede acceder a `/admin` con el inicio de sesión con un rol de **admin**.
