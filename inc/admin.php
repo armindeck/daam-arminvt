@@ -8,6 +8,7 @@ $admin["file_exists_section_admin"] = file_exists($admin["path_file_section_admi
 $admin["file_exists_section_admin_process"] = file_exists($admin["path_file_section_admin_process"]);
 $admin["show_message_admin"] = !empty($admin['get_sc']) && (!$admin["file_exists_section_admin"] || !$admin["sc_in_section"]);
 $admin["load_section_admin"] = $admin["sc_in_section"] && $admin["file_exists_section_admin"];
+$admin["show_sections"] = !$admin["load_section_admin"];
 $admin["alert"] = [
     "active" => getAlert()["active"] ?? $admin["show_message_admin"] ?? false,
     "type" => getAlert()["type"] ?? ($admin["show_message_admin"] ? "error" : ""),
