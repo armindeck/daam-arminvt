@@ -29,16 +29,16 @@
 <body data-theme="<?= getTheme(CONFIG["page_theme"] ?? "") ?>">
   <?= template(CONFIG["page_template"] ?? "", TEMPLATE ?? [], commands(CONFIG, CORE, SLUG, URL, URL_NOT_INDEX, getTheme(CONFIG["page_theme"] ?? ""), DIR, auth(), $post ?? [], $viewAdsMessajeAndBanner ?? "", $viewAlertMessage ?? "", $viewsRequire ?? "")) ?>
   <?php $elem = 0;
-  require DIR . "inc/scripts/template.php";
+  require DIR . "inc/scripts/template-deprecated.php";
   $elem = 1;
-  require DIR . "inc/scripts/template.php"; ?>
+  require DIR . "inc/scripts/template-deprecated.php"; ?>
   <div class="main-container">
     <main>
       <?php /*$AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : ""*/ ?>
       <?= !empty($MENSAJE) ? view("components/alert") ?? "" : "" ?>
       <?= $post["content"] ?? "" ?>
       <?php $elem = 2;
-      require DIR . "inc/scripts/template.php";
+      require DIR . "inc/scripts/template-deprecated.php";
 
       if (SLUG == "/admin") {
         echo view("components/alert");
@@ -69,10 +69,10 @@
       ?>
     </main>
     <?php $elem = 3;
-    require DIR . "inc/scripts/template.php"; ?>
+    require DIR . "inc/scripts/template-deprecated.php"; ?>
   </div>
   <?php $elem = 4;
-  require DIR . "inc/scripts/template.php"; ?>
+  require DIR . "inc/scripts/template-deprecated.php"; ?>
 </body>
 
 </html>
