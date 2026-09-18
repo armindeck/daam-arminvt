@@ -64,7 +64,7 @@
 			<hr>
 			<details class="p-4">
 				<summary class="t-strong">Enlaces</summary>
-				<div class="flex flex-column gap-4">
+				<div class="flex flex-column gap-6">
 					<label for="page_link_400" style="margin-top: 10px;">400: Solicitud incorrecta:</label>
 					<input type="url" name="page_link_400" id="page_link_400" placeholder="Enlace" value="<?= CONFIG["page_links"][400] ?? "" ?>">
 					<label for="page_link_401">401: No autorizado:</label>
