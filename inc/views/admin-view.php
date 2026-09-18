@@ -32,7 +32,7 @@ $sections = implode("", array_map(fn($section) => "<a href=\"?sc={$section['id']
 </head>
 
 <body data-theme="<?= getTheme(CONFIG["page_theme"] ?? "") ?>">
-    <input type="checkbox" class="check-nav" id="check-nav" hidden>
+    <input type="checkbox" class="check-nav" id="check-nav" hidden <?= ($show_sections ?? true) ? "checked" : "" ?>>
     <header class="header">
         <div class="header-nav">
             <a href="<?= DIR. "admin" . PHP_EXTENSION ?>"><strong><i class="fas fa-fire"></i> Admin</strong></a>
