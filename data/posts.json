@@ -78,21 +78,6 @@
         "post_id": 5,
         "type": "page",
         "status": "published",
-        "slug": "/admin",
-        "title": "Admin",
-        "fragment": "Admin",
-        "content": "",
-        "tags": "admin",
-        "image": "assets/img/thumbnail.png",
-        "catalog": "page",
-        "comments_active": false,
-        "date_published": "2023-07-28 - 11:05pm",
-        "date_last_updated": "2026-08-25 - 12:23am"
-    },
-    {
-        "post_id": 6,
-        "type": "page",
-        "status": "published",
         "slug": "/forolink",
         "title": "Forolink",
         "fragment": "ForoLink es un apartado donde se pueden compartir enlaces de forma anonima, comparte tus enlaces sin tener que registrarte, solo publica lo que quieras y cuando quieras!",
@@ -105,7 +90,7 @@
         "date_last_updated": "2026-08-29 - 12:24pm"
     },
     {
-        "post_id": 7,
+        "post_id": 6,
         "type": "blog",
         "status": "published",
         "slug": "/blog/crear-pagina-web-vtuber",
@@ -120,7 +105,7 @@
         "date_last_updated": "2026-09-02 - 12:12pm"
     },
     {
-        "post_id": 8,
+        "post_id": 7,
         "type": "blog",
         "status": "published",
         "slug": "/blog/crear-juego-con-game-maker-8",
@@ -135,7 +120,7 @@
         "date_last_updated": "2026-09-02 - 12:12pm"
     },
     {
-        "post_id": 9,
+        "post_id": 8,
         "type": "blog",
         "status": "published",
         "slug": "/blog/la-historia-de-animeflv",
@@ -150,7 +135,7 @@
         "date_last_updated": "2026-09-02 - 01:47pm"
     },
     {
-        "post_id": 10,
+        "post_id": 9,
         "type": "blog",
         "status": "published",
         "slug": "/blog/curso-html-basico",
@@ -165,7 +150,7 @@
         "date_last_updated": "2026-09-02 - 01:47pm"
     },
     {
-        "post_id": 11,
+        "post_id": 10,
         "type": "blog",
         "status": "published",
         "slug": "/blog/crear-un-menu-de-inicio-con-game-maker-studio-1",
@@ -180,7 +165,7 @@
         "date_last_updated": "2026-09-02 - 03:17pm"
     },
     {
-        "post_id": 12,
+        "post_id": 11,
         "type": "blog",
         "status": "published",
         "slug": "/blog/cree-plantas-vs-zombies-en-5-dias",
@@ -195,7 +180,7 @@
         "date_last_updated": "2026-09-02 - 01:47pm"
     },
     {
-        "post_id": 13,
+        "post_id": 12,
         "type": "blog",
         "status": "published",
         "slug": "/blog/cree-una-aplicacion-para-compartir-wifi",
@@ -210,7 +195,7 @@
         "date_last_updated": "2026-09-02 - 01:47pm"
     },
     {
-        "post_id": 14,
+        "post_id": 13,
         "type": "blog",
         "status": "published",
         "slug": "/blog/cree-un-juego-de-un-pato-con-botas",
@@ -225,7 +210,7 @@
         "date_last_updated": "2026-09-04 - 11:09pm"
     },
     {
-        "post_id": 15,
+        "post_id": 14,
         "type": "blog",
         "status": "published",
         "slug": "/blog/crear-una-pagina-web-con-html-facil-y-rapido",
@@ -240,7 +225,7 @@
         "date_last_updated": "2026-09-04 - 11:46pm"
     },
     {
-        "post_id": 16,
+        "post_id": 15,
         "type": "blog",
         "status": "published",
         "slug": "/blog/como-agregarle-estilos-a-una-pagina-web-con-css-facil-y-rapido",
@@ -255,7 +240,7 @@
         "date_last_updated": "2026-09-04 - 11:50pm"
     },
     {
-        "post_id": 17,
+        "post_id": 16,
         "type": "blog",
         "status": "published",
         "slug": "/blog/juegos-y-apps-que-hice-2018-a-2024",
@@ -270,7 +255,7 @@
         "date_last_updated": "2026-09-04 - 11:57pm"
     },
     {
-        "post_id": 18,
+        "post_id": 17,
         "type": "blog",
         "status": "published",
         "slug": "/blog/project-eli",
