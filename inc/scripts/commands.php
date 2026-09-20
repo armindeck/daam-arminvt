@@ -8,7 +8,7 @@ function stringCommands(string $string, array $commands): string
   return $string;
 }
 
-function commands(array $config, array $core, string $slug, string $url, string $url_not_index, string $theme, string $dir, bool $auth, array $post, string $viewAdsMessajeAndBanner = "", string $viewAlertMessage = "", string $viewsRequire = "", string $viewComments = ""): array
+function commands(array $config = [], array $core = [], string $slug = "", string $url = "", string $url_not_index = "", string $theme = "", string $dir = "", bool $auth = false, array $post = [], string $viewAdsMessajeAndBanner = "", string $viewAdsThumbnail = "", string $viewAlertMessage = "", string $viewsRequire = "", string $viewComments = ""): array
 {
   return [
     "{{ post_content }}" => $post["content"] ?? "",
@@ -28,6 +28,10 @@ function commands(array $config, array $core, string $slug, string $url, string 
     "{{ page_extension_php_active }}" => $config["page_extension_php_active"] ?? false,
     "{{ core_name }}" => $core["core_name"] ?? "daam",
     "{{ core_link }}" => $core["core_link"] ?? "https://github.com/armindeck/daam-arminvt",
+    "{{ core_version }}" => $core["core_version"] ?? "0.0.0",
+    "{{ core_state }}" => $core["core_state"] ?? "dev",
+    "{{ core_updated }}" => $core["core_updated"] ?? "0000-00-00",
+    "{{ core_created }}" => $core["core_created"] ?? "0000-00-00",
     "{{ core_about }}" => $core["core_about"] ?? "Página web para ForoLink, Juegos, Animes, Proyectos, Blogs con múltiples temas personalizados, Panel administrativo avanzado con muchas funciones para la personalización de la página, extensiones y muchas otras cosas.",
     "{{ core_creator_name }}" => $core["core_creator_name"] ?? "Armin Deck",
     "{{ core_creator_link }}" => $core["core_creator_link"] ?? "https://github.com/armindeck",
@@ -43,6 +47,7 @@ function commands(array $config, array $core, string $slug, string $url, string 
     "{{ linkIconLogoutFalse }}" => $auth ? '<a href="?logout=false"><i class="fas fa-sign-out-alt"></i></a>' : '',
     "{{ linkAndIconLogoutFalse }}" => $auth ? '<a href="?logout=false"><i class="fas fa-sign-out-alt"></i> Salir</a>' : '',
     "{{ viewAdsMessajeAndBanner }}" => $viewAdsMessajeAndBanner,
+    "{{ viewAdsThumbnail }}" => $viewAdsThumbnail,
     "{{ viewAlertMessage }}" => $viewAlertMessage,
     "{{ viewsRequire }}" => $viewsRequire,
     "{{ viewComments }}" => $viewComments,
@@ -159,4 +164,13 @@ function commands(array $config, array $core, string $slug, string $url, string 
     "]/h5" => "</h5>",
     "]/h6" => "</h6>"
   ];
+}
+
+function commandsTemplateUserComponents(array $components): array
+{
+  $cmds = [];
+  foreach ($components as $key => $value) {
+    $cmds["{{ component." . ($value["id"] ?? "") . " }}"] = $value["layout"] ?? "";
+  }
+  return $cmds;
 }
