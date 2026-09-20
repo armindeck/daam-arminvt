@@ -2,13 +2,28 @@
     "null": {
         "id": "null",
         "layout": "",
+        "components": [],
         "date_created": "2026-09-17 22:51:46",
         "date_updated": "2026-09-17 22:51:46"
     },
     "classic": {
         "id": "classic",
-        "layout": "<header class=\"header\">\r\n  <div class=\"t-strong\">\r\n    link-dir-text[{{ page_name }} icon[fas fa-meteor]icon;]link;\r\n  </div>\r\n  <div class=\"flex flex-wrap gap-8\">\r\n    {{ linkChangeTheme }}\r\n    link-external[https://github.com/armindeck]/[icon[fab fa-github]icon;]link;\r\n    link-external[https://dbproject.rf.gd]/[icon[fas fa-hamburger]icon;]link;\r\n    link-external[https://facebook.com/tobix64]/[icon[fab fa-facebook]icon;]link;\r\n  </div>\r\n</header>\r\n\r\n<nav class=\"nav\">\r\n  link-dir-text[icon[fas fa-home]icon; Inicio]link;\r\n  link-dir[forolink]/[icon[fas fa-fire]icon; Forolink]link;\r\n  link-dir[login]/[icon[fas fa-user]icon; Cuenta]link;\r\n  {{ linkAndIconLogout }}\r\n</nav>\r\n\r\n<div class=\"main-container\">\r\n  {{ viewAdsMessajeAndBanner }}\r\n  <main>\r\n    {{ viewAlertMessage }}\r\n    {{ post_content }}\r\n    {{ viewsRequire }}\r\n  </main>\r\n</div>\r\n\r\n<footer class=\"footer\">\r\n</footer>",
+        "layout": "<header class=\"header\">\r\n  <div class=\"t-strong\">\r\n    link-dir-text[{{ page_name }} icon[fas fa-meteor]icon;]link;\r\n  </div>\r\n  <div class=\"flex flex-wrap gap-8\">\r\n    {{ linkChangeTheme }}\r\n    {{ component.social-networks }}\r\n  </div>\r\n</header>\r\n\r\n<nav class=\"nav\">\r\n  {{ component.nav-items }}\r\n</nav>\r\n\r\n<div class=\"container\">\r\n  <div class=\"flex flex-column gap-4\">\r\n    {{ viewAdsMessajeAndBanner }}\r\n    <div class=\"main-container\">\r\n      {{ viewAlertMessage }}\r\n      {{ post_content }}\r\n      {{ viewsRequire }}\r\n    </div>\r\n  </div>\r\n  <aside class=\"aside\">\r\n    {{ viewAdsThumbnail }}\r\n    <div>\r\n      <strong>Actualizaciones</strong>\r\n      <div class=\"noticias\" style=\"height: 270px; overflow: auto;\">\r\n        {{ component.iframe-updates }}\r\n      </div>\r\n    </div>\r\n  </aside>\r\n</div>\r\n\r\n<footer class=\"footer flex-between\" style=\"justify-content: space-between; font-size: small; padding: 8px 16px;\">\r\n    <span>Powered by link-external[{{ core_creator_link }}]/[{{ core_creator_name }}]link;: {{ core_name }} v{{ core_version }}-{{ core_state }}.</span>\r\n    <p class=\"flex flex-wrap gap-8\">\r\n      {{ component.social-networks }}\r\n    </p>\r\n</footer>",
+        "components": [
+            {
+                "id": "social-networks",
+                "layout": "link-external[https://github.com/armindeck]/[<i class=\"fab fa-github\"></i>]link;\r\nlink-external[https://dbproject.rf.gd]/[<i class=\"fas fa-hamburger\"></i>]link;\r\nlink-external[https://facebook.com/tobix64]/[<i class=\"fab fa-facebook\"></i>]link;"
+            },
+            {
+                "id": "nav-items",
+                "layout": "link-dir-text[icon[fas fa-home]icon; Inicio]link;\r\nlink-dir[forolink]/[icon[fas fa-fire]icon; Forolink]link;\r\nlink-dir[login]/[icon[fas fa-user]icon; Cuenta]link;\r\n{{ linkAndIconLogout }}"
+            },
+            {
+                "id": "iframe-updates",
+                "layout": "<iframe frameborder=\"0\" width=\"100%\" style=\"min-height: 250px; width: 100%;\"\r\n  src=\"https://dbproject.rf.gd/main_external.php?tema={{ page_theme }}&cantidad=7&background=none&contenido=daamper-actualizaciones&font-size=14px&max-width=100%\">\r\n</iframe>"
+            }
+        ],
         "date_created": "2026-09-17 22:53:01",
-        "date_updated": "2026-09-17 22:53:23"
+        "date_updated": "2026-09-19 22:54:38"
     }
 }
