@@ -18,12 +18,12 @@ $type = "overview";
 					<?php $i = 0;
 					foreach (POSTS as $key => $value): ?>
 						<div class="flex flex-nowrap items-center p-r-4" style="<?= $i % 2 == 0 ? 'background-color: rgba(0,0,0,.1);' : '' ?>">
-							<a class="boton-transparent flex-1" href="?sc=posts&edit=<?= $value["post_id"] ?? '' ?>">
+							<a class="boton-transparent flex-1" href="?sc=posts&edit=<?= $value["post_id"] ?? '' ?>" title="<?= $value["title"] ?? '' ?>">
 								<i class="fas fa-edit"></i>
 								<span><?= $value["post_id"] ?? "" ?></span> —
-								<?= $value["title"] ?? '' ?>
+								<?= $value["slug"] ?? '' ?>
 							</a>
-							<a class="boton-transparent" target="_blank" href="<?= DIR . ltrim($value["slug"] ?? '', "/") ?>"><i class="fas fa-external-link-alt"></i></a>
+							<a class="boton-transparent" target="_blank" href="<?= DIR . str_replace(["index.php", "index"], "", ltrim($value["slug"] ?? '', "/") . PHP_EXTENSION) ?>"><i class="fas fa-external-link-alt"></i></a>
 							<button type="submit" name="post_delete" value="<?= $value["post_id"] ?? '' ?>" class="boton-transparent" onclick="return confirm('Eliminar la publicación: <?= $value['title'] ?? '' ?>');"><i class="fas fa-trash"></i></button>
 						</div>
 					<?php $i++;
