@@ -35,16 +35,16 @@ $sections = implode("", array_map(fn($section) => "<a href=\"?sc={$section['id']
     <input type="checkbox" class="check-nav" id="check-nav" hidden <?= ($show_sections ?? true) ? "checked" : "" ?>>
     <header class="header">
         <div class="header-nav">
-            <a href="<?= DIR. "admin" . PHP_EXTENSION ?>"><strong><i class="fas fa-fire"></i> Admin</strong></a>
-        </div>
-        <nav class="header-nav">
-            <a href="<?= DIR ?>"><i class="fas fa-home"></i></a>
             <label for="check-nav" class="check-nav-icon">
                 <a>
                     <span class="icon-bars"><i class="fas fa-bars"></i></span>
                     <span class="icon-times"><i class="fas fa-times"></i></span>
                 </a>
             </label>
+            <a href="<?= DIR. "admin" . PHP_EXTENSION ?>"><strong><i class="fas fa-fire"></i> Admin</strong></a>
+        </div>
+        <nav class="header-nav">
+            <a href="<?= DIR ?>"><i class="fas fa-home"></i></a>
             <a href="?theme=<?= getTheme() == "dark" ? "light" : "dark" ?>"><i class="fas fa-<?= getTheme() == "dark" ? "sun" : "moon" ?>"></i></a>
             <a href="?logout=false"><i class="fas fa-sign-out-alt"></i></a>
         </nav>
