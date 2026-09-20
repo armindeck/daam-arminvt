@@ -27,7 +27,22 @@
 </head>
 
 <body data-theme="<?= getTheme(CONFIG["page_theme"] ?? "") ?>">
-  <?= template(CONFIG["page_template"] ?? "", TEMPLATE ?? [], commands(CONFIG, CORE, SLUG, URL, URL_NOT_INDEX, getTheme(CONFIG["page_theme"] ?? ""), DIR, auth(), $post ?? [], $viewAdsMessajeAndBanner ?? "", $viewAlertMessage ?? "", $viewsRequire ?? "")) ?>
+  <?= stringCommands(TEMPLATE[CONFIG["page_template"] ?? ""]["layout"] ?? "", array_merge(commandsTemplateUserComponents(TEMPLATE[CONFIG["page_template"] ?? ""]["components"] ?? []), commands(
+    config: CONFIG,
+    core: CORE,
+    slug: SLUG,
+    url: URL,
+    url_not_index: URL_NOT_INDEX,
+    theme: getTheme(CONFIG["page_theme"] ?? ""),
+    dir: DIR,
+    auth: auth(),
+    post: $post ?? [],
+    viewAdsMessajeAndBanner: $viewAdsMessajeAndBanner ?? "",
+    viewAdsThumbnail: viewAdsThumbnail(CONFIG["ads"] ?? [], DIR),
+    viewAlertMessage: view("components/alert"),
+    viewsRequire: $viewsRequire ?? ""
+  ))) ?>
+
   <?php $elem = 0;
   require DIR . "inc/scripts/template-deprecated.php";
   $elem = 1;
