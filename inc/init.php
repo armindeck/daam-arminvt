@@ -9,7 +9,6 @@ session_start([
 
 require_once __DIR__ . "/function.php";
 require_once __DIR__ . "/scripts/commands.php";
-require_once __DIR__ . "/template.php";
 require_once __DIR__ . "/function-deprecated.php";
 require_once __DIR__ . "/lib/Markdown.php";
 require_once __DIR__ . "/lib/MarkdownExtra.php";
