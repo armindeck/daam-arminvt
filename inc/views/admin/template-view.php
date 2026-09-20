@@ -18,12 +18,44 @@
     button.disabled = !exists;
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function addTemplateComponent() {
+    const container = document.getElementById('template-components');
+    const template = document.getElementById('template-component-template');
+
+    if (!container || !template) return;
+
+    container.appendChild(template.content.cloneNode(true));
+  }
+
+  function removeTemplateComponent(button) {
+    const container = document.getElementById('template-components');
+    const component = button.closest('[data-template-component]');
+
+    if (!container || !component) return;
+    if (!confirm('¿Deseas quitar este componente?')) return;
+
+    if (container.children.length === 1) {
+      component.querySelector('input[name="component_id[]"]').value = '';
+      component.querySelector('textarea[name="component_layout[]"]').value = '';
+      return;
+    }
+
+    component.remove();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('template_id');
     if (input) {
       input.addEventListener('input', toggleTemplateDeleteButton);
       input.addEventListener('change', toggleTemplateDeleteButton);
     }
+
+    document.getElementById('template-components')?.addEventListener('click', function(event) {
+      if (event.target.matches('[data-remove-component]')) {
+        removeTemplateComponent(event.target);
+      }
+    });
+
     toggleTemplateDeleteButton();
   });
 </script>
@@ -40,7 +72,26 @@
         <input class="flex-1" type="text" name="template_id" id="template_id" placeholder="template_id" value="<?= CONFIG["page_template"] ?? "" ?>" minlength="1" required>
       </div>
       <textarea class="textarea-full" rows="20" name="template_layout" id="template_layout" placeholder="</Template>"><?= TEMPLATE[CONFIG["page_template"] ?? ""]['layout'] ?? "" ?></textarea>
-      <details class="open" class="m-y-10" style="overflow: hidden; overflow-x: auto; max-width: 100%;">
+      <details class="m-y-10">
+        <summary class="flex flex-between items-center">💠 Componentes <button class="boton" type="button" onclick="addTemplateComponent()">➕ Agregar</button></summary>
+        <div id="template-components" class="flex flex-column gap-10">
+          <?php foreach (TEMPLATE[CONFIG["page_template"] ?? ""]["components"] ?? [["id" => "", "layout" => ""]] as $key => $value): ?>
+            <div class="flex flex-column gap-2" data-template-component>
+              <input type="text" name="component_id[]" id="component_id[]" placeholder="component_id" value="<?= secureString($value["id"] ?? "") ?>">
+              <textarea name="component_layout[]" id="component_layout[]" cols="30" rows="10" placeholder="<p>Component</p>"><?= secureString($value["layout"] ?? "") ?></textarea>
+              <button class="boton-transparent-border" type="button" data-remove-component>➖ Quitar</button>
+            </div>
+          <?php endforeach; ?>
+        </div>
+        <template id="template-component-template">
+          <div class="flex flex-column gap-2" data-template-component>
+            <input type="text" name="component_id[]" placeholder="component_id">
+            <textarea name="component_layout[]" cols="30" rows="10" placeholder="<p>Component</p>"></textarea>
+            <button class="boton-transparent-border" type="button" data-remove-component>➖ Quitar</button>
+          </div>
+        </template>
+      </details>
+      <details >
         <summary class="p-4 t-strong">
           Commands
         </summary>
@@ -49,36 +100,45 @@
             <strong>Command</strong>
             <strong style="flex: 1; text-align: center;">Return</strong>
           </div>
-          <?php foreach (commands(CONFIG, CORE, SLUG, URL, URL_NOT_INDEX, getTheme(CONFIG["page_theme"] ?? ""), DIR, auth(), $post ?? []) as $command => $value): ?>
-              <hr style="margin: 2px 0px;">
-              <div class="flex flex-column-mobil items-center-desktop flex-evenly gap-6" style="font-size: 12px; padding: 0px 12px;">
-                <input type="text" value="<?= secureString($command) ?>" readonly>
-                <input type="text" class="flex-1" value="<?=
-                  secureString(in_array($command, [
-                    "{{ post_content }}",
-                    "{{ viewsRequire }}",
-                    "{{ viewAlertMessage }}",
-                    "{{ viewAdsMessajeAndBanner }}",
-                    "{{ viewComments }}"
-                  ]) ? "view(...)" : $value)
-                  ?>" readonly>
+          <?php foreach (
+            array_merge(
+              commandsTemplateUserComponents(TEMPLATE[CONFIG["page_template"] ?? ""]["components"] ?? ""),
+              commands(
+                config: CONFIG,
+                core: CORE,
+                slug: SLUG,
+                url: URL,
+                url_not_index: URL_NOT_INDEX,
+                theme: getTheme(CONFIG["page_theme"] ?? ""),
+                dir: DIR,
+                auth: auth(),
+                post: $post ?? [],
+                viewAdsMessajeAndBanner: viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR),
+                viewAdsThumbnail: viewAdsThumbnail(CONFIG["ads"] ?? [], DIR)
+              )
+            ) as $command => $value
+          ): ?>
+            <hr style="margin: 2px 0px;">
+            <div class="flex flex-column-mobil items-center-desktop flex-evenly gap-6" style="font-size: 12px; padding: 0px 12px;">
+              <input type="text" value="<?= secureString($command) ?>" readonly>
+              <input type="text" class="flex-1" value="<?= secureString(in_array($command, ["{{ post_content }}", "{{ viewsRequire }}", "{{ viewAlertMessage }}", "{{ viewComments }}"]) ? "view(...)" : $value) ?>" readonly>
             </div>
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </div>
       </details>
     </div>
-		<hr>
-		<div class="flex flex-between p-8">
-			<button class="boton-transparent-border" type="reset">
-				❌ Cancelar
-			</button>
-			<button class="boton" type="submit" name="proccess" value="template">
-				💾 Guardar
-			</button>
-		</div>
+    <hr>
+    <div class="flex flex-between p-8">
+      <button class="boton-transparent-border" type="reset">
+        ❌ Cancelar
+      </button>
+      <button class="boton" type="submit" name="proccess" value="template">
+        💾 Guardar
+      </button>
+    </div>
     <?php
-      $selectedTemplate = CONFIG["page_template"] ?? "";
-      $hasTemplateSelected = !empty($selectedTemplate) && isset(TEMPLATE[$selectedTemplate]) && count(TEMPLATE) > 0;
+    $selectedTemplate = CONFIG["page_template"] ?? "";
+    $hasTemplateSelected = !empty($selectedTemplate) && isset(TEMPLATE[$selectedTemplate]) && count(TEMPLATE) > 0;
     ?>
     <div id="div-delete" <?= $hasTemplateSelected ? '' : 'hidden' ?>>
       <hr>
@@ -88,5 +148,5 @@
         </button>
       </div>
     </div>
-	</form>
+  </form>
 </main>
