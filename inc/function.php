@@ -471,7 +471,7 @@ function viewAdsThumbnail(array $ads, string $directory): string
 
 function viewAdsMessageMovementAndBanner(array $ads, string $directory): string
 {
-  return "<center>" . viewAdsMessageMovement($ads) . (($ads["message"]["active"] ?? false) == true ? "<hr>" : "") . viewAdsBanner($ads, $directory) . "</center>";
+  return "<center>" . viewAdsMessageMovement($ads) . (($ads["message"]["active"] ?? false) && ($ads["banner"]["active"] ?? false) == true ? "<hr>" : "") . viewAdsBanner($ads, $directory) . "</center>";
 }
 
 function viewSelect(string $name, array $list, string $selected = "", string $style = "max-width: 100%;", string $class = "", string $id = ""): string
