@@ -73,7 +73,7 @@
       </div>
       <textarea class="textarea-full" rows="20" name="template_layout" id="template_layout" placeholder="</Template>"><?= TEMPLATE[CONFIG["page_template"] ?? ""]['layout'] ?? "" ?></textarea>
       <details class="m-y-10">
-        <summary class="flex flex-between items-center">💠 Componentes <button class="boton" type="button" onclick="addTemplateComponent()">➕ Agregar</button></summary>
+        <summary class="flex flex-between items-center">💠 Componentes <button class="boton-transparent" type="button" onclick="addTemplateComponent()">➕ Agregar</button></summary>
         <div id="template-components" class="flex flex-column gap-10">
           <?php foreach (TEMPLATE[CONFIG["page_template"] ?? ""]["components"] ?? [["id" => "", "layout" => ""]] as $key => $value): ?>
             <div class="flex flex-column gap-2" data-template-component>
@@ -102,7 +102,7 @@
           </div>
           <?php foreach (
             array_merge(
-              commandsTemplateUserComponents(TEMPLATE[CONFIG["page_template"] ?? ""]["components"] ?? ""),
+              commandsTemplateUserComponents(TEMPLATE[CONFIG["page_template"] ?? ""]["components"] ?? ""), postToCommands(postTemplateCommandExample()),
               commands(
                 config: CONFIG,
                 core: CORE,
@@ -112,16 +112,18 @@
                 theme: getTheme(CONFIG["page_theme"] ?? ""),
                 dir: DIR,
                 auth: auth(),
-                post: $post ?? [],
+                post: POST ?? [],
                 viewAdsMessajeAndBanner: viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR),
-                viewAdsThumbnail: viewAdsThumbnail(CONFIG["ads"] ?? [], DIR)
+                viewAdsThumbnail: viewAdsThumbnail(CONFIG["ads"] ?? [], DIR),
+                is_admin: isAdmin(),
+                php_extension: PHP_EXTENSION
               )
             ) as $command => $value
           ): ?>
             <hr style="margin: 2px 0px;">
             <div class="flex flex-column-mobil items-center-desktop flex-evenly gap-6" style="font-size: 12px; padding: 0px 12px;">
               <input type="text" value="<?= secureString($command) ?>" readonly>
-              <input type="text" class="flex-1" value="<?= secureString(in_array($command, ["{{ post_content }}", "{{ viewsRequire }}", "{{ viewAlertMessage }}", "{{ viewComments }}"]) ? "view(...)" : $value) ?>" readonly>
+              <input type="text" class="flex-1" value="<?= secureString(in_array($command, ["{{ viewsRequire }}", "{{ viewAlertMessage }}", "{{ viewComments }}"]) ? "view(...)" : $value) ?>" readonly>
             </div>
           <?php endforeach; ?>
         </div>
