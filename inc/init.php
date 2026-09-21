@@ -30,7 +30,7 @@ define("POSTS", readJson(pathDataPosts()));
 define("POST", postSearchBySlug(SLUG, POSTS));
 define("PHP_EXTENSION", (CONFIG["page_extension_php_active"] ?? false) ? ".php" : "");
 define("URL", (CONFIG["page_link"] ?? "") . SLUG);
-define("URL_NOT_INDEX", (CONFIG["page_link"] ?? "") . rtrim(SLUG, "index"));
+define("URL_NOT_INDEX", (CONFIG["page_link"] ?? "") . str_replace("index", "", SLUG));
 
 date_default_timezone_set(CONFIG["page_timezone"] ?? "America/Bogota");
 error_reporting(CONFIG["page_debug_active"] ?? false);
