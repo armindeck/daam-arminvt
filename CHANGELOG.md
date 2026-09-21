@@ -1,8 +1,19 @@
 # Changelog
 Descubre las nuevas novedades de daam!
 
-## [0.6.0 Dev] - 15/09/2026
+## [0.6.0 Dev] - 21/09/2026
 
+- Nueva plantilla `modern` activada por defecto, con metadatos SEO, Open Graph, Twitter Cards y favicon.
+- Nuevo menú responsive con navegación actualizada, acceso condicional al panel de administración y enlaces al blog.
+- Nuevo componente para cargar scripts y estilos dentro de las plantillas.
+- Mejoras visuales en la navegación, el pie de página y la estructura general de la página.
+- Nuevos comandos `post_*` para utilizar los datos de las publicaciones en las plantillas.
+- Añadidos ejemplos de comandos disponibles para los datos de una publicación.
+- Corregida la construcción de `URL_NOT_INDEX` para eliminar correctamente `index` de las URLs.
+- Simplificada la vista de plantillas del panel administrativo y mejorados sus controles.
+- Simplificada la carga de estilos y scripts en las publicaciones.
+- Eliminadas funciones obsoletas y código HTML innecesario.
+- Eliminado el sistema antiguo de formularios y páginas de reportes que ya no se utilizaba.
 - Nueva seccion de Posts (dev)
 - Las secciones mejoradas ya pueden enviar alertas.
 - Mejoras internas del codigo
