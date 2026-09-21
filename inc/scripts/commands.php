@@ -8,10 +8,9 @@ function stringCommands(string $string, array $commands): string
   return $string;
 }
 
-function commands(array $config = [], array $core = [], string $slug = "", string $url = "", string $url_not_index = "", string $theme = "", string $dir = "", bool $auth = false, array $post = [], string $viewAdsMessajeAndBanner = "", string $viewAdsThumbnail = "", string $viewAlertMessage = "", string $viewsRequire = "", string $viewComments = ""): array
+function commands(array $config = [], array $core = [], string $slug = "", string $url = "", string $url_not_index = "", string $theme = "", string $dir = "", bool $auth = false, array $post = [], string $viewAdsMessajeAndBanner = "", string $viewAdsThumbnail = "", string $viewAlertMessage = "", string $viewsRequire = "", string $viewComments = "", bool $is_admin = false, string $php_extension = "", string $get_styles = ""): array
 {
   return [
-    "{{ post_content }}" => $post["content"] ?? "",
     "{{ page_name }}" => $config["page_name"] ?? "daam",
     "{{ page_link }}" => $config["page_link"] ?? "https://github.com/armindeck",
     "{{ page_timezone }}" => $config["page_timezone"] ?? "America/Bogota",
@@ -35,13 +34,16 @@ function commands(array $config = [], array $core = [], string $slug = "", strin
     "{{ core_about }}" => $core["core_about"] ?? "Página web para ForoLink, Juegos, Animes, Proyectos, Blogs con múltiples temas personalizados, Panel administrativo avanzado con muchas funciones para la personalización de la página, extensiones y muchas otras cosas.",
     "{{ core_creator_name }}" => $core["core_creator_name"] ?? "Armin Deck",
     "{{ core_creator_link }}" => $core["core_creator_link"] ?? "https://github.com/armindeck",
-    "{{ SLUG }}" => $slug,
-    "{{ DIR }}" => $dir,
-    "{{ URL }}" => $url,
-    "{{ URL_NOT_INDEX }}" => $url_not_index,
+    "{{ slug }}" => $slug,
+    "{{ dir }}" => $dir,
+    "{{ url }}" => $url,
+    "{{ url_not_index }}" => $url_not_index,
+    "{{ get_theme }}" => $theme,
+    "{{ get_styles }}" => $get_styles,
     "{{ linkChangeTheme }}" => '<a href="?theme=' . ($theme == "dark" ? "light" : "dark") . '"><i class="fas fa-' . ($theme == "dark" ? "sun" : "moon") . '"></i></a>',
     "{{ linkLogout }}" => $auth ? '<a href="?logout=true">Salir</a>' : '',
     "{{ linkIconLogout }}" => $auth ? '<a href="?logout=true"><i class="fas fa-sign-out-alt"></i></a>' : '',
+    "{{ linkAndIconAdmin }}" => $is_admin ? '<a href="'.$dir.'admin'.$php_extension.'"><i class="fas fa-fire"></i> Admin</a>' : '',
     "{{ linkAndIconLogout }}" => $auth ? '<a href="?logout=true"><i class="fas fa-sign-out-alt"></i> Salir</a>' : '',
     "{{ linkLogoutFalse }}" => $auth ? '<a href="?logout=false">Salir</a>' : '',
     "{{ linkIconLogoutFalse }}" => $auth ? '<a href="?logout=false"><i class="fas fa-sign-out-alt"></i></a>' : '',
@@ -173,4 +175,32 @@ function commandsTemplateUserComponents(array $components): array
     $cmds["{{ component." . ($value["id"] ?? "") . " }}"] = $value["layout"] ?? "";
   }
   return $cmds;
+}
+
+function postToCommands(array $post): array
+{
+  $cmds = [];
+  foreach ($post as $key => $value) {
+    if(is_array($value)) continue;
+    $cmds["{{ post_$key }}"] = $value;
+  }
+  return $cmds;
+}
+
+function postTemplateCommandExample(): array {
+  return [
+    "post_id" => "id",
+    "type" => "blog|page",
+    "status" => "published|draft",
+    "slug" => "/slug",
+    "title" => "Title",
+    "fragment" => "Fragment",
+    "content" => "Content",
+    "tags" => "tags, tags",
+    "image" => "assets/img/...",
+    "catalog" => "catalog",
+    "comments_active" => "true|false",
+    "date_published" => "0000-00-00 - 0:00am",
+    "date_last_updated" => "0000-00-00 - 00:00pm"
+  ];
 }
