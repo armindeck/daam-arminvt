@@ -24,8 +24,8 @@ $sections = implode("", array_map(fn($section) => "<a href=\"?sc={$section['id']
   <meta name="twitter:title" content="Admin">
   <meta name="twitter:description" content="Admin">
   <meta name="twitter:image" content="<?= DIR . '/assets/img/thumbnail.png'; ?>">
-  <meta name="keywords" content="<?= "admin," . (CONFIG["page_tags"] ?? "") ?>">
-  <?= !empty(CONFIG["page_scripts_active"]) ? CONFIG["page_scripts"] ?? "" : "" ?>
+  <meta name="keywords" content="admin, dbproject.rf.gd">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style type="text/css">
     <?= file_exists(DIR . "assets/css/admin.css") ? file_get_contents(DIR . "assets/css/admin.css") ?? "" : "" ?>
   </style>
