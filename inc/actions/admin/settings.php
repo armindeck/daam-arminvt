@@ -14,10 +14,6 @@ $data = [
   "page_theme" => secureString($_POST["page_theme"] ?? ""),
   "page_style" => secureString($_POST["page_style"] ?? ""),
   "page_year" => secureString($_POST["page_year"] ?? ""),
-  "page_about" => secureString($_POST["page_about"] ?? ""),
-  "page_tags" => secureString($_POST["page_tags"] ?? ""),
-  "page_scripts" => trim($_POST["page_scripts"] ?? ""),
-  "page_scripts_active" => !empty($_POST["page_scripts_active"] ?? ""),
   "page_ssl_active" => !empty($_POST["page_ssl_active"] ?? ""),
   "page_extension_php_active" => !empty($_POST["page_extension_php_active"] ?? ""),
   "page_debug_active" => !empty($_POST["page_debug_active"] ?? ""),
@@ -48,13 +44,11 @@ $link_mod = rtrim($data["page_link"], '/') . '/';
 
 $text_replace = [
   "debug" => "# REPLACE_SHOW_ERROR",
-  "timezone" => "# REPLACE_TIMEZONE",
   "ssl" => "# REPLACE_REDIRECT_HTTPS",
   "links" => "# REPLACE_ERROR_LINK"
 ];
 
 $code_show_error = "php_flag display_errors On\nphp_flag display_startup_errors On\nphp_value error_reporting -1";
-$code_timezone = "php_value date.timezone \"{$data['page_timezone']}\"";
 $code_redirect_https = "RewriteCond %{HTTPS} !=on\nRewriteRule ^(.*)$ {$link_mod}$1 [R=301,L]";
 $code_change_error_link =
   "ErrorDocument 400 {$data['page_links'][400]}\n".
@@ -66,7 +60,6 @@ $code_change_error_link =
 
 $modify = $read_htaccess_data;
 $modify = $data["page_debug_active"] ? str_replace($text_replace["debug"], $code_show_error, $modify) : $modify;
-$modify = $data["page_timezone"] ? str_replace($text_replace["timezone"], $code_timezone, $modify) : $modify;
 $modify = $data["page_ssl_active"] ? str_replace($text_replace["ssl"], $code_redirect_https, $modify) : $modify;
 $modify = str_replace($text_replace["links"], $code_change_error_link, $modify);
 

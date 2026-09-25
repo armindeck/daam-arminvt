@@ -38,17 +38,6 @@
 					input.type = input.type === 'password' ? 'text' : 'password';
 				}
 			</script>
-
-			<label for="page_about">Acerca de:</label>
-			<textarea class="textarea-full" rows="5" id="page_about" name="page_about" placeholder="Acerca de la pagina"><?= CONFIG["page_about"] ?? "" ?></textarea>
-			<label for="page_tags">Etiquetas:</label>
-			<textarea class="textarea-full" rows="3" id="page_tags" name="page_tags" placeholder="Etiquetas, de, la, pagina"><?= CONFIG["page_tags"] ?? "" ?></textarea>
-			<label for="page_scripts">Scripts:</label>
-			<textarea class="textarea-full" rows="10" id="page_scripts" name="page_scripts" placeholder="<?= secureString("<!-- Google Ads/Analitycs, Font Awesome, Other... -->") ?>"><?= secureString(CONFIG["page_scripts"] ?? "") ?></textarea>
-			<label class="flex flex-between gap-4 items-center">
-				<span>Habilitar Scripts:</span>
-				<?= viewSelect("page_scripts_active", [["" => "No"], ["1" => "Si"]], CONFIG["page_scripts_active"] ?? "") ?>
-			</label>
 			<label class="flex flex-between gap-4 items-center">
 				<span>Habilitar SSL:</span>
 				<?= viewSelect("page_ssl_active", [["" => "No"], ["1" => "Si"]], CONFIG["page_ssl_active"] ?? "") ?>
@@ -66,17 +55,17 @@
 				<summary class="t-strong">Enlaces</summary>
 				<div class="flex flex-column gap-6">
 					<label for="page_link_400" style="margin-top: 10px;">400: Solicitud incorrecta:</label>
-					<input type="url" name="page_link_400" id="page_link_400" placeholder="Enlace" value="<?= CONFIG["page_links"][400] ?? "" ?>">
+					<input type="text" name="page_link_400" id="page_link_400" placeholder="Enlace" value="<?= CONFIG["page_links"][400] ?? "" ?>">
 					<label for="page_link_401">401: No autorizado:</label>
-					<input type="url" name="page_link_401" id="page_link_401" placeholder="Enlace" value="<?= CONFIG["page_links"][401] ?? "" ?>">
+					<input type="text" name="page_link_401" id="page_link_401" placeholder="Enlace" value="<?= CONFIG["page_links"][401] ?? "" ?>">
 					<label for="page_link_403">403: Prohibido:</label>
-					<input type="url" name="page_link_403" id="page_link_403" placeholder="Enlace" value="<?= CONFIG["page_links"][403] ?? "" ?>">
+					<input type="text" name="page_link_403" id="page_link_403" placeholder="Enlace" value="<?= CONFIG["page_links"][403] ?? "" ?>">
 					<label for="page_link_404">404: No encontrado:</label>
-					<input type="url" name="page_link_404" id="page_link_404" placeholder="Enlace" value="<?= CONFIG["page_links"][404] ?? "" ?>">
+					<input type="text" name="page_link_404" id="page_link_404" placeholder="Enlace" value="<?= CONFIG["page_links"][404] ?? "" ?>">
 					<label for="page_link_500">500: Error interno del servidor:</label>
-					<input type="url" name="page_link_500" id="page_link_500" placeholder="Enlace" value="<?= CONFIG["page_links"][500] ?? "" ?>">
+					<input type="text" name="page_link_500" id="page_link_500" placeholder="Enlace" value="<?= CONFIG["page_links"][500] ?? "" ?>">
 					<label for="page_link_503">503: Servicio no disponible:</label>
-					<input type="url" name="page_link_503" id="page_link_503" placeholder="Enlace" value="<?= CONFIG["page_links"][503] ?? "" ?>">
+					<input type="text" name="page_link_503" id="page_link_503" placeholder="Enlace" value="<?= CONFIG["page_links"][503] ?? "" ?>">
 				</div>
 			</details>
 		</div>
