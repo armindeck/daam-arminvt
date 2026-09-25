@@ -1,8 +1,10 @@
 # Changelog
 Descubre las nuevas novedades de daam!
 
-## [0.6.0 Dev] - 21/09/2026
+## [0.6.0 Dev] - 25/09/2026
 
+- Mejore el codigo de .htaccess|htaccess.txt ya que en infinityfree estaba dando error.
+- Ahora desde la plantilla agregue varios comandos y los quite de config.json
 - Nueva plantilla `modern` activada por defecto, con metadatos SEO, Open Graph, Twitter Cards y favicon.
 - Nuevo menú responsive con navegación actualizada, acceso condicional al panel de administración y enlaces al blog.
 - Nuevo componente para cargar scripts y estilos dentro de las plantillas.
