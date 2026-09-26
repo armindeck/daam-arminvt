@@ -27,12 +27,12 @@ $post["content"] = michelf\MarkdownExtra::defaultTransform($AC_CONTENIDO ?? "");
 $viewAdsMessajeAndBanner = $AC_EXTRA ? viewAdsMessageMovementAndBanner(CONFIG["ads"] ?? [], DIR) : "";
 $viewAlertMessage = !empty($MENSAJE) ? view("components/alert") ?? "" : "";
 
-$viewsRequire = SLUG == "/profile" ? view("components/alert") . view("profile", [
+$viewsRequire = SLUG == "/profile" ? view("profile", [
     "user" => userLoginSearch(USERS),
     "active_tab" => secureString($_GET["tab"] ?? "overview")
 ]) : "";
 
-$viewsRequire .= in_array(SLUG, ["/login", "/register", "/forgot-password"]) ? view("components/alert") . view(ltrim(SLUG, "/"), $_SESSION["form_data"] ?? []) : "";
+$viewsRequire .= in_array(SLUG, ["/login", "/register", "/forgot-password"]) ? view(ltrim(SLUG, "/"), $_SESSION["form_data"] ?? []) : "";
 
 $viewsRequire .= SLUG == "/index" ? view("components/entries-cards", ["posts" => POSTS]) : "";
 
