@@ -49,7 +49,7 @@ $text_replace = [
 ];
 
 $code_show_error = "php_flag display_errors On\nphp_flag display_startup_errors On\nphp_value error_reporting -1";
-$code_redirect_https = "RewriteCond %{HTTPS} !=on\nRewriteRule ^(.*)$ {$link_mod}$1 [R=301,L]";
+$code_redirect_https = "RewriteCond %{HTTPS} off\nRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]";
 $code_change_error_link =
   "ErrorDocument 400 {$data['page_links'][400]}\n".
   "ErrorDocument 401 {$data['page_links'][401]}\n".
