@@ -2,7 +2,7 @@
 
 Bienvenido a **daam-arminvt**, un sistema web optimizado para la gestión y administración de contenido.  
 
-![daam-arminvt - Página web de Blogs, Forolink y Proyectos](/img/min-daam.png)
+![daam-arminvt - Página web de Blogs, Forolink y Proyectos](/assets/img/thumbnail.png)
 
 ## 📌 Descripción  
 Página web para ForoLink, Juegos, Animes, Proyectos, Blogs con múltiples temas personalizados, Panel administrativo avanzado con muchas funciones para la personalización de la página, extensiones y muchas otras cosas.  
@@ -21,12 +21,10 @@ Consulta el archivo [`LICENSE`](./LICENSE) para conocer los términos de uso y r
 
 ## ⚠️ ATENCIÓN
 
-- **Autor:** Armin, creador de daam.
-- **Requisitos:** PHP 7+.
-- **Credenciales por defecto:** Usuario: `admin`, Contraseña: `Admin123`, Código: `123` (ver [datos/admin_data.php](datos/admin_data.php)).
-- **Base de datos:** Importa `paginaweb.sql` en MySQL y configura la conexión en [datos/permisos_usuarios.php](datos/permisos_usuarios.php). Las credenciales son las mismas indicadas arriba.
-- **Rescate del panel:** Existe el directorio `ediadmin` que contiene archivos para recuperar acceso si falla el editor o el panel. Usuario/contraseña por defecto: admin/Admin123 — cámbialos cuando puedas.
-- Para más información y actualizaciones visita: https://dbproject.rf.gd
+- **Requisitos:** PHP 8.2+.
+- **Credenciales por defecto:**
+  - Usuario: `admin`
+  - Contraseña: `Admin123`.
 
 ## 🌐 Información adicional  
 🔗 Página oficial: [dbproject.rf.gd](https://dbproject.rf.gd)  
